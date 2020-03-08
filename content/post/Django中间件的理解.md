@@ -1,6 +1,6 @@
 +++
-title = "Django中间件的理解『针对已有经验』"
-date = "2019-7-6"
+title = "Django中间件的理解"
+date = "2019-07-06"
 author = [
     "Ryuchen",
 ]
@@ -13,7 +13,7 @@ categories = [
     "全栈"
 ]
 images = [
-    "markdown-syntax.jpg",
+    "django-middleware.jpeg",
 ]
 +++
 

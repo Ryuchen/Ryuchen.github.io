@@ -1,5 +1,5 @@
 +++
-title = "Django 与 Ant Design Vue 结合使用"
+title = "AntDesignVue使用尝鲜"
 date = "2019-08-12"
 author = [
     "Ryuchen",
@@ -16,7 +16,7 @@ categories = [
     "全栈"
 ]
 images = [
-    "markdown-syntax.jpg",
+    "ant-design-vue.jpg",
 ]
 +++
 

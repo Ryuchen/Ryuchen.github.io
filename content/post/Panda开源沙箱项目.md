@@ -1,10 +1,9 @@
 +++
-title = "Panda(钟馗)开源沙箱的介绍"
+title = "Panda开源沙箱项目"
 date = "2019-07-22"
 author = [
     "Ryuchen",
 ]
-description = "目前Github社区中的开源沙箱系统，相较活跃的是 cuckoosandbox，但是这个项目在过去的一年中变得更新较为缓慢，后续也未见其进行卓越性的改进，逐渐走向闭源。 鉴于此，这个项目将初期集成和兼容 cuckoo 的 monitor 和 community。 这是一个基于已经初见成熟的 cuckoo 开源版本的沙箱的修订版本，但将进行彻底的重新构建，后续该版本将彻底重构，能够完全适配国内软件环境。"
 tags = [
     "Panda(钟馗)"
 ]
@@ -12,11 +11,11 @@ categories = [
     "Panda(钟馗)"
 ]
 images = [
-    "markdown-syntax.jpg",
+    "windows-sandbox.jpg",
 ]
 +++
 
-目前Github社区中的开源沙箱系统，相较活跃的是 cuckoosandbox，但是这个项目在过去的一年中变得更新较为缓慢，后续也未见其进行卓越性的改进，逐渐走向闭源。 鉴于此，这个项目将初期集成和兼容 cuckoo 的 monitor 和 community。 这是一个基于已经初见成熟的 cuckoo 开源版本的沙箱的修订版本，但将进行彻底的重新构建，后续该版本将彻底重构，能够完全适配国内软件环境。
+目前Github社区中的开源沙箱系统，相较活跃的是 cuckoosandbox，但是这个项目在过去的一年中变得更新较为缓慢，后续也未见其进行卓越性的改进，逐渐走向闭源。这将是一个基于已经初见成熟的 cuckoo 开源版本的沙箱的修订版本，但将进行彻底的重新构建，后续该版本将彻底重构，能够完全适配国内软件环境。
 <!--more-->
 
 # Panda(钟馗)开源沙箱的介绍

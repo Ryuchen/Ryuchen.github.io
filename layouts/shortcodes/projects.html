@@ -1,0 +1,11 @@
+<div class="latest row py-lg-5">
+    <div>
+        <h2><a href="https://github.com/{{ .Get "user" }}/{{ .Get "repo" }}">{{ .Get "title" }}</a></h2>
+        <h5 class="created text-muted font-weight-bold">Star: {{ .Get "star" }} Fork: {{ .Get "fork" }}</h5>
+        <div class="content">
+            {{ .Inner }}
+        </div>
+
+        <iframe src="https://github.com/{{ .Get "user" }}/{{ .Get "repo" }}/blob/master/README.md" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+    </div>
+</div>

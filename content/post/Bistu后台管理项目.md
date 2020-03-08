@@ -1,5 +1,5 @@
 +++
-title = "django-admin 实现的学校小项目的总结"
+title = "Bistu后台管理项目"
 date = "2019-08-02"
 author = [
     "Ryuchen",
@@ -14,7 +14,7 @@ categories = [
     "全栈"
 ]
 images = [
-    "markdown-syntax.jpg",
+    "admin_login.png",
 ]
 +++
 

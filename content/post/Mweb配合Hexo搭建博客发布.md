@@ -14,7 +14,7 @@ categories = [
     "杂谈"
 ]
 images = [
-    "markdown-syntax.jpg",
+    "hexo-cover.png",
 ]
 +++
 

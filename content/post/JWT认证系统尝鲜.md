@@ -1,6 +1,6 @@
 +++
-title = "django-rest-framework 中集成 jwt token 认证系统并配合 ng-alain 使用"
-date = "2019-7-22"
+title = "JWT认证系统尝鲜"
+date = "2019-07-22"
 author = [
     "Ryuchen",
 ]
@@ -16,7 +16,7 @@ categories = [
     "全栈"
 ]
 images = [
-    "markdown-syntax.jpg",
+    "JWT.png",
 ]
 +++
 

@@ -7,6 +7,7 @@ enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 googleAnalytics = "UA-XXXX"
 DisqusShortname = ""
+enableEmoji = true
 theme = "hugo-theme-chunky-poster"
 
 [menu]
@@ -21,20 +22,15 @@ theme = "hugo-theme-chunky-poster"
     url = "/projects/"
     weight = 2
   [[menu.main]]
-    identifier = "weibo"
-    name = "微博"
-    url = "/weibo/"
+    identifier = "essay"
+    name = "随笔"
+    url = "/essay/"
     weight = 3
-  [[menu.main]]
-    identifier = "board"
-    name = "手账"
-    url = "/board/"
-    weight = 4
   [[menu.main]]
     identifier = "gallery"
     name = "照片墙"
     url = "/gallery/"
-    weight = 5
+    weight = 4
   [[menu.main]]
     identifier = "about"
     name = "关于"
@@ -46,8 +42,6 @@ theme = "hugo-theme-chunky-poster"
 category = "categories"
 tag = "tags"
 series = "series"
-author = "authors"
-projects = "projects"
 
 [params]
   author = [

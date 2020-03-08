@@ -1,17 +1,13 @@
 <!-- image -->
 <div style="text-align: center;">
     <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
-        {{ with .Get "link"}}
-            <a href="{{.}}">
-        {{ end }}
-            <img src="{{ .Get "src" }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} style="width: 700px;"/>
-        {{ if .Get "link"}}
-            </a>
-        {{ end }}
+        {{ with .Get "link"}}<a href="{{.}}">{{ end }}
+            {{ .Inner }}
+        {{ if .Get "link"}}</a>{{ end }}
         {{ if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
         <figcaption>
             <!-- image title -->
-            {{ if isset .Params "title" }}<h4>{{ .Get "title" }}</h4>{{ end }}
+            {{ if isset .Params "title" }}<h4>#{{ .Get "topic" }}# {{ .Get "title" }}</h4>{{ end }}
             {{ if isset .Params "date" }}<span>记录于: <strong>{{ .Get "date" }}</strong></span>{{ end }}
             {{ if or (.Get "caption") (.Get "attr")}}
                 <p>

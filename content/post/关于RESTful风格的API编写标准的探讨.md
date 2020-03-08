@@ -1,6 +1,6 @@
 +++
-title = "关于RESTful风格的API编写标准的探讨"
-date = "2019-6-22"
+title = "谈谈RESTfulAPI标准理解"
+date = "2019-06-22"
 author = [
     "Ryuchen",
 ]
@@ -13,7 +13,7 @@ categories = [
     "后端"
 ]
 images = [
-    "markdown-syntax.jpg",
+    "rest-api.png",
 ]
 +++
 

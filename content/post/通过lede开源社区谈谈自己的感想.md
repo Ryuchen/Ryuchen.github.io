@@ -12,7 +12,7 @@ categories = [
     "杂谈"
 ]
 images = [
-    "markdown-syntax.jpg",
+    "life-essay.jpg",
 ]
 +++
 

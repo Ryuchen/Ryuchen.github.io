@@ -5,5 +5,5 @@
 
 [submodule "public"]
 	path = public
-	url = https://github.com/Ryuchen/ryuchen.github.io.git
+	url = https://github.com/Ryuchen/ryuchen.github.io
 	branch = master

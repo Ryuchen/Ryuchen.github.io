@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>寻找 on Sweet House</title>
-    <link>http://ryuchen.github.io/404/</link>
-    <description>Recent content in 寻找 on Sweet House</description>
+    <title>微博 on Sweet House</title>
+    <link>http://ryuchen.github.io/weibo/</link>
+    <description>Recent content in 微博 on Sweet House</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh_CN</language>
     <copyright>Copyright © 2018–2020, WangOO and Ryuchen; all rights reserved.</copyright>
     
-	<atom:link href="http://ryuchen.github.io/404/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://ryuchen.github.io/weibo/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

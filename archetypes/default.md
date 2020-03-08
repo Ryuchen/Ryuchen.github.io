@@ -5,6 +5,7 @@ author = [
 ]
 title = "{{ replace .Name "-" " " | title }}"
 date = "{{ .Date }}"
+share = true
 tags = [
     "个人生活"
 ]

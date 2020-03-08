@@ -21,12 +21,13 @@
     </item>
     
     <item>
-      <title>日记</title>
-      <link>http://ryuchen.github.io/dairy/</link>
+      <title>微博</title>
+      <link>http://ryuchen.github.io/weibo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://ryuchen.github.io/dairy/</guid>
-      <description>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</description>
+      <guid>http://ryuchen.github.io/weibo/</guid>
+      <description>这里转载了我媳妇的个人微博，本人并不喜欢玩转微博，如果你是个微博爱好者，请我的个人动态都会被我媳妇刊录~~~
+ </description>
     </item>
     
   </channel>

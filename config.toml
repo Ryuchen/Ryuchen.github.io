@@ -1,7 +1,6 @@
 baseURL = "http://ryuchen.github.io"
 title = "Sweet House"
 copyright = "Copyright © 2018–2020, WangOO and Ryuchen; all rights reserved."
-paginate = 2
 languageCode = "zh_CN"
 DefaultContentLanguage = "zh_CN"
 enableInlineShortcodes = true
@@ -18,30 +17,25 @@ theme = "hugo-theme-chunky-poster"
     url = "/"
     weight = 1
   [[menu.main]]
-    identifier = "dairy"
-    name = "日记"
-    url = "/dairy/"
+    identifier = "projects"
+    name = "项目"
+    url = "/projects/"
     weight = 2
   [[menu.main]]
-    identifier = "board"
-    name = "黑板"
-    url = "/board/"
+    identifier = "weibo"
+    name = "微博"
+    url = "/weibo/"
     weight = 3
   [[menu.main]]
-    identifier = "authors"
-    name = "我们"
-    url = "/authors/"
+    identifier = "board"
+    name = "手账"
+    url = "/board/"
     weight = 4
   [[menu.main]]
     identifier = "gallery"
     name = "照片墙"
     url = "/gallery/"
     weight = 5
-  [[menu.main]]
-    identifier = "404"
-    name = "寻找"
-    url = "/404/"
-    weight = 6
   [[menu.main]]
     identifier = "about"
     name = "关于"
@@ -54,6 +48,7 @@ category = "categories"
 tag = "tags"
 series = "series"
 author = "authors"
+projects = "projects"
 
 [params]
   author = [
@@ -72,19 +67,8 @@ author = "authors"
   [params.social]
     rss = true
     email = "example@example.com"
-    facebook = "https://facebook.com"
-    twitter = "https://twitter.com"
-    linkedin = "https://linkedin.com"
-    stack-overflow = "https://stackoverflow.com"
-    instagram = "https://stackoverflow.com"
     github = "https://github.com"
     weibo = "https://www.weibo.com"
-    medium = "https://medium.com"
-    pinterest = "https://pinterest.com"
-    reddit = "https://reddit.com"
-    gitlab = "https://gitlab.com"
-    mastodon = "https://mastodon.social"
-    keybase = "https://keybase.io/"
 
   [params.prismJS]
     enable = true
@@ -98,9 +82,3 @@ author = "authors"
   [markup.highlight]
     codeFences = true
 
-[services]
-  [services.instagram]
-    disableInlineCSS = true
-
-  [services.twitter]
-    disableInlineCSS = true

@@ -3,7 +3,7 @@ title = "About"
 description = "Hugo, the world’s fastest framework for building websites"
 date = "2019-02-28"
 aliases = ["about-us","about-hugo","contact"]
-author = "Hugo Authors"
+author = "Ryuchen"
 +++
 
 ## 博客内容
@@ -52,7 +52,7 @@ author = "Hugo Authors"
 如果你想继续观察 Panda(钟馗)沙箱 接下来的走向，请给我们一个 ⭐ 这是对于我们最大的鼓励。
 此外，如果你觉得 Panda(钟馗)沙箱 对你有帮助，你可以赞助我们一杯咖啡，鼓励我们继续开发维护下去。
 
-| **微信**                         | **支付宝**                           |
+| <p align="center">**微信**</p> | <p align="center">**支付宝**</p> |
 | ------------------------------- | ----------------------------------- |
 |<p align="center">![扫码赞助](https://github.com/Ryuchen/Panda-Sandbox/raw/master/docs/sponsor/wechat.jpg)</p>|<p align="center">![扫码赞助](https://github.com/Ryuchen/Panda-Sandbox/raw/master/docs/sponsor/alipay.jpg)</p>|
 

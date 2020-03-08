@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sweet House</title>
+    <link>http://ryuchen.club/</link>
+    <description>Recent content on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_CN</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 28 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://ryuchen.club/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hexo博客SEO优化</title>
+      <link>http://ryuchen.club/post/hexo%E5%8D%9A%E5%AE%A2seo%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/hexo%E5%8D%9A%E5%AE%A2seo%E4%BC%98%E5%8C%96/</guid>
+      <description>&lt;p&gt;最近因为临近寒假课程也基本都结束了想着该把这个博客再好好维护一下了啊，所以想先把这个检索的功能优化加上，毕竟我是个爱显摆的人，写了没人看多令人憋屈～&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>通过lede开源社区谈谈自己的感想</title>
+      <link>http://ryuchen.club/post/%E9%80%9A%E8%BF%87lede%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E8%B0%88%E8%B0%88%E8%87%AA%E5%B7%B1%E7%9A%84%E6%84%9F%E6%83%B3/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/%E9%80%9A%E8%BF%87lede%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E8%B0%88%E8%B0%88%E8%87%AA%E5%B7%B1%E7%9A%84%E6%84%9F%E6%83%B3/</guid>
+      <description>&lt;p&gt;最近一段时间因为入手了一台软路由，所以接触到了openwrt的固件体系，也通过油管的视频认识到了L大这样的优秀开源人，贡献了优秀的代码和优秀的项目，但仍然产生了苦恼，于是有那么一番感想想写出来~&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MWeb配合Hexo搭建博客发布</title>
+      <link>http://ryuchen.club/post/mweb%E9%85%8D%E5%90%88hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/mweb%E9%85%8D%E5%90%88hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/</guid>
+      <description>&lt;p&gt;利用MWeb软件实现配合Hexo进行Github Pages的个人博客搭建，hexo虽然已经很棒了，但是需要进行博客发布的时候，总是执行命令也挺麻烦的，所以想如何利用MWeb这个编辑器实现自动化发布的功能，方便自己的博客编写～&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>基于区块链技术实现开放网络威胁情报共享平台设计报告</title>
+      <link>http://ryuchen.club/post/%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%94%BE%E7%BD%91%E7%BB%9C%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E5%85%B1%E4%BA%AB%E5%B9%B3%E5%8F%B0%E8%AE%BE%E8%AE%A1%E6%8A%A5%E5%91%8A/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%94%BE%E7%BD%91%E7%BB%9C%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E5%85%B1%E4%BA%AB%E5%B9%B3%E5%8F%B0%E8%AE%BE%E8%AE%A1%E6%8A%A5%E5%91%8A/</guid>
+      <description>&lt;p&gt;课程中关于一点区块链和网络威胁情报的构想，初步想构想成一个可以实践的平台，目前还不成熟，希望后续有机会把它建立起来尝试一下。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Django 与 Ant Design Vue 结合使用</title>
+      <link>http://ryuchen.club/post/django-%E4%B8%8E-ant-design-vue-%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/django-%E4%B8%8E-ant-design-vue-%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;基于上一次编写 django admin 应用的时候使用 simpleui 的经验，结合之前的 django 开发经验，准备自己着手写一套可以扩展的方便使用的 admin theme，结合之前熟悉的 vue 和 ant design 组件库的样式比较喜欢，所以打算基于这个去开发，下面将介绍我在实践过程中所遇到的问题和如何解决~&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>django-admin 实现的学校小项目的总结</title>
+      <link>http://ryuchen.club/post/%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%AD%A6%E6%A0%A1%E5%B0%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%AD%A6%E6%A0%A1%E5%B0%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%80%BB%E7%BB%93/</guid>
+      <description>&lt;p&gt;这个项目起始是因为学校之前的老师找到我，说让我帮忙弄个进行管理基本管理数据的小工具，听起来也并不是很难（然而，后期我一直在搞这个，深陷其中不可自拔），于是痛快的答应下来，后续就一直在弄这个小平台了~&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Panda(钟馗)开源沙箱的介绍</title>
+      <link>http://ryuchen.club/post/panda-%E9%92%9F%E9%A6%97-%E5%BC%80%E6%BA%90%E6%B2%99%E7%AE%B1%E7%9A%84%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/panda-%E9%92%9F%E9%A6%97-%E5%BC%80%E6%BA%90%E6%B2%99%E7%AE%B1%E7%9A%84%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&lt;p&gt;目前Github社区中的开源沙箱系统，相较活跃的是 cuckoosandbox，但是这个项目在过去的一年中变得更新较为缓慢，后续也未见其进行卓越性的改进，逐渐走向闭源。 鉴于此，这个项目将初期集成和兼容 cuckoo 的 monitor 和 community。 这是一个基于已经初见成熟的 cuckoo 开源版本的沙箱的修订版本，但将进行彻底的重新构建，后续该版本将彻底重构，能够完全适配国内软件环境。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>http://ryuchen.club/post/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/markdown-syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Rich Content</title>
+      <link>http://ryuchen.club/post/rich-content/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/rich-content/</guid>
+      <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Placeholder Text</title>
+      <link>http://ryuchen.club/post/placeholder-text/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/placeholder-text/</guid>
+      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
+pectora summo.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Math Typesetting</title>
+      <link>http://ryuchen.club/post/math-typesetting/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/math-typesetting/</guid>
+      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Emoji Support</title>
+      <link>http://ryuchen.club/post/emoji-support/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://ryuchen.club/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/about/</guid>
+      <description>博客内容 关于这个博客以后将要更新的内容主要会涉及三大部分：个人生活、全栈技术、Panda项目
+  个人生活：
+主要是记录一下阶段性的自己的感悟，算是一个检讨的部分，目前这个部分的内容还是构思之中，不过慢慢会将内容结构补齐，希望等后续有时间将这个部分以视频的方式作为承载体，这样的整体来说会对自己以后回顾带来点不一样的感觉！毕竟难得走上这么一遭，不留下点什么不算是成功吧~
+  全栈技术：
+当初在大学本科的时候，就开始搞什么外包，导致自己从毕业一开始，似乎就一直跟 Web 脱离不了什么关系，进了创业公司，一干就是直接入手全栈，所以算是对这一方面还是有点积累的，不过也跟不上现在技术发展，还是得慢慢学习的，这里就算是一些总结和积累的地方，能够后续回头看看，希望不会太差~
+  Panda项目：
+这个项目说起来还是有那么点自豪的，因为毕业的时候进了创业公司，一边顾及着公司里面的前端部分，另一边就是一直在看开源的 cuckoo 沙箱，不过慢慢的似乎 cuckoo 在走向闭源，开发者也成立了自己的公司，更新进度也不如之前的速度，并且 Python2 也将被暂停维护，一切的一切都是这么好的一个机会，于是我自己便发起了这个项目，希望将我自己对于 cuckoo 的理解重新重构一下它的整体结构，当然这期间也会慢慢去学习他的 monitor 的核心内容（之前没有怎么看过），成立一个中国的开源沙箱项目，站在巨人的肩膀上面~
+  Panda社区 首先是我将利用自己读书的这段时间，发起和建立这个称为 Panda(钟馗) 的开源沙箱项目
+📎 项目说明  目前Github社区中的开源沙箱系统，相较活跃的是 cuckoosandbox，但是这个项目在过去的一年中变得更新较为缓慢，后续也未见其进行卓越性的改进，逐渐走向闭源。 鉴于此，这个项目将初期集成和兼容 cuckoo 的 monitor 和 community。 这是一个基于已经初见成熟的 cuckoo 开源版本的沙箱的修订版本，但将进行彻底的重新构建，后续该版本将彻底重构，能够完全适配国内软件环境。
+ 🔥 设计特性  将收录和兼容 cuckoo 社区中的所有行为签名和检测手段。 采用新的方式重构任务调度和沙箱调度，提高整体的运行效率。 将集成开源情报，并将集成小型开源情报库在内，构建信誉体系。 合并 cuckoo 开源插件中的 android、linux、macos 平台检测。 重构 cuckoo 文件报告的展示效果，计划支持在 Web 界面制作虚拟机。 将采用全新的设计方式实现多节点的支持，实现高效的集群能力。 提供检测手段的算子化界面操作，支持在界面自定义文件检测流程和通过的检测手段。  👌 待办清单 后续将使用 Github 的 project 进行项目进度管理，可以移步该链接进项观察: Github 项目使用的 Project 看板</description>
+    </item>
+    
+    <item>
+      <title>Django 企业级研发开发过程中的隔离方案（经验之谈）</title>
+      <link>http://ryuchen.club/post/django%E4%BC%81%E4%B8%9A%E7%BA%A7%E7%A0%94%E5%8F%91%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%9A%94%E7%A6%BB%E6%96%B9%E6%A1%88%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/django%E4%BC%81%E4%B8%9A%E7%BA%A7%E7%A0%94%E5%8F%91%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%9A%94%E7%A6%BB%E6%96%B9%E6%A1%88%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88/</guid>
+      <description>&lt;p&gt;之前的工作环境中，由于系统的整体性过于强，尤其是对于面向企业级客户的单机项目中，解耦合程度不高的情况下，我们无法让多位开发人员共享一台开发环境，导致最终造成开发效率低下和开发成本过高，对于这个问题我也思考了很久，后来整理了一些自己的看法和方式，形成了下面的文章，算是面向以前的经验和教训&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>django-rest-framework 中集成 jwt token 认证系统并配合 ng-alain 使用</title>
+      <link>http://ryuchen.club/post/django-%E4%B8%AD%E9%9B%86%E6%88%90-jwt-token-%E8%AE%A4%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%B9%B6%E9%85%8D%E5%90%88-ng-alain-%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/django-%E4%B8%AD%E9%9B%86%E6%88%90-jwt-token-%E8%AE%A4%E8%AF%81%E7%B3%BB%E7%BB%9F%E5%B9%B6%E9%85%8D%E5%90%88-ng-alain-%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;最近在&#39;正式退休&#39;之后，并不能完全闲着啊，所以想起来之前给学校的老师做的一个项目，并没有完全做完，于是想正好借助这个机会，先把 angluar 学习起来，然后顺便再把之前一些感兴趣的并没有在工作中正式使用的一些技术栈给用上~&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Django中间件的理解『针对已有经验』</title>
+      <link>http://ryuchen.club/post/django%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E7%90%86%E8%A7%A3%E9%92%88%E5%AF%B9%E5%B7%B2%E6%9C%89%E7%BB%8F%E9%AA%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/django%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E7%90%86%E8%A7%A3%E9%92%88%E5%AF%B9%E5%B7%B2%E6%9C%89%E7%BB%8F%E9%AA%8C/</guid>
+      <description>&lt;p&gt;这篇文章的主要目的是帮助自己总结下过去使用 django 中间件中发生的问题的时候，需要进行注意的地方，那是在一次审查 django 在接收前端请求过程中过慢的问题，后续发现是中间件中频繁对文本资源进行读取，而且还通过递归的方式进行了文件的遍历，造成效率的低下，于是总结了一下经验。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>关于RESTful风格的API编写标准的探讨</title>
+      <link>http://ryuchen.club/post/%E5%85%B3%E4%BA%8Erestful%E9%A3%8E%E6%A0%BC%E7%9A%84api%E7%BC%96%E5%86%99%E6%A0%87%E5%87%86%E7%9A%84%E6%8E%A2%E8%AE%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/%E5%85%B3%E4%BA%8Erestful%E9%A3%8E%E6%A0%BC%E7%9A%84api%E7%BC%96%E5%86%99%E6%A0%87%E5%87%86%E7%9A%84%E6%8E%A2%E8%AE%A8/</guid>
+      <description>&lt;p&gt;通过工作实践过程中，总结的一些关于在进行前后端分离过程中的 restful api 编写规范，主要是来自于自己工作的心得，并且并不是完全的在工作场景下的使用情况，但是具体的内容也算是广泛查看了各路大神的总结，或多或少对接口编写有些指导作用，适用于以后自己的项目实战。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>关于近期生活的个人杂谈</title>
+      <link>http://ryuchen.club/post/%E5%85%B3%E4%BA%8E%E8%BF%91%E6%9C%9F%E7%94%9F%E6%B4%BB%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%9D%82%E8%B0%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/%E5%85%B3%E4%BA%8E%E8%BF%91%E6%9C%9F%E7%94%9F%E6%B4%BB%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%9D%82%E8%B0%88/</guid>
+      <description>&lt;p&gt;最近恰逢自己刚过完 26 周岁的生日，也算是在奔三的路上跑过一半的旅程，总结下最近的生活，自从毕业之后似乎一直忙忙碌碌的，但是没有半点自身的产出，一直算是为了糊口饭吃，所以想在人生的 35 岁之前成就点事情，不然总觉得自己这有点不甘心啊~&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

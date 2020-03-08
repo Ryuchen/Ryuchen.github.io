@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WangOO on Sweet House</title>
+    <link>http://ryuchen.club/authors/wangoo/</link>
+    <description>Recent content in WangOO on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_CN</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen; all rights reserved.</copyright>
+    
+	<atom:link href="http://ryuchen.club/authors/wangoo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>照片墙</title>
+      <link>http://ryuchen.club/gallery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/gallery/</guid>
+      <description>Showcase the image gallery feature using the Figure shortcode. Images using the Figure shortcode will be rendered through ekko-lightbox.
+2019-01-01   2019-01-02   2019-01-03   </description>
+    </item>
+    
+  </channel>
+</rss>

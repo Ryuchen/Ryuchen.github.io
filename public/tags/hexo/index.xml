@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hexo on Sweet House</title>
+    <link>http://ryuchen.club/tags/hexo/</link>
+    <description>Recent content in hexo on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_CN</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://ryuchen.club/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hexo博客SEO优化</title>
+      <link>http://ryuchen.club/post/hexo%E5%8D%9A%E5%AE%A2seo%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/hexo%E5%8D%9A%E5%AE%A2seo%E4%BC%98%E5%8C%96/</guid>
+      <description>&lt;p&gt;最近因为临近寒假课程也基本都结束了想着该把这个博客再好好维护一下了啊，所以想先把这个检索的功能优化加上，毕竟我是个爱显摆的人，写了没人看多令人憋屈～&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MWeb配合Hexo搭建博客发布</title>
+      <link>http://ryuchen.club/post/mweb%E9%85%8D%E5%90%88hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/mweb%E9%85%8D%E5%90%88hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/</guid>
+      <description>&lt;p&gt;利用MWeb软件实现配合Hexo进行Github Pages的个人博客搭建，hexo虽然已经很棒了，但是需要进行博客发布的时候，总是执行命令也挺麻烦的，所以想如何利用MWeb这个编辑器实现自动化发布的功能，方便自己的博客编写～&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

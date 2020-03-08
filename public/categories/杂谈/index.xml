@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>杂谈 on Sweet House</title>
+    <link>http://ryuchen.club/categories/%E6%9D%82%E8%B0%88/</link>
+    <description>Recent content in 杂谈 on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_CN</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://ryuchen.club/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>通过lede开源社区谈谈自己的感想</title>
+      <link>http://ryuchen.club/post/%E9%80%9A%E8%BF%87lede%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E8%B0%88%E8%B0%88%E8%87%AA%E5%B7%B1%E7%9A%84%E6%84%9F%E6%83%B3/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/%E9%80%9A%E8%BF%87lede%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E8%B0%88%E8%B0%88%E8%87%AA%E5%B7%B1%E7%9A%84%E6%84%9F%E6%83%B3/</guid>
+      <description>&lt;p&gt;最近一段时间因为入手了一台软路由，所以接触到了openwrt的固件体系，也通过油管的视频认识到了L大这样的优秀开源人，贡献了优秀的代码和优秀的项目，但仍然产生了苦恼，于是有那么一番感想想写出来~&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MWeb配合Hexo搭建博客发布</title>
+      <link>http://ryuchen.club/post/mweb%E9%85%8D%E5%90%88hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/mweb%E9%85%8D%E5%90%88hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/</guid>
+      <description>&lt;p&gt;利用MWeb软件实现配合Hexo进行Github Pages的个人博客搭建，hexo虽然已经很棒了，但是需要进行博客发布的时候，总是执行命令也挺麻烦的，所以想如何利用MWeb这个编辑器实现自动化发布的功能，方便自己的博客编写～&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>关于近期生活的个人杂谈</title>
+      <link>http://ryuchen.club/post/%E5%85%B3%E4%BA%8E%E8%BF%91%E6%9C%9F%E7%94%9F%E6%B4%BB%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%9D%82%E8%B0%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.club/post/%E5%85%B3%E4%BA%8E%E8%BF%91%E6%9C%9F%E7%94%9F%E6%B4%BB%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%9D%82%E8%B0%88/</guid>
+      <description>&lt;p&gt;最近恰逢自己刚过完 26 周岁的生日，也算是在奔三的路上跑过一半的旅程，总结下最近的生活，自从毕业之后似乎一直忙忙碌碌的，但是没有半点自身的产出，一直算是为了糊口饭吃，所以想在人生的 35 岁之前成就点事情，不然总觉得自己这有点不甘心啊~&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

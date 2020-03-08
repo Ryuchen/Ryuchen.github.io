@@ -8,14 +8,12 @@ authors = [
 
 Showcase the image gallery feature using the `Figure` shortcode. Images using the `Figure` shortcode will be rendered through [`ekko-lightbox`](https://ashleydw.github.io/lightbox/).
 
-##### 2019-01-01
+##### 2019-01
 
-{{< figure src="https://unsplash.it/1200/768.jpg?image=251" >}}
+{{< galleryImg src="https://unsplash.it/1200/768.jpg?image=251" title="Steve Francia" date="2019-09-01" >}}
 
-##### 2019-01-02
+{{< galleryImg src="https://unsplash.it/1200/768.jpg?image=251" title="Steve Francia" date="2019-09-01" >}}
 
-{{< figure src="https://unsplash.it/1200/768.jpg?image=252" >}}
+##### 2018-12
 
-##### 2019-01-03
-
-{{< figure src="https://unsplash.it/1200/768.jpg?image=253" >}}
+{{< galleryImg src="https://unsplash.it/1200/768.jpg?image=251" title="Steve Francia" date="2019-09-01" >}}

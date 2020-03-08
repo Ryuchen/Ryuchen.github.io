@@ -1,10 +1,10 @@
 +++
 author = [
     "Ryuchen",
+    "WangOO"
 ]
 title = "{{ replace .Name "-" " " | title }}"
 date = "{{ .Date }}"
-comments = true
 tags = [
     "个人生活"
 ]

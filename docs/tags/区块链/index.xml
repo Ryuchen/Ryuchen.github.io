@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>区块链 on Sweet House</title>
+    <link>http://ryuchen.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</link>
+    <description>Recent content in 区块链 on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_CN</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 30 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://ryuchen.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>基于区块链技术实现开放网络威胁情报共享平台设计报告</title>
+      <link>http://ryuchen.github.io/post/%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%94%BE%E7%BD%91%E7%BB%9C%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E5%85%B1%E4%BA%AB%E5%B9%B3%E5%8F%B0%E8%AE%BE%E8%AE%A1%E6%8A%A5%E5%91%8A/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.github.io/post/%E5%9F%BA%E4%BA%8E%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%94%BE%E7%BD%91%E7%BB%9C%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E5%85%B1%E4%BA%AB%E5%B9%B3%E5%8F%B0%E8%AE%BE%E8%AE%A1%E6%8A%A5%E5%91%8A/</guid>
+      <description>&lt;p&gt;课程中关于一点区块链和网络威胁情报的构想，初步想构想成一个可以实践的平台，目前还不成熟，希望后续有机会把它建立起来尝试一下。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

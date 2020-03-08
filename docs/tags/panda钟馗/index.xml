@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Panda(钟馗) on Sweet House</title>
+    <link>http://ryuchen.github.io/tags/panda%E9%92%9F%E9%A6%97/</link>
+    <description>Recent content in Panda(钟馗) on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh_CN</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 22 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://ryuchen.github.io/tags/panda%E9%92%9F%E9%A6%97/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Panda(钟馗)开源沙箱的介绍</title>
+      <link>http://ryuchen.github.io/post/panda-%E9%92%9F%E9%A6%97-%E5%BC%80%E6%BA%90%E6%B2%99%E7%AE%B1%E7%9A%84%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://ryuchen.github.io/post/panda-%E9%92%9F%E9%A6%97-%E5%BC%80%E6%BA%90%E6%B2%99%E7%AE%B1%E7%9A%84%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&lt;p&gt;目前Github社区中的开源沙箱系统，相较活跃的是 cuckoosandbox，但是这个项目在过去的一年中变得更新较为缓慢，后续也未见其进行卓越性的改进，逐渐走向闭源。 鉴于此，这个项目将初期集成和兼容 cuckoo 的 monitor 和 community。 这是一个基于已经初见成熟的 cuckoo 开源版本的沙箱的修订版本，但将进行彻底的重新构建，后续该版本将彻底重构，能够完全适配国内软件环境。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

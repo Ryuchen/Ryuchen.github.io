@@ -1,8 +1,3 @@
-[submodule "themes/hugo-theme-chunky-poster"]
-	path = themes/hugo-theme-chunky-poster
-	url = https://github.com/puresyntax71/hugo-theme-chunky-poster
-	branch = master
-
 [submodule "public"]
 	path = public
 	url = https://github.com/Ryuchen/ryuchen.github.io

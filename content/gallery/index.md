@@ -8,6 +8,14 @@ authors = [
 tags = ["index"]
 +++
 
+
+{{< row >}}
+    {{< galleryImg title="每日一餐-麻辣香锅" date="2020-03-09" topic="瓜大厨" >}}
+        {{< figure src="/images/20200309.JPG" width="300" >}}
+    {{< /galleryImg >}}
+
+{{< /row >}}
+
 {{< row >}}
     {{< galleryImg title="每日一餐" date="2020-03-07" topic="瓜大厨" >}}
         {{< figure src="/images/EB843BB6-19BE-493C-BAF1-47FF21A5E331.jpeg" width="300" >}}
@@ -53,5 +61,29 @@ tags = ["index"]
     {{< /galleryImg >}}
     {{< galleryImg title="每日一餐" date="2020-02-16" topic="瓜大厨" >}}
         {{< figure src="/images/31083C57-312B-4643-AE6B-0AEB946B82EB.jpeg" width="300" >}}
+    {{< /galleryImg >}}
+{{< /row >}}
+
+{{< row >}}
+    {{< galleryImg title="喵俩" date="2020-02-10" topic="宠物" >}}
+        {{< figure src="/images/9B00EDE3-BC5D-42F1-BB90-12C6F908CC78.jpeg" width="300" >}}
+    {{< /galleryImg >}}
+    {{< galleryImg title="2020年初的雪" date="2020-02-06" topic="生活" >}}
+        {{< figure src="/images/8AA18829-BAC9-4FD9-93C2-51BD9A037F20.jpeg" width="300" >}}
+    {{< /galleryImg >}}
+    {{< galleryImg title="大懒猫" date="2020-02-01" topic="宠物" >}}
+        {{< figure src="/images/1E6B90F1-D6FE-4226-B9B4-9E59830BE978.jpeg" width="300" >}}
+    {{< /galleryImg >}}
+{{< /row >}}
+
+{{< row >}}
+    {{< galleryImg title="每日一餐-酸汤肥牛" date="2020-01-07" topic="瓜大厨" >}}
+        {{< figure src="/images/FA6D09AF-6BAC-48AC-A4F0-BA3D79A954AF.jpeg" width="300" >}}
+    {{< /galleryImg >}}
+    {{< galleryImg title="2020年第一场雪" date="2020-01-06" topic="生活" >}}
+        {{< figure src="/images/565C9DC1-9664-4D28-A837-F01C166CB4A7.jpeg" width="300" >}}
+    {{< /galleryImg >}}
+    {{< galleryImg title="北戴河" date="2019-08-10" topic="生活" >}}
+        {{< figure src="/images/A21407A7-79D7-4740-AFDF-C37E7061E854.jpeg" width="300" >}}
     {{< /galleryImg >}}
 {{< /row >}}

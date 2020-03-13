@@ -10,6 +10,10 @@ tags = ["index"]
 
 
 {{< row >}}
+    {{< galleryImg title="每日一餐" date="2020-03-13" topic="瓜大厨" >}}
+        {{< figure src="/images/F570CF16-A449-4A11-B417-097146DE6DA2.jpeg" width="300" >}}
+    {{< galleryImg title="每日一餐" date="2020-03-11" topic="瓜大厨" >}}
+        {{< figure src="/images/2CD0B5F9-BE31-4085-A390-2336E9BF14F4.jpeg" width="300" >}}
     {{< galleryImg title="每日一餐-麻辣香锅" date="2020-03-09" topic="瓜大厨" >}}
         {{< figure src="/images/20200309.JPG" width="300" >}}
     {{< /galleryImg >}}

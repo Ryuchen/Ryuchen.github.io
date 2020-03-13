@@ -2,6 +2,7 @@
 	path = public
 	url = https://github.com/Ryuchen/ryuchen.github.io
 	branch = master
+
 [submodule "themes/hugo-theme-chunky-poster"]
 	path = themes/hugo-theme-chunky-poster
 	url = https://github.com/Ryuchen/hugo-theme-chunky-poster

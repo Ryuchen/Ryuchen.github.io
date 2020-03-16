@@ -9,6 +9,7 @@ googleAnalytics = "UA-XXXX"
 DisqusShortname = ""
 enableEmoji = true
 theme = "hugo-theme-chunky-poster"
+paginate = 8
 
 [menu]
   [[menu.main]]
@@ -53,6 +54,7 @@ series = "series"
     "Ryuchen",
     "WangOO"
   ]
+  mainSections = "post"
   github = "https://github.com/Ryuchen"
   description = "Everyday is a holiday"
   homepageImage = "/images/homepage-image.jpg"

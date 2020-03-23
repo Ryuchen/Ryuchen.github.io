@@ -6,7 +6,7 @@ DefaultContentLanguage = "zh_CN"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 googleAnalytics = "UA-XXXX"
-DisqusShortname = ""
+DisqusShortname = "ryuchen"
 enableEmoji = true
 theme = "hugo-theme-chunky-poster"
 paginate = 6
@@ -84,10 +84,6 @@ series = "series"
   [params.prismJS]
     enable = true
     theme = ""
-
-  [params.commento]
-    enable = false
-    url = "https://commento.io"
 
 [markup]
   [markup.highlight]

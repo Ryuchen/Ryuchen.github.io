@@ -85,6 +85,25 @@ series = "series"
     enable = true
     theme = ""
 
+  [params.gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
+    owner = "Ryuchen"              # Your GitHub ID
+    repo = "ryuchen.github.io"               # The repo to store comments
+    clientId = "cda75f43f62ef6ebc3ea"           # Your client ID
+    clientSecret = "e405fb603c664a6436a481917a7ee70931413268"       # Your client secret
+
+  # Valine.
+  # You can get your appid and appkey from https://leancloud.cn
+  # more info please open https://valine.js.org
+  [params.valine]
+    enable = true
+    appId = 'eGkdwaD11LvsWW6EeVi3Ax9o-gzGzoHsz'
+    appKey = 'HjW84kSxDJlBMXaoqUUBR7PA'
+    notify = false  # mail notifier , https://github.com/xCss/Valine/wiki
+    verify = false # Verification code
+    avatar = 'mm' 
+    placeholder = '说点什么吧...'
+    visitor = true
+
 [markup]
   [markup.highlight]
     codeFences = true

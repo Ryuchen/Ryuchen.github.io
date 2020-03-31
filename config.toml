@@ -67,7 +67,7 @@ series = "series"
   showLanguageSwitcher = false
 
   # Custom CSS and JS. Relative to /static/css and /static/js respectively.
-  customCSS = []
+  customCSS = ["shortcodes.css"]
   customJS = []
 
   [params.social]

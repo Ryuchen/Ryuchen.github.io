@@ -10,7 +10,8 @@
         .gist-file
         .gist-data {max-width: 1024px;}
     </style>
-    <div class="content">
-        {{ .Inner }}
-    </div>
+    <div id="project_container" class="content"></div>
+    <script>  
+        window.MDGithub = 'https://raw.githubusercontent.com/{{ .Get "user" }}/{{ .Get "repo" }}/master/README.md';
+    </script>
 </div>

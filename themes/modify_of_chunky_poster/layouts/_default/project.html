@@ -1,17 +1,38 @@
 <div class="card h-100 shadow">
     {{ $page := . }}
     <a href="{{ $page.RelPermalink }}" class="d-block">
-        <div class="card-body">
-            <h5 class="card-title">{{ $page.Title }}</h5>
+        <div id="repo_info_{{ $page.Params.repo }}" class="card-body">
+            <h5 id="repo_title" class="card-title">{{ $page.Params.title }}</h5>
             <div style="margin-bottom: 1rem;">
-                <span class="badge badge-pill badge-primary">Stars: {{ $page.Params.stars }}</span>
-                <span class="badge badge-pill badge-primary">Forks: {{ $page.Params.forks }}</span>
+                <span id="repo_stars" class="badge badge-primary">Stars: </span>
+                <span id="repo_forks" class="badge badge-primary">Forks: </span>
+                <span id="repo_language" class="badge badge-info"></span>
             </div>
-            <div class="card-text">
+            <div id="repo_description" class="card-text">
                 {{ $page.Summary | plainify }}
             </div>
         </div>
     </a>
+    <script type="module">
+        import $ from "https://cdn.skypack.dev/jquery";
+        import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+
+        const octokit = new Octokit();
+
+        async function repoInfos() {
+            // "https://api.github.com/repos/Ryuchen/adminMongo"
+            const response = await octokit.request('GET /repos/{username}/{repo}', {
+                repo: '{{ $page.Params.repo }}',
+                username: '{{ $page.Params.user }}'
+            });
+            const { data: { description, forks_count, stargazers_count, language} } = response;
+            $('#repo_info_{{ $page.Params.repo }} #repo_stars').append(stargazers_count);
+            $('#repo_info_{{ $page.Params.repo }} #repo_forks').append(forks_count);
+            $('#repo_info_{{ $page.Params.repo }} #repo_language').append(language);
+            $('#repo_info_{{ $page.Params.repo }} #repo_description').text(description);
+        }
+        repoInfos();
+    </script>
 </div>
 
 

@@ -1,6 +1,6 @@
 baseURL = "http://ryuchen.github.io"
 title = "Sweet House"
-copyright = "Copyright © 2018–2020, WangOO and Ryuchen; all rights reserved."
+copyright = "Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved."
 languageCode = "zh"
 DefaultContentLanguage = "zh"
 enableInlineShortcodes = true
@@ -83,7 +83,7 @@ series = "series"
 
   [params.prismJS]
     enable = true
-    theme = ""
+    theme = "okaidia"
 
   [params.gitment] # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
     enable = false         

@@ -2,7 +2,7 @@
 
 import $ from 'jquery';
 import MarkdownIt from 'markdown-it';
-import prism from "@iktakahiro/markdown-it-prismjs";
+import prismjs from "@iktakahiro/markdown-it-prismjs";
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -105,6 +105,23 @@ export default {
             $(this).ekkoLightbox();
         });
     },
+    renderProject: () => {
+        if (!window.MDGithub) {
+            return;
+        }
+        var md = MarkdownIt({html: true}).use(prismjs);
+        $.ajax(
+            {
+                url: window.MDGithub,
+                type: 'get',
+                async: true,
+                success: function(data) { 
+                    // convert markdown to html
+                    $('#project_container').html(md.render(data));
+                } 
+            }
+        );
+    },
     syntaxHighlight: () => {
         if (!window.Prism) {
           return;
@@ -118,26 +135,5 @@ export default {
 
         element.addClass('language-none');
         $('> code', element).addClass('language-none');
-    },
-    renderProject: () => {
-        if (!window.MDGithub) {
-            return;
-        }
-        var md = MarkdownIt({html: true}).use(require('markdown-it-html5-embed'), {
-            html5embed: {
-                useImageSyntax: true, // Enables video/audio embed with ![]() syntax (default)
-                useLinkSyntax: true   // Enables video/audio embed with []() syntax
-            }}).use(prism);
-        $.ajax(
-            {
-                url: window.MDGithub,
-                type: 'get',
-                async: true,
-                success: function(data) { 
-                    // convert markdown to html
-                    $('#project_container').html(md.render(data));
-                } 
-            }
-        );
     }
 };

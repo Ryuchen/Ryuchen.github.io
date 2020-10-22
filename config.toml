@@ -83,7 +83,7 @@ series = "series"
 
   [params.prismJS]
     enable = true
-    theme = "okaidia"
+    theme = "dark"
 
   [params.gitment] # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
     enable = false         

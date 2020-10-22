@@ -1,0 +1,45 @@
+{{ define "main" }}
+<main class="content-page container pt-7 pb-5">
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div>
+                        {{- $term := . -}}
+                        {{- .Scratch.Set "name" .Title -}}
+                        {{- if $term.Params.name -}}
+                            {{- .Scratch.Set "name" $term.Params.name -}}
+                        {{- end -}}
+                        <h2 class="mb-3">{{ .Scratch.Get "name" }}</h2>
+
+                        <div class="content">
+                            {{ $term.Content }}
+                        </div>
+
+                        {{ $pages := .Data.Pages }}
+                        {{ $paginator := .Paginate $pages }}
+                        {{- range $paginator.Pages -}}
+                            {{ $page := . }}
+                            <div style="display:inline-flex;width:100%;justify-content: space-between;">
+                                <span style="font-size: 1.5rem;"><strong>{{ $page.Date.Format "January 2, 2006" }}</strong></span>
+                                <span>
+                                    <strong>Author: {{ $page.Params.author }}</strong>
+                                    {{ $page.Params.emoji | emojify }}{{ $page.Params.emoji | emojify }}
+                                    {{ $page.Params.emoji | emojify }}{{ $page.Params.emoji | emojify }}
+                                    {{ $page.Params.emoji | emojify }}{{ $page.Params.emoji | emojify }}
+                                </span>
+                            </div>
+                            {{ .Content }}
+                        {{- end -}}
+
+                        <!-- pagination -->
+                        {{ partial "pagination.html" . }}
+
+                        {{ partial "comments.html" . }}
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+{{ end }}

@@ -1,0 +1,20 @@
+{{ $pag := $.Paginator }}
+
+<!-- paginate original style  -->
+<nav class="pagination" style="display: flow-root;">
+  <div style="float: left;">
+    {{ with $pag.Prev }}
+    <a class="btn btn-outline-primary" style="border-radius: 2rem; text-decoration: none;" href="{{ .URL }}">
+      <span class="prev-text"></span>上一页</span>
+    </a>
+    {{ end }}
+  </div>
+
+  <div style="float: right;">
+    {{ with $pag.Next }}
+    <a class="btn btn-outline-primary" style="border-radius: 2rem; text-decoration: none;" href="{{ .URL }}">
+      <span class="next-text">下一页</span>
+    </a>
+    {{ end }}
+  </div>
+</nav>

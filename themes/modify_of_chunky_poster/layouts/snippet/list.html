@@ -1,0 +1,30 @@
+{{ define "main" }}
+<main class="list container py-6">
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div>
+                        {{- $term := . -}}
+                        {{- .Scratch.Set "name" .Title -}}
+                        {{- if $term.Params.name -}}
+                            {{- .Scratch.Set "name" $term.Params.name -}}
+                        {{- end -}}
+                        <h2 class="mb-3">{{ .Scratch.Get "name" }}</h2>
+
+                        <div class="content">
+                            {{ $term.Content }}
+                        </div>
+
+                        {{- with .Data.Pages.Reverse -}}
+                            {{- range . -}}
+                                {{ .Content }}
+                            {{- end -}}
+                        {{ end }}
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+{{ end }}

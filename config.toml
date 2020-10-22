@@ -1,14 +1,14 @@
 baseURL = "http://ryuchen.github.io"
 title = "Sweet House"
 copyright = "Copyright © 2018–2020, WangOO and Ryuchen; all rights reserved."
-languageCode = "zh_CN"
-DefaultContentLanguage = "zh_CN"
+languageCode = "zh"
+DefaultContentLanguage = "zh"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 googleAnalytics = "UA-XXXX"
 DisqusShortname = "ryuchen"
 enableEmoji = true
-theme = "hugo-theme-chunky-poster"
+theme = "modify_of_chunky_poster"
 paginate = 6
 
 [menu]
@@ -85,7 +85,15 @@ series = "series"
     enable = true
     theme = ""
 
-  [params.gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
+  [params.gitment] # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
+    enable = false         
+    owner = "Ryuchen"              # Your GitHub ID
+    repo = "ryuchen.github.io"               # The repo to store comments
+    clientId = "cda75f43f62ef6ebc3ea"           # Your client ID
+    clientSecret = "e405fb603c664a6436a481917a7ee70931413268"       # Your client secret
+
+  [params.gittalk] # Gittalk is a comment system based on GitHub issues. see https://github.com/gittalk/gittalk
+    enable = true         
     owner = "Ryuchen"              # Your GitHub ID
     repo = "ryuchen.github.io"               # The repo to store comments
     clientId = "cda75f43f62ef6ebc3ea"           # Your client ID
@@ -95,7 +103,7 @@ series = "series"
   # You can get your appid and appkey from https://leancloud.cn
   # more info please open https://valine.js.org
   [params.valine]
-    enable = true
+    enable = false
     appId = 'eGkdwaD11LvsWW6EeVi3Ax9o-gzGzoHsz'
     appKey = 'HjW84kSxDJlBMXaoqUUBR7PA'
     notify = false  # mail notifier , https://github.com/xCss/Valine/wiki

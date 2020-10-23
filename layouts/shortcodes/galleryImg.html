@@ -2,9 +2,13 @@
 <div class="col mb-3">
     <div class="card h-100 shadow">
         <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
-            {{ with .Get "link"}}<a href="{{.}}">{{ end }}
+            {{ with .Get "link"}}
+                <a href="{{.}}">
+            {{ end }}
                 {{ .Inner }}
-            {{ if .Get "link"}}</a>{{ end }}
+            {{ if .Get "link"}}
+                </a>
+            {{ end }}
             <figcaption>
                 <!-- image title -->
                 <div style="padding-left: 20px;">

@@ -78,8 +78,8 @@ series = "series"
 
   [params.donate]
     slogon = "维护不易，渴望您的资助"
-    wechat = "https://github.com/Ryuchen/Panda-Sandbox/raw/master/docs/sponsor/wechat.jpg"
-    alipay = "https://github.com/Ryuchen/Panda-Sandbox/raw/master/docs/sponsor/alipay.jpg"
+    wechat = "https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg"
+    alipay = "https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg"
 
   [params.prismJS]
     enable = true

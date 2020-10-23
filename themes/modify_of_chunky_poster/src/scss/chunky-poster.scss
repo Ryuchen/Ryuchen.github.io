@@ -97,3 +97,14 @@ footer a:not(.icons) {
         margin-bottom: 5px;
     }
 }
+
+#project_container {
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 24px;
+
+    img {
+        width: auto;
+        max-width: 100%;
+    }
+}

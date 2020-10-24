@@ -120,3 +120,35 @@ footer a:not(.icons) {
         }
     }
 }
+
+.bilibili-embed {
+    overflow: hidden;
+    position: relative;
+    padding: 30% 45%;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.netease-music {
+    position: fixed;
+    top: 100%;
+    left: 100%;
+    transform: translate(-100%, -100%);
+}
+
+
+// iframe.bilibili-embed {
+//     width: 640px;
+//     min-width: 0;
+//     max-width: 640px;
+//     height: 380px;
+//     min-height: 0;
+//     max-height: 380px;
+// }

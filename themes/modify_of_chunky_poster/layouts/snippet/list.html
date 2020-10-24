@@ -1,30 +1,39 @@
 {{ define "main" }}
 <main class="list container py-6">
-    <div class="row">
+    {{- if or .Title .Content -}}
+    <div class="row py-3">
         <div class="col">
-            <article>
-                <div class="row justify-content-center">
-                    <div>
-                        {{- $term := . -}}
-                        {{- .Scratch.Set "name" .Title -}}
-                        {{- if $term.Params.name -}}
-                            {{- .Scratch.Set "name" $term.Params.name -}}
-                        {{- end -}}
-                        <h2 class="mb-3">{{ .Scratch.Get "name" }}</h2>
+            {{ with .Title }}<h3 class="display-4">{{ . }}</h3>{{ end }}
 
-                        <div class="content">
-                            {{ $term.Content }}
-                        </div>
-
-                        {{- with .Data.Pages.Reverse -}}
-                            {{- range . -}}
-                                {{ .Content }}
-                            {{- end -}}
-                        {{ end }}
-                    </div>
-                </div>
-            </article>
+            {{- with .Content -}}
+            <div class="content">
+                {{ . }}
+            </div>
+            {{- end -}}
         </div>
     </div>
+    {{- end -}}
+
+    {{ $pages := .Data.Pages.Reverse }}
+    {{ $paginator := .Paginate $pages }}
+    {{- range $paginator.Pages -}}
+        {{ $page := . }}
+        <div class="row row-cols-1 row-cols-lg-3"></div>
+            <div>
+                <article>
+                    <div class="row justify-content-center snippet-code">
+                        <div class="snippet-code-list">
+                            {{ .Content }}
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    {{- end -}}
+
+    <!-- pagination -->
+    {{ partial "pagination.html" . }}
+
+    {{ partial "comments.html" . }}
 </main>
 {{ end }}

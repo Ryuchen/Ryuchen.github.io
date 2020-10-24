@@ -108,3 +108,15 @@ footer a:not(.icons) {
         max-width: 100%;
     }
 }
+
+.snippet-code {
+    .snippet-code-list {
+        position: relative;
+        padding: 10px 8px;
+        width: 100%;
+
+        .highlight {
+            width: 100%;
+        }
+    }
+}

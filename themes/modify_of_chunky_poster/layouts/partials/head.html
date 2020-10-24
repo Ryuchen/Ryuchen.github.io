@@ -37,7 +37,7 @@
 {{ with index .Site.Data "chunky-poster" }}
     {{ range $vendor := .assets }}
         {{ if $vendor.css }}
-            <link rel="stylesheet" href="{{ print "dist/" $vendor.css | relURL }}">
+            <link rel="stylesheet" href="{{ print "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/dist/" $vendor.css | relURL }}">
         {{ end }}
     {{ end }}
 {{ end }}
@@ -52,7 +52,7 @@
 </style>
 
 {{ range .Site.Params.customCSS -}}
-    <link rel="stylesheet" href="{{ "css/" | relURL }}{{ . }}">
+    <link rel="stylesheet" href="{{ "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/css/" | relURL }}{{ . }}">
 {{ end }}
 
 <link rel="canonical" href="{{ .Permalink }}">

@@ -78,11 +78,10 @@
             </div>
         </div>
     </div>
-    {{ if .Site.Params.netease.enable -}}
+    {{ if .Site.Params.music.enable -}}
     <div class="netease-music">
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=260 height=86
-            src="//music.163.com/outchain/player?type=2&id={{ .Site.Params.netease.music }}&auto={{ .Site.Params.netease.auto }}&height={{ .Site.Params.netease.height }}">
-        </iframe>
+        <audio id="music-player" crossorigin playsinline>
+        </audio>
     </div>
     {{ end }}
 </footer>

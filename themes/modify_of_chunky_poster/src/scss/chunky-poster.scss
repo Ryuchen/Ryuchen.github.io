@@ -140,6 +140,9 @@ footer a:not(.icons) {
     position: fixed;
     top: 100%;
     left: 100%;
+    width: 100%;
+    max-width: 375px;
+    height: 60px;
     transform: translate(-100%, -100%);
 }
 

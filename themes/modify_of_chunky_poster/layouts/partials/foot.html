@@ -1,13 +1,13 @@
 {{ with index .Site.Data "chunky-poster" }}
     {{ range $vendor := .assets }}
         {{ if $vendor.js }}
-            <script src="{{ print "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/dist/" $vendor.js | relURL }}"></script>
+            <script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ print "dist/" $vendor.js | relURL }}'></script>
         {{ end }}
     {{ end }}
 {{ end }}
 
 <!-- mermaid support -->
-<script src="{{ print "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/mermaid/mermaid.js" | relURL }}"></script>
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ print "mermaid/mermaid.js" | relURL }}'></script>
 <!-- mermaid support -->
 
 
@@ -20,5 +20,5 @@
 {{ end }}
 
 {{ range .Site.Params.customJS -}}
-    <script src="{{ "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/js/" | relURL }}{{ . }}"></script>
+    <script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ "js/" | relURL }}{{ . }}'></script>
 {{ end }}

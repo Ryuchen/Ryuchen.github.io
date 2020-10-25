@@ -70,11 +70,8 @@ series = "series"
   customCSS = ["shortcodes.css"]
   customJS = []
 
-  [params.netease]
+  [params.music]
     enable = true
-    auto = 0
-    music = "1436709403"
-    height = "66"
 
   [params.social]
     rss = true

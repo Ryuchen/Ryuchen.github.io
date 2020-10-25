@@ -146,6 +146,20 @@ footer a:not(.icons) {
     transform: translate(-100%, -100%);
 }
 
+#repos {
+    a {
+        color:#007bff;
+        text-decoration: none;
+    }
+
+    .collapse {
+        
+        img {
+            width: auto;
+            max-width: 100%;
+        }
+    }
+}
 
 // iframe.bilibili-embed {
 //     width: 640px;

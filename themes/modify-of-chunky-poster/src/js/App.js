@@ -105,22 +105,10 @@ export default {
             $(this).ekkoLightbox();
         });
     },
-    renderProject: () => {
-        if (!window.MDGithub) {
-            return;
-        }
-        var md = MarkdownIt({html: true}).use(prismjs);
-        $.ajax(
-            {
-                url: window.MDGithub,
-                type: 'get',
-                async: true,
-                success: function(data) { 
-                    // convert markdown to html
-                    $('#project_container').html(md.render(data));
-                } 
-            }
-        );
+    renderProject: (element, data) => {
+        const md = MarkdownIt({html: true}).use(prismjs);
+        const content = decodeURIComponent(escape(data));
+        $(element).html(md.render(content));
     },
     syntaxHighlight: () => {
         if (!window.Prism) {

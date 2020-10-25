@@ -11,8 +11,8 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     App.lazyload();
     App.navbarFade();
     App.lightbox();
-    App.renderProject();
     App.syntaxHighlight();
+    window.renderProject = App.renderProject;
 });
 
 // Change "{}" to your options:

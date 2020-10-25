@@ -6,7 +6,11 @@
             {{- with $page.Site.GetPage "section" "images" -}}
                 {{- with .Resources.GetMatch (strings.TrimPrefix "/images/" (index $images 0)) -}}
                     {{- $image := .Resize "700x350" -}}
-                    <img data-src="{{ $image.RelPermalink }}" class="card-img-top mx-auto d-block" alt="{{ $page.Title }}">
+                    {{ if $.Site.IsServer }}
+                        <img data-src="{{ $image.RelPermalink }}" class="card-img-top mx-auto d-block" alt="{{ $page.Title }}">
+                    {{ else }}
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master{{ $image.RelPermalink }}" class="card-img-top mx-auto d-block" alt="{{ $page.Title }}">
+                    {{ end }}
                 {{- end -}}
             {{- end -}}
         {{- end -}}

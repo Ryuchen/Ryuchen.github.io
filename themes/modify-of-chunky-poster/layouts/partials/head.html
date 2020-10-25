@@ -15,9 +15,9 @@
 
 <meta name="baidu-site-verification" content="1EPvUZiFZJ" />
 
-<meta name="author" content="{{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}{{ .Site.Params.author }}{{ end }}">
+<meta name="author" content='{{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}{{ .Site.Params.author }}{{ end }}'>
 
-<link rel="icon" href="{{ "favicon.ico" | relURL }}">
+<link rel="icon" href='{{ "favicon.ico" | relURL }}'>
 
 {{ if .Site.Params.prismJS.enable }}
     {{ if .Site.Params.prismJS.theme }}
@@ -34,12 +34,22 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/fontawesome.min.css">
 
-{{ with index .Site.Data "chunky-poster" }}
+{{ if .Site.IsServer }}
+  {{ with index .Site.Data "chunky-poster" }}
     {{ range $vendor := .assets }}
         {{ if $vendor.css }}
-            <link rel="stylesheet" href="{{ print "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/dist/" $vendor.css | relURL }}">
+            <link rel="stylesheet" href='{{ print "dist/" $vendor.css | relURL }}'>
         {{ end }}
     {{ end }}
+  {{ end }}
+{{ else }}
+  {{ with index .Site.Data "chunky-poster" }}
+    {{ range $vendor := .assets }}
+        {{ if $vendor.css }}
+            <link rel="stylesheet" href='{{ print "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/dist/" $vendor.css | relURL }}'>
+        {{ end }}
+    {{ end }}
+  {{ end }}
 {{ end }}
 
 <style type="text/css">
@@ -50,18 +60,22 @@
     font-size: 1em;
   }
 </style>
-
-{{ range .Site.Params.customCSS -}}
-    <link rel="stylesheet" href="{{ "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/css/" | relURL }}{{ . }}">
+{{ if .Site.IsServer }}
+  {{ range .Site.Params.customCSS -}}
+    <link rel="stylesheet" href='{{ "css/" | relURL }}{{ . }}'>
+  {{ end }}
+{{ else }}
+  {{ range .Site.Params.customCSS -}}
+      <link rel="stylesheet" href='{{ "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/css/" | relURL }}{{ . }}'>
+  {{ end }}
 {{ end }}
 
 <link rel="canonical" href="{{ .Permalink }}">
+
 {{- with .OutputFormats.Get "RSS" }}
   <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
   <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}">
 {{- end -}}
 
 {{- template "_internal/opengraph.html" . -}}
-{{- template "_internal/google_news.html" . -}}
 {{- template "_internal/schema.html" . -}}
-{{- template "_internal/twitter_cards.html" . -}}

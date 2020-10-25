@@ -8,7 +8,7 @@ footnoteReturnLinkContents = "^"
 googleAnalytics = "UA-XXXX"
 DisqusShortname = "ryuchen"
 enableEmoji = true
-theme = "modify_of_chunky_poster"
+theme = "modify-of-chunky-poster"
 paginate = 6
 
 [menu]
@@ -62,7 +62,7 @@ series = "series"
   mainSections = "post"
   github = "https://github.com/Ryuchen"
   description = "Everyday is a holiday"
-  homepageImage = "/images/homepage-image.jpg"
+  homepageImage = "/images/homepage-image.gif"
   share = true
   showLanguageSwitcher = false
 

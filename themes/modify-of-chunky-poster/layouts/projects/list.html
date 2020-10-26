@@ -1,21 +1,19 @@
 {{ define "main" }}
 <main class="list container py-6">
     {{- if or .Title .Content -}}
-    <div class="row py-3">
-        <div class="col">
-            {{ with .Title }}<h3 class="display-4">{{ . }}</h3>{{ end }}
+        <div class="row py-3">
+            <div class="col">
+                {{ with .Title }}<h3 class="display-4">{{ . }}</h3>{{ end }}
 
-            {{- with .Content -}}
-            <div class="content">
-                {{ . }}
+                {{- with .Content -}}
+                <div class="content">
+                    {{ . }}
+                </div>
+                {{- end -}}
             </div>
-            {{- end -}}
         </div>
-    </div>
     {{- end -}}
-
     <div id="repos" >
-
     </div>
 </main>
 
@@ -28,6 +26,7 @@
         // "https://api.github.com/repos/Ryuchen/adminMongo"
         const response = await octokit.request('GET /users/Ryuchen/repos');
         const { data } = response;
+        data.sort(function(a, b){ return b.stargazers_count - a.stargazers_count });
         data.forEach((element) => {
             if (!element.fork) {
                 let url = 'https://api.github.com/repos/' + `${element.full_name}` + '/contents/README.md';
@@ -43,7 +42,7 @@
                                 <h5 class="card-title">
                                     ${element.full_name}
                                     <span class="badge badge-light" style="float:right;font-size:1rem;">
-                                        <a id="${element.name}-trigger" data-toggle="collapse" aria-expanded="false" data-target="#${element.name}" aria-controls="${element.name}">
+                                        <a id="${element.name}-trigger" data-toggle="collapse" aria-expanded="false" aria-controls="${element.name}">
                                            README
                                         </a>
                                     </span>
@@ -66,17 +65,14 @@
                 `
                 $('#repos').append(template);
                 $(`#${element.name}-trigger`).bind('click', () => {
-                    $.ajax(
-                        {
-                            url: url,
-                            type: 'get',
-                            async: false,
-                            success: function(data) { 
-                                // convert markdown to html
-                                window.renderProject(`#${element.name}-README`, window.atob(data.content));
-                            } 
+                    if ($(`#${element.name}`).attr('class') !== 'collapse show') {
+                        if ($(`#${element.name}-README`).html() === '') {
+                            $.get(url, function(data) { window.renderProject(`#${element.name}-README`, window.atob(data.content)); });
                         }
-                    );
+                        $(`#${element.name}`).attr('class', 'collapse show');
+                    } else {
+                        $(`#${element.name}`).attr('class', 'collapse');
+                    }
                 });
             }
         });

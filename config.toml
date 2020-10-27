@@ -84,6 +84,9 @@ series = "series"
     wechat = "https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg"
     alipay = "https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg"
 
+  [params.mathjax]
+    enable = true
+
   [params.prismJS]
     enable = true
     theme = "dark"

@@ -1,10 +1,26 @@
 .homepage-image {
     @include media-breakpoint-up(lg) {
         position: absolute;
-        width: 400px;
-        right: 100px;
-        top: 0;
+        width: 50%;
+        left: 50%;
+        top: 0%;
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: $border-radius-lg;
+        }
     }
+    img {
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: $border-radius-lg;
+    }
+}
+
+.badge {
+    font-size: 0.5rem;
+    vertical-align: middle;
+    line-height: $font-size-base;
 }
 
 .author .name a, .author .social a {
@@ -14,8 +30,43 @@
 
 blockquote {
     color: $gray-400;
-    border-left: 6px solid $gray-400;
-    padding-left: $spacer;
+    border-left: 3px solid $gray-400;
+    padding-left: 0.5rem;
+
+    p {
+        margin: 0.25rem;
+    }
+}
+
+.content {
+    h1, h2, h3, h4, h5 {
+        margin-top: 1.25rem;
+    }
+    p {
+        margin: 0.25rem;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    ol, ul, li {
+        margin: 0 0.25rem !important;
+    }
+}
+
+code.has-jax {
+    -webkit-font-smoothing: antialiased;
+    background: inherit !important;
+    border: none !important;
+    font-size: 100%;
+}
+
+.blockquote {
+    margin: 0.25rem;
+    font-size: 1.125rem;
+    overflow: scroll;
+    width: 100%;
 }
 
 code {
@@ -46,8 +97,8 @@ pre code {
 }
 
 figure.highlight {
-    margin-left: -($grid-gutter-width / 2);
-    margin-right: -($grid-gutter-width / 2);
+    margin-left: 0;
+    margin-right: 0;
 
     @include media-breakpoint-up(md) {
         margin-left: 0;
@@ -160,12 +211,3 @@ footer a:not(.icons) {
         }
     }
 }
-
-// iframe.bilibili-embed {
-//     width: 640px;
-//     min-width: 0;
-//     max-width: 640px;
-//     height: 380px;
-//     min-height: 0;
-//     max-height: 380px;
-// }

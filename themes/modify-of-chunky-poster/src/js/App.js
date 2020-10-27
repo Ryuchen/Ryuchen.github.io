@@ -1,10 +1,13 @@
 'use esversion: 6';
 
 import $ from 'jquery';
+import Plyr from 'plyr';
 import MarkdownIt from 'markdown-it';
 import prismjs from "@iktakahiro/markdown-it-prismjs";
+import renderMathInElement from "katex/dist/contrib/auto-render.min.js";
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
+
 import {
     faBookOpen,
     faChevronLeft,
@@ -14,6 +17,7 @@ import {
     faEnvelope,
     faRss,
     faTag,
+    faPaperclip
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -59,7 +63,8 @@ library.add(
     faStackOverflow,
     faTag,
     faTwitter,
-    faWeibo
+    faWeibo,
+    faPaperclip
 );
 
 export default {
@@ -105,23 +110,50 @@ export default {
             $(this).ekkoLightbox();
         });
     },
+    syntaxHighlight: () => {
+        if (!window.Prism) {
+          return;
+        }
+        Prism.highlightAll();
+        $('pre:has(> code[class*=language-])').removeAttr('style');
+        const element = $('pre:has(> code:not([class*=language-]))');
+        element.addClass('language-none');
+        $('> code', element).addClass('language-none');
+    },
     renderProject: (element, data) => {
         const md = MarkdownIt({html: true}).use(prismjs);
         const content = decodeURIComponent(escape(data));
         $(element).html(md.render(content));
     },
-    syntaxHighlight: () => {
-        if (!window.Prism) {
-          return;
-        }
-
-        Prism.highlightAll();
-
-        $('pre:has(> code[class*=language-])').removeAttr('style');
-
-        const element = $('pre:has(> code:not([class*=language-]))');
-
-        element.addClass('language-none');
-        $('> code', element).addClass('language-none');
+    renderKatex: () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    },
+    renderPlayer: () => {
+        // Change "{}" to your options:
+        // https://github.com/sampotts/plyr/#options
+        const player = new Plyr('#music-player', {});
+        player.source = {
+            type: 'audio',
+            title: '我喜欢的音乐',
+            sources: [
+                {
+                    src: 'https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/music/夏天的风.mp3',
+                    type: 'audio/mp3',
+                },
+                {
+                    src: 'https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/music/Love-is-gone.mp3',
+                    type: 'audio/mp3',
+                }
+            ],
+        };
+        player.volume = 0.35;
+        player.controls = ['play', 'progress', 'current-time', 'mute', 'volume'];
+        // Expose player so it can be used from the console
+        window.player = player;
     }
 };

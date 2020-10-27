@@ -10,7 +10,7 @@
             {{- with .Site.Params.homepageImage -}}
                 <div class="homepage-image">
                     {{ if $.Site.IsServer }}
-                        <img src="{{ . | relURL }}" class="img-fluid" style="margin-top:20px; border-radius: 0.5rem;">
+                        <img src="{{ . | relURL }}" class="img-fluid">
                     {{ else }}
                         <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master{{ . | relURL }}" class="img-fluid" style="margin-top:20px; border-radius: 0.5rem;">
                     {{- end -}}

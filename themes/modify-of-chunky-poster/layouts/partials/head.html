@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.1, shrink-to-fit=yes">
 <title>
   {{ block "title" . }}
     {{ with .Params.Title }} {{ . }} | {{ end }}
@@ -23,7 +23,7 @@
     {{ if .Site.Params.prismJS.theme }}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-{{ .Site.Params.prismJS.theme }}.min.css">
     {{ else }}
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism.min.css">
     {{ end }}
 {{ end }}
 
@@ -31,8 +31,6 @@
   <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
   <script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
 {{ end }}
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/fontawesome.min.css">
 
 {{ if .Site.IsServer }}
   {{ with index .Site.Data "chunky-poster" }}
@@ -60,6 +58,7 @@
     font-size: 1em;
   }
 </style>
+
 {{ if .Site.IsServer }}
   {{ range .Site.Params.customCSS -}}
     <link rel="stylesheet" href='{{ "css/" | relURL }}{{ . }}'>

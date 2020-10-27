@@ -1,7 +1,9 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
 <section class="attachments {{ with .Get "style"}}{{.}}{{ end }}">
 	<label>
-		<i class="fas fa-paperclip"></i>
+		<span>
+			<i class="fa fa-paperclip"></i>
+		</span>
 		{{with .Get "title"}}{{.}}{{else}}{{T "Attachments-label"}}{{end}}
 	</label>
 	{{if eq .Page.File.BaseFileName "index"}}
@@ -18,7 +20,7 @@
 					<a href="{{ (printf "%s%s/%s" $fileDir ($.Scratch.Get "filesName") .Name) | relURL }}" >
 						{{.Name}}
 					</a>
-					({{div .Size 1024 }} ko)
+					({{div .Size 1024 }} kb)
 				</li>
 			{{end}}
 		{{else}}
@@ -26,7 +28,7 @@
 				<a href="{{ (printf "%s%s/%s" $fileDir ($.Scratch.Get "filesName") .Name) | relURL }}" >
 					{{.Name}}
 				</a>
-				({{div .Size 1024 }} ko)
+				({{div .Size 1024 }} kb)
 			</li>
 		{{end}}
 	{{end}}

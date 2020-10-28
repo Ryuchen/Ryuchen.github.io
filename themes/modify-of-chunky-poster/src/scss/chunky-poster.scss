@@ -2,6 +2,7 @@
     @include media-breakpoint-up(lg) {
         position: absolute;
         width: 50%;
+        max-width: 460px;
         left: 50%;
         top: 0%;
         img {
@@ -18,7 +19,7 @@
 }
 
 .badge {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     vertical-align: middle;
     line-height: $font-size-base;
 }
@@ -39,7 +40,7 @@ blockquote {
 }
 
 .content {
-    h1, h2, h3, h4, h5 {
+    h1, h2, h3, h4, h5, h6 {
         margin-top: 1.25rem;
     }
     p {
@@ -52,6 +53,10 @@ blockquote {
     }
     ol, ul, li {
         margin: 0 0.25rem !important;
+    }
+
+    .katex-display {
+        overflow-y: scroll;
     }
 }
 

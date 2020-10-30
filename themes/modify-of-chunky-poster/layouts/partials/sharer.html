@@ -1,6 +1,11 @@
 {{- if and .Site.Params.share (ne .Params.share false) -}}
     <ul class="share nav my-3 justify-content-end">
         <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://wechat.com/submit?url={{ .Permalink | htmlEscape }}&title={{ .Title | htmlEscape }}">
+                <i class="fa-fw fab fa-weixin"></i>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" target="_blank" href="https://twitter.com/intent/tweet?url={{ .Permalink | htmlEscape }}&text={{ .Title | htmlEscape }}">
               <i class="fa-fw fab fa-twitter"></i>
           </a>

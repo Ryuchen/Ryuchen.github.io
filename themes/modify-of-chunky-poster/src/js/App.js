@@ -37,6 +37,7 @@ import {
     faStackOverflow,
     faTwitter,
     faWeibo,
+    faWeixin
 } from '@fortawesome/free-brands-svg-icons';
 
 library.add(
@@ -64,6 +65,7 @@ library.add(
     faTag,
     faTwitter,
     faWeibo,
+    faWeixin,
     faPaperclip
 );
 

@@ -5,8 +5,7 @@ languageCode = "zh"
 DefaultContentLanguage = "zh"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
-googleAnalytics = "UA-XXXX"
-DisqusShortname = "ryuchen"
+googleAnalytics = "UA-G-0EFH27TG1R"
 enableEmoji = true
 theme = "modify-of-chunky-poster"
 paginate = 6
@@ -64,6 +63,7 @@ series = "series"
   description = "Everyday is a holiday"
   homepageImage = "/images/homepage-image.gif"
   share = true
+  baidu = true
   showLanguageSwitcher = false
 
   # Custom CSS and JS. Relative to /static/css and /static/js respectively.

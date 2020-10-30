@@ -27,6 +27,8 @@
     {{ partial "mathjax.html" . }}
 {{ end }}
 
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 {{ range .Site.Params.customJS -}}
     <script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ "js/" | relURL }}{{ . }}'></script>
 {{ end }}

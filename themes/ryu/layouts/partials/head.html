@@ -13,12 +13,12 @@
 <meta name="author" content='{{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}{{ .Site.Params.author }}{{ end }}'>
 
 <!-- zhanzhang.baidu.com 提供百度认证信息 -->
-<meta name="baidu-site-verification" content="" />
+<meta name="baidu-site-verification" content="code-HTFy6zZP13" />
 
 {{ if .Site.IsServer }}
   <link rel="icon" href='{{ "favicon.ico" | relURL }}'>
 {{ else }}
-  <link rel="icon" href='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/dist/{{ "favicon.ico" | relURL }}'>
+  <link rel="icon" href='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ "favicon.ico" | relURL }}'>
 {{ end }}
 
 {{ if .Site.Params.prismJS.enable }}

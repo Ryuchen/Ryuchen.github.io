@@ -13,3 +13,14 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     App.renderPlayer();
     window.renderProject = App.renderProject;
 });
+
+const dTitle = document.title;
+
+window.onblur = function () {
+    document.title = "你确定看完了？这就走了？";
+};
+
+window.onfocus = function () {
+    document.title = "对嘛~ 回来继续看~";
+    setTimeout(() => document.title = dTitle, 3000);
+};

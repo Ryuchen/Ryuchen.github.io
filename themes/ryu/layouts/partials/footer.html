@@ -50,7 +50,8 @@
                 </p>
 
                 <p class="text-muted">
-                Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with <a href="https://github.com/puresyntax71/hugo-theme-chunky-poster" target="_blank">Chunky Poster</a> modify by Ryuchen.
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
                 </p>
             </div>
             <div class="col-sm text-center">
@@ -79,9 +80,9 @@
         </div>
     </div>
     {{ if .Site.Params.music.enable -}}
-    <div class="netease-music">
-        <audio id="music-player" crossorigin playsinline>
-        </audio>
-    </div>
+        <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
     {{ end }}
 </footer>

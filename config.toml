@@ -121,4 +121,8 @@ series = "series"
 [markup]
   [markup.highlight]
     codeFences = true
+    noClasses = false
+
+[markup.goldmark.renderer]
+unsafe = true  # enable raw HTML in Markdown
 

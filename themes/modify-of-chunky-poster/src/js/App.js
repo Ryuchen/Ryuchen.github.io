@@ -125,14 +125,6 @@ export default {
         const content = decodeURIComponent(escape(data));
         $(element).html(md.render(content));
     },
-    renderKatex: () => {
-        renderMathInElement(document.body, {
-            delimiters: [
-                {left: "$$", right: "$$", display: true},
-                {left: "$", right: "$", display: false}
-            ]
-        });
-    },
     renderPlayer: () => {
         // Change "{}" to your options:
         // https://github.com/sampotts/plyr/#options

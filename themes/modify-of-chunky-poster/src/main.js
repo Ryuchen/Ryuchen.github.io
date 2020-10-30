@@ -12,7 +12,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     App.navbarFade();
     App.lightbox();
     App.syntaxHighlight();
-    App.renderKatex();
     App.renderPlayer();
     window.renderProject = App.renderProject;
 });

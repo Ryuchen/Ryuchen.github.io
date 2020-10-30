@@ -1,0 +1,9 @@
+{
+   "name":"Ryu",
+   "short_name":"ryu",
+   "icons":[
+   ],
+   "theme_color":"#0c344b",
+   "background_color":"#ffffff",
+   "display":"standalone"
+}

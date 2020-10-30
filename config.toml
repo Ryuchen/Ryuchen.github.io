@@ -1,4 +1,4 @@
-baseURL = "http://ryuchen.github.io"
+baseURL = "https://ryuchen.club"
 title = "Sweet House"
 copyright = "Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved."
 languageCode = "zh"
@@ -7,7 +7,7 @@ enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 googleAnalytics = "UA-G-0EFH27TG1R"
 enableEmoji = true
-theme = "modify-of-chunky-poster"
+theme = "ryu"
 paginate = 6
 
 [menu]
@@ -58,9 +58,9 @@ series = "series"
     "Ryuchen",
     "WangOO"
   ]
+  description = "Everyday is a holiday"
   mainSections = "post"
   github = "https://github.com/Ryuchen"
-  description = "Everyday is a holiday"
   homepageImage = "/images/homepage-image.gif"
   share = true
   baidu = true

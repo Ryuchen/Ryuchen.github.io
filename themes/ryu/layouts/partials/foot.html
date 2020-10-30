@@ -1,0 +1,51 @@
+{{ with index .Site.Data "ryu" }}
+    {{ range $vendor := .assets }}
+        {{ if $vendor.js }}
+            {{ if $.Site.IsServer }}
+                <script src='{{ print "dist/" $vendor.js | relURL }}'></script>
+            {{ else }}
+                <script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ print "dist/" $vendor.js | relURL }}'></script>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+<!-- mermaid support -->
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ print "mermaid/mermaid.js" | relURL }}'></script>
+<!-- mermaid support -->
+
+{{ if .Site.Params.prismJS.enable }}
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+{{ end }}
+
+
+{{ if .Params.math }}
+    {{ partial "mathjax.html" . }}
+{{ end }}
+
+{{ range .Site.Params.customJS -}}
+    <script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ "js/" | relURL }}{{ . }}'></script>
+{{ end }}
+
+{{ if .Site.Params.baidu }}
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+{{ end }}
+
+{{ template "_internal/google_analytics.html" . }}

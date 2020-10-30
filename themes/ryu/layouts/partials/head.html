@@ -1,0 +1,61 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  {{ block "title" . }}
+    {{ with .Params.Title }} {{ . }} | {{ end }} {{ .Site.Title }}
+  {{ end }}
+</title>
+
+{{ if .Site.Params.description }}
+  <meta name="description" content="{{ .Site.Params.description }}">
+{{ end }}
+
+<meta name="author" content='{{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}{{ .Site.Params.author }}{{ end }}'>
+
+<!-- zhanzhang.baidu.com 提供百度认证信息 -->
+<meta name="baidu-site-verification" content="" />
+
+{{ if .Site.IsServer }}
+  <link rel="icon" href='{{ "favicon.ico" | relURL }}'>
+{{ else }}
+  <link rel="icon" href='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/dist/{{ "favicon.ico" | relURL }}'>
+{{ end }}
+
+{{ if .Site.Params.prismJS.enable }}
+  {{ if .Site.Params.prismJS.theme }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-{{ .Site.Params.prismJS.theme }}.min.css">
+  {{ else }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism.min.css">
+  {{ end }}
+{{ end }}
+
+{{ with index .Site.Data "ryu" }}
+  {{ range $vendor := .assets }}
+      {{ if $vendor.css }}
+        {{ if $.Site.IsServer }}
+            <link rel="stylesheet" href='{{ print "dist/" $vendor.css | relURL }}'>
+          {{ else }}
+            <link rel="stylesheet" href='{{ print "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/dist/" $vendor.css | relURL }}'>
+          {{ end }}
+      {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ range .Site.Params.customCSS -}}
+  {{ if $.Site.IsServer }}
+    <link rel="stylesheet" href='{{ "css/" | relURL }}{{ . }}'>
+  {{ else }}
+    <link rel="stylesheet" href='{{ "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/css/" | relURL }}{{ . }}'>
+  {{ end }}
+{{ end }}
+
+{{- with .OutputFormats.Get "RSS" }}
+  <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
+  <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}">
+{{- end -}}
+
+<!-- For Website SSO -->
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- template "_internal/opengraph.html" . -}}
+{{- template "_internal/schema.html" . -}}

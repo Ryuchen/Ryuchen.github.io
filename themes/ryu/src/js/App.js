@@ -5,6 +5,12 @@ import Plyr from 'plyr';
 import MarkdownIt from 'markdown-it';
 import prismjs from "@iktakahiro/markdown-it-prismjs";
 
+import jQueryBridget from 'jquery-bridget';
+import Masonry from 'masonry-layout';
+
+// make Masonry a jQuery plugin
+jQueryBridget( 'masonry', Masonry, $ );
+
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 
 import {
@@ -148,5 +154,20 @@ export default {
         player.controls = ['play', 'progress', 'current-time', 'mute', 'volume'];
         // Expose player so it can be used from the console
         window.player = player;
+    },
+    renderPubuliu: () => {
+        var $grid = $('#gallery').masonry({
+            // disable initial layout
+            initLayout: false,
+            itemSelector: '.item',
+            // slow transitions
+            transitionDuration: '0.8s'
+        });
+        // bind event
+        $grid.masonry( 'on', 'layoutComplete', function() {
+            console.log('layout is complete');
+        });
+        // trigger initial layout
+        $grid.masonry();
     }
 };

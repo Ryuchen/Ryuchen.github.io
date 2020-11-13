@@ -1,4 +1,4 @@
-<figure class="figure{{ with .Get "class" }} {{ . }}{{ end }}">
+<figure class="figure{{ with .Get "class" }} {{ . }} {{ end }}">
     {{ if (isset .Params "repo") }}
         <a href='https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@{{ .Get "repo" }}/{{ .Get "src" }}' class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
             <img src='https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@{{ .Get "repo" }}/{{ .Get "src" }}'

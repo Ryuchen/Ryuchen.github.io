@@ -27,7 +27,7 @@
 
                         {{ $pages := .Data.Pages }}
                         {{ $paginator := .Paginate $pages }}
-                        <div class="row row-cols-1 row-cols-lg-3">
+                        <div id="gallery" class="row row-cols-1 row-cols-lg-3">
                             {{ range $paginator.Pages }}
                                 {{ .Content }}
                             {{- end -}}

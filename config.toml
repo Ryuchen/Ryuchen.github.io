@@ -19,7 +19,7 @@ paginate = 6
   [[menu.main]]
     identifier = "blog"
     name = "博文"
-    url = "/post/"
+    url = "/posts/"
     weight = 2
   [[menu.main]]
     identifier = "projects"
@@ -59,7 +59,7 @@ series = "series"
     "WangOO"
   ]
   description = "Everyday is a holiday"
-  mainSections = "post"
+  mainSections = "posts"
   github = "https://github.com/Ryuchen"
   homepageImage = "/images/homepage-image.gif"
   share = true

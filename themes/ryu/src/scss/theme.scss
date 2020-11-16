@@ -62,14 +62,24 @@ main {
     
         p {
             margin: 1.25rem 0.25rem;
-            text-indent: 2.25rem;
             line-height: 2;
+            overflow-y: hidden;
     
             img {
+                display: flex;
+                justify-content: center;
                 width: 100%;
+                max-width: 600px;
                 height: auto;
-                margin-left: -2.25rem;
-                padding: 4rem;
+                margin: 0 auto;
+                padding: 2rem;
+            }
+
+            mjx-container[jax="CHTML"][display="true"] {
+                display: block;
+                text-align: center;
+                padding: 1em 0;
+                margin: 0;
             }
         }
     

@@ -3,7 +3,7 @@ title = "About Me"
 description = "Life is a Joke, just joking it~"
 date = "2019-02-28"
 aliases = ["contact"]
-author = "Ryuchen"
+author = ["Ryuchen"]
 +++
 
 {{< wrap >}}

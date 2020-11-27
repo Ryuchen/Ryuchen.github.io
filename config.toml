@@ -5,7 +5,6 @@ languageCode = "zh"
 DefaultContentLanguage = "zh"
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
-googleAnalytics = "G-0EFH27TG1R"
 enableEmoji = true
 theme = "ryu"
 paginate = 6

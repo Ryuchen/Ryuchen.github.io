@@ -1,5 +1,3 @@
-'use esversion: 6';
-
 import $ from 'jquery';
 import Plyr from 'plyr';
 import MarkdownIt from 'markdown-it';

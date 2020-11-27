@@ -7,7 +7,7 @@ const common = require('./webpack.common');
 
 module.exports = merge(common, {
     mode: 'production',
-    devtool: 'none',
+    devtool: 'inline-source-map',
     output: {
         filename: '[name].[contenthash].min.js',
         chunkFilename: '[id].[contenthash].min.js',

@@ -1,11 +1,7 @@
 {{ with index .Site.Data "ryu" }}
     {{ range $vendor := .assets }}
         {{ if $vendor.js }}
-            {{ if $.Site.IsServer }}
-                <script src='{{ print "dist/" $vendor.js | relURL }}'></script>
-            {{ else }}
-                <script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ print "dist/" $vendor.js | relURL }}'></script>
-            {{ end }}
+            <script src='{{ print "dist/" $vendor.js | relURL }}'></script>
         {{ end }}
     {{ end }}
 {{ end }}

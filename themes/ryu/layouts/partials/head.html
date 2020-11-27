@@ -14,11 +14,7 @@
 
 <meta name="author" content='{{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}{{ .Site.Params.author }}{{ end }}'>
 
-{{ if .Site.IsServer }}
-  <link rel="icon" href='{{ "favicon.ico" | relURL }}'>
-{{ else }}
-  <link rel="icon" href='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ "favicon.ico" | relURL }}'>
-{{ end }}
+<link rel="icon" href='{{ "favicon.ico" | relURL }}'>
 
 {{ if .Site.Params.prismJS.enable }}
   {{ if .Site.Params.prismJS.theme }}
@@ -31,21 +27,13 @@
 {{ with index .Site.Data "ryu" }}
   {{ range $vendor := .assets }}
       {{ if $vendor.css }}
-        {{ if $.Site.IsServer }}
-            <link rel="stylesheet" href='{{ print "dist/" $vendor.css | relURL }}'>
-          {{ else }}
-            <link rel="stylesheet" href='{{ print "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/dist/" $vendor.css | relURL }}'>
-          {{ end }}
+        <link rel="stylesheet" href='{{ print "dist/" $vendor.css | relURL }}'>
       {{ end }}
   {{ end }}
 {{ end }}
 
 {{ range .Site.Params.customCSS -}}
-  {{ if $.Site.IsServer }}
-    <link rel="stylesheet" href='{{ "css/" | relURL }}{{ . }}'>
-  {{ else }}
-    <link rel="stylesheet" href='{{ "https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/css/" | relURL }}{{ . }}'>
-  {{ end }}
+  <link rel="stylesheet" href='{{ "css/" | relURL }}{{ . }}'>
 {{ end }}
 
 {{- with .OutputFormats.Get "RSS" }}

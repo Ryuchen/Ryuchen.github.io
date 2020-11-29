@@ -1,6 +1,25 @@
 {
+  "app": {
+    "js": "app.js"
+  },
+  "lazyload": {
+    "js": "lazyload.js"
+  },
   "main": {
-    "css": "main.ad1b02237d05fa710d15.min.css",
-    "js": "main.bf9558b8596b4accd07a.min.js"
+    "css": "main.min.css",
+    "js": "main.js"
+  },
+  "vendors~app": {
+    "css": "vendors~app.min.css",
+    "js": "vendors~app.js"
+  },
+  "vendors~app~bootstrap": {
+    "js": "vendors~app~bootstrap.js"
+  },
+  "vendors~bootstrap": {
+    "js": "vendors~bootstrap.js"
+  },
+  "vendors~ekkoLightbox": {
+    "js": "vendors~ekkoLightbox.js"
   }
 }

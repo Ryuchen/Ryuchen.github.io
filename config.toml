@@ -48,9 +48,9 @@ paginate = 6
 
 
 [taxonomies]
-category = "categories"
-tag = "tags"
-series = "series"
+  category = "categories"
+  tag = "tags"
+  series = "series"
 
 [params]
   author = [
@@ -121,7 +121,3 @@ series = "series"
   [markup.highlight]
     codeFences = true
     noClasses = false
-
-[markup.goldmark.renderer]
-unsafe = true  # enable raw HTML in Markdown
-

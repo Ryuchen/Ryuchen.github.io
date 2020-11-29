@@ -9,17 +9,14 @@
             {{- end -}}
             {{- with .Site.Params.homepageImage -}}
                 <div class="homepage-image">
-                    {{ if $.Site.IsServer }}
-                        <img src="{{ . | relURL }}" class="img-fluid">
-                    {{ else }}
-                        <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master{{ . | relURL }}" class="img-fluid" style="margin-top:20px; border-radius: 0.5rem;">
-                    {{- end -}}
+                    <img src="{{ . | relURL }}" class="img-fluid">
                 </div>
             {{- end -}}
         </div>
     </div>
 
     <!-- Latest article -->
+    <h4>最新博文</h4>
     {{- range first 1 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) -}}
         {{ $page := . }}
         <div class="latest row py-lg-3">

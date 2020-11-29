@@ -34,11 +34,7 @@
                             {{- $image := .Fit "900x500" -}}
                             <div class="row justify-content-center mb-3">
                                 <div class="col-lg-10">
-                                    {{ if $.Site.IsServer }}
-                                        <img data-src="{{ $image.RelPermalink }}" class="img-fluid rounded mx-auto d-block" alt="{{ $page.Title }}">
-                                    {{ else }}
-                                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/{{ $image.RelPermalink }}" class="img-fluid rounded mx-auto d-block" alt="{{ $page.Title }}">
-                                    {{ end }}
+                                    <img data-src="{{ $image.RelPermalink }}" class="img-fluid rounded mx-auto d-block" alt="{{ $page.Title }}">
                                 </div>
                             </div>
                         {{- end -}}
@@ -54,7 +50,7 @@
                         {{- with $page.Params.tags -}}
                             <div class="tags my-3">
                             {{- range . -}}
-                                <a class="badge badge-pill badge-light border mr-2" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">
+                                <a class="badge badge-pill badge-light border mr-2" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">
                                     <i class="fas fa-tag mr-2"></i>{{ . }}
                                 </a>
                             {{- end -}}

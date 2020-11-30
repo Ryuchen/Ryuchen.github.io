@@ -1,0 +1,140 @@
+<!doctype html><html lang=zh><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=yes"><title>Beautifulsoup4入门使用 | Sweet House</title><meta name=description content="Everyday is a holiday"><meta name=bytedance-verification-code content="MmXZwSvr8lAvM1hIXSkm"><meta name=author content="[Ryuchen WangOO]"><link rel=icon href=/favicon.ico><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css><link rel=stylesheet href=/dist/main.4707e15c5ca4eab5da71.min.css><link rel=stylesheet href=/css/shortcodes.css><link rel=canonical href=https://ryuchen.club/posts/0x000015/><meta property="og:title" content="Beautifulsoup4入门使用"><meta property="og:description" content="这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】"><meta property="og:type" content="article"><meta property="og:url" content="https://ryuchen.club/posts/0x000015/"><meta property="og:image" content="https://ryuchen.club/spider-requests.jpg"><meta property="article:published_time" content="2020-04-12T00:00:00+00:00"><meta property="article:modified_time" content="2020-04-12T00:00:00+00:00"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000014/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000013/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000011/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000012/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000010/"><meta itemprop=name content="Beautifulsoup4入门使用"><meta itemprop=description content="这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】"><meta itemprop=datePublished content="2020-04-12T00:00:00+00:00"><meta itemprop=dateModified content="2020-04-12T00:00:00+00:00"><meta itemprop=wordCount content="353"><meta itemprop=image content="https://ryuchen.club/spider-requests.jpg"><meta itemprop=keywords content="spider,requests,爬虫,"></head><body><nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id=navbar-main-menu><div class=container><a class="navbar-brand font-weight-bold" href=https://ryuchen.club>>$ cd /home_</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#main-menu aria-controls=main-menu aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=main-menu><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=/>首页</a></li><li class=nav-item><a class=nav-link href=/posts/>博文</a></li><li class=nav-item><a class=nav-link href=/projects/>项目</a></li><li class=nav-item><a class=nav-link href=/snippet/>代码</a></li><li class=nav-item><a class=nav-link href=/essay/>随笔</a></li><li class=nav-item><a class=nav-link href=/gallery/>照片墙</a></li><li class=nav-item><a class=nav-link href=/about/>关于</a></li><li class=nav-item><a class=nav-link href=https://github.com/Ryuchen target=_blank>Github</a></li></ul></div></div></nav><main class="content-page container pt-7 pb-5"><div class=row><div class=col><article><div class="row justify-content-center"><div class=col-lg-10><h1>Beautifulsoup4入门使用</h1><div class="meta text-muted mb-3" style=text-align:right><p class="created text-muted text-uppercase font-weight-bold mb-1">April 12, 2020</p><span class=mr-2><i class="fas fa-book-open mr-2"></i>4042</span>
+<span><i class="fas fa-clock mr-2"></i>18 minutes and
+22 seconds</span></div><div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href=/categories/%E7%88%AC%E8%99%AB%E7%B3%BB%E5%88%97><i class="fas fa-tag mr-2"></i>爬虫系列</a></div></div></div><div class="row justify-content-center mb-3"><div class=col-lg-10><img data-src=/images/spider-requests_huc4b4663bc63a0e31a40f04bc97652a90_494620_900x500_fit_q75_box.jpg class="img-fluid rounded mx-auto d-block" alt=Beautifulsoup4入门使用></div></div><div class="row justify-content-center"><div class=col-lg-10><div class=content><blockquote><p>[DeadPool爬虫]Beautifulsoup4入门使用</p></blockquote><p>上一篇博文介绍了selenium的入门级用法，虽说是入门级用法，通过代码多加练习其实就已经算是掌握了其精髓，之后的具体问题只需要通过平时的不断编码练习中，慢慢积攒学习就行了。接下来我们还需要掌握一个爬虫里面的必备库&ndash;Beautifulsoup4，通过这个库，将使我们通过requests请求的页面解析变得简单无比，再也不用通过绞尽脑汁的去想如何正则该如何匹配内容了。（PS: 一入正则深似海）</p><blockquote><p>再次重申，博文中介绍的内容只是个人的理解，想要掌握完全正确的知识内容还是看官方文档&ndash;<a href=https://www.crummy.com/software/BeautifulSoup/bs4/doc/>Beautifulsoup4官方文档</a></p></blockquote><blockquote><p>PS: 如果您已经有爬虫相关知识了，可以直接看我的框架地址<a href=https://github.com/Ryuchen/Deadpool>Deadpool项目</a></p></blockquote><h5 id=beautifulsoup4-介绍>Beautifulsoup4 介绍</h5><p>Beautifulsoup4 是 Beautiful Soup 项目的第四个版本，也是当前的最新版本。官方文档中明确的介绍了Beautifulsoup4究竟是一个什么样的库，以及它能解决什么样的问题。引用一下官方的介绍：</p><blockquote><p>Beautiful Soup 是一个可以从HTML或XML文件中提取数据的Python库.它能够通过你喜欢的转换器实现惯用的文档导航,查找,修改文档的方式.Beautiful Soup会帮你节省数小时甚至数天的工作时间.</p></blockquote><p>OK，通过官方的介绍说明，明确了一个概念，就是这个库具体是做什么，接下来正常情况是要介绍这个库的使用方法，但是我觉得先按下不表，还是先补充一下其他一些基本概念~</p><h5 id=数据结构--树>数据结构&ndash;树</h5><p>这里只是简单回顾一下数据结构中关于树的基本知识，有个概念就行，也是帮助后面深入理解这个Beautifulsoup库的使用，这点非常重要，想要掌握明白这个概念还是要有的。</p><h6 id=形态>形态</h6><p>树结构的样子如下，在脑海中明确其长相和内容</p><div class=mermaid align=center>graph TB
+A --> B
+A --> C
+A --> D
+B --> E
+B --> F
+C --> G
+D --> H
+D --> I
+D --> J
+E --> K
+H --> M</div><h6 id=结点>结点</h6><p>结点：上面的示意图中每一个数据元素都被称为"结点"。</p><p>结点的度：结点所拥有的子树的个数称为该结点的度。 上图中A节点的子树的数量就是三个，它的度就是3。</p><p>根结点：每一个非空树都有且只有一个被称为根的结点。 上图中里面的A就是当前树的根节点。</p><p>子结点、父结点、兄弟结点：树中一个结点的子树的根结点称为这个结点的子结点，这个结点称为孩子结点的父结点。具有同一个父结点的子结点互称为兄弟结点。 上图中B、C、D就是兄弟节点，同时也是A的孩子节点，C是G双亲节点</p><p>叶子结点：度为0的结点称为叶子结点，或者称为终端结点。 上图中的K、M就是叶子节点的代表</p><h5 id=html解析中dom树>HTML解析中DOM树</h5><p>HTML文档在解析过程中也是通过树的结构进行的，其中，解析的结果就是我们经常说的DOM树，这里举个例子直观的展示一下其效果。</p><div class=highlight><pre class=chroma><code class=language-HTML data-lang=HTML>
+<span class=cp>&lt;!DOCTYPE html&gt;</span>
+<span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
+	<span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+	    <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;UTF-8&#34;</span><span class=p>&gt;</span>
+	    <span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/css&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;style.css&#34;</span><span class=p>&gt;</span>
+	    <span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;application/javascript&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;script.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+	    <span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span>I’m the title<span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
+	<span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+	<span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+	    <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>HelloWorld<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+	    <span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
+	        <span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
+	            <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>picture:<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+	            <span class=p>&lt;</span><span class=nt>img</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;example.png&#34;</span><span class=p>/&gt;</span>
+	        <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+	        <span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
+	            <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>A paragraph of explanatory text...<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+	        <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span> 
+	    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+	<span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+
+</code></pre></div><p>上面的HTML源码通过HTML文档解析构建DOM树会形成如下的效果。</p><div class=mermaid align=center>graph TB
+html --> head
+html --> body
+head --> meta
+head --> link
+head --> script
+head --> title
+body --> h1
+body --> A[div]
+A[div] --> C[div]
+A[div] --> D[div]
+C[div] --> E[P]
+C[div] --> img
+D[div] --> F[P]</div><p>可以看得出来一个html文档在执行页面解析的过程中是按照DOM树的结构进行解析的，这里同样是有这么一个概念就行，具体还有一些其他的很多内容值得深入学习的，如果有机会也会通过博文介绍一下，当前自己才疏学浅，掌握不多~</p><h5 id=beautifulsoup解析结构>BeautifulSoup解析结构</h5><p>既然BeautifulSoup4是用来解析HTML的页面，那么其解析的过程是否跟DOM树的结构一致呢？虽然这里并没有找到示例作为参考，但是根据官方文档的描述，我们可以将前面一小节内容中的HTML代码绘制成如下效果。（PS：这里只是个人在学习的时候进行对比学习的方式，如果有错误，还请见谅）</p><div class=mermaid align=center>graph TB
+BeautifulSoup --> html
+html --> head
+html --> body
+head --> meta
+head --> link
+head --> script
+head --> title
+title --> G[I'm a title]
+body --> h1
+h1 --> H[HelloWorld]
+body --> A[div]
+A[div] --> C[div]
+A[div] --> D[div]
+C[div] --> E[p]
+E[p] --> I[picture:]
+C[div] --> img
+D[div] --> F[p]
+F[p] --> J[A paragraph of explanatory text...]</div><p>对比一下，两种解析的效果，我们可以看出来，在BeatifulSoup4中，其解析过程中，会将标签中的文本内容也当做结点进行存储。</p><p>=========</p><p>至此，我想阐明的内容就如上面展示的效果一样，一定要注意的就是BeautifulSoup4在解析HTML页面的时候会解析标签内容的~所以这里我总结了一句话作为方便记忆的口诀：<em>在BeautifulSoup4解析的页面结构中，标签内的文本内容一定是叶子结点</em>，虽然总结的不一定对，但是通过这句话希望的是阐明两个问题：</p><ul><li>BeautifulSoup4解析出来的页面树状结构与普遍认知的DOM树解析结构不同</li><li>重点是标签内的文本内容在BeautifulSoup4中会作为结点对待</li></ul><h5 id=beautifulsoup4-使用总结>BeautifulSoup4 使用总结</h5><p>通过上面的介绍，如果能理解我想表达的意思之后，个人觉得就很容易避免了官方文档中的一些坑。接下来就是个人在研读 BeautifulSoup4 库的时候一些总结，也算是作为代表，展示一下我个人在学习代码的时候，是采用什么方式进行学习的。</p><div class=highlight><pre class=chroma><code class=language-Python data-lang=Python><span class=c1># 基本使用</span>
+
+<span class=kn>from</span> <span class=nn>bs4</span> <span class=kn>import</span> <span class=n>BeautifulSoup</span>
+<span class=n>soup</span> <span class=o>=</span> <span class=n>BeautifulSoup</span><span class=p>(</span><span class=n>html_doc</span><span class=p>,</span> <span class=s1>&#39;html.parser&#39;</span><span class=p>)</span>
+
+<span class=c1># 这样就形成了一个 soup 对象，即 BeautifulSoup 解析对象</span>
+
+</code></pre></div><h6 id=对象归纳>对象归纳</h6><p>这里使用类比的方式，十分容易记忆。
+将BeautifulSoup4中的对象，类比HTML页面中的元素，就很容易记忆了~</p><ul><li>BeautifulSoup: 即HTML中的document</li><li>Tag: 即HTML中的标签元素</li><li>NavigableString：即HTML标签中的文本内容</li><li>Comment：一个完整的HTML页面，去除上面的内容，再抛开样式和js脚本，剩下的只能是注释了，所以这里对应HTML中的注释内容</li></ul><p>可以看出来，这四大类BeautifulSoup4中的对象，正好将一个完整的HTML页面元素对应起来了，结合HTML的基本知识，也能够方便记忆</p><p><em>BeautifulSoup的一些基本知识</em></p><p>这里大部分时候可以将BeautifulSoup与tag等同，但是需要注意一些具体的内容:</p><div class=highlight><pre class=chroma><code class=language-Python data-lang=Python>
+<span class=c1># soup对象中的name中包含了一个值为列表的字符串</span>
+<span class=n>soup</span><span class=o>.</span><span class=n>name</span>
+
+<span class=o>&gt;</span> <span class=sa>u</span><span class=s1>&#39;[document]&#39;</span>
+
+<span class=c1># 获取soup对象的父节点是空，所以通过这里我们可以了解到：</span>
+<span class=c1># 1、BeautifulSoup解析的文档树结构中BeautifulSoup对象是根节点</span>
+<span class=c1># 2、HTML文档的html标签是BeautifulSoup的子节点</span>
+<span class=n>soup</span><span class=o>.</span><span class=n>parent</span>
+
+<span class=o>&gt;</span> <span class=bp>None</span>
+
+</code></pre></div><p><em>Tag的一些基本知识</em></p><div class=highlight><pre class=chroma><code class=language-Python data-lang=Python>
+<span class=c1># soup 即文档的对象</span>
+<span class=n>tag</span> <span class=o>=</span> <span class=n>soup</span><span class=o>.</span><span class=n>div</span> <span class=c1># 即通过html标签的名称，获取soup解析对象中的tag对象</span>
+
+<span class=c1># 同时 tag 也提供了一个有趣的方法，个人觉得这个方法是在代码比较庞大的时候</span>
+<span class=c1># 因为获取很多对象统一取名为tag的时候，需要明确当前的tag是哪一个时使用。</span>
+<span class=n>tag</span><span class=o>.</span><span class=n>name</span>
+
+<span class=o>&gt;</span> <span class=s1>&#39;div&#39;</span>
+
+<span class=c1># 获取 tag 的全部标签属性</span>
+<span class=n>tag</span><span class=o>.</span><span class=n>attrs</span>
+
+<span class=c1># 同样也可以直接获取一个</span>
+<span class=n>tag</span><span class=p>[</span><span class=s1>&#39;class&#39;</span><span class=p>]</span>
+
+<span class=o>&gt;</span> <span class=p>[</span><span class=s1>&#39;contents&#39;</span><span class=p>,</span> <span class=s1>&#39;content-wrapper&#39;</span><span class=p>]</span>  <span class=c1># 多值的时候返回列表</span>
+
+</code></pre></div><p><em>NavigableString的一些基本知识</em></p><div class=highlight><pre class=chroma><code class=language-Python data-lang=Python>
+<span class=c1># 获取tag中的字符串</span>
+<span class=n>tag</span><span class=o>.</span><span class=n>string</span>
+
+<span class=c1># 转化成unicode字符串</span>
+<span class=n>unicode_string</span> <span class=o>=</span> <span class=nb>unicode</span><span class=p>(</span><span class=n>tag</span><span class=o>.</span><span class=n>string</span><span class=p>)</span>
+
+</code></pre></div><p>这里官方文档是这么说明的<code>一个 NavigableString 字符串与Python中的Unicode字符串相同,并且还支持包含在 遍历文档树 和 搜索文档树 中的一些特性.</code>其实简单理解成Python中的字符串对象就行了，代码操作中直接将其转化成Unicode字符串就是最理想的选择。</p><h6 id=遍历文档树>遍历文档树</h6><p>这里对具体如何通过BeautifulSoup去定位和操作HTML文档中的元素就不多加赘述了，个人建议还是通过代码去练习，自然就掌握了，不过，这里我依然通过类比的方式阐述一下如何比较方便记忆这个块的知识点~</p><p><em>查找父子结点</em></p><p><code>tag.parent和tag.children</code>
+两个方法是查找当前的<code>tag</code>对象的直接父节点或者子节点的方法。可以结合之前的图去理解，即查询的只是与当前结点直接相连的结点。</p><p><code>tag.parents和tag.descendants</code>
+这里就有点不同了，查找当前结点的所有父节点即用复数形式就行了，但是查找所有的子孙结点，就出现了专门的一个方法名词，这里很容易理解，因为子节点有可能已经是分支形态了，所以方法定义上就用的<code>children</code>，因此需要一个新的名词。</p><p>这里需要注意的是其返回的两个对象都是可以进行递归循环取值的~</p><p><em>查找兄弟结点</em></p><p><code>tag.next_sibling和tag.previous_sibling</code>
+这个就很好理解了，就是前一个和后一个兄弟节点，单数方法名，只返回一个对象</p><p><code>tag.next_siblings和tag.previous_siblings</code>
+同样结合上面说的，也很好理解了，复数形态，表明返回的的是一组对象，既然是一组也是同样可以通过递归循环取值的~</p><p><em>查找解析对象</em></p><p>首先我们直接看一下，方法的使用，然后我也同时描述一下其内容中容易忽视的一个小知识点~</p><p><code>tag.next_element和tag.previous_element</code>
+通过这两个方法，将当前的tag在解析过程中，所指向的前一个被解析的对象和后一个被解析的对象，单数方法名，返回值也为单一对象</p><p><code>tag.next_elements和tag.previous_elements</code>
+通过这两个方法，将当前的tag在解析过程中，所之前解析过的全部对象和之后解析的全部对象，复数方法名，返回值为一组对象，也是可以进行迭代的~</p><blockquote><p>PS: 这里需要结合前文所说的重点内容，即在BeautifulSoup中标签内的文本内容也是一个结点，因此有些情况下查询兄弟节点<code>tag.next_sibling和tag.previous_sibling</code>的方法和查询解析对象<code>tag.next_element和tag.previous_element</code>的方法返回的结果值是一样的，但是当tag出现了文本内容时,就不一定了~</p></blockquote><p><em>查询对象</em></p><p><code>find()和find_all()</code>
+这两个方法是不是很眼熟，这里类比一下selenium中学到的定位元素的方法看一下~</p><div class=highlight><pre class=chroma><code class=language-Python data-lang=Python>
+<span class=c1># Selenium中的方法</span>
+<span class=n>driver</span><span class=o>.</span><span class=n>find_element</span><span class=p>(</span><span class=n>By</span><span class=o>.</span><span class=n>XPATH</span><span class=p>,</span> <span class=s1>&#39;//button[text()=&#34;Some text&#34;]&#39;</span><span class=p>)</span>
+<span class=n>driver</span><span class=o>.</span><span class=n>find_elements</span><span class=p>(</span><span class=n>By</span><span class=o>.</span><span class=n>XPATH</span><span class=p>,</span> <span class=s1>&#39;//button&#39;</span><span class=p>)</span>
+
+<span class=c1># BeautifulSoup中的方法</span>
+<span class=n>soup</span><span class=o>.</span><span class=n>find</span><span class=p>(</span><span class=s2>&#34;button&#34;</span><span class=p>,</span> <span class=n>string</span><span class=o>=</span><span class=s2>&#34;Some text&#34;</span><span class=p>)</span>
+<span class=n>soup</span><span class=o>.</span><span class=n>find_all</span><span class=p>(</span><span class=s2>&#34;button&#34;</span><span class=p>)</span>
+
+</code></pre></div><p>是不是多容易记忆~</p><h5 id=实战练习>实战练习</h5><p>以上的全部内容就是这次带来的BeautifulSoup4的使用指南了，同样，经过学习之后，还是代码实战最容易掌握知识点，因此也准备了如下实战的代码</p><p>目标是：
+结合之前爬取梨视频的高级爬取中的代码，将其中通过正则方式提取短视频标题和描述的正则表达式，替换为使用BeautifulSoup4的方式~</p><blockquote><p>代码链接来自我<a href=https://github.com/huandoit/pyStudy/blob/master/daily/2020-04-13.py>女朋友的Github-2020-04-13</a></p></blockquote></div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href=/tags/spider/><i class="fas fa-tag mr-2"></i>spider
+</a><a class="badge badge-pill badge-light border mr-2" href=/tags/requests/><i class="fas fa-tag mr-2"></i>requests
+</a><a class="badge badge-pill badge-light border mr-2" href=/tags/%E7%88%AC%E8%99%AB/><i class="fas fa-tag mr-2"></i>爬虫</a></div><div style=text-align:center><div class=social-share data-sites=wechat,weibo,twitter,facebook,douban data-mobile-sites=wechat,weibo></div></div></div></div><div class="row justify-content-center"><div class=col-lg-8><div id=comments-gittalk></div><link rel=stylesheet href=https://unpkg.com/gitalk/dist/gitalk.css><script src=https://unpkg.com/gitalk/dist/gitalk.min.js></script><script>var gittalk=new Gitalk({id:'0x000015',owner:'Ryuchen',repo:'ryuchen.github.io',admin:['Ryuchen'],clientID:'cda75f43f62ef6ebc3ea',clientSecret:'e405fb603c664a6436a481917a7ee70931413268',})
+gittalk.render('comments-gittalk')</script></div></div></article></div></div><div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000014/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/spider-requests_huc4b4663bc63a0e31a40f04bc97652a90_494620_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt=selenium入门使用><div class=card-body><div class=card-title>selenium入门使用</div><div class=card-serie><span class="badge badge-pill badge-primary">爬虫系列</span> &nbsp;</div><p class="card-text text-muted text-uppercase">April 8, 2020</p><div class=card-text>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000013/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/spider-requests_huc4b4663bc63a0e31a40f04bc97652a90_494620_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt=梨视频高级爬取><div class=card-body><div class=card-title>梨视频高级爬取</div><div class=card-serie><span class="badge badge-pill badge-primary">爬虫系列</span> &nbsp;</div><p class="card-text text-muted text-uppercase">April 3, 2020</p><div class=card-text>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000012/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/spider-requests_huc4b4663bc63a0e31a40f04bc97652a90_494620_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt=梨视频初级爬取><div class=card-body><div class=card-title>梨视频初级爬取</div><div class=card-serie><span class="badge badge-pill badge-primary">爬虫系列</span> &nbsp;</div><p class="card-text text-muted text-uppercase">March 31, 2020</p><div class=card-text>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</div></div></a></div></div></div></main><footer class="footer bg-dark py-6"><div class=container><div class=row><div class="col-sm text-center"><ul class=list-inline><li class=list-inline-item><a href=https://ryuchen.club/index.xml rel=alternate type=application/rss+xml class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=mailto:chenhaom1993@hotmail.com class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://github.com/Ryuchen class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://weibo.com/u/3147247770 class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-weibo fa-stack-1x fa-inverse"></i></span></a></li></ul><p class=text-muted>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</p><p class=text-muted>京ICP备2020040667号</p><p class=text-muted>本站总记被访问 <span id=busuanzi_value_site_pv></span>次，
+您是第 <span id=busuanzi_value_site_uv></span>个来访小伙伴。</p></div><div class="col-sm text-center"><p class=text-muted>维护不易，渴望您的资助</p><ul class=list-inline><div class=row><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg alt=WechatPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg alt=AliPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div></div></ul></div></div></div><div class=netease-music><audio id=music-player crossorigin playsinline></audio></div></footer><script src=/dist/main.bf9558b8596b4accd07a.min.js></script><script src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js></script><script>window.Prism=window.Prism||{};</script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js></script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script><script>(function(){var el=document.createElement("script");el.src="https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";el.id="ttzz";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(el,s);})(window)</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin=anonymous></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-0EFH27TG1R');</script></body></html>

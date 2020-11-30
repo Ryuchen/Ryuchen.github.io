@@ -1,0 +1,117 @@
+<!doctype html><html lang=zh><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=yes"><title>[读书笔记]《西瓜书》第六章 支持向量机 铺垫 | Sweet House</title><meta name=description content="Everyday is a holiday"><meta name=bytedance-verification-code content="MmXZwSvr8lAvM1hIXSkm"><meta name=author content="[Ryuchen WangOO]"><link rel=icon href=/favicon.ico><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css><link rel=stylesheet href=/dist/main.4707e15c5ca4eab5da71.min.css><link rel=stylesheet href=/css/shortcodes.css><link rel=canonical href=https://ryuchen.club/posts/0x000029/><meta property="og:title" content="[读书笔记]《西瓜书》第六章 支持向量机 铺垫"><meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 铺垫"><meta property="og:type" content="article"><meta property="og:url" content="https://ryuchen.club/posts/0x000029/"><meta property="og:image" content="https://ryuchen.club/machine-learning.jpg"><meta property="article:published_time" content="2020-11-26T18:13:42+08:00"><meta property="article:modified_time" content="2020-11-26T18:13:42+08:00"><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002a/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000028/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000027/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000026/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000025/"><meta itemprop=name content="[读书笔记]《西瓜书》第六章 支持向量机 铺垫"><meta itemprop=description content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 铺垫"><meta itemprop=datePublished content="2020-11-26T18:13:42+08:00"><meta itemprop=dateModified content="2020-11-26T18:13:42+08:00"><meta itemprop=wordCount content="595"><meta itemprop=image content="https://ryuchen.club/machine-learning.jpg"><meta itemprop=keywords content="周志华,神经网络,西瓜书,"></head><body><nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id=navbar-main-menu><div class=container><a class="navbar-brand font-weight-bold" href=https://ryuchen.club>>$ cd /home_</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#main-menu aria-controls=main-menu aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=main-menu><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=/>首页</a></li><li class=nav-item><a class=nav-link href=/posts/>博文</a></li><li class=nav-item><a class=nav-link href=/projects/>项目</a></li><li class=nav-item><a class=nav-link href=/snippet/>代码</a></li><li class=nav-item><a class=nav-link href=/essay/>随笔</a></li><li class=nav-item><a class=nav-link href=/gallery/>照片墙</a></li><li class=nav-item><a class=nav-link href=/about/>关于</a></li><li class=nav-item><a class=nav-link href=https://github.com/Ryuchen target=_blank>Github</a></li></ul></div></div></nav><main class="content-page container pt-7 pb-5"><div class=row><div class=col><article><div class="row justify-content-center"><div class=col-lg-10><h1>[读书笔记]《西瓜书》第六章 支持向量机 铺垫</h1><div class="meta text-muted mb-3" style=text-align:right><p class="created text-muted text-uppercase font-weight-bold mb-1">November 26, 2020</p><span class=mr-2><i class="fas fa-book-open mr-2"></i>5034</span>
+<span><i class="fas fa-clock mr-2"></i>22 minutes and
+52 seconds</span></div><div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href=/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0><i class="fas fa-tag mr-2"></i>机器学习</a></div></div></div><div class="row justify-content-center mb-3"><div class=col-lg-10><img data-src=/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第六章 支持向量机 铺垫"></div></div><div class="row justify-content-center"><div class=col-lg-10><div class=content><h2 id=第六章-支持向量机-铺垫>第六章 支持向量机 铺垫</h2><hr><p>这个章节是被誉为机器学习第一道拦路虎的模型——支持向量机(support vector machine)，不过从原理上看这个章节并不难，也一下就能懂，但是其涉及到的知识就很难了~ 借用B站shuhuai008老哥在支持向量机视频讲解中说的一句话：”SVM有三宝：间隔、对偶、核技巧“。所以这个章节中，支持向量机也计划分为三个篇博文来进行阐述，主要是想引入一些自己学习过程中补充的知识当做笔记记录一下，具体的安排如下：”对偶篇“《凸优化问题》、”间隔篇“《支持向量机》、”核技巧“《核函数理解》。</p><h3 id=最优化问题>最优化问题</h3><p>最优化问题的讨论主要是在运筹学中第一次接触，但是当时还是本科生，我清晰的记得那时候上《微观经济学》这门课的时候还不是很上心，所以也没有认真学。导致现在还要时不时的子集补充一下里面的知识点内容，不过好在最近在查找一些凸优化处理的时候发现了一个上海财经大学的老师讲的视频课程，所以结合视频和子集搜集到的内容整理了这篇博文。</p><div class=bilibili-embed><div><iframe src="//player.bilibili.com/player.html?aid=91456997&bvid=BV1m7411u72b&cid=156396776&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling=no framespacing=0 allowfullscreen></iframe></div></div><p>其实是最优化问题主要是运筹学中用的最多，其实主要是用数学+管理学的知识来对实际生产问题进行建模。那么什么是最优化问题，老师在视频中给了一个最一般话的介绍（定义）：<strong>最优化问题是决策问题，选择一些可以执行的策略来使得目标最优，一个最优化问题包括以下几个方面：决策变量；一个或多个目标函数；一个由可行策略组成的集合，可由等式或不等式进行刻画。</strong></p><p>最一般的形式为：</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/11/26/3c7e9cbe3f74861345b89c060a5c939c.webp alt=image-20201126111928898></p><p>通过不同的角度可以将最优化问题的基本形式划分成很多的类别：</p><ul><li>无约束优化/有约束优化</li><li>线性/非线性优化</li><li>连续优化/离散优化</li><li>单目标优化/多目标优化</li><li>动态规划</li><li>随机规划</li><li>鲁棒优化</li></ul><p>然后我们在支持向量机中需要讨论的凸优化问题其实就是最优化问题中非常重要的一类，也是被研究的很透彻的一类，因为凸优化问题的特性，使得我们最希望在机器学习的问题中，将想要求解的最终问题（大部分情形下为损失函数的表达形式）转化或者证明就是凸优化问题，则此问题就可以借助前人的工作得到一个很好的解决。</p><blockquote><p>PS：显然梯度下降法也是最优化问题的无约束优化问题中的一种。</p></blockquote><h3 id=凸优化问题>凸优化问题</h3><p><strong>接下来的内容摘自 <a href=https://zhuanlan.zhihu.com/p/37108430>SIGAI 知乎专栏 《理解凸优化》</a></strong></p><hr><p>在最优化问题中，借助导数的定义和公式，我们可以推导出</p><blockquote><p>$x$ 是问题的一个最优解 => $x$ 点处的梯度等于0</p></blockquote><p>但是梯度等于0知识取得极值的必要条件而不是充分条件，如果我们能将这个必要条件变成充分条件</p><blockquote><p>$x$ 点处的梯度等于0 => $x$ 是问题的一个最优解</p></blockquote><p>即如果我们能够对原始的最优化问题加以限定条件，使得问题得到简化，那么就可以保证上面的等式成立了，因此凸优化问题就被引出。</p><hr><blockquote><p>PS：这里引一下B站上海财经大学的崔老师的视频，配和上面那篇知乎的文章一起食用效果更佳</p></blockquote><h4 id=凸集>凸集</h4><div class=bilibili-embed><div><iframe src="//player.bilibili.com/player.html?aid=92509388&bvid=BV1rE411H7P6&cid=157949118&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling=no framespacing=0 allowfullscreen></iframe></div></div><p>对于 $n$ 维空间中点的集合 $C$，如果对集合中的任意两点 $x$ 和 $y$，以及实数 $0 \le \theta \le 1$，都有：
+$$
+\theta x + (1-\theta)y \in C
+$$
+则称该集合为凸集。如果把这个集合画出来，其边界是凸的，没有凹进去的地方。直观来看，把该集合中的任意两点用直线连起来，直线上的点都属于该集合。相应的，点：
+$$
+\theta x + (1 - \theta)y
+$$
+称为点 $x$ 和 $y$ 的凸组合。下图是凸集和非凸集的示意图，左边是一个凸集，右边是一个非凸集：</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/11/26/c0a40833953279364c870b0b662c55f1.webp alt=img></p><p>机器学习中常见的一些凸集的例子：</p><h5 id=n-维是向量空间-rn>$n$ 维是向量空间 $R^n$</h5><p>如果 $x, y \in R^n$，则有：$\theta x + (1-\theta)y \in R^n$</p><blockquote><p>这一结论的意义在于如果一个优化问题是不带约束的优化，则其优化变量的可行域是一个凸集。</p></blockquote><h5 id=仿射子空间>仿射子空间</h5><p>给定 $m$ 行 $n$ 列的矩阵 $A$ 和 $m$ 维向量 $b$，仿射子空间定义为如下向量的集合：
+$$
+{x \in R^n: Ax = b}
+$$</p><blockquote><p>这一结论的意义在于，如果一组约束是线性等式约束，则它确定的可行域是一个凸集。</p></blockquote><h5 id=多面体>多面体</h5><p>多面体定义为如下向量的集合：
+$$
+{x \in R^n: Ax \le b}
+$$
+它就是线性不等式围城的区域。</p><blockquote><p>这一结论的意义在于，如果一组约束时线性不等式约束，则它定义的可行域是凸集。</p></blockquote><hr><p>此外还有一个重要的结论是：多个凸集的交集还是凸集。</p><blockquote><p>这些内容在知乎的文章中都有证明，因为这里只是做支持向量机的前期知识铺垫准备的，所以就不摘录全部的证明过程了，希望看到上面👆证明的可以参见文末给出的链接</p></blockquote><h4 id=凸函数>凸函数</h4><div class=bilibili-embed><div><iframe src="//player.bilibili.com/player.html?aid=95421905&bvid=BV1TE411L7wv&cid=162906257&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling=no framespacing=0 allowfullscreen></iframe></div></div><p>在微积分中我们学习过凸函数的定义，下面来回忆一下。在函数的定义域内，如果对于任意的 $x$ 和 $y$ ，以及实数 $0 \le \theta \le 1$，都满足如下条件：
+$$
+f(\theta x + (1- \theta)y) \le \theta
+$$
+则函数为凸函数。这个不等式和凸集的定义类似。从图向上看，一个函数如果是凸函数，那么它是向下凸出去的。用直线连接函数上的任何两个点 $A$ 和 $B$，线段 $AB$ 上的点都在函数的上方，如下图所示：</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/11/26/ba6ae862f59c402a1db691202e1b8a6b.webp alt=img></p><p>如果把上面不等式中的等号去掉，即：
+$$
+f(\theta x + (1-\theta)y) &lt; \theta f(x) + (1-\theta)f(y)
+$$
+则称函数是严格凸函数。凸函数的一阶判定规则为：
+$$
+f(y) \ge f(x) + \nabla f(x)^{\text{T}}(y-x)
+$$
+其几何解释为函数在任何点处的切线都位于函数的下方。对于一元函数，凸函数的判定规则为其二阶导数大于等于0，即：$f'(x) \ge 0$。如果去掉上式的等号，则函数是严格凸函数。对于多元函数，如果它是凸函数，则其Hessian矩阵为半正定矩阵。如果Hessian矩阵是正定的，则函数是严格凸函数。</p><hr><h5 id=hessian矩阵>Hessian矩阵</h5><p>Hessian矩阵是由多元函数的二阶偏导函数组成的矩阵。如果函数 $f(x_1, x_2, &mldr;, x_n)$ 二阶可导，Hessian矩阵定义为：</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/11/26/ded4a03ad0ea86c12ff1cec1b52ec3d0.webp alt=img></p><p>这是一个 $n$ 阶矩阵。一般情况下，多元函数的混合二阶偏导数与求导次序无关，即：
+$$
+\frac{\partial^2f}{\partial x_i \partial x_j} = \frac{\partial^2f}{\partial x_j \partial x_i}
+$$
+因此Hessian矩阵是一个对称矩阵，它可以看作二阶导数对多元函数的推广。Hessian矩阵简写为 $\nabla^2f(x)$ 。对于如下多元函数：
+$$
+f(x, y, z) = 2x^2 - xy + y^3 -3z^2
+$$
+它的Hessian矩阵为：</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/11/26/9baa9461f4a768cf1cf0ca37e964556b.webp alt=img></p><p>根据多元函数极值判别法，假设多元函数在点 $M$ 的梯度为0，即 $M$ 是函数的驻点，则有：</p><ol><li>如果Hessian矩阵正定，函数在该点有极小值</li><li>如果Hessian矩阵负定，函数在该点有极小值</li><li>如果Hessian矩阵不定，则不是极值点（鞍点）</li></ol><p>这里可以看做是一元函数极值判别法对多元函数的推广，Hessian矩阵正定类似于二阶导数大于0，其他的以此类推。对于 $n$ 阶矩阵 $A$，对于任意非0的 $n$ 维向量 $x$ 都有：
+$$
+x^{\text{T}}Ax > 0
+$$
+则称矩阵 $A$ 为正定矩阵。判定矩阵正定的常用方法有一下几种：</p><ol><li>矩阵的特征值全大于0</li><li>矩阵的所有顺序主子式都大于0</li><li>矩阵合同于单位阵 $I$</li></ol><p>类似的，如果一个 $n$ 阶矩阵 $A$，对于任何非 0 的 $n$ 维向量 $x$，都有：
+$$
+x^{\text{T}}Ax &lt; 0
+$$
+则称矩阵 $A$ 为负定矩阵。如果满足：
+$$
+x^{\text{T}}Ax \ge 0
+$$
+则称矩阵 $A$ 为半正定矩阵。</p><blockquote><p>一个重要的结论是凸函数的非负线性组合是凸函数，假设 $f_i$ 是凸函数，并且 $W_i \ge 0$，则：
+$$
+f(x) = \sum_{i=1}^k w_i f_i(x)
+$$
+是凸函数。</p></blockquote><h4 id=凸优化>凸优化</h4><div class=bilibili-embed><div><iframe src="//player.bilibili.com/player.html?aid=97897575&bvid=BV1xE411A7sS&cid=167119153&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling=no framespacing=0 allowfullscreen></iframe></div></div><p>有了凸集和凸函数的定义之后，我们就可以给出凸优化的定义。如果一个最优化问题的可行域是凸集，并且目标函数是凸函数，则该问题为凸优化问题。凸优化问题可以形式化的写成：
+$$
+\min f(x) \quad \text{s.t.} \quad x \in C
+$$
+其中 $x$ 为优化问题，$f$ 为凸目标函数，$C$ 是优化变量的可行域，是一个凸集。凸优化问题的另一种通用的写法是：
+$$
+\begin{align}
+& \min f(x) \\
+\text{s.t.} & \quad g_i(x) \le 0, i=1,&mldr;,m \\<br>& \quad h_i(x) = 0, i=1,&mldr;,p
+\end{align}
+$$
+其中 $g_i(x)$ 是不等式约束函数，为凸函数；$h_i(x)$ 是等式约束函数，为仿射函数。上面的定义中不等式的方向非常重要，因为一个凸函数的 0-下水平集 是凸集。因此这些不等式共同定义的可行域是一些凸集的交集，仍然为凸集。通过将不等式两边同时乘以-1，可以保证把不等式写成小于号的形式。前面已经证明仿射空间是凸集，因此加上这些等式约束后可行域还是凸集。</p><h4 id=求解方法>求解方法</h4><p>其实对于凸优化问题的求解算法很多，之前《第五章 神经网络 铺垫》那篇博文中的梯度下降法就是其中一种，其他的还有牛顿法，拟牛顿法，共轭梯度法等。这些都暂时还用不上，所以暂时不用补充进来，优先补充进来的就是拉格朗日乘对偶法。</p><blockquote><p>PS：以下博文内容主要来自 SIGAI 的知乎文章<a href=https://zhuanlan.zhihu.com/p/36296662>《用一张图理解SVM的脉络》</a></p></blockquote><p>在西瓜书第六章节支持向量机的求解过程中，其对应的求解过程就是使用拉格朗日对偶法求解的最终结果。</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/11/26/b3eca24f2a7cb0a78930a9e57ebcf625.webp alt=img></p><p>最简单的SVM从线性分类器导出，根据最大化分类间隔的目标，我们可以得到线性可分问题的SVM训练时求解的问题。但现实应用中很多数据是线性不可分的，通过加入松弛变量和惩罚因子，可以将SVM推广到线性不可分的情况，具体做法是对违反约束条件的训练样本进行惩罚，得到线性不可分的SVM训练时优化的问题。这个优化问题是一个凸优化问题，并且满足Slater条件，因此强对偶成立，通过拉格朗日对偶可以将其转化成对偶问题求解。</p><p>到这里为止，支持向量机还是一个线性模型，只不过允许有错分的训练样本存在。通过核函数，可以将它转化成非线性模型，此时的对偶问题也是一个凸优化问题。这个问题的求解普遍使用的是SMO算法，这是一种分治法，它每次选择两个变量进行优化，这两个变量的优化问题是一个带等式和不等式约束条件的二次函数极值问题，可以求出闭式解，并且这个问题也是凸优化问题。优化变量的选择通过KKT条件来确定。</p><h5 id=拉格朗日乘子法>拉格朗日乘子法</h5><p>在大学的时候学过的微积分中学过对于既有等式约束又有不等式约束的问题求解时，我们可以采用拉格朗日乘子法来进行求解。</p><p>对于凸优化问题的通式来说：
+$$
+\begin{align}
+& \min f(x) \\
+\text{s.t.} & \quad g_i(x) \le 0, i=1,&mldr;,m \\<br>& \quad h_i(x) = 0, i=1,&mldr;,p
+\end{align}
+$$
+与之对应的拉格朗日乘子函数为：
+$$
+L(x, \lambda, \mu) = f(x) + \sum_{j=1}^p \lambda_jh_j(x) + \sum_{k=1}^q\mu_kg_k(x)
+$$
+这其中 $\lambda_j，\mu_k$ 称为拉格朗日乘子。最优解为 $\boldsymbol{x}^*$ ，且这个解必须同时满足如下条件：
+$$
+\begin{align}
+h_j(\boldsymbol{x}^*) = 0 \\<br>g_k(\boldsymbol{x}^*) \le 0 \\<br>\nabla_x L(\boldsymbol{x}^*) = 0 \\<br>\lambda_j \neq 0 \\<br>\mu_k \ge 0 \\<br>\mu_kg_k(\boldsymbol{x}^*) = 0 \\<br>\end{align}
+$$
+除了原来应该满足的等式约束和不等式约束之外，唯独多了一个 $\mu_kg_k(\boldsymbol{x}^*) = 0$ 这一个条件。</p><h5 id=拉格朗日对偶法>拉格朗日对偶法</h5><p>知道拉格朗日乘子法之后，对偶则是其一种求解手段，它将一个优化问题转化为另一个更容易求解的问题，这两个问题是等价的。常见的对偶有拉格朗日对偶、Fenchel对偶。</p><p>采用同样的方式构造拉格朗日函数：
+$$
+L(x, \lambda, \mu) = f(x) + \sum_{j=1}^p \lambda_jh_j(x) + \sum_{k=1}^q\mu_kg_k(x)
+$$
+同样这其中 $\lambda_j，\mu_k$ 称为拉格朗日乘子，但不同的是 $\lambda_j$ 必须满足 $\lambda_j \ge 0$ 的约束。接下来将上面的问题转化为如下所谓的原问题的形式，其最优解为：
+$$
+p^* = \min_x \max_{\lambda,\mu} L(x, \lambda, \mu)
+$$
+等式右边的含义是先固定住变量 $x$ ，将其看成常数，让拉格朗日函数对乘子变量 $\lambda，\mu$ 求最大值。消掉这两组变量之后，再对变量 $x$ 求最小值。</p><p>而对偶问题与其最优解为：
+$$
+d^* = \max_{\lambda,\mu} \min_{x} L(x,\lambda,\mu)
+$$
+与上面的做法相反，这里是先固定拉格朗日乘子，调整 $x$ 让拉格朗日函数对 $x$ 求极小值，然后再调整拉格朗日乘子对函数求极大值。</p><blockquote><p>PS：当然这里有很严谨的证明，但是参考的这篇文章没有给出，同样我个人也建议现阶段略过</p></blockquote><p>原问题和对偶问题只是改变了求极大值和极小值的顺序，每次操控的变量是一样的。如果原问题和对偶问题都存在最优解，则对偶问题的最优值不大于原问题的最优值，即：
+$$
+d^* = \max_{\lambda,\mu} \min_{x} L(x,\lambda,\mu) \le \min_x \max_{\lambda,\mu} L(x, \lambda, \mu)
+$$
+这称为弱对偶问题，原问题最优值与对偶问题最优值的差 $p^* - d^*$ 称为对偶间隙。如果原问题和对偶问题有相同的最优解，我们就可以把求解原问题转化为求解对偶问题，这称为强对偶。强对偶成立的一种前提条件是Slater条件。</p><p>Slater条件指出，一个凸优化问题如果存在一个候选 $x$ 使得所有不等式约束都严格满足，即对于所有的 $i$ 都有 $g_i(x) &lt; 0$ （注意这里不等式不取等号）。则存在 $x^<em>, \lambda^</em>,\mu^<em>$ 使得它们分别为原问题和对偶问题的最优解，并且：
+$$
+p^</em> = d^* = L(x^*, \lambda^*, \mu^*)
+$$
+Slater条件是强对偶成立的充分条件而不是必要条件。强对偶的意义在于：我们可以将求原问题转化为求对偶问题，有些时候对偶问题比原问题更容易求解。强对偶只是将原问题转化成对偶问题，而这个对偶问题怎么求解则是另外一个问题。</p><blockquote><p>PS：结合上面的知识点，我们可以得到Slater的一个性质，即原问题P可以等价于对偶问题D的一个充分条件，该条件确保了鞍点的存在。</p></blockquote><h5 id=kkt-条件>K.K.T. 条件</h5><div class=bilibili-embed><div><iframe src="//player.bilibili.com/player.html?aid=625266493&bvid=BV1Tt4y127U1&cid=181634125&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling=no framespacing=0 allowfullscreen></iframe></div></div><p>通过上面👆的内容，我们知道了Slater条件是使强对偶成立的充分非必要条件，那么我们如何在确保使用Slater条件求出的鞍点就是我们期望的最优解呢？这个时候就需要 K.K.T.条件。</p><p>K.K.T. 条件可以描述为一下三个条件
+$$
+g_i(x) \le 0 \quad i=1,2,&mldr;,p \qquad \text{and} \qquad h_j(x) = 0 \quad j=1,2,&mldr;,q
+$$</p><blockquote><p>第一个约束条件表明：最优点 $x$ 必须满足所有等式及不等式限制条件，也就是说最优点必须是一个可行解，这一点也是我们所有目标拉格朗日函数的目标前提</p></blockquote><p>$$
+\nabla f(x^*) + \sum_{i=1}^p \alpha_i \nabla g_i(x^*) + \sum_{j=1}^q \beta_j \nabla h_j(x^*) = 0
+$$</p><blockquote><p>第二个约束条件表明：在最优点 $x$，$\nabla f$ 必须是 $\nabla g_i$ 和 $\nabla h_j$ 的线性组合</p></blockquote><p>$$
+\beta_j \neq 0 \quad \text{and} \quad \alpha_i \ge 0 \quad \text{and} \quad \alpha_i g_i(x^*) = 0 \quad i=1,2,&mldr;,p
+$$</p><blockquote><p>第三个约束条件表明：拉格朗日乘子不等式的一些限制，对于不等式的拉格朗日乘子限制条件有方向性，所以每一个 $\alpha$ 都必须大于或等于零，而等式限制条件没有方向性，只是 $\beta$ 不等于 0。</p></blockquote><h3 id=reference>Reference</h3><ul><li><a href=https://www.jiqizhixin.com/articles/2019-02-25-6>为什么凸优化这么重要？</a></li><li><a href=https://zhuanlan.zhihu.com/p/85408804>机器学习必知必会：凸优化</a></li><li><a href=https://www.jiqizhixin.com/articles/2019-03-05-8>浅谈「正定矩阵」和「半正定矩阵」</a></li><li><a href=https://zhuanlan.zhihu.com/p/37108430>理解凸优化</a></li><li><a href=https://space.bilibili.com/507629580>上海财经大学-崔老师B站视频</a></li><li><a href=https://blog.csdn.net/qq_39422642/article/details/78816637>最优化理论与凸优化到底是干嘛的？</a></li><li><a href=https://zhuanlan.zhihu.com/p/36296662>【重磅】用一张图理解SVM的脉络</a></li><li><a href=http://cs229.stanford.edu/section/cs229-cvxopt.pdf>Standford CS229 Convex Optimization Overview</a></li></ul></div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href=/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/><i class="fas fa-tag mr-2"></i>周志华
+</a><a class="badge badge-pill badge-light border mr-2" href=/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/><i class="fas fa-tag mr-2"></i>神经网络
+</a><a class="badge badge-pill badge-light border mr-2" href=/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/><i class="fas fa-tag mr-2"></i>西瓜书</a></div><div style=text-align:center><div class=social-share data-sites=wechat,weibo,twitter,facebook,douban data-mobile-sites=wechat,weibo></div></div></div></div><div class="row justify-content-center"><div class=col-lg-8><div id=comments-gittalk></div><link rel=stylesheet href=https://unpkg.com/gitalk/dist/gitalk.css><script src=https://unpkg.com/gitalk/dist/gitalk.min.js></script><script>var gittalk=new Gitalk({id:'0x000029',owner:'Ryuchen',repo:'ryuchen.github.io',admin:['Ryuchen'],clientID:'cda75f43f62ef6ebc3ea',clientSecret:'e405fb603c664a6436a481917a7ee70931413268',})
+gittalk.render('comments-gittalk')</script></div></div></article></div></div><div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000028/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第五章 神经网络 补充六"><div class=card-body><div class=card-title>[读书笔记]《西瓜书》第五章 神经网络 补充六</div><div class=card-serie><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 25, 2020</p><div class=card-text>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充六</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000027/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第五章 神经网络 补充五"><div class=card-body><div class=card-title>[读书笔记]《西瓜书》第五章 神经网络 补充五</div><div class=card-serie><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 24, 2020</p><div class=card-text>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充五</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000026/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第五章 神经网络 补充四"><div class=card-body><div class=card-title>[读书笔记]《西瓜书》第五章 神经网络 补充四</div><div class=card-serie><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 20, 2020</p><div class=card-text>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充四</div></div></a></div></div></div></main><footer class="footer bg-dark py-6"><div class=container><div class=row><div class="col-sm text-center"><ul class=list-inline><li class=list-inline-item><a href=https://ryuchen.club/index.xml rel=alternate type=application/rss+xml class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=mailto:chenhaom1993@hotmail.com class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://github.com/Ryuchen class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://weibo.com/u/3147247770 class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-weibo fa-stack-1x fa-inverse"></i></span></a></li></ul><p class=text-muted>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</p><p class=text-muted>京ICP备2020040667号</p><p class=text-muted>本站总记被访问 <span id=busuanzi_value_site_pv></span>次，
+您是第 <span id=busuanzi_value_site_uv></span>个来访小伙伴。</p></div><div class="col-sm text-center"><p class=text-muted>维护不易，渴望您的资助</p><ul class=list-inline><div class=row><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg alt=WechatPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg alt=AliPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div></div></ul></div></div></div><div class=netease-music><audio id=music-player crossorigin playsinline></audio></div></footer><script src=/dist/main.bf9558b8596b4accd07a.min.js></script><script src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js></script><script>window.Prism=window.Prism||{};</script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js></script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js></script><script>MathJax={tex:{inlineMath:[["$","$"]],},displayMath:[["$$","$$"],["\[\[","\]\]"],],svg:{fontCache:"global",},};</script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script><script>(function(){var el=document.createElement("script");el.src="https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";el.id="ttzz";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(el,s);})(window)</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin=anonymous></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-0EFH27TG1R');</script></body></html>

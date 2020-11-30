@@ -1,9 +1,306 @@
-<!doctype html><html lang=zh><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=yes"><title>Sweet House</title><meta name=description content="Everyday is a holiday"><meta name=bytedance-verification-code content="MmXZwSvr8lAvM1hIXSkm"><meta name=author content="[Ryuchen WangOO]"><link rel=icon href=/favicon.ico><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css><link rel=stylesheet href=/dist/main.4707e15c5ca4eab5da71.min.css><link rel=stylesheet href=/css/shortcodes.css><link rel=canonical href=https://ryuchen.club/essay/0x000005/><meta property="og:title" content><meta property="og:description" content=".suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000004天：
-1、Python异常的机制  所有异常的基类：BaseException 异常分为 系统内置异常 和 用户自定义异常  2、系统内置异常  主要分为 Error 和 Warning 两种 有些Error会返回错误码errno 时用时查，内置异常类层次参见Python文档 Build-in Exceptions  3、自定义异常最佳推荐  用户自定义异常均从派生于异常类Exception 建议自定义异常都以Exceptions或者except结尾，方便和内置异常区分  4、异常处理相关语法  捕获异常：try:...except(Exception1[, Exception2[,...ExceptionN]]]):...else:...  try语句工作原理如下：  首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。 如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。 如果在执行try子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和except关键字后面的异常匹配，则执行except子句 ，然后继续执行try语句之后的代码。 如果发生的异常和except子句中指定的异常不匹配，则将其传递到外部的try语句中；如果没有找到处理程序，则它是一个未处理异常，执行将停止并显示如上所示的消息。     强制抛出异常raise  raise唯一的参数就是要抛出的异常。 这个参数必须是一个异常实例或者是一个异常类(派生自Exception的类)   finally的使用  如果存在finally子句，则finally子句将作为try语句结束前的最后一项任务被执行。finally子句不论try语句是否产生了异常都会被执行 对于释放外部资源(例如文件或者网络连接)非常有用"><meta property="og:type" content="article"><meta property="og:url" content="https://ryuchen.club/essay/0x000005/"><meta property="article:published_time" content="2020-03-16T00:00:00+00:00"><meta property="article:modified_time" content="2020-03-16T00:00:00+00:00"><meta itemprop=name content><meta itemprop=description content=".suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000004天：
-1、Python异常的机制  所有异常的基类：BaseException 异常分为 系统内置异常 和 用户自定义异常  2、系统内置异常  主要分为 Error 和 Warning 两种 有些Error会返回错误码errno 时用时查，内置异常类层次参见Python文档 Build-in Exceptions  3、自定义异常最佳推荐  用户自定义异常均从派生于异常类Exception 建议自定义异常都以Exceptions或者except结尾，方便和内置异常区分  4、异常处理相关语法  捕获异常：try:...except(Exception1[, Exception2[,...ExceptionN]]]):...else:...  try语句工作原理如下：  首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。 如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。 如果在执行try子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和except关键字后面的异常匹配，则执行except子句 ，然后继续执行try语句之后的代码。 如果发生的异常和except子句中指定的异常不匹配，则将其传递到外部的try语句中；如果没有找到处理程序，则它是一个未处理异常，执行将停止并显示如上所示的消息。     强制抛出异常raise  raise唯一的参数就是要抛出的异常。 这个参数必须是一个异常实例或者是一个异常类(派生自Exception的类)   finally的使用  如果存在finally子句，则finally子句将作为try语句结束前的最后一项任务被执行。finally子句不论try语句是否产生了异常都会被执行 对于释放外部资源(例如文件或者网络连接)非常有用"><meta itemprop=datePublished content="2020-03-16T00:00:00+00:00"><meta itemprop=dateModified content="2020-03-16T00:00:00+00:00"><meta itemprop=wordCount content="64"><meta itemprop=keywords content></head><body><nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id=navbar-main-menu><div class=container><a class="navbar-brand font-weight-bold" href=https://ryuchen.club>>$ cd /home_</a>
-<button class=navbar-toggler type=button data-toggle=collapse data-target=#main-menu aria-controls=main-menu aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=main-menu><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=/>首页</a></li><li class=nav-item><a class=nav-link href=/posts/>博文</a></li><li class=nav-item><a class=nav-link href=/projects/>项目</a></li><li class=nav-item><a class=nav-link href=/snippet/>代码</a></li><li class=nav-item><a class=nav-link href=/essay/>随笔</a></li><li class=nav-item><a class=nav-link href=/gallery/>照片墙</a></li><li class=nav-item><a class=nav-link href=/about/>关于</a></li><li class=nav-item><a class=nav-link href=https://github.com/Ryuchen target=_blank>Github</a></li></ul></div></div></nav><main class="content-page container pt-7 pb-5"><div class=row><div class=col><article><div class="row justify-content-center"><div class=col-lg-10><h2 class=mb-3></h2><div class=content><style>.suibi-item{padding:20px;margin:20px 0;border:1px solid #eee;border-left-width:5px;border-radius:5px;border-left-color:#aa6708}</style><div class="row suibi-item shadow alert alert-light" style=border-left-color:green!important><div><div class=content><p>教王圈圈童靴学习Python的第0x000004天：</p><em>1、Python异常的机制</em><br><ul><li>所有异常的基类：BaseException</li><li>异常分为 <strong>系统内置异常</strong> 和 <strong>用户自定义异常</strong></li></ul><em>2、系统内置异常</em></br><ul><li>主要分为 <strong>Error</strong> 和 <strong>Warning</strong> 两种</li><li>有些Error会返回错误码errno</li><li>时用时查，内置异常类层次参见<a href=https://docs.python.org/3.8/library/exceptions.html#bltin-exceptions target=_blank>Python文档 Build-in Exceptions</a></li></ul><em>3、自定义异常最佳推荐</em></br><ul><li>用户自定义异常均从派生于异常类Exception</li><li>建议自定义异常都以Exceptions或者except结尾，方便和内置异常区分</li></ul><em>4、异常处理相关语法</em></br><ul><li>捕获异常：<code>try:...except(Exception1[, Exception2[,...ExceptionN]]]):...else:...</code><ul><li>try语句工作原理如下：<ul><li>首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。</li><li>如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。</li><li>如果在执行try子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和except关键字后面的异常匹配，则执行except子句 ，然后继续执行try语句之后的代码。</li><li>如果发生的异常和except子句中指定的异常不匹配，则将其传递到外部的try语句中；如果没有找到处理程序，则它是一个未处理异常，执行将停止并显示如上所示的消息。</li></ul></li></ul></li><li>强制抛出异常raise<ul><li>raise唯一的参数就是要抛出的异常。</li><li>这个参数必须是一个异常实例或者是一个异常类(派生自Exception的类)</li></ul></li><li>finally的使用<ul><li>如果存在finally子句，则finally子句将作为try语句结束前的最后一项任务被执行。finally子句不论try语句是否产生了异常都会被执行</li><li>对于释放外部资源(例如文件或者网络连接)非常有用</li></ul></li></ul></div></div></div></div></div></div></article></div></div></main><footer class="footer bg-dark py-6"><div class=container><div class=row><div class="col-sm text-center"><ul class=list-inline><li class=list-inline-item><a href=https://ryuchen.club/index.xml rel=alternate type=application/rss+xml class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=mailto:chenhaom1993@hotmail.com class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://github.com/Ryuchen class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://weibo.com/u/3147247770 class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-weibo fa-stack-1x fa-inverse"></i></span></a></li></ul><p class=text-muted>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</p><p class=text-muted>京ICP备2020040667号</p><p class=text-muted>本站总记被访问 <span id=busuanzi_value_site_pv></span>次，
-您是第 <span id=busuanzi_value_site_uv></span>个来访小伙伴。</p></div><div class="col-sm text-center"><p class=text-muted>维护不易，渴望您的资助</p><ul class=list-inline><div class=row><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg alt=WechatPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg alt=AliPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div></div></ul></div></div></div><div class=netease-music><audio id=music-player crossorigin playsinline></audio></div></footer><script src=/dist/main.bf9558b8596b4accd07a.min.js></script><script src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js></script><script>window.Prism=window.Prism||{};</script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js></script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script><script>(function(){var el=document.createElement("script");el.src="https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";el.id="ttzz";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(el,s);})(window)</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin=anonymous></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-0EFH27TG1R');</script></body></html>
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     Sweet House
+  
+</title>
+
+
+  <meta name="description" content="Everyday is a holiday">
+
+
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/essay/0x000005/"><meta property="og:title" content="" />
+<meta property="og:description" content=" .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000004天：
+1、Python异常的机制  所有异常的基类：BaseException 异常分为 系统内置异常 和 用户自定义异常  2、系统内置异常  主要分为 Error 和 Warning 两种 有些Error会返回错误码errno 时用时查，内置异常类层次参见Python文档 Build-in Exceptions  3、自定义异常最佳推荐  用户自定义异常均从派生于异常类Exception 建议自定义异常都以Exceptions或者except结尾，方便和内置异常区分  4、异常处理相关语法  捕获异常：try:...except(Exception1[, Exception2[,...ExceptionN]]]):...else:...  try语句工作原理如下：  首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。 如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。 如果在执行try子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和except关键字后面的异常匹配，则执行except子句 ，然后继续执行try语句之后的代码。 如果发生的异常和except子句中指定的异常不匹配，则将其传递到外部的try语句中；如果没有找到处理程序，则它是一个未处理异常，执行将停止并显示如上所示的消息。     强制抛出异常raise  raise唯一的参数就是要抛出的异常。 这个参数必须是一个异常实例或者是一个异常类(派生自Exception的类)   finally的使用  如果存在finally子句，则finally子句将作为try语句结束前的最后一项任务被执行。finally子句不论try语句是否产生了异常都会被执行 对于释放外部资源(例如文件或者网络连接)非常有用       " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/essay/0x000005/" />
+<meta property="article:published_time" content="2020-03-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-16T00:00:00+00:00" />
+<meta itemprop="name" content="">
+<meta itemprop="description" content=" .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000004天：
+1、Python异常的机制  所有异常的基类：BaseException 异常分为 系统内置异常 和 用户自定义异常  2、系统内置异常  主要分为 Error 和 Warning 两种 有些Error会返回错误码errno 时用时查，内置异常类层次参见Python文档 Build-in Exceptions  3、自定义异常最佳推荐  用户自定义异常均从派生于异常类Exception 建议自定义异常都以Exceptions或者except结尾，方便和内置异常区分  4、异常处理相关语法  捕获异常：try:...except(Exception1[, Exception2[,...ExceptionN]]]):...else:...  try语句工作原理如下：  首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。 如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。 如果在执行try子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和except关键字后面的异常匹配，则执行except子句 ，然后继续执行try语句之后的代码。 如果发生的异常和except子句中指定的异常不匹配，则将其传递到外部的try语句中；如果没有找到处理程序，则它是一个未处理异常，执行将停止并显示如上所示的消息。     强制抛出异常raise  raise唯一的参数就是要抛出的异常。 这个参数必须是一个异常实例或者是一个异常类(派生自Exception的类)   finally的使用  如果存在finally子句，则finally子句将作为try语句结束前的最后一项任务被执行。finally子句不论try语句是否产生了异常都会被执行 对于释放外部资源(例如文件或者网络连接)非常有用       ">
+<meta itemprop="datePublished" content="2020-03-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-16T00:00:00+00:00" />
+<meta itemprop="wordCount" content="64">
+
+
+
+<meta itemprop="keywords" content="" />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h2 class="mb-3"></h2>
+
+                        <div class="content">
+                            <style>
+    .suibi-item {
+        padding: 20px;
+        margin: 20px 0;
+        border: 1px solid #eee;
+        border-left-width: 5px;
+        border-radius: 5px;
+        border-left-color: #aa6708;
+    }
+</style>
+
+<div class="row suibi-item shadow alert alert-light" style="border-left-color: green !important;">
+    <div>
+        <div class="content">
+            
+    <p>教王圈圈童靴学习Python的第0x000004天：</p>
+    <em>1、Python异常的机制</em><br/>
+    <ul>
+        <li>所有异常的基类：BaseException</li>
+        <li>异常分为 <strong>系统内置异常</strong> 和 <strong>用户自定义异常</strong></li>
+    </ul>
+    <em>2、系统内置异常</em></br>
+    <ul>
+        <li>主要分为 <strong>Error</strong> 和 <strong>Warning</strong> 两种</li>
+        <li>有些Error会返回错误码errno</li>
+        <li>时用时查，内置异常类层次参见<a href="https://docs.python.org/3.8/library/exceptions.html#bltin-exceptions" target="_blank">Python文档 Build-in Exceptions</a></li>
+    </ul>
+    <em>3、自定义异常最佳推荐</em></br>
+    <ul>
+        <li>用户自定义异常均从派生于异常类Exception</li>
+        <li>建议自定义异常都以Exceptions或者except结尾，方便和内置异常区分</li>
+    </ul>
+    <em>4、异常处理相关语法</em></br>
+    <ul>
+        <li>捕获异常：<code>try:...except(Exception1[, Exception2[,...ExceptionN]]]):...else:...</code>
+            <ul>
+                <li>try语句工作原理如下：
+                    <ul>
+                        <li>首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。</li>
+                        <li>如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。</li>
+                        <li>如果在执行try子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和except关键字后面的异常匹配，则执行except子句 ，然后继续执行try语句之后的代码。</li>
+                        <li>如果发生的异常和except子句中指定的异常不匹配，则将其传递到外部的try语句中；如果没有找到处理程序，则它是一个未处理异常，执行将停止并显示如上所示的消息。</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>强制抛出异常raise
+            <ul>
+                <li>raise唯一的参数就是要抛出的异常。</li>
+                <li>这个参数必须是一个异常实例或者是一个异常类(派生自Exception的类)</li>
+            </ul>
+        </li>
+        <li>finally的使用
+            <ul>
+                <li>如果存在finally子句，则finally子句将作为try语句结束前的最后一项任务被执行。finally子句不论try语句是否产生了异常都会被执行</li>
+                <li>对于释放外部资源(例如文件或者网络连接)非常有用</li>
+            </ul>
+        </li>
+    </ul>
+
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

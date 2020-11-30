@@ -1,12 +1,455 @@
-<!doctype html><html lang=zh><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=yes"><title>[读书笔记]《西瓜书》第五章 神经网络 补充一 | Sweet House</title><meta name=description content="Everyday is a holiday"><meta name=bytedance-verification-code content="MmXZwSvr8lAvM1hIXSkm"><meta name=author content="[Ryuchen WangOO]"><link rel=icon href=/favicon.ico><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css><link rel=stylesheet href=/dist/main.4707e15c5ca4eab5da71.min.css><link rel=stylesheet href=/css/shortcodes.css><link rel=canonical href=https://ryuchen.club/posts/0x000023/><meta property="og:title" content="[读书笔记]《西瓜书》第五章 神经网络 补充一"><meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充一"><meta property="og:type" content="article"><meta property="og:url" content="https://ryuchen.club/posts/0x000023/"><meta property="og:image" content="https://ryuchen.club/machine-learning.jpg"><meta property="article:published_time" content="2020-11-19T00:00:00+00:00"><meta property="article:modified_time" content="2020-11-19T00:00:00+00:00"><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002a/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000029/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000028/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000027/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000026/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000025/"><meta itemprop=name content="[读书笔记]《西瓜书》第五章 神经网络 补充一"><meta itemprop=description content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充一"><meta itemprop=datePublished content="2020-11-19T00:00:00+00:00"><meta itemprop=dateModified content="2020-11-19T00:00:00+00:00"><meta itemprop=wordCount content="406"><meta itemprop=image content="https://ryuchen.club/machine-learning.jpg"><meta itemprop=keywords content="周志华,神经网络,西瓜书,"></head><body><nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id=navbar-main-menu><div class=container><a class="navbar-brand font-weight-bold" href=https://ryuchen.club>>$ cd /home_</a>
-<button class=navbar-toggler type=button data-toggle=collapse data-target=#main-menu aria-controls=main-menu aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=main-menu><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=/>首页</a></li><li class=nav-item><a class=nav-link href=/posts/>博文</a></li><li class=nav-item><a class=nav-link href=/projects/>项目</a></li><li class=nav-item><a class=nav-link href=/snippet/>代码</a></li><li class=nav-item><a class=nav-link href=/essay/>随笔</a></li><li class=nav-item><a class=nav-link href=/gallery/>照片墙</a></li><li class=nav-item><a class=nav-link href=/about/>关于</a></li><li class=nav-item><a class=nav-link href=https://github.com/Ryuchen target=_blank>Github</a></li></ul></div></div></nav><main class="content-page container pt-7 pb-5"><div class=row><div class=col><article><div class="row justify-content-center"><div class=col-lg-10><h1>[读书笔记]《西瓜书》第五章 神经网络 补充一</h1><div class="meta text-muted mb-3" style=text-align:right><p class="created text-muted text-uppercase font-weight-bold mb-1">November 19, 2020</p><span class=mr-2><i class="fas fa-book-open mr-2"></i>2635</span>
-<span><i class="fas fa-clock mr-2"></i>11 minutes and
-58 seconds</span></div><div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href=/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0><i class="fas fa-tag mr-2"></i>机器学习</a></div></div></div><div class="row justify-content-center mb-3"><div class=col-lg-10><img data-src=/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第五章 神经网络 补充一"></div></div><div class="row justify-content-center"><div class=col-lg-10><div class=content><h2 id=第五章-神经网络-补充一>第五章 神经网络 补充一</h2><hr><p>神经网络是现在主流的机器学习处理问题的手段，因此需要更加细致的去学习，所以这里自己搜集了一些补充知识点，而且感觉应该需要拆分成几个小章节进行论述，因此这里会使用副标题</p><h2 id=感知机模型>感知机模型</h2><h3 id=线性可分和异或问题>线性可分和异或问题</h3><blockquote><p>&ldquo;Although the perceptron rule finds a successful weight vector when the training examples are linearly separable, it can fail to converge if the examples are not linearly separable.&rdquo; &ndash; quote from 《Machine Learning book》 by Tom Mitchell</p></blockquote><hr><p>在学习西瓜书的时候，书中提到了一个知识概念并进行了补充：线性可分问题。在书中给出的答案是：若两类模式是线性可分的，即存在一个线性超平面能将它们分开？然后给出了一个特别代表性的例子：异或问题。</p><p>然后对这里个人是产生了比较浓厚的兴趣，究竟什么是<strong>线性可分</strong>（linearly separable）？</p><h4 id=线性可分>线性可分</h4><p>在找到的众多答案中，个人感觉还是wikipedia的解答最好，于是摘录在下面</p><blockquote><p>In <a href=https://en.wikipedia.org/wiki/Euclidean_geometry>Euclidean geometry</a>, <strong>linear separability</strong> is a property of two sets of <a href=https://en.wikipedia.org/wiki/Point_(geometry)>points</a>. This is most easily visualized in two dimensions (the <a href=https://en.wikipedia.org/wiki/Euclidean_plane>Euclidean plane</a>) by thinking of one set of points as being colored blue and the other set of points as being colored red. These two sets are <em>linearly separable</em> if there exists at least one <a href=https://en.wikipedia.org/wiki/Line_(geometry)>line</a> in the plane with all of the blue points on one side of the line and all the red points on the other side. This idea immediately generalizes to higher-dimensional Euclidean spaces if the line is replaced by a <a href=https://en.wikipedia.org/wiki/Hyperplane>hyperplane</a>.</p><p>The problem of determining if a pair of sets is linearly separable and finding a separating hyperplane if they are, arises in several areas. In <a href=https://en.wikipedia.org/wiki/Statistics>statistics</a> and <a href=https://en.wikipedia.org/wiki/Machine_learning>machine learning</a>, classifying certain types of data is a problem for which good algorithms exist that are based on this concept. &ndash; quote from WIKIPEDIA</p></blockquote><p>其实很好理解的一个问题，相信每一个学习机器学习的人都知道这个概念。然后各种书籍中都常见的如下的这种示意图</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/1ba4631ef1ccabdf2602d4b13f0e2158.webp alt=image-20201119155020758></p><p>假设我们想要将拥有两个特征的数据集 $(X_1，X_2)$ 分为两类，如图上图所示。 每个带有 $x$ 或 $o$ 符号的点代表一个带有一组 $(X_1，X_2)$ 值的样例。 在这里每个样例都可以被分为两类其中一个，并注意，同时这两个类别可以用一条直线 $L$ 分隔开来。则它们被称为线性可分。</p><p><strong>线性可分性</strong>是指：具有 $n$ 维特征 $\boldsymbol{x}=(x_1，x_2，&mldr;，x_n)$ 的样例的类别可以通过单个决策面 $L$ 进行分离。</p><p>但是这里本人是产生了<strong>两个疑问</strong>？</p><blockquote><ul><li>线性可分的前提条件一定是欧几里得空间吗？</li><li>为什么要强调线性可分性的问题？</li></ul></blockquote><p><strong>问题的来源</strong></p><p>首先第一个问题是源自个人在学习机器学习的同时也在恶补线性代数的知识（PS：单独学线性代数真的好难，但是借助机器学习的过程去学别有一番风味，更好的理解），所以时常会在学习的过程中去问这个模型的假设空间是什么？即个人感觉特别需要注意的是：如果是欧几里得空间的话，则其在样本的特征选择上面就必须是相互独立的特征，否则在具体实际操作模型训练的时候可能会出现问题~</p><p>其次第二个问题是源自B站shuhuai008大佬的视频，在其讲解感知机算法的视频中，强调了明斯基在当年就提出感知机模型无法解决非线性可分问题，那么为啥当年明斯基要这么强调线性可分问题呢？</p><p><strong>问题的解决</strong></p><p>当然自己也尝试去找了这两个问题的答案，</p><p>首先是第一个问题，作者这里没有在网上找到答案，能够搜集到问题描述都是建立在欧几里得空间的或者是完全不提欧式空间这个前提，所以如果您有相关的见解的话，可以给我的博客下面留言，感谢~</p><p>然后是第二个问题，当然在这个问题上找到了我理想中的答案，也是一位台大老师&ndash;林轩田的视频<a href="https://www.coursera.org/learn/ntumlone-mathematicalfoundations?source=deprecated_spark_cdp">《机器学习基石》</a>个人觉得非常值得看一看，虽然是一个很容易忽略的问题，但是这个问题非常的重要，竟然关联除了机器学习为什么会生效的哲学问题~</p><p>这里引用一下wikipedia上的示例：</p><blockquote><p>A <a href=https://en.wikipedia.org/wiki/Boolean_function>Boolean function</a> in <em>n</em> variables can be thought of as an assignment of <em>0</em> or <em>1</em> to each vertex of a Boolean <a href=https://en.wikipedia.org/wiki/Hypercube>hypercube</a> in <em>n</em> dimensions. This gives a natural division of the vertices into two sets. The Boolean function is said to be <em>linearly separable</em> provided these two sets of points are linearly separable. The number of distinct Boolean functions is ${\displaystyle 2^{2^{n}}}$ where <em>n</em> is the number of variables passed into the function.[<a href=https://en.wikipedia.org/wiki/Linear_separability#cite_note-1>1]</a></p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/6a6267cdd555fc6d59817ff1a98cda6c.webp alt=image-20201119162831586></p></blockquote><h4 id=异或问题>异或问题</h4><p>正如西瓜书中举的例子一样，逻辑运算中的异或问题常常被用来当作最简单的非线性问题举例子</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/b93bc2c5758ad1deb74ac6176388e8c7.webp alt=image-20201119163330861></p><p>即在异或（<strong>Exclusive-OR</strong>）状况下的样本点，无法使用一条直线将其分开，但其实异或可以用与、或、非三个线性问题进行表示：</p><p>$${\displaystyle {\begin{matrix}p\oplus q&=&(p\land \lnot q)&\lor &(\lnot p\land q)\\[3pt]&=&((p\land \lnot q)\lor \lnot p)&\land &((p\land \lnot q)\lor q)\\[3pt]&=&((p\lor \lnot p)\land (\lnot q\lor \lnot p))&\land &((p\lor q)\land (\lnot q\lor q))\\[3pt]&=&(\lnot p\lor \lnot q)&\land &(p\lor q)\\[3pt]&=&\lnot (p\land q)&\land &(p\lor q)\end{matrix}}}$$</p><p>书中提到当简单的两层感知机就能解决异或问题，那么是如何解决的呢？</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/4c37a4c83a4436ae7c10bc83174d16f8.webp alt=image-20201119163956067></p><p>书中给了上示的图例，可以看出当使用两层感知机模型的时候，这个时候问题的解决空间是以两个直线进行划分的了~ 看到这里的时候有没有突然引发你一个问题？</p><blockquote><p>那么三层感知机的时候对样本的划分是什么样的呢？</p></blockquote><p>在这里这个问题后续博文中再说~</p><h3 id=感知机模型-1>感知机模型</h3><p>小历史：</p><p>1957年，感知机算法Perceptron的发明，使用MCP模型对多维输入做二分类，梯度下降法学习权重。感知机算法的思想很简单，即通过样本正确与否调整分类面，使得分类面对样本的分类误差最小。该算法是神经网络和支持向量机的基础，随后被证明能够收敛，其理论和实践效果引发了第一次神经网络浪潮。</p><p>1969年，美国数学家和人工智能先驱Minsky证明了感知机是一种线性模型，它只能处理线性分类问题，比如简单的异或问题（XOR）就解决不了。</p><hr><blockquote><p>PS: 虽然机器学习书里面提到了感知机模型，但是其描述的不够详细，以下的内容整理自李航老师的《统计机器学习》</p></blockquote><h4 id=模型的定义>模型的定义</h4><p>感知机(perceptron)是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1二值。感知机对应于输入空间(特征空间)中将实例划分为正负两类的分离超平面，属于判别模型。</p><h4 id=模型的目的>模型的目的</h4><p>感知机学习旨在求出将训练数据进行线性划分的分离超平面，为此，导入基于误分类的损失函数，利用梯度下降法对损失函数进行极小化，求得感知机模型。</p><h4 id=模型的特点>模型的特点</h4><p>感知机学习算法具有简单而易于实现的优点，分为原始形式和对偶形式。</p><blockquote><p>感知机1957年由 Rosenblat提出,是神经网络与支持向量机的基础。</p></blockquote><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/39ad11113457c0a394b6f918d4ab3220.webp alt=img></p><p>虽然书中这么写，看着会让人有点绕晕，但是其实本质上很简单，整合在一起就是小学的数学公式，即</p><p>$${f(\boldsymbol{x})={\begin{cases}1&{\text{if}}\ \boldsymbol{w} \cdot \boldsymbol{x} + b > 0,\ 0&{\text{otherwise}}\end{cases}}}$$</p><p>用图形化的界面来演示的话，即</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/b89b48ff5779b31ad62fae52365738d4.webp alt="Image for post"></p><p>整个模型的直观展示的话，就是如下图，即</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/f4730660e81400395767ee244721ae3d.webp alt=img></p><p>李航老师书中给了两个感知机算法的形式，记录如下</p><h4 id=原始形式>原始形式</h4><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/133b7465012650040d54af7c9ff5ebbc.webp alt=image-20201119171103703></p><h4 id=对偶形式>对偶形式</h4><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/76719eff8416d9efbb220b77a1e3d6f5.webp alt=image-20201119171243674></p><h4 id=感知机家族>感知机家族</h4><ul><li>Pocket PLA：在搜寻最佳分类直线的时候，随机选择错误点修正，修正后的直线放在口袋里，暂时作为最佳分类线。然后如果还有错误点，继续随机选择某个错误点修正，修正后的直线与口袋里的分类线比较，把分类错误点较少的分类线放入口袋。一直到迭代次数结束，这时候放在口袋里的一定是最佳分类线，虽然可能还有错误点存在，但已经是最少的了。</li><li>Voted Perceptron</li><li>Perceptron with margin</li><li>Average PLA：其学习的过程，与Perceptron感知器的基本相同，只不过，它将所有的训练过程中的权值都保留下来，然后，求均值。它的优点是克服由于学习速率过大，所引起的训练过程中出现的震荡现象。即超平面围着一个中心，忽左忽右之类。</li></ul><h3 id=reference>Reference</h3><ul><li><a href=https://en.wikipedia.org/wiki/Linear_separability>Linear separability</a></li><li><a href=https://en.wikipedia.org/wiki/Perceptron>Perceptron</a></li><li><a href=http://www.ece.utep.edu/research/webfuzzy/docs/kk-thesis/kk-thesis-html/node19.html>Linear Separability and the XOR Problem</a></li><li><a href=https://www.zhihu.com/question/31116687>如何理解「异或」的含义？</a></li><li><a href=https://en.wikipedia.org/wiki/Perceptron>Percetron</a></li><li><a href=https://towardsdatascience.com/what-the-hell-is-perceptron-626217814f53>What the Hell is Perceptron?</a></li></ul></div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href=/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/><i class="fas fa-tag mr-2"></i>周志华
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/><i class="fas fa-tag mr-2"></i>神经网络
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/><i class="fas fa-tag mr-2"></i>西瓜书</a></div><div style=text-align:center><div class=social-share data-sites=wechat,weibo,twitter,facebook,douban data-mobile-sites=wechat,weibo></div></div></div></div><div class="row justify-content-center"><div class=col-lg-8><div id=comments-gittalk></div><link rel=stylesheet href=https://unpkg.com/gitalk/dist/gitalk.css><script src=https://unpkg.com/gitalk/dist/gitalk.min.js></script><script>var gittalk=new Gitalk({id:'0x000023',owner:'Ryuchen',repo:'ryuchen.github.io',admin:['Ryuchen'],clientID:'cda75f43f62ef6ebc3ea',clientSecret:'e405fb603c664a6436a481917a7ee70931413268',})
-gittalk.render('comments-gittalk')</script></div></div></article></div></div><div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000022/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第五章 神经网络"><div class=card-body><div class=card-title>[读书笔记]《西瓜书》第五章 神经网络</div><div class=card-serie><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 17, 2020</p><div class=card-text>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000021/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第五章 神经网络 铺垫"><div class=card-body><div class=card-title>[读书笔记]《西瓜书》第五章 神经网络 铺垫</div><div class=card-serie><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 17, 2020</p><div class=card-text>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 铺垫</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000020/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第四章 决策树 补充"><div class=card-body><div class=card-title>[读书笔记]《西瓜书》第四章 决策树 补充</div><div class=card-serie><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 17, 2020</p><div class=card-text>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树 补充</div></div></a></div></div></div></main><footer class="footer bg-dark py-6"><div class=container><div class=row><div class="col-sm text-center"><ul class=list-inline><li class=list-inline-item><a href=https://ryuchen.club/index.xml rel=alternate type=application/rss+xml class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=mailto:chenhaom1993@hotmail.com class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://github.com/Ryuchen class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://weibo.com/u/3147247770 class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-weibo fa-stack-1x fa-inverse"></i></span></a></li></ul><p class=text-muted>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</p><p class=text-muted>京ICP备2020040667号</p><p class=text-muted>本站总记被访问 <span id=busuanzi_value_site_pv></span>次，
-您是第 <span id=busuanzi_value_site_uv></span>个来访小伙伴。</p></div><div class="col-sm text-center"><p class=text-muted>维护不易，渴望您的资助</p><ul class=list-inline><div class=row><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg alt=WechatPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg alt=AliPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div></div></ul></div></div></div><div class=netease-music><audio id=music-player crossorigin playsinline></audio></div></footer><script src=/dist/main.bf9558b8596b4accd07a.min.js></script><script src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js></script><script>window.Prism=window.Prism||{};</script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js></script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js></script><script>MathJax={tex:{inlineMath:[["$","$"]],},displayMath:[["$$","$$"],["\[\[","\]\]"],],svg:{fontCache:"global",},};</script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script><script>(function(){var el=document.createElement("script");el.src="https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";el.id="ttzz";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(el,s);})(window)</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin=anonymous></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-0EFH27TG1R');</script></body></html>
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     [读书笔记]《西瓜书》第五章 神经网络 补充一 |  Sweet House
+  
+</title>
+
+
+  <meta name="description" content="Everyday is a holiday">
+
+
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x000023/"><meta property="og:title" content="[读书笔记]《西瓜书》第五章 神经网络 补充一" />
+<meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x000023/" />
+<meta property="og:image" content="https://ryuchen.club/machine-learning.jpg" />
+<meta property="article:published_time" content="2020-11-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-19T00:00:00+00:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002b/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002a/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000029/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000028/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000027/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000026/" />
+
+<meta itemprop="name" content="[读书笔记]《西瓜书》第五章 神经网络 补充一">
+<meta itemprop="description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充一">
+<meta itemprop="datePublished" content="2020-11-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="406">
+<meta itemprop="image" content="https://ryuchen.club/machine-learning.jpg">
+
+
+
+<meta itemprop="keywords" content="周志华,神经网络,西瓜书," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>[读书笔记]《西瓜书》第五章 神经网络 补充一</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">November 19, 2020</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>2635</span>
+                            <span><i class="fas fa-clock mr-2"></i>11 minutes and
+                                58 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+                                    <i class="fas fa-tag mr-2"></i>机器学习
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg" class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第五章 神经网络 补充一">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <h2 id="第五章-神经网络-补充一">第五章 神经网络 补充一</h2>
+<hr>
+<p>神经网络是现在主流的机器学习处理问题的手段，因此需要更加细致的去学习，所以这里自己搜集了一些补充知识点，而且感觉应该需要拆分成几个小章节进行论述，因此这里会使用副标题</p>
+<h2 id="感知机模型">感知机模型</h2>
+<h3 id="线性可分和异或问题">线性可分和异或问题</h3>
+<blockquote>
+<p>&ldquo;Although the perceptron rule finds a successful weight vector when the training examples are linearly separable, it can fail to converge if the examples are not linearly separable.&rdquo; &ndash; quote from 《Machine Learning book》 by Tom Mitchell</p>
+</blockquote>
+<hr>
+<p>在学习西瓜书的时候，书中提到了一个知识概念并进行了补充：线性可分问题。在书中给出的答案是：若两类模式是线性可分的，即存在一个线性超平面能将它们分开？然后给出了一个特别代表性的例子：异或问题。</p>
+<p>然后对这里个人是产生了比较浓厚的兴趣，究竟什么是<strong>线性可分</strong>（linearly separable）？</p>
+<h4 id="线性可分">线性可分</h4>
+<p>在找到的众多答案中，个人感觉还是wikipedia的解答最好，于是摘录在下面</p>
+<blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Euclidean_geometry">Euclidean geometry</a>, <strong>linear separability</strong> is a property of two sets of <a href="https://en.wikipedia.org/wiki/Point_(geometry)">points</a>. This is most easily visualized in two dimensions (the <a href="https://en.wikipedia.org/wiki/Euclidean_plane">Euclidean plane</a>) by thinking of one set of points as being colored blue and the other set of points as being colored red. These two sets are <em>linearly separable</em> if there exists at least one <a href="https://en.wikipedia.org/wiki/Line_(geometry)">line</a> in the plane with all of the blue points on one side of the line and all the red points on the other side. This idea immediately generalizes to higher-dimensional Euclidean spaces if the line is replaced by a <a href="https://en.wikipedia.org/wiki/Hyperplane">hyperplane</a>.</p>
+<p>The problem of determining if a pair of sets is linearly separable and finding a separating hyperplane if they are, arises in several areas. In <a href="https://en.wikipedia.org/wiki/Statistics">statistics</a> and <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a>, classifying certain types of data is a problem for which good algorithms exist that are based on this concept. &ndash; quote from WIKIPEDIA</p>
+</blockquote>
+<p>其实很好理解的一个问题，相信每一个学习机器学习的人都知道这个概念。然后各种书籍中都常见的如下的这种示意图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/1ba4631ef1ccabdf2602d4b13f0e2158.webp" alt="image-20201119155020758"></p>
+<p>假设我们想要将拥有两个特征的数据集 $(X_1，X_2)$ 分为两类，如图上图所示。 每个带有 $x$ 或 $o$ 符号的点代表一个带有一组 $(X_1，X_2)$ 值的样例。 在这里每个样例都可以被分为两类其中一个，并注意，同时这两个类别可以用一条直线 $L$ 分隔开来。则它们被称为线性可分。</p>
+<p><strong>线性可分性</strong>是指：具有 $n$ 维特征 $\boldsymbol{x}=(x_1，x_2，&hellip;，x_n)$ 的样例的类别可以通过单个决策面 $L$ 进行分离。</p>
+<p>但是这里本人是产生了<strong>两个疑问</strong>？</p>
+<blockquote>
+<ul>
+<li>线性可分的前提条件一定是欧几里得空间吗？</li>
+<li>为什么要强调线性可分性的问题？</li>
+</ul>
+</blockquote>
+<p><strong>问题的来源</strong></p>
+<p>首先第一个问题是源自个人在学习机器学习的同时也在恶补线性代数的知识（PS：单独学线性代数真的好难，但是借助机器学习的过程去学别有一番风味，更好的理解），所以时常会在学习的过程中去问这个模型的假设空间是什么？即个人感觉特别需要注意的是：如果是欧几里得空间的话，则其在样本的特征选择上面就必须是相互独立的特征，否则在具体实际操作模型训练的时候可能会出现问题~</p>
+<p>其次第二个问题是源自B站shuhuai008大佬的视频，在其讲解感知机算法的视频中，强调了明斯基在当年就提出感知机模型无法解决非线性可分问题，那么为啥当年明斯基要这么强调线性可分问题呢？</p>
+<p><strong>问题的解决</strong></p>
+<p>当然自己也尝试去找了这两个问题的答案，</p>
+<p>首先是第一个问题，作者这里没有在网上找到答案，能够搜集到问题描述都是建立在欧几里得空间的或者是完全不提欧式空间这个前提，所以如果您有相关的见解的话，可以给我的博客下面留言，感谢~</p>
+<p>然后是第二个问题，当然在这个问题上找到了我理想中的答案，也是一位台大老师&ndash;林轩田的视频<a href="https://www.coursera.org/learn/ntumlone-mathematicalfoundations?source=deprecated_spark_cdp">《机器学习基石》</a>个人觉得非常值得看一看，虽然是一个很容易忽略的问题，但是这个问题非常的重要，竟然关联除了机器学习为什么会生效的哲学问题~</p>
+<p>这里引用一下wikipedia上的示例：</p>
+<blockquote>
+<p>A <a href="https://en.wikipedia.org/wiki/Boolean_function">Boolean function</a> in <em>n</em> variables can be thought of as an assignment of <em>0</em> or <em>1</em> to each vertex of a Boolean <a href="https://en.wikipedia.org/wiki/Hypercube">hypercube</a> in <em>n</em> dimensions. This gives a natural division of the vertices into two sets. The Boolean function is said to be <em>linearly separable</em> provided these two sets of points are linearly separable. The number of distinct Boolean functions is ${\displaystyle 2^{2^{n}}}$ where <em>n</em> is the number of variables passed into the function.[<a href="https://en.wikipedia.org/wiki/Linear_separability#cite_note-1">1]</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/6a6267cdd555fc6d59817ff1a98cda6c.webp" alt="image-20201119162831586"></p>
+</blockquote>
+<h4 id="异或问题">异或问题</h4>
+<p>正如西瓜书中举的例子一样，逻辑运算中的异或问题常常被用来当作最简单的非线性问题举例子</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/b93bc2c5758ad1deb74ac6176388e8c7.webp" alt="image-20201119163330861"></p>
+<p>即在异或（<strong>Exclusive-OR</strong>）状况下的样本点，无法使用一条直线将其分开，但其实异或可以用与、或、非三个线性问题进行表示：</p>
+<p>$${\displaystyle {\begin{matrix}p\oplus q&amp;=&amp;(p\land \lnot q)&amp;\lor &amp;(\lnot p\land q)\\[3pt]&amp;=&amp;((p\land \lnot q)\lor \lnot p)&amp;\land &amp;((p\land \lnot q)\lor q)\\[3pt]&amp;=&amp;((p\lor \lnot p)\land (\lnot q\lor \lnot p))&amp;\land &amp;((p\lor q)\land (\lnot q\lor q))\\[3pt]&amp;=&amp;(\lnot p\lor \lnot q)&amp;\land &amp;(p\lor q)\\[3pt]&amp;=&amp;\lnot (p\land q)&amp;\land &amp;(p\lor q)\end{matrix}}}$$</p>
+<p>书中提到当简单的两层感知机就能解决异或问题，那么是如何解决的呢？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/4c37a4c83a4436ae7c10bc83174d16f8.webp" alt="image-20201119163956067"></p>
+<p>书中给了上示的图例，可以看出当使用两层感知机模型的时候，这个时候问题的解决空间是以两个直线进行划分的了~ 看到这里的时候有没有突然引发你一个问题？</p>
+<blockquote>
+<p>那么三层感知机的时候对样本的划分是什么样的呢？</p>
+</blockquote>
+<p>在这里这个问题后续博文中再说~</p>
+<h3 id="感知机模型-1">感知机模型</h3>
+<p>小历史：</p>
+<p>1957年，感知机算法Perceptron的发明，使用MCP模型对多维输入做二分类，梯度下降法学习权重。感知机算法的思想很简单，即通过样本正确与否调整分类面，使得分类面对样本的分类误差最小。该算法是神经网络和支持向量机的基础，随后被证明能够收敛，其理论和实践效果引发了第一次神经网络浪潮。</p>
+<p>1969年，美国数学家和人工智能先驱Minsky证明了感知机是一种线性模型，它只能处理线性分类问题，比如简单的异或问题（XOR）就解决不了。</p>
+<hr>
+<blockquote>
+<p>PS: 虽然机器学习书里面提到了感知机模型，但是其描述的不够详细，以下的内容整理自李航老师的《统计机器学习》</p>
+</blockquote>
+<h4 id="模型的定义">模型的定义</h4>
+<p>感知机(perceptron)是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1二值。感知机对应于输入空间(特征空间)中将实例划分为正负两类的分离超平面，属于判别模型。</p>
+<h4 id="模型的目的">模型的目的</h4>
+<p>感知机学习旨在求出将训练数据进行线性划分的分离超平面，为此，导入基于误分类的损失函数，利用梯度下降法对损失函数进行极小化，求得感知机模型。</p>
+<h4 id="模型的特点">模型的特点</h4>
+<p>感知机学习算法具有简单而易于实现的优点，分为原始形式和对偶形式。</p>
+<blockquote>
+<p>感知机1957年由 Rosenblat提出,是神经网络与支持向量机的基础。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/39ad11113457c0a394b6f918d4ab3220.webp" alt="img"></p>
+<p>虽然书中这么写，看着会让人有点绕晕，但是其实本质上很简单，整合在一起就是小学的数学公式，即</p>
+<p>$${f(\boldsymbol{x})={\begin{cases}1&amp;{\text{if}}\ \boldsymbol{w} \cdot \boldsymbol{x} + b &gt; 0,\ 0&amp;{\text{otherwise}}\end{cases}}}$$</p>
+<p>用图形化的界面来演示的话，即</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/b89b48ff5779b31ad62fae52365738d4.webp" alt="Image for post"></p>
+<p>整个模型的直观展示的话，就是如下图，即</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/f4730660e81400395767ee244721ae3d.webp" alt="img"></p>
+<p>李航老师书中给了两个感知机算法的形式，记录如下</p>
+<h4 id="原始形式">原始形式</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/133b7465012650040d54af7c9ff5ebbc.webp" alt="image-20201119171103703"></p>
+<h4 id="对偶形式">对偶形式</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/19/76719eff8416d9efbb220b77a1e3d6f5.webp" alt="image-20201119171243674"></p>
+<h4 id="感知机家族">感知机家族</h4>
+<ul>
+<li>Pocket PLA：在搜寻最佳分类直线的时候，随机选择错误点修正，修正后的直线放在口袋里，暂时作为最佳分类线。然后如果还有错误点，继续随机选择某个错误点修正，修正后的直线与口袋里的分类线比较，把分类错误点较少的分类线放入口袋。一直到迭代次数结束，这时候放在口袋里的一定是最佳分类线，虽然可能还有错误点存在，但已经是最少的了。</li>
+<li>Voted Perceptron</li>
+<li>Perceptron with margin</li>
+<li>Average PLA：其学习的过程，与Perceptron感知器的基本相同，只不过，它将所有的训练过程中的权值都保留下来，然后，求均值。它的优点是克服由于学习速率过大，所引起的训练过程中出现的震荡现象。即超平面围着一个中心，忽左忽右之类。</li>
+</ul>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Linear_separability">Linear separability</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Perceptron">Perceptron</a></li>
+<li><a href="http://www.ece.utep.edu/research/webfuzzy/docs/kk-thesis/kk-thesis-html/node19.html">Linear Separability and the XOR Problem</a></li>
+<li><a href="https://www.zhihu.com/question/31116687">如何理解「异或」的含义？</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Perceptron">Percetron</a></li>
+<li><a href="https://towardsdatascience.com/what-the-hell-is-perceptron-626217814f53">What the Hell is Perceptron?</a></li>
+</ul>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/">
+                                    <i class="fas fa-tag mr-2"></i>周志华
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                    <i class="fas fa-tag mr-2"></i>神经网络
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/">
+                                    <i class="fas fa-tag mr-2"></i>西瓜书
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x000023',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000022/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第五章 神经网络">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第五章 神经网络
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 17, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000021/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第五章 神经网络 铺垫">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第五章 神经网络 铺垫
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 17, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 铺垫
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000020/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第四章 决策树 补充">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第四章 决策树 补充
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 17, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树 补充
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

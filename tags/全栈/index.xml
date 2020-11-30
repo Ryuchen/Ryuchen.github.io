@@ -1,1 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>全栈 on Sweet House</title><link>https://ryuchen.club/tags/%E5%85%A8%E6%A0%88/</link><description>Recent content in 全栈 on Sweet House</description><generator>Hugo -- gohugo.io</generator><language>zh</language><copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright><lastBuildDate>Sat, 06 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ryuchen.club/tags/%E5%85%A8%E6%A0%88/index.xml" rel="self" type="application/rss+xml"/><item><title>Django中间件的理解</title><link>https://ryuchen.club/posts/0x000003/</link><pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000003/</guid><description>这篇文章的主要目的是帮助自己总结下过去使用 django 中间件中发生的问题的时候，需要进行注意的地方，那是在一次审查 django 在接收前端请求过程中过慢的问题，后续发现是中间件中频繁对文本资源进行读取，而且还通过递归的方式进行了文件的遍历，造成效率的低下，于是总结了一下经验。</description></item><item><title>企业前端开发隔离方案</title><link>https://ryuchen.club/posts/0x000002/</link><pubDate>Sat, 29 Jun 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000002/</guid><description>之前的工作环境中，由于系统的整体性过于强，尤其是对于面向企业级客户的单机项目中，解耦合程度不高的情况下，我们无法让多位开发人员共享一台开发环境，导致最终造成开发效率低下和开发成本过高，对于这个问题我也思考了很久，后来整理了一些自己的看法和方式，形成了下面的文章，算是面向以前的经验和教训</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>全栈 on Sweet House</title>
+    <link>https://ryuchen.club/tags/%E5%85%A8%E6%A0%88/</link>
+    <description>Recent content in 全栈 on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
+    <lastBuildDate>Sat, 06 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ryuchen.club/tags/%E5%85%A8%E6%A0%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Django中间件的理解</title>
+      <link>https://ryuchen.club/posts/0x000003/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000003/</guid>
+      <description>这篇文章的主要目的是帮助自己总结下过去使用 django 中间件中发生的问题的时候，需要进行注意的地方，那是在一次审查 django 在接收前端请求过程中过慢的问题，后续发现是中间件中频繁对文本资源进行读取，而且还通过递归的方式进行了文件的遍历，造成效率的低下，于是总结了一下经验。</description>
+    </item>
+    
+    <item>
+      <title>企业前端开发隔离方案</title>
+      <link>https://ryuchen.club/posts/0x000002/</link>
+      <pubDate>Sat, 29 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000002/</guid>
+      <description>之前的工作环境中，由于系统的整体性过于强，尤其是对于面向企业级客户的单机项目中，解耦合程度不高的情况下，我们无法让多位开发人员共享一台开发环境，导致最终造成开发效率低下和开发成本过高，对于这个问题我也思考了很久，后来整理了一些自己的看法和方式，形成了下面的文章，算是面向以前的经验和教训</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,1 +1,93 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>神经网络 on Sweet House</title><link>https://ryuchen.club/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link><description>Recent content in 神经网络 on Sweet House</description><generator>Hugo -- gohugo.io</generator><language>zh</language><copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright><lastBuildDate>Thu, 26 Nov 2020 18:13:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml"/><item><title>[读书笔记]《西瓜书》第六章 支持向量机 铺垫</title><link>https://ryuchen.club/posts/0x000029/</link><pubDate>Thu, 26 Nov 2020 18:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x000029/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 铺垫</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充六</title><link>https://ryuchen.club/posts/0x000028/</link><pubDate>Wed, 25 Nov 2020 11:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x000028/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充六</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充五</title><link>https://ryuchen.club/posts/0x000027/</link><pubDate>Tue, 24 Nov 2020 19:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x000027/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充五</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充四</title><link>https://ryuchen.club/posts/0x000026/</link><pubDate>Fri, 20 Nov 2020 19:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x000026/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充四</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充三</title><link>https://ryuchen.club/posts/0x000025/</link><pubDate>Fri, 20 Nov 2020 14:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x000025/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充三</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充二</title><link>https://ryuchen.club/posts/0x000024/</link><pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000024/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充二</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充一</title><link>https://ryuchen.club/posts/0x000023/</link><pubDate>Thu, 19 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000023/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充一</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络</title><link>https://ryuchen.club/posts/0x000022/</link><pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000022/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 铺垫</title><link>https://ryuchen.club/posts/0x000021/</link><pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000021/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 铺垫</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>神经网络 on Sweet House</title>
+    <link>https://ryuchen.club/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</link>
+    <description>Recent content in 神经网络 on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
+    <lastBuildDate>Thu, 26 Nov 2020 18:13:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[读书笔记]《西瓜书》第六章 支持向量机 铺垫</title>
+      <link>https://ryuchen.club/posts/0x000029/</link>
+      <pubDate>Thu, 26 Nov 2020 18:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000029/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 铺垫</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充六</title>
+      <link>https://ryuchen.club/posts/0x000028/</link>
+      <pubDate>Wed, 25 Nov 2020 11:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000028/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充六</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充五</title>
+      <link>https://ryuchen.club/posts/0x000027/</link>
+      <pubDate>Tue, 24 Nov 2020 19:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000027/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充五</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充四</title>
+      <link>https://ryuchen.club/posts/0x000026/</link>
+      <pubDate>Fri, 20 Nov 2020 19:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000026/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充四</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充三</title>
+      <link>https://ryuchen.club/posts/0x000025/</link>
+      <pubDate>Fri, 20 Nov 2020 14:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000025/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充三</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充二</title>
+      <link>https://ryuchen.club/posts/0x000024/</link>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000024/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充二</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充一</title>
+      <link>https://ryuchen.club/posts/0x000023/</link>
+      <pubDate>Thu, 19 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000023/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充一</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络</title>
+      <link>https://ryuchen.club/posts/0x000022/</link>
+      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000022/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 铺垫</title>
+      <link>https://ryuchen.club/posts/0x000021/</link>
+      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000021/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 铺垫</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>simpleui on Sweet House</title><link>https://ryuchen.club/tags/simpleui/</link><description>Recent content in simpleui on Sweet House</description><generator>Hugo -- gohugo.io</generator><language>zh</language><copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright><lastBuildDate>Fri, 02 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ryuchen.club/tags/simpleui/index.xml" rel="self" type="application/rss+xml"/><item><title>Bistu后台管理项目</title><link>https://ryuchen.club/posts/0x000007/</link><pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000007/</guid><description>这个项目起始是因为学校之前的老师找到我，说让我帮忙弄个进行管理基本管理数据的小工具，听起来也并不是很难（然而，后期我一直在搞这个，深陷其中不可自拔），于是痛快的答应下来，后续就一直在弄这个小平台了~</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>simpleui on Sweet House</title>
+    <link>https://ryuchen.club/tags/simpleui/</link>
+    <description>Recent content in simpleui on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
+    <lastBuildDate>Fri, 02 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ryuchen.club/tags/simpleui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bistu后台管理项目</title>
+      <link>https://ryuchen.club/posts/0x000007/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000007/</guid>
+      <description>这个项目起始是因为学校之前的老师找到我，说让我帮忙弄个进行管理基本管理数据的小工具，听起来也并不是很难（然而，后期我一直在搞这个，深陷其中不可自拔），于是痛快的答应下来，后续就一直在弄这个小平台了~</description>
+    </item>
+    
+  </channel>
+</rss>

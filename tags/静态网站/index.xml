@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>静态网站 on Sweet House</title><link>https://ryuchen.club/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</link><description>Recent content in 静态网站 on Sweet House</description><generator>Hugo -- gohugo.io</generator><language>zh</language><copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright><lastBuildDate>Mon, 23 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ryuchen.club/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/index.xml" rel="self" type="application/rss+xml"/><item><title>首次搭建Hugo博客框架</title><link>https://ryuchen.club/posts/0x00000e/</link><pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00000e/</guid><description>之前使用Github Pages配合Hexo搭建的博客，长时间不进行维护，偶然想升级个版本，结果给搞砸了，导致运行起来样式错乱，加上本人不太喜欢写Javascript代码，所以索性把Blog迁移到Hugo框架下</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>静态网站 on Sweet House</title>
+    <link>https://ryuchen.club/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</link>
+    <description>Recent content in 静态网站 on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
+    <lastBuildDate>Mon, 23 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ryuchen.club/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>首次搭建Hugo博客框架</title>
+      <link>https://ryuchen.club/posts/0x00000e/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00000e/</guid>
+      <description>之前使用Github Pages配合Hexo搭建的博客，长时间不进行维护，偶然想升级个版本，结果给搞砸了，导致运行起来样式错乱，加上本人不太喜欢写Javascript代码，所以索性把Blog迁移到Hugo框架下</description>
+    </item>
+    
+  </channel>
+</rss>

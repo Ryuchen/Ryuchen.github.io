@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     [读书笔记]《西瓜书》第六章 支持向量机 补充 |  Sweet House
+  
+</title>
+
+
+  <meta name="description" content="Everyday is a holiday">
+
+
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x00002b/"><meta property="og:title" content="[读书笔记]《西瓜书》第六章 支持向量机 补充" />
+<meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 补充" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x00002b/" />
+<meta property="og:image" content="https://ryuchen.club/machine-learning.jpg" />
+<meta property="article:published_time" content="2020-11-30T11:13:42+08:00" />
+<meta property="article:modified_time" content="2020-11-30T11:13:42+08:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002a/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000029/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000028/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000027/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000026/" />
+
+<meta itemprop="name" content="[读书笔记]《西瓜书》第六章 支持向量机 补充">
+<meta itemprop="description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 补充">
+<meta itemprop="datePublished" content="2020-11-30T11:13:42+08:00" />
+<meta itemprop="dateModified" content="2020-11-30T11:13:42+08:00" />
+<meta itemprop="wordCount" content="407">
+<meta itemprop="image" content="https://ryuchen.club/machine-learning.jpg">
+
+
+
+<meta itemprop="keywords" content="周志华,支持向量机,西瓜书," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>[读书笔记]《西瓜书》第六章 支持向量机 补充</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">November 30, 2020</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>2977</span>
+                            <span><i class="fas fa-clock mr-2"></i>13 minutes and
+                                31 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+                                    <i class="fas fa-tag mr-2"></i>机器学习
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg" class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第六章 支持向量机 补充">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <h2 id="第六章-支持向量机-补充">第六章 支持向量机 补充</h2>
+<hr>
+<p>SVM这一章节其实在西瓜书中已经介绍的相当完整了，而且在各大网络上的教程中，也是介绍的相对比较详细的那一章节。不过个人理解，其实核技巧或者说核函数并不一定用在SVM中，而且在后面的章节中也出现过。不过，相对于支持向量机的本身的理解来说，核技巧相对来说要难理解的多一些。</p>
+<h3 id="核技巧">核技巧</h3>
+<p>其实核技巧是一个本身非常纯粹的数学方法而已，而且是一种比较投机取巧的方法，目的其实就是为了减少计算的工作量。如果想从根本上理解这个方法，就要先理解一下核技巧出现的问题前提。</p>
+<h4 id="问题描述">问题描述</h4>
+<p>假设现在我们手中有两个向量，现在我们的目标是要计算着两个向量的点积，即我们可以设用数学的公式表达的话为如下形式
+$$
+T: &lt;\boldsymbol{x}, \boldsymbol{y}&gt;
+$$
+如果这两个向量 $\boldsymbol{x}$ 和 $\boldsymbol{y}$ 是我们熟悉的比如二维向量的话，那么计算起来就非常的简单，即我们对位相乘再相加就行了。但是现在我们不止于此，我们再推广一下，假设现在这两个向量都是一万维的向量呢？即我们需要计算的工作量变成了
+$$
+T:&lt;\boldsymbol{x},\boldsymbol{y}&gt; = 10000次乘法 + 10000次加法
+$$
+这时候这个计算的复杂度已经很高了，也就是说要计算这个结果就已经是非常困难的（当然在如今来看这个计算复杂度并不高）。我们再继续推广一下，假设现在我们不仅是要计算两个一万维的向量，而是要计算其在进行某种非线性变换后的得到的两个向量的内积呢？即我们定义非线性变换为 $\Phi: \boldsymbol{x} \mapsto \phi(\boldsymbol{x}) $ ，然后我们得到的是目标公式是
+$$
+T:&lt; \phi(\boldsymbol{x}), \phi(\boldsymbol{y})&gt; = 10000次乘法 + 10000次加法
+$$</p>
+<blockquote>
+<p>PS：为了方便说明，这里不考虑非线性变换后导致的特征维度变化的情况。</p>
+</blockquote>
+<p>上面的这个目标公式里还没加上非线性变换函数的计算量，这样，我们假设一下，非线性函数仅仅由每个向量内部的两个相邻特征相乘得到，于是我们又可以的得到
+$$
+T:&lt;\phi(\boldsymbol{x}), \phi(\boldsymbol{y})&gt; = 10000次乘法 + 10000次加法 + 20000次乘法（非线性）
+$$
+怎么样，看似计算量还可以是不是，但是其实本身上复杂度已经很高了，另外考虑到实际的应用场景来说，我们有一个比较难以抉择的问题，即这个非线性变换如何选择？究竟哪个非线性变换才比较适合？虽然我们现在选择的是两个相邻的特征两两相乘，但是如果是两两相加的和的平方更好呢？</p>
+<p>OK，那么再接着推广，如果现在不是计算两个向量呢？而是计算一个包含10000个向量的矩阵呢？即我们现在要做这10000个向量的两两之间的内积，那么这个时候运算量可就海了去了~</p>
+<p>于是，英明神武的数学家开始考虑如何偷懒，即：如果我们并不用选取任何的非线性变换函数呢？而是仅仅找到一个函数使得我们可以直接得到这两个向量在我们理想问题中的答案呢？</p>
+<p>用西瓜书中的话来说：能不能在原始空间中找到一个函数 $K(x_i, x_j)$ 使得 $K(x_i, x_j) =&lt;\phi(x_i), \phi(x_j)&gt;$ 呢？用在我们当前这个情况就是，能否直接找到一个函数将原来两个向量直接带入进去，直接求得我们的解，即
+$$
+T:&lt;\phi(\boldsymbol{x}), \phi(\boldsymbol{y})&gt; = K(\boldsymbol{x}, \boldsymbol{y})
+$$</p>
+<blockquote>
+<p>PS：什么是内积空间呢？</p>
+<p><strong>内积空间</strong>是<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%A6">数学</a>中的<a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0">线性代数</a>里的基本概念，是增添了一个额外的结构的<a href="https://zh.wikipedia.org/wiki/%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4">向量空间</a>。这个额外的结构叫做**<a href="https://zh.wikipedia.org/wiki/%E5%86%85%E7%A7%AF">内积</a>**或<a href="https://zh.wikipedia.org/wiki/%E6%A0%87%E9%87%8F%E7%A7%AF">标量积</a>。内积将一对<a href="https://zh.wikipedia.org/wiki/%E5%90%91%E9%87%8F">向量</a>与一个标量连接起来，允许我们严格地谈论<a href="https://zh.wikipedia.org/wiki/%E5%90%91%E9%87%8F">向量</a>的“<a href="https://zh.wikipedia.org/wiki/%E8%A7%92">夹角</a>”和“<a href="https://zh.wikipedia.org/wiki/%E9%95%BF%E5%BA%A6">长度</a>”，并进一步谈论向量的<a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E4%BA%A4">正交性</a>。内积空间由<a href="https://zh.wikipedia.org/wiki/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%A9%BA%E9%97%B4">欧几里得空间</a>抽象而来（内积是点积的抽象），这是<a href="https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90">泛函分析</a>讨论的课题。</p>
+<p>内积空间有时也叫做<strong>准希尔伯特空间</strong>（pre-Hilbert space），因为由内积定义的<a href="https://zh.wikipedia.org/wiki/%E5%BA%A6%E9%87%8F%E7%A9%BA%E9%97%B4">距离</a><a href="https://zh.wikipedia.org/wiki/%E5%AE%8C%E5%A4%87%E7%A9%BA%E9%97%B4">完备化</a>之后就会得到一个<a href="https://zh.wikipedia.org/wiki/%E5%B8%8C%E5%B0%94%E4%BC%AF%E7%89%B9%E7%A9%BA%E9%97%B4">希尔伯特空间</a>。 &mdash; quote by wikipedia</p>
+</blockquote>
+<hr>
+<p>最终我们通过这种技巧得到的就是，我们不需要将原始向量先进行非线性变换，而是直接通过一个函数求得其变换后得到的内积，最终数学家们定义这种简化计算的方法称之为核技巧（The Kernel Trick），而这个函数就称之为核函数（Kernel Function）。</p>
+<h3 id="svm使用">SVM使用</h3>
+<p>首先要声明的就是核函数不一定仅仅在SVM中使用，在其他模型中也可以使用，只是在西瓜书的章节安排中，第一次接触是在SVM中。另外就是要特别声明一下的是，在SVM中使用核技巧是存在理论前提的。</p>
+<blockquote>
+<p><strong>Cover&rsquo;s theorem</strong> is a statement in <a href="https://en.wikipedia.org/wiki/Computational_learning_theory">computational learning theory</a> and is one of the primary theoretical motivations for the use of non-linear <a href="https://en.wikipedia.org/wiki/Kernel_methods">kernel methods</a> in <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a> applications. The theorem states that given a set of training data that is not <a href="https://en.wikipedia.org/wiki/Linearly_separable">linearly separable</a>, one can with high probability transform it into a training set that is linearly separable by projecting it into a <a href="https://en.wikipedia.org/wiki/Higher-dimensional_space">higher-dimensional space</a> via some <a href="https://en.wikipedia.org/w/index.php?title=Non-linear_transformation&amp;action=edit&amp;redlink=1">non-linear transformation</a>. The theorem is named after the information theorist <a href="https://en.wikipedia.org/wiki/Thomas_M._Cover">Thomas M. Cover</a> who stated it in 1965. In his own words,</p>
+<hr>
+<p>A complex pattern-classification problem, cast in a high-dimensional space nonlinearly, is more likely to be linearly separable than in a low-dimensional space, provided that the space is not densely populated.</p>
+<p>— Cover, T.M., Geometrical and Statistical properties of systems of linear inequalities with applications in <a href="https://en.wikipedia.org/wiki/Pattern_recognition">pattern recognition</a>, 1965</p>
+<p>&mdash; quota by wikipedia</p>
+</blockquote>
+<p><strong>Cover&rsquo;s theorem</strong>是计算学习理论中的一个基石，是在机器学习应用程序中使用非线性核方法的主要理论动机之一。 该定理指出，给定一组不可线性分离的训练数据，可以通过一些非线性变换将其投影到更高维的空间中，从而很有可能将其转换为可线性分离的训练集。 该定理以信息理论家Thomas M. Cover于1965年提出的名字命名。</p>
+<blockquote>
+<p>PS：虽然我们经常在一些实验中直接使用SVM来进行分类，但是很少注意使用的前提。这里我觉得还是需要注意一下的。</p>
+</blockquote>
+<h4 id="常见的核函数">常见的核函数</h4>
+<h5 id="线性核">线性核</h5>
+<p>$$
+\kappa(\boldsymbol{x}_i, \boldsymbol{x}_j) = \boldsymbol{x}_i^{\top}\boldsymbol{x}_j + c
+$$</p>
+<blockquote>
+<p>PS：这里其实看完之后存在一个问题，即为什么会存在线性核？看起来只是增加了一个常数而已。</p>
+</blockquote>
+<p>在查阅了一些资料之后，发现线性核是将原始的特征空间进行扩张，然后构建了一个同构的特征空间，预期结果是将原始特征空间分隔的更加清晰与明显，而这个时候，就可以感受到，在这样的空间中，我们得到结果仍然是无法解决异或问题的。</p>
+<p>此外在stackoverflow网站上找到了一个问题也是关于线性核如何使用的，其结论基本和吴恩达老师的视频中说到的是一致的。</p>
+<blockquote>
+<p>One more thing to add: linear SVM is less prone to overfitting than non-linear. And you need to decide which kernel to choose based on your situation: if your number of features is really large compared to the training sample, just use linear kernel; if your number of features is small, but the training sample is large, you may also need linear kernel but try to add more features; if your feature number is small (10^0 - 10^3), and the sample number is intermediate (10^1 - 10^4), use Gaussian kernel will be better.</p>
+<p>As far as I know, SVM with linear kernel is usually comparable with logistic regression .</p>
+<p>&mdash; quota by <a href="https://stackoverflow.com/questions/20566869/where-is-it-best-to-use-svm-with-linear-kernel">https://stackoverflow.com/questions/20566869/where-is-it-best-to-use-svm-with-linear-kernel</a></p>
+</blockquote>
+<p>简单来说：最简单，最安全，最不容易过拟合</p>
+<h5 id="多项式核">多项式核</h5>
+<p>$$
+\kappa(\boldsymbol{x}_i, \boldsymbol{x}_j) = (\alpha \boldsymbol{x}_i^{\top}\boldsymbol{x}_j + c)^d
+$$</p>
+<p>相比于线性核为什么会存在来说，多项式核就更加的容易理解了，即为了将不可以线性可分的数据进行分类的时候，我们可以进行将期望求得的超平面转化成曲面来看待。</p>
+<p>因此如何选择degree在多项式核中更为重要，因为这时借助背景知识我们可以设置所期望的特征之间的关系次方，这是十分重要的，因为到这时我们还可以对最终的结果产生一个解释和预期。</p>
+<h5 id="高斯核">高斯核</h5>
+<p>$$
+\kappa(\boldsymbol{x}_i, \boldsymbol{x}_j) = \exp(-\alpha\Vert\boldsymbol{x}_i - \boldsymbol{x}_j\Vert^2)
+$$</p>
+<p>高斯核也称为径向基核，即，当我们的 $\alpha$ 并非随机选取的时候，而是基于高斯分布的公式得到时，这时径向基＆就变成了高斯核。</p>
+<p>对比线性核和多项式核来说，高斯核的特别之处就是其可以映射到无穷维的特征空间。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/11/30/8dcc822ef8018b37e5a5f5bae5d6b03b.webp" alt="img"></p>
+<p>优点：</p>
+<ul>
+<li>可以映射到无限维</li>
+<li>决策边界更为多样</li>
+<li>只有一个参数，相比多项式核容易选择</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>可解释性差(无限多维的转换，无法算w)</li>
+<li>计算速度比较慢(解一个对偶问题)</li>
+<li>容易过拟合(参数选不好时容易overfitting)</li>
+</ul>
+<h5 id="sigmoid核">Sigmoid核</h5>
+<p>采用Sigmoid函数作为核函数时，支持向量机实现的就是一种多层感知器神经网络，应用SVM方法，隐含层节点数目(它确定神经网络的结构)、隐含层节点对输入节点的权值都是在设计(训练)的过程中自动确定的。而且支持向量机的理论基础决定了它最终求得的是全局最优值而不是局部最小值，也保证了它对于未知样本的良好泛化能力而不会出现过拟合现象。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/11/30/f3b211ec9eb90dd6c4d9f3ba5bc894df.webp" alt="img"></p>
+<blockquote>
+<p>PS：我记得当初在那里看到过，SVM的作者就人为，神经网络模型只不过是SVM的拓展而已，但是写文章的时候没找到。</p>
+</blockquote>
+<h3 id="reference">Reference</h3>
+<ul>
+<li>林轩田老师的机器学习技法视频</li>
+<li><a href="https://zhuanlan.zhihu.com/p/37189815">用实验理解SVM的核函数和参数</a></li>
+<li><a href="https://stackoverflow.com/questions/20566869/where-is-it-best-to-use-svm-with-linear-kernel">where-is-it-best-to-use-svm-with-linear-kernel</a></li>
+<li><a href="https://blog.csdn.net/qq_27231343/article/details/51817866">常用的核函数</a></li>
+<li><a href="https://www.cnblogs.com/hichens/p/11874645.html">核方法-核技巧-核函数</a></li>
+<li><a href="https://blog.csdn.net/qq_29462849/article/details/89516133">SVM几种核函数的对比分析以及SVM算法的优缺点</a></li>
+<li><a href="http://www.fanyeong.com/2017/11/13/the-kernel-trick/">核技巧（The Kernel Trick）</a></li>
+</ul>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/">
+                                    <i class="fas fa-tag mr-2"></i>周志华
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/">
+                                    <i class="fas fa-tag mr-2"></i>支持向量机
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/">
+                                    <i class="fas fa-tag mr-2"></i>西瓜书
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x00002b',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00002a/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第六章 支持向量机">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第六章 支持向量机
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 27, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000029/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第六章 支持向量机 铺垫">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第六章 支持向量机 铺垫
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 26, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 铺垫
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000028/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第五章 神经网络 补充六">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第五章 神经网络 补充六
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 25, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充六
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

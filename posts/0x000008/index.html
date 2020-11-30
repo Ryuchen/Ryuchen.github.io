@@ -1,91 +1,438 @@
-<!doctype html><html lang=zh><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=yes"><title>AntDesignVue使用尝鲜 | Sweet House</title><meta name=description content="Everyday is a holiday"><meta name=bytedance-verification-code content="MmXZwSvr8lAvM1hIXSkm"><meta name=author content="[Ryuchen WangOO]"><link rel=icon href=/favicon.ico><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css><link rel=stylesheet href=/dist/main.4707e15c5ca4eab5da71.min.css><link rel=stylesheet href=/css/shortcodes.css><link rel=canonical href=https://ryuchen.club/posts/0x000008/><meta property="og:title" content="AntDesignVue使用尝鲜"><meta property="og:description" content="基于上一次编写 django admin 应用的时候使用 simpleui 的经验，结合之前的 django 开发经验，准备自己着手写一套可以扩展的方便使用的 admin theme，结合之前熟悉的 vue 和 ant design 组件库的样式比较喜欢，所以打算基于这个去开发，下面将介绍我在实践过程中所遇到的问题和如何解决~"><meta property="og:type" content="article"><meta property="og:url" content="https://ryuchen.club/posts/0x000008/"><meta property="og:image" content="https://ryuchen.club/ant-design-vue.jpg"><meta property="article:published_time" content="2019-08-12T00:00:00+00:00"><meta property="article:modified_time" content="2019-08-12T00:00:00+00:00"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000015/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000014/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000013/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000011/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000012/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000010/"><meta itemprop=name content="AntDesignVue使用尝鲜"><meta itemprop=description content="基于上一次编写 django admin 应用的时候使用 simpleui 的经验，结合之前的 django 开发经验，准备自己着手写一套可以扩展的方便使用的 admin theme，结合之前熟悉的 vue 和 ant design 组件库的样式比较喜欢，所以打算基于这个去开发，下面将介绍我在实践过程中所遇到的问题和如何解决~"><meta itemprop=datePublished content="2019-08-12T00:00:00+00:00"><meta itemprop=dateModified content="2019-08-12T00:00:00+00:00"><meta itemprop=wordCount content="337"><meta itemprop=image content="https://ryuchen.club/ant-design-vue.jpg"><meta itemprop=keywords content="django,vue,ant design vue,"></head><body><nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id=navbar-main-menu><div class=container><a class="navbar-brand font-weight-bold" href=https://ryuchen.club>>$ cd /home_</a>
-<button class=navbar-toggler type=button data-toggle=collapse data-target=#main-menu aria-controls=main-menu aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=main-menu><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=/>首页</a></li><li class=nav-item><a class=nav-link href=/posts/>博文</a></li><li class=nav-item><a class=nav-link href=/projects/>项目</a></li><li class=nav-item><a class=nav-link href=/snippet/>代码</a></li><li class=nav-item><a class=nav-link href=/essay/>随笔</a></li><li class=nav-item><a class=nav-link href=/gallery/>照片墙</a></li><li class=nav-item><a class=nav-link href=/about/>关于</a></li><li class=nav-item><a class=nav-link href=https://github.com/Ryuchen target=_blank>Github</a></li></ul></div></div></nav><main class="content-page container pt-7 pb-5"><div class=row><div class=col><article><div class="row justify-content-center"><div class=col-lg-10><h1>AntDesignVue使用尝鲜</h1><div class="meta text-muted mb-3" style=text-align:right><p class="created text-muted text-uppercase font-weight-bold mb-1">August 12, 2019</p><span class=mr-2><i class="fas fa-book-open mr-2"></i>1375</span>
-<span><i class="fas fa-clock mr-2"></i>6 minutes and
-15 seconds</span></div><div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href=/categories/%E5%85%A8%E6%A0%88%E7%B3%BB%E5%88%97><i class="fas fa-tag mr-2"></i>全栈系列</a></div></div></div><div class="row justify-content-center mb-3"><div class=col-lg-10><img data-src=/images/ant-design-vue_hud17d7971fecc77bd88b21f768d6626dd_29625_900x500_fit_q75_box.jpg class="img-fluid rounded mx-auto d-block" alt=AntDesignVue使用尝鲜></div></div><div class="row justify-content-center"><div class=col-lg-10><div class=content><p>这次更新博客主要是总结上两周干的事情，方便整理一下目前的进度和后续的思路。首先是事情的起源，主要是因为在改写 simpleui 的过程中，总是会有一些不方便自己使用的东西，并且并不是很满意 simpleui 的展示效果，同时想扩展 simpleui 的使用性；后续在改写过程中，自己整理了一套新的解决思路，感觉可以将现代前端的组件化思路带入到 django template 里面来，所以自己重新开了一套 admin 的主题框架，经过两周的编写，越来越深入的感觉不仅可以做一套 admin 的 theme 出来；甚至可以像之前比较流向的 xadmin 一样写一套不同于 django admin 的中后台管理框架，所以应运而生了一个想法，经过两周的尝试，确实可以行得通。不过中间确实遇到了很多问题，需要将这些问题记录一下~</p><h3 id=q-选择前端渲染还是后端渲染>Q: 选择前端渲染还是后端渲染</h3><p>A: 这个问题真的是个非常困扰人的问题，首先是想使用 django 的框架作为快速开发的后端，但是同时呢也不想舍弃现在前端在页面展示上的技术领先，两者皆不可抛。那么如何结合两者到一起呢？ django 的 template 有着当时那个时代领先的 extends 和 include 机制，转念一想其实这一套机制本质上是不是十分相似于现在前端的 component 吗？于是从这里下手，进行尝试和构建~ 具体尝试过程就跳过不谈了，最终通过一种方式实现了这个机制</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python>
-<span class=c1># 首先声明 a.html 最为我们的目标组件，进行开发</span>
-<span class=c1># 在 a.html 中 通过 &lt;script type=&#34;x-template&#34;&gt;...&lt;/script&gt; 进行组件声明</span>
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     AntDesignVue使用尝鲜 |  Sweet House
+  
+</title>
 
-<span class=o>&lt;</span><span class=n>script</span> <span class=nb>type</span><span class=o>=</span><span class=s2>&#34;text/x-template&#34;</span> <span class=nb>id</span><span class=o>=</span><span class=s2>&#34;home-iframe-content&#34;</span><span class=o>&gt;</span>
-  <span class=o>&lt;</span><span class=n>div</span> <span class=p>:</span><span class=n>style</span><span class=o>=</span><span class=s2>&#34;contentStyle&#34;</span><span class=o>&gt;</span>
-    <span class=o>&lt;</span><span class=n>iframe</span> <span class=p>:</span><span class=n>src</span><span class=o>=</span><span class=s2>&#34;href&#34;</span> <span class=p>:</span><span class=n>style</span><span class=o>=</span><span class=s2>&#34;iframeStyle&#34;</span> <span class=n>frameborder</span><span class=o>=</span><span class=s2>&#34;0&#34;</span><span class=o>&gt;&lt;/</span><span class=n>iframe</span><span class=o>&gt;</span>
-  <span class=o>&lt;/</span><span class=n>div</span><span class=o>&gt;</span>
-<span class=o>&lt;/</span><span class=n>script</span><span class=o>&gt;</span>
 
-<span class=o>&lt;</span><span class=n>script</span> <span class=nb>type</span><span class=o>=</span><span class=s2>&#34;text/javascript&#34;</span><span class=o>&gt;</span>
-  <span class=n>Vue</span><span class=o>.</span><span class=n>component</span><span class=p>(</span><span class=s1>&#39;iframe-wrapper&#39;</span><span class=p>,</span> <span class=p>{</span>
-    <span class=n>delimiters</span><span class=p>:</span> <span class=p>[</span><span class=s1>&#39;&lt;%&#39;</span><span class=p>,</span> <span class=s1>&#39;%&gt;&#39;</span><span class=p>],</span>
-    <span class=n>props</span><span class=p>:</span> <span class=p>{</span>
-      <span class=n>href</span><span class=p>:</span> <span class=p>{</span>
-        <span class=nb>type</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
-        <span class=n>required</span><span class=p>:</span> <span class=n>true</span>
-      <span class=p>},</span>
-      <span class=n>height</span><span class=p>:</span> <span class=p>{</span>
-        <span class=nb>type</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
-        <span class=n>required</span><span class=p>:</span> <span class=n>false</span>
-      <span class=p>},</span>
-      <span class=n>width</span><span class=p>:</span> <span class=p>{</span>
-        <span class=n>default</span><span class=p>:</span> <span class=s1>&#39;100%&#39;</span><span class=p>,</span>
-        <span class=nb>type</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
-        <span class=n>required</span><span class=p>:</span> <span class=n>false</span>
-      <span class=p>},</span>
-      <span class=n>overflow</span><span class=p>:</span> <span class=p>{</span>
-        <span class=n>default</span><span class=p>:</span> <span class=s1>&#39;auto&#39;</span><span class=p>,</span>
-        <span class=nb>type</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span>
-        <span class=n>required</span><span class=p>:</span> <span class=n>false</span>
-      <span class=p>}</span>
-    <span class=p>},</span>
-    <span class=n>template</span><span class=p>:</span> <span class=s1>&#39;#home-iframe-content&#39;</span><span class=p>,</span>
-    <span class=n>data</span><span class=p>()</span> <span class=p>{</span>
-      <span class=k>return</span> <span class=p>{</span>
-        <span class=n>contentStyle</span><span class=p>:</span> <span class=p>{</span>
-          <span class=n>margin</span><span class=p>:</span> <span class=s1>&#39;0&#39;</span><span class=p>,</span>
-          <span class=n>padding</span><span class=p>:</span> <span class=s1>&#39;0&#39;</span><span class=p>,</span>
-          <span class=n>borderRadius</span><span class=p>:</span> <span class=s1>&#39;5px&#39;</span><span class=p>,</span>
-        <span class=p>},</span>
-        <span class=n>iframeStyle</span><span class=p>:</span> <span class=p>{</span>
-          <span class=n>height</span><span class=p>:</span> <span class=n>this</span><span class=o>.</span><span class=n>height</span><span class=p>,</span>
-          <span class=n>width</span><span class=p>:</span> <span class=n>this</span><span class=o>.</span><span class=n>width</span><span class=p>,</span>
-          <span class=n>overflow</span><span class=p>:</span> <span class=n>this</span><span class=o>.</span><span class=n>overflow</span>
-        <span class=p>}</span>
-      <span class=p>}</span>
-    <span class=p>}</span>
-  <span class=p>})</span>
-<span class=o>&lt;/</span><span class=n>script</span><span class=o>&gt;</span>
+  <meta name="description" content="Everyday is a holiday">
 
-<span class=c1># 之后我们可以在想引用该组件的地方通过 django 的 include 方式进行导入</span>
-<span class=c1># 在 b.html 中我们通过如下方式可以使用该组件</span>
 
-<span class=p>{</span><span class=o>%</span> <span class=n>include</span> <span class=s1>&#39;web/a.html&#39;</span> <span class=o>%</span><span class=p>}</span>
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
 
-<span class=o>&lt;</span><span class=n>script</span> <span class=nb>type</span><span class=o>=</span><span class=s2>&#34;text/x-template&#34;</span> <span class=nb>id</span><span class=o>=</span><span class=s2>&#34;layout-demo-a&#34;</span><span class=o>&gt;</span>
-    <span class=err>···</span>
-    <span class=o>&lt;</span><span class=n>a</span><span class=o>-</span><span class=n>tab</span><span class=o>-</span><span class=n>pane</span> <span class=n>v</span><span class=o>-</span><span class=k>for</span><span class=o>=</span><span class=s2>&#34;(pane, index) in activePanes&#34;</span> <span class=p>:</span><span class=n>key</span><span class=o>=</span><span class=s2>&#34;pane.key&#34;</span><span class=o>&gt;</span>
-    <span class=o>&lt;</span><span class=n>span</span> <span class=n>slot</span><span class=o>=</span><span class=s2>&#34;tab&#34;</span><span class=o>&gt;&lt;</span><span class=n>a</span><span class=o>-</span><span class=n>icon</span> <span class=p>:</span><span class=nb>type</span><span class=o>=</span><span class=s2>&#34;pane.icon&#34;</span><span class=o>&gt;&lt;/</span><span class=n>a</span><span class=o>-</span><span class=n>icon</span><span class=o>&gt;&lt;%</span> <span class=n>pane</span><span class=o>.</span><span class=n>name</span> <span class=o>%&gt;&lt;/</span><span class=n>span</span><span class=o>&gt;</span>
-    <span class=o>&lt;</span><span class=n>iframe</span><span class=o>-</span><span class=n>wrapper</span> <span class=p>:</span><span class=n>href</span><span class=o>=</span><span class=s2>&#34;pane.content&#34;</span> <span class=p>:</span><span class=n>height</span><span class=o>=</span><span class=s2>&#34;height&#34;</span><span class=o>&gt;&lt;/</span><span class=n>iframe</span><span class=o>-</span><span class=n>wrapper</span><span class=o>&gt;</span>
-    <span class=o>&lt;/</span><span class=n>a</span><span class=o>-</span><span class=n>tab</span><span class=o>-</span><span class=n>pane</span><span class=o>&gt;</span>
-    <span class=err>···</span>
-<span class=o>&lt;/</span><span class=n>script</span><span class=o>&gt;</span>
-</code></pre></div><h3 id=q-如何混用-vue-的-template-和-django-的-template>Q: 如何混用 vue 的 template 和 django 的 template</h3><p>A: 在这里目前只遇到了一种情况下的两者语法重复的问题，在 django 中对于 render 中的 context 取值是通过 双大括号进行的</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=p>{{</span> <span class=p>}}</span>
-</code></pre></div><p>但这同时也是 vue 的取值方式，这里我们可以通过对 vue 的声明进行修改</p><div class=highlight><pre class=chroma><code class=language-javascript data-lang=javascript><span class=nx>delimiters</span><span class=o>:</span> <span class=p>[</span><span class=s1>&#39;&lt;%&#39;</span><span class=p>,</span> <span class=s1>&#39;%&gt;&#39;</span><span class=p>]</span>
-</code></pre></div><p>将 vue 的取值方式改为 尖括号和百分号结合的方式，此外还有一种方式，就是在 django 自带的 tags 中包含了</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=n>openvariable</span> <span class=o>=&gt;</span> <span class=p>{{</span> <span class=err>和</span> <span class=n>closevariable</span> <span class=o>=&gt;</span> <span class=p>}}</span>
-</code></pre></div><p>两种声明方式，这样我们可以在 django render template 之后在 vue 通过浏览器渲染数据时依然可以取到 双大括号的取值符号。</p><h3 id=q-如何通过-extends-方法扩展-vue-全局的-instance>Q: 如何通过 extends 方法扩展 vue 全局的 instance</h3><p>A: 我们通过在 base.html 中声明根 div 中声明了 vue 实例，但是通过 extends 方式继承了 base.html 页面之后，每个页面都需要声明不同的 data methods 和 vue 的其他属性方式，但是我们不能够将这些代码统统放到 base.html 页面里面，这样的话，势必造成内容的混乱。我们可以通过 vue 的 mixin 方式进行属性值的混入，我们在 base.html 中申明一个 vue 实例，混入一个 mixins 的对象，然后将独享绑定到 window 实例里面，这样我们就可以在继承 base.html 之后，通过 django render 的过程中生成所需要的 mixins 属性，增加到 windows.mixins 里面，这样在 后续 vue 实例运行时，就可以取到我们的实例属性了。</p><h3 id=q-如何需改-django-forms-widgets-达到修改-django-forms-render-样式更改>Q: 如何需改 django forms widgets 达到修改 django forms render 样式更改</h3><p>A: 当我们实现了上述的三种方式之后，我们可以合理构建我们的 django 和 vue 的&rsquo;混合体生物&rsquo;了，但是还是无法渲染 django forms 的展示方式和内容，毕竟有点格格不入，相当不协调，配上我们的 ant design vue，所以我们需要修改 django forms widgets 来达到渲染我们需要的 vue 组件的问题，还好是最基础的组件和组织形式，所以比较容易实现~ 在 django 的 settings 里面添加如下内容就行了</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python>
-<span class=n>INSTALLED_APPS</span> <span class=o>=</span> <span class=p>[</span>
-    <span class=s1>&#39;django.forms&#39;</span><span class=p>,</span>
-    <span class=o>...</span>
-<span class=p>]</span>
+<meta name="author" content='[Ryuchen WangOO]'>
 
-<span class=n>FORM_RENDERER</span> <span class=o>=</span> <span class=s1>&#39;django.forms.renderers.TemplatesSetting&#39;</span>
+<link rel="icon" href='/favicon.ico'>
 
-<span class=c1># 并且在 django 的 templates 项目中创建 widgets 文件夹就行了，目录结构同 django forms 的</span>
-</code></pre></div><p>附：粘贴上几张正在做的 django admin 框架的 贴图</p><p>Dashboard 页面
-<img src=images/15656168731341.jpg alt=image>
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x000008/"><meta property="og:title" content="AntDesignVue使用尝鲜" />
+<meta property="og:description" content="基于上一次编写 django admin 应用的时候使用 simpleui 的经验，结合之前的 django 开发经验，准备自己着手写一套可以扩展的方便使用的 admin theme，结合之前熟悉的 vue 和 ant design 组件库的样式比较喜欢，所以打算基于这个去开发，下面将介绍我在实践过程中所遇到的问题和如何解决~" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x000008/" />
+<meta property="og:image" content="https://ryuchen.club/ant-design-vue.jpg" />
+<meta property="article:published_time" content="2019-08-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-12T00:00:00+00:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000015/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000014/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000013/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000011/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000012/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000010/" />
+
+<meta itemprop="name" content="AntDesignVue使用尝鲜">
+<meta itemprop="description" content="基于上一次编写 django admin 应用的时候使用 simpleui 的经验，结合之前的 django 开发经验，准备自己着手写一套可以扩展的方便使用的 admin theme，结合之前熟悉的 vue 和 ant design 组件库的样式比较喜欢，所以打算基于这个去开发，下面将介绍我在实践过程中所遇到的问题和如何解决~">
+<meta itemprop="datePublished" content="2019-08-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-08-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="337">
+<meta itemprop="image" content="https://ryuchen.club/ant-design-vue.jpg">
+
+
+
+<meta itemprop="keywords" content="django,vue,ant design vue," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>AntDesignVue使用尝鲜</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">August 12, 2019</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>1375</span>
+                            <span><i class="fas fa-clock mr-2"></i>6 minutes and
+                                15 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E5%85%A8%E6%A0%88%E7%B3%BB%E5%88%97">
+                                    <i class="fas fa-tag mr-2"></i>全栈系列
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/ant-design-vue_hud17d7971fecc77bd88b21f768d6626dd_29625_900x500_fit_q75_box.jpg" class="img-fluid rounded mx-auto d-block" alt="AntDesignVue使用尝鲜">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <p>这次更新博客主要是总结上两周干的事情，方便整理一下目前的进度和后续的思路。首先是事情的起源，主要是因为在改写 simpleui 的过程中，总是会有一些不方便自己使用的东西，并且并不是很满意 simpleui 的展示效果，同时想扩展 simpleui 的使用性；后续在改写过程中，自己整理了一套新的解决思路，感觉可以将现代前端的组件化思路带入到 django template 里面来，所以自己重新开了一套 admin 的主题框架，经过两周的编写，越来越深入的感觉不仅可以做一套 admin 的 theme 出来；甚至可以像之前比较流向的 xadmin 一样写一套不同于 django admin 的中后台管理框架，所以应运而生了一个想法，经过两周的尝试，确实可以行得通。不过中间确实遇到了很多问题，需要将这些问题记录一下~</p>
+<h3 id="q-选择前端渲染还是后端渲染">Q: 选择前端渲染还是后端渲染</h3>
+<p>A: 这个问题真的是个非常困扰人的问题，首先是想使用 django 的框架作为快速开发的后端，但是同时呢也不想舍弃现在前端在页面展示上的技术领先，两者皆不可抛。那么如何结合两者到一起呢？ django 的 template 有着当时那个时代领先的 extends 和 include 机制，转念一想其实这一套机制本质上是不是十分相似于现在前端的 component 吗？于是从这里下手，进行尝试和构建~ 具体尝试过程就跳过不谈了，最终通过一种方式实现了这个机制</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python">
+<span class="c1"># 首先声明 a.html 最为我们的目标组件，进行开发</span>
+<span class="c1"># 在 a.html 中 通过 &lt;script type=&#34;x-template&#34;&gt;...&lt;/script&gt; 进行组件声明</span>
+
+<span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;text/x-template&#34;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&#34;home-iframe-content&#34;</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">div</span> <span class="p">:</span><span class="n">style</span><span class="o">=</span><span class="s2">&#34;contentStyle&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">iframe</span> <span class="p">:</span><span class="n">src</span><span class="o">=</span><span class="s2">&#34;href&#34;</span> <span class="p">:</span><span class="n">style</span><span class="o">=</span><span class="s2">&#34;iframeStyle&#34;</span> <span class="n">frameborder</span><span class="o">=</span><span class="s2">&#34;0&#34;</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;text/javascript&#34;</span><span class="o">&gt;</span>
+  <span class="n">Vue</span><span class="o">.</span><span class="n">component</span><span class="p">(</span><span class="s1">&#39;iframe-wrapper&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">delimiters</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;&lt;%&#39;</span><span class="p">,</span> <span class="s1">&#39;%&gt;&#39;</span><span class="p">],</span>
+    <span class="n">props</span><span class="p">:</span> <span class="p">{</span>
+      <span class="n">href</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+        <span class="n">required</span><span class="p">:</span> <span class="n">true</span>
+      <span class="p">},</span>
+      <span class="n">height</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+        <span class="n">required</span><span class="p">:</span> <span class="n">false</span>
+      <span class="p">},</span>
+      <span class="n">width</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">default</span><span class="p">:</span> <span class="s1">&#39;100%&#39;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+        <span class="n">required</span><span class="p">:</span> <span class="n">false</span>
+      <span class="p">},</span>
+      <span class="n">overflow</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">default</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span>
+        <span class="n">required</span><span class="p">:</span> <span class="n">false</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">template</span><span class="p">:</span> <span class="s1">&#39;#home-iframe-content&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="n">contentStyle</span><span class="p">:</span> <span class="p">{</span>
+          <span class="n">margin</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+          <span class="n">padding</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+          <span class="n">borderRadius</span><span class="p">:</span> <span class="s1">&#39;5px&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="n">iframeStyle</span><span class="p">:</span> <span class="p">{</span>
+          <span class="n">height</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
+          <span class="n">width</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+          <span class="n">overflow</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">overflow</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+
+<span class="c1"># 之后我们可以在想引用该组件的地方通过 django 的 include 方式进行导入</span>
+<span class="c1"># 在 b.html 中我们通过如下方式可以使用该组件</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="n">include</span> <span class="s1">&#39;web/a.html&#39;</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&#34;text/x-template&#34;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&#34;layout-demo-a&#34;</span><span class="o">&gt;</span>
+    <span class="err">···</span>
+    <span class="o">&lt;</span><span class="n">a</span><span class="o">-</span><span class="n">tab</span><span class="o">-</span><span class="n">pane</span> <span class="n">v</span><span class="o">-</span><span class="k">for</span><span class="o">=</span><span class="s2">&#34;(pane, index) in activePanes&#34;</span> <span class="p">:</span><span class="n">key</span><span class="o">=</span><span class="s2">&#34;pane.key&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">span</span> <span class="n">slot</span><span class="o">=</span><span class="s2">&#34;tab&#34;</span><span class="o">&gt;&lt;</span><span class="n">a</span><span class="o">-</span><span class="n">icon</span> <span class="p">:</span><span class="nb">type</span><span class="o">=</span><span class="s2">&#34;pane.icon&#34;</span><span class="o">&gt;&lt;/</span><span class="n">a</span><span class="o">-</span><span class="n">icon</span><span class="o">&gt;&lt;%</span> <span class="n">pane</span><span class="o">.</span><span class="n">name</span> <span class="o">%&gt;&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">iframe</span><span class="o">-</span><span class="n">wrapper</span> <span class="p">:</span><span class="n">href</span><span class="o">=</span><span class="s2">&#34;pane.content&#34;</span> <span class="p">:</span><span class="n">height</span><span class="o">=</span><span class="s2">&#34;height&#34;</span><span class="o">&gt;&lt;/</span><span class="n">iframe</span><span class="o">-</span><span class="n">wrapper</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">a</span><span class="o">-</span><span class="n">tab</span><span class="o">-</span><span class="n">pane</span><span class="o">&gt;</span>
+    <span class="err">···</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</code></pre></div><h3 id="q-如何混用-vue-的-template-和-django-的-template">Q: 如何混用 vue 的 template 和 django 的 template</h3>
+<p>A: 在这里目前只遇到了一种情况下的两者语法重复的问题，在 django 中对于 render 中的 context 取值是通过 双大括号进行的</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">{{</span> <span class="p">}}</span>
+</code></pre></div><p>但这同时也是 vue 的取值方式，这里我们可以通过对 vue 的声明进行修改</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">delimiters</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;&lt;%&#39;</span><span class="p">,</span> <span class="s1">&#39;%&gt;&#39;</span><span class="p">]</span>
+</code></pre></div><p>将 vue 的取值方式改为 尖括号和百分号结合的方式，此外还有一种方式，就是在 django 自带的 tags 中包含了</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">openvariable</span> <span class="o">=&gt;</span> <span class="p">{{</span> <span class="err">和</span> <span class="n">closevariable</span> <span class="o">=&gt;</span> <span class="p">}}</span>
+</code></pre></div><p>两种声明方式，这样我们可以在 django render template 之后在 vue 通过浏览器渲染数据时依然可以取到 双大括号的取值符号。</p>
+<h3 id="q-如何通过-extends-方法扩展-vue-全局的-instance">Q: 如何通过 extends 方法扩展 vue 全局的 instance</h3>
+<p>A: 我们通过在 base.html 中声明根 div 中声明了 vue 实例，但是通过 extends 方式继承了 base.html 页面之后，每个页面都需要声明不同的 data methods 和 vue 的其他属性方式，但是我们不能够将这些代码统统放到 base.html 页面里面，这样的话，势必造成内容的混乱。我们可以通过 vue 的 mixin 方式进行属性值的混入，我们在 base.html 中申明一个 vue 实例，混入一个 mixins 的对象，然后将独享绑定到 window 实例里面，这样我们就可以在继承 base.html 之后，通过 django render 的过程中生成所需要的 mixins 属性，增加到 windows.mixins 里面，这样在 后续 vue 实例运行时，就可以取到我们的实例属性了。</p>
+<h3 id="q-如何需改-django-forms-widgets-达到修改-django-forms-render-样式更改">Q: 如何需改 django forms widgets 达到修改 django forms render 样式更改</h3>
+<p>A: 当我们实现了上述的三种方式之后，我们可以合理构建我们的 django 和 vue 的&rsquo;混合体生物&rsquo;了，但是还是无法渲染 django forms 的展示方式和内容，毕竟有点格格不入，相当不协调，配上我们的 ant design vue，所以我们需要修改 django forms widgets 来达到渲染我们需要的 vue 组件的问题，还好是最基础的组件和组织形式，所以比较容易实现~ 在 django 的 settings 里面添加如下内容就行了</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python">
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django.forms&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+
+<span class="n">FORM_RENDERER</span> <span class="o">=</span> <span class="s1">&#39;django.forms.renderers.TemplatesSetting&#39;</span>
+
+<span class="c1"># 并且在 django 的 templates 项目中创建 widgets 文件夹就行了，目录结构同 django forms 的</span>
+</code></pre></div><p>附：粘贴上几张正在做的 django admin 框架的 贴图</p>
+<p>Dashboard 页面
+<img src="images/15656168731341.jpg" alt="image">
 Models 内容页
-<img src=media/15656168890525.jpg alt=image></p><blockquote><p>PS: 这个 框架开在开发阶段 后续会在 钟馗沙箱中作为展示前端使用 并且后续也将开源 名字暂定 django-vue-admin</p></blockquote></div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href=/tags/django/><i class="fas fa-tag mr-2"></i>django
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/vue/><i class="fas fa-tag mr-2"></i>vue
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/ant-design-vue/><i class="fas fa-tag mr-2"></i>ant design vue</a></div><div style=text-align:center><div class=social-share data-sites=wechat,weibo,twitter,facebook,douban data-mobile-sites=wechat,weibo></div></div></div></div><div class="row justify-content-center"><div class=col-lg-8><div id=comments-gittalk></div><link rel=stylesheet href=https://unpkg.com/gitalk/dist/gitalk.css><script src=https://unpkg.com/gitalk/dist/gitalk.min.js></script><script>var gittalk=new Gitalk({id:'0x000008',owner:'Ryuchen',repo:'ryuchen.github.io',admin:['Ryuchen'],clientID:'cda75f43f62ef6ebc3ea',clientSecret:'e405fb603c664a6436a481917a7ee70931413268',})
-gittalk.render('comments-gittalk')</script></div></div></article></div></div><div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000007/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/admin_login_hu7ac198088c78ebaf76798ae64a7967a0_16225_700x350_resize_box_2.png class="card-img-top mx-auto d-block" alt=Bistu后台管理项目><div class=card-body><div class=card-title>Bistu后台管理项目</div><div class=card-serie><span class="badge badge-pill badge-primary">全栈系列</span> &nbsp;</div><p class="card-text text-muted text-uppercase">August 2, 2019</p><div class=card-text>这个项目起始是因为学校之前的老师找到我，说让我帮忙弄个进行管理基本管理数据的小工具，听起来也并不是很难（然而，后期我一直在搞这个，深陷其中不可自拔），于是痛快的答应下来，后续就一直在弄这个小平台了~</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000006/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/JWT_hud8dcf04dcc67e8aaa6fd17c95450ee0d_42274_700x350_resize_box_2.png class="card-img-top mx-auto d-block" alt=JWT认证系统尝鲜><div class=card-body><div class=card-title>JWT认证系统尝鲜</div><div class=card-serie><span class="badge badge-pill badge-primary">全栈系列</span> &nbsp;</div><p class="card-text text-muted text-uppercase">August 1, 2019</p><div class=card-text>最近在&amp;rsquo;正式退休&amp;rsquo;之后，并不能完全闲着啊，所以想起来之前给学校的老师做的一个项目，并没有完全做完，于是想正好借助这个机会，先把 angluar 学习起来，然后顺便再把之前一些感兴趣的并没有在工作中正式使用的一些技术栈给用上~</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x000003/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/django-middleware_hu30d1361442ea7531add7805411959c47_325751_700x350_resize_q75_box.jpeg class="card-img-top mx-auto d-block" alt=Django中间件的理解><div class=card-body><div class=card-title>Django中间件的理解</div><div class=card-serie><span class="badge badge-pill badge-primary">生活感悟</span> &nbsp;<span class="badge badge-pill badge-primary">全栈系列</span> &nbsp;</div><p class="card-text text-muted text-uppercase">July 6, 2019</p><div class=card-text>这篇文章的主要目的是帮助自己总结下过去使用 django 中间件中发生的问题的时候，需要进行注意的地方，那是在一次审查 django 在接收前端请求过程中过慢的问题，后续发现是中间件中频繁对文本资源进行读取，而且还通过递归的方式进行了文件的遍历，造成效率的低下，于是总结了一下经验。</div></div></a></div></div></div></main><footer class="footer bg-dark py-6"><div class=container><div class=row><div class="col-sm text-center"><ul class=list-inline><li class=list-inline-item><a href=https://ryuchen.club/index.xml rel=alternate type=application/rss+xml class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=mailto:chenhaom1993@hotmail.com class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://github.com/Ryuchen class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://weibo.com/u/3147247770 class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-weibo fa-stack-1x fa-inverse"></i></span></a></li></ul><p class=text-muted>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</p><p class=text-muted>京ICP备2020040667号</p><p class=text-muted>本站总记被访问 <span id=busuanzi_value_site_pv></span>次，
-您是第 <span id=busuanzi_value_site_uv></span>个来访小伙伴。</p></div><div class="col-sm text-center"><p class=text-muted>维护不易，渴望您的资助</p><ul class=list-inline><div class=row><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg alt=WechatPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg alt=AliPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div></div></ul></div></div></div><div class=netease-music><audio id=music-player crossorigin playsinline></audio></div></footer><script src=/dist/main.bf9558b8596b4accd07a.min.js></script><script src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js></script><script>window.Prism=window.Prism||{};</script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js></script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script><script>(function(){var el=document.createElement("script");el.src="https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";el.id="ttzz";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(el,s);})(window)</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin=anonymous></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-0EFH27TG1R');</script></body></html>
+<img src="media/15656168890525.jpg" alt="image"></p>
+<blockquote>
+<p>PS: 这个 框架开在开发阶段 后续会在 钟馗沙箱中作为展示前端使用 并且后续也将开源 名字暂定 django-vue-admin</p>
+</blockquote>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/django/">
+                                    <i class="fas fa-tag mr-2"></i>django
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/vue/">
+                                    <i class="fas fa-tag mr-2"></i>vue
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/ant-design-vue/">
+                                    <i class="fas fa-tag mr-2"></i>ant design vue
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x000008',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000007/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/admin_login_hu7ac198088c78ebaf76798ae64a7967a0_16225_700x350_resize_box_2.png" class="card-img-top mx-auto d-block" alt="Bistu后台管理项目">
+                    <div class="card-body">
+            <div class="card-title">
+                Bistu后台管理项目
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">全栈系列</span> &nbsp;</div><p class="card-text text-muted text-uppercase">August 2, 2019</p>
+            <div class="card-text">
+                这个项目起始是因为学校之前的老师找到我，说让我帮忙弄个进行管理基本管理数据的小工具，听起来也并不是很难（然而，后期我一直在搞这个，深陷其中不可自拔），于是痛快的答应下来，后续就一直在弄这个小平台了~
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000006/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/JWT_hud8dcf04dcc67e8aaa6fd17c95450ee0d_42274_700x350_resize_box_2.png" class="card-img-top mx-auto d-block" alt="JWT认证系统尝鲜">
+                    <div class="card-body">
+            <div class="card-title">
+                JWT认证系统尝鲜
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">全栈系列</span> &nbsp;</div><p class="card-text text-muted text-uppercase">August 1, 2019</p>
+            <div class="card-text">
+                最近在&amp;rsquo;正式退休&amp;rsquo;之后，并不能完全闲着啊，所以想起来之前给学校的老师做的一个项目，并没有完全做完，于是想正好借助这个机会，先把 angluar 学习起来，然后顺便再把之前一些感兴趣的并没有在工作中正式使用的一些技术栈给用上~
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000003/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/django-middleware_hu30d1361442ea7531add7805411959c47_325751_700x350_resize_q75_box.jpeg" class="card-img-top mx-auto d-block" alt="Django中间件的理解">
+                    <div class="card-body">
+            <div class="card-title">
+                Django中间件的理解
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">生活感悟</span> &nbsp;<span class="badge badge-pill badge-primary">全栈系列</span> &nbsp;</div><p class="card-text text-muted text-uppercase">July 6, 2019</p>
+            <div class="card-text">
+                这篇文章的主要目的是帮助自己总结下过去使用 django 中间件中发生的问题的时候，需要进行注意的地方，那是在一次审查 django 在接收前端请求过程中过慢的问题，后续发现是中间件中频繁对文本资源进行读取，而且还通过递归的方式进行了文件的遍历，造成效率的低下，于是总结了一下经验。
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

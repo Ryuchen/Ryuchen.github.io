@@ -1,36 +1,247 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>随笔 on Sweet House</title><link>https://ryuchen.club/essay/</link><description>Recent content in 随笔 on Sweet House</description><generator>Hugo -- gohugo.io</generator><language>zh</language><copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright><lastBuildDate>Thu, 26 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ryuchen.club/essay/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://ryuchen.club/essay/0x000015/</link><pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000015/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 这两天家里的neiko被房子擦外墙的人吓坏了，几天下来尾巴都是耷拉着的，不过今天中午睡午觉的时候，乖乖的躺在我身边一动不动~
-突然感觉猫还是通人性的~</description></item><item><title/><link>https://ryuchen.club/essay/0x000014/</link><pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000014/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 总算把西瓜书中神经网络章节的内容更新完了，头一次发现，想把一个内容写好，还真的是需要刷很多视频和内容。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>随笔 on Sweet House</title>
+    <link>https://ryuchen.club/essay/</link>
+    <description>Recent content in 随笔 on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
+    <lastBuildDate>Thu, 26 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ryuchen.club/essay/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000015/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000015/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   这两天家里的neiko被房子擦外墙的人吓坏了，几天下来尾巴都是耷拉着的，不过今天中午睡午觉的时候，乖乖的躺在我身边一动不动~
+   突然感觉猫还是通人性的~
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000014/</link>
+      <pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000014/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   总算把西瓜书中神经网络章节的内容更新完了，头一次发现，想把一个内容写好，还真的是需要刷很多视频和内容。
 否则自己讲的内容不清楚不明白就会导致很多问题
 当然并不是说自己学的有多好，而是为了梳理自己在神经网络这块的内容究竟学了些什么
-等西瓜书的读书笔记都誊抄到博客上之后，会把开始对经典模型的梳理~</description></item><item><title/><link>https://ryuchen.club/essay/0x000012/</link><pubDate>Thu, 12 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000012/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 最近忙了好久，再加上出差，身心交瘁~ 第一次参加国家级的科研会议，感觉即使是各个大学的学者老师，也是水平参差不齐的，厉害的就真的非常厉害，对姚新老师印象极其深刻，道出了学生的痛楚~
-引用："我知道该用这个方法，你倒是告诉我怎么用啊~"，这就是导师和学生的鸿沟~哈哈</description></item><item><title/><link>https://ryuchen.club/essay/0x000013/</link><pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000013/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 还在深圳出差，接到姥爷出车祸的消息，一种无力感~</description></item><item><title/><link>https://ryuchen.club/essay/0x000011/</link><pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000011/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 停更了好久~ 不过这段时间补了不少机器学习的知识，接下来要开始对这段时间的学习内容进行整理的工作了，上回说到的博客系列内容，已经想好了一个大项目了，尝试着跟着思路把这些内容串起来，并完成这个项目
-引用上次随笔说的话："怎么说呢，敬请期待~"</description></item><item><title/><link>https://ryuchen.club/essay/0x000010/</link><pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000010/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 正好今天晚上熬夜整理了一下之前 教女友的爬虫相关知识，准备在自己的博客开建三个系列内容
-爬虫系列
+ 等西瓜书的读书笔记都誊抄到博客上之后，会把开始对经典模型的梳理~
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000012/</link>
+      <pubDate>Thu, 12 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000012/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   最近忙了好久，再加上出差，身心交瘁~  第一次参加国家级的科研会议，感觉即使是各个大学的学者老师，也是水平参差不齐的，厉害的就真的非常厉害，对姚新老师印象极其深刻，道出了学生的痛楚~
+ 引用：&#34;我知道该用这个方法，你倒是告诉我怎么用啊~&#34;，这就是导师和学生的鸿沟~哈哈
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000013/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000013/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   还在深圳出差，接到姥爷出车祸的消息，一种无力感~    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000011/</link>
+      <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000011/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   停更了好久~  不过这段时间补了不少机器学习的知识，接下来要开始对这段时间的学习内容进行整理的工作了，上回说到的博客系列内容，已经想好了一个大项目了，尝试着跟着思路把这些内容串起来，并完成这个项目
+ 引用上次随笔说的话：&#34;怎么说呢，敬请期待~&#34;
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000010/</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000010/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   正好今天晚上熬夜整理了一下之前 教女友的爬虫相关知识，准备在自己的博客开建三个系列内容
+ 爬虫系列
 沙箱系列
 NLP系列
-怎么说呢，敬请期待~</description></item><item><title/><link>https://ryuchen.club/essay/0x00000f/</link><pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000f/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 最近在更新了WSL2使用之后时不时会遇上一些莫名其妙的情况，查了好久也终于找到解决方案了，记录一下
-其实主要原因还是因为WSL2使用的Hyper-V虚拟机进行的Linux系统承载，所以，在开机的时候Hyper-V会申请系统的tcp端口，默认情况下申请的端口是可能跟本身系统使用的软件有冲突的，只需要修改到不冲突地址段就行了。
+ 怎么说呢，敬请期待~
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000f/</link>
+      <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000f/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   最近在更新了WSL2使用之后时不时会遇上一些莫名其妙的情况，查了好久也终于找到解决方案了，记录一下
+ 其实主要原因还是因为WSL2使用的Hyper-V虚拟机进行的Linux系统承载，所以，在开机的时候Hyper-V会申请系统的tcp端口，默认情况下申请的端口是可能跟本身系统使用的软件有冲突的，只需要修改到不冲突地址段就行了。
 首先查看下当前绑定的端口地址
 netsh int ipv4 show dynamicport tcp
 然后停用Hyper-V的功能（期间可能会重启很多次）
 dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
 重新绑定Hyper-V的端口地址
 netsh int ipv4 set dynamicport udp start=49152 num=16383
-这里的start和num看自己喜好填，优先靠在比较后面的范围段
+ 这里的start和num看自己喜好填，优先靠在比较后面的范围段
 重新启用Hyper-V的功能
 dism.exe /Online /Enable-Feature:Microsoft-Hyper-V
-*注，这里并不会影响你的WSL虚拟机</description></item><item><title/><link>https://ryuchen.club/essay/0x00000e/</link><pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000e/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 哇！~！~ 最近每天都忙死了，每天在电脑前面要坐14、5个小时，关键是都在处理一些没有营养的东西，我服了</description></item><item><title/><link>https://ryuchen.club/essay/0x00000d/</link><pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000d/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 每次玩完LOL之后Windows的WSL2都会打不开，输入下面命令就好
-netsh winsock reset
-另外软路由每次重启或者是切换代理的时候，本机可能上不了Google需要刷新一下DNS缓存
-ipconfig flushdns</description></item><item><title/><link>https://ryuchen.club/essay/0x00000c/</link><pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000c/</guid><description>.suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 这两天在家一直读论文，准备把这些篇论文的内容好好深入研究一下
-Attachments 1-WWW- InfraNodus- Generating Insight Using Text Network Analysis.pdf (1753 kb) 10-WWW-Learning Clusters through Information Diffusion.pdf (954 kb) 11-WWW-Message Distortion in Information Cascades.pdf (3144 kb) 12-WWW-Neural Variational Correlated Topic Modeling.pdf (5122 kb) 13-WWW-Revisiting Opinion Dynamics with Varying Susceptibility to Persuasion via Non-Convex Local Search.</description></item><item><title/><link>https://ryuchen.club/essay/0x00000b/</link><pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000b/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 吐槽一下~ 这个疫情导致在家上网课，研究生阶段的作业竟然让我感觉回到了高中！！！
-Always English thesis</description></item><item><title/><link>https://ryuchen.club/essay/0x00000a/</link><pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000a/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 因为这个疫情，天天刷国际的爆发情况，发现这个舆情真的是越发有用了，已经成为一种战略武器了~~~
-之前虽然也了解过NLP的相关知识，但是感觉了解的不深，后续自己想开发个项目用技术的手段做一做舆情的风险预警，所以准备正式入手NLP的学习
+ *注，这里并不会影响你的WSL虚拟机
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000e/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000e/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   哇！~！~ 最近每天都忙死了，每天在电脑前面要坐14、5个小时，关键是都在处理一些没有营养的东西，我服了
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000d/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000d/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   每次玩完LOL之后Windows的WSL2都会打不开，输入下面命令就好
+ netsh winsock reset
+ 另外软路由每次重启或者是切换代理的时候，本机可能上不了Google需要刷新一下DNS缓存
+ ipconfig flushdns
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000c/</link>
+      <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000c/</guid>
+      <description>.suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   这两天在家一直读论文，准备把这些篇论文的内容好好深入研究一下
+     Attachments   1-WWW- InfraNodus- Generating Insight Using Text Network Analysis.pdf  (1753 kb)   10-WWW-Learning Clusters through Information Diffusion.pdf  (954 kb)   11-WWW-Message Distortion in Information Cascades.pdf  (3144 kb)   12-WWW-Neural Variational Correlated Topic Modeling.pdf  (5122 kb)   13-WWW-Revisiting Opinion Dynamics with Varying Susceptibility to Persuasion via Non-Convex Local Search.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000b/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000b/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   吐槽一下~ 这个疫情导致在家上网课，研究生阶段的作业竟然让我感觉回到了高中！！！
+Always English thesis    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000a/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000a/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   因为这个疫情，天天刷国际的爆发情况，发现这个舆情真的是越发有用了，已经成为一种战略武器了~~~
+ 之前虽然也了解过NLP的相关知识，但是感觉了解的不深，后续自己想开发个项目用技术的手段做一做舆情的风险预警，所以准备正式入手NLP的学习
 优先从B站的视频入手
-斯坦福自然语言处理经典入门课程-Dan Jurafsky 和 Chris Manning 教授授课</description></item><item><title/><link>https://ryuchen.club/essay/0x000009/</link><pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000009/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 本人也开通了B站的直播间，不定期直播写代码，算是督促？？？(黑人问号脸)
-B站技术宅的炫技直播间</description></item><item><title/><link>https://ryuchen.club/essay/0x000008/</link><pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000008/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 看到外国的新冠肺炎防御手段，才明白外国人少不是没有原因的</description></item><item><title/><link>https://ryuchen.club/essay/0x000007/</link><pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000007/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 王圈圈童靴的直播间~~~
-B站手残的炫技直播间</description></item><item><title/><link>https://ryuchen.club/essay/0x000006/</link><pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000006/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 王圈圈童靴沉迷奥日不可自拔课程学习暂停几日了~~~</description></item><item><title/><link>https://ryuchen.club/essay/0x000005/</link><pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000005/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 教王圈圈童靴学习Python的第0x000004天：
-1、Python异常的机制 所有异常的基类：BaseException 异常分为 系统内置异常 和 用户自定义异常 2、系统内置异常 主要分为 Error 和 Warning 两种 有些Error会返回错误码errno 时用时查，内置异常类层次参见Python文档 Build-in Exceptions 3、自定义异常最佳推荐 用户自定义异常均从派生于异常类Exception 建议自定义异常都以Exceptions或者except结尾，方便和内置异常区分 4、异常处理相关语法 捕获异常：try:...except(Exception1[, Exception2[,...ExceptionN]]]):...else:... try语句工作原理如下： 首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。 如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。 如果在执行try子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和except关键字后面的异常匹配，则执行except子句 ，然后继续执行try语句之后的代码。 如果发生的异常和except子句中指定的异常不匹配，则将其传递到外部的try语句中；如果没有找到处理程序，则它是一个未处理异常，执行将停止并显示如上所示的消息。 强制抛出异常raise raise唯一的参数就是要抛出的异常。 这个参数必须是一个异常实例或者是一个异常类(派生自Exception的类) finally的使用 如果存在finally子句，则finally子句将作为try语句结束前的最后一项任务被执行。finally子句不论try语句是否产生了异常都会被执行 对于释放外部资源(例如文件或者网络连接)非常有用</description></item><item><title/><link>https://ryuchen.club/essay/0x000004/</link><pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000004/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 教王圈圈童靴学习Python的第0x000003天：
-1、Python的三大生成式 列表生成式：[exp for val in collection if condition] 字典生成式：{key-exp:val-exp for value in collection if condition} 集合生成式：{exp for value in collection if condition} 2、Python枚举函数enumerate() 语法： enumerate(sequence, [start=0]) sequence：一个序列、迭代器或其他支持迭代对象 start：下标起始位置 返回值：返回一个enumerate(枚举)对象，包含数据下标和数据</description></item><item><title/><link>https://ryuchen.club/essay/0x000003/</link><pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000003/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 教王圈圈童靴学习Python的第0x000002天：
-Q、(复习)如何旋转Python中的二维数组? (list切片实现) 1、Python中的六个数据类型 数字number 字符串string 列表list 元组tuple 集合set 字典dict 2、六个数据类型中的两大类 不可变数据：number、string、tuple 可变数据：list、dict、set 3、dict是python区别于其他语言的特殊存在</description></item><item><title/><link>https://ryuchen.club/essay/0x000002/</link><pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000002/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 教王圈圈童靴学习Python的第0x000001天：
-1、is 和 == 的区别 2、Python小型内存池机制（整型和字符串） 3、list切片的三个参数的意义start、end、step</description></item><item><title/><link>https://ryuchen.club/essay/0x000001/</link><pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000001/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 总算是把博客从Hexo迁移到了Hugo上面了，不得不说Hexo弄得我心力交瘁，再也不想用Hexo了！！！</description></item></channel></rss>
+     斯坦福自然语言处理经典入门课程-Dan Jurafsky 和 Chris Manning 教授授课    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000009/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000009/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   本人也开通了B站的直播间，不定期直播写代码，算是督促？？？(黑人问号脸)
+ B站技术宅的炫技直播间    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000008/</link>
+      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000008/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   看到外国的新冠肺炎防御手段，才明白外国人少不是没有原因的
+        </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000007/</link>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000007/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   王圈圈童靴的直播间~~~
+ B站手残的炫技直播间    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000006/</link>
+      <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000006/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   王圈圈童靴沉迷奥日不可自拔课程学习暂停几日了~~~
+       </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000005/</link>
+      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000005/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000004天：
+1、Python异常的机制  所有异常的基类：BaseException 异常分为 系统内置异常 和 用户自定义异常  2、系统内置异常  主要分为 Error 和 Warning 两种 有些Error会返回错误码errno 时用时查，内置异常类层次参见Python文档 Build-in Exceptions  3、自定义异常最佳推荐  用户自定义异常均从派生于异常类Exception 建议自定义异常都以Exceptions或者except结尾，方便和内置异常区分  4、异常处理相关语法  捕获异常：try:...except(Exception1[, Exception2[,...ExceptionN]]]):...else:...  try语句工作原理如下：  首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。 如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。 如果在执行try子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和except关键字后面的异常匹配，则执行except子句 ，然后继续执行try语句之后的代码。 如果发生的异常和except子句中指定的异常不匹配，则将其传递到外部的try语句中；如果没有找到处理程序，则它是一个未处理异常，执行将停止并显示如上所示的消息。     强制抛出异常raise  raise唯一的参数就是要抛出的异常。 这个参数必须是一个异常实例或者是一个异常类(派生自Exception的类)   finally的使用  如果存在finally子句，则finally子句将作为try语句结束前的最后一项任务被执行。finally子句不论try语句是否产生了异常都会被执行 对于释放外部资源(例如文件或者网络连接)非常有用       </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000004/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000004/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000003天：
+1、Python的三大生成式  列表生成式：[exp for val in collection if condition] 字典生成式：{key-exp:val-exp for value in collection if condition} 集合生成式：{exp for value in collection if condition}  2、Python枚举函数enumerate()  语法：  enumerate(sequence, [start=0]) sequence：一个序列、迭代器或其他支持迭代对象 start：下标起始位置   返回值：返回一个enumerate(枚举)对象，包含数据下标和数据     </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000003/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000003/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000002天：
+Q、(复习)如何旋转Python中的二维数组? (list切片实现) 1、Python中的六个数据类型  数字number 字符串string 列表list 元组tuple 集合set 字典dict  2、六个数据类型中的两大类  不可变数据：number、string、tuple 可变数据：list、dict、set  3、dict是python区别于其他语言的特殊存在    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000002/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000002/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000001天：
+1、is 和 == 的区别 2、Python小型内存池机制（整型和字符串） 3、list切片的三个参数的意义start、end、step    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000001/</link>
+      <pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000001/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   总算是把博客从Hexo迁移到了Hugo上面了，不得不说Hexo弄得我心力交瘁，再也不想用Hexo了！！！
+   </description>
+    </item>
+    
+  </channel>
+</rss>

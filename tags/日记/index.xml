@@ -1,1 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>日记 on Sweet House</title><link>https://ryuchen.club/tags/%E6%97%A5%E8%AE%B0/</link><description>Recent content in 日记 on Sweet House</description><generator>Hugo -- gohugo.io</generator><language>zh</language><copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright><lastBuildDate>Tue, 20 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ryuchen.club/tags/%E6%97%A5%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>关于近期生活的个人杂谈(二)</title><link>https://ryuchen.club/posts/0x000016/</link><pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000016/</guid><description>一转眼，博客停更了半年的时间，不过并不是忘记了博客这件事，而是下了决心花了这半年恶补了一下自己的机器学习的基础知识，也是感谢因为疫情需要居家隔离和在校封闭的这段时间，能够有这半年的时间让自己静下心来好好的读了这么几本书~</description></item><item><title>关于近期生活的个人杂谈</title><link>https://ryuchen.club/posts/0x000004/</link><pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000004/</guid><description>最近恰逢自己刚过完 26 周岁的生日，也算是在奔三的路上跑过一半的旅程，总结下最近的生活，自从毕业之后似乎一直忙忙碌碌的，但是没有半点自身的产出，一直算是为了糊口饭吃，所以想在人生的 35 岁之前成就点事情，不然总觉得自己这有点不甘心啊~</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>日记 on Sweet House</title>
+    <link>https://ryuchen.club/tags/%E6%97%A5%E8%AE%B0/</link>
+    <description>Recent content in 日记 on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
+    <lastBuildDate>Tue, 20 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ryuchen.club/tags/%E6%97%A5%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于近期生活的个人杂谈(二)</title>
+      <link>https://ryuchen.club/posts/0x000016/</link>
+      <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000016/</guid>
+      <description>一转眼，博客停更了半年的时间，不过并不是忘记了博客这件事，而是下了决心花了这半年恶补了一下自己的机器学习的基础知识，也是感谢因为疫情需要居家隔离和在校封闭的这段时间，能够有这半年的时间让自己静下心来好好的读了这么几本书~</description>
+    </item>
+    
+    <item>
+      <title>关于近期生活的个人杂谈</title>
+      <link>https://ryuchen.club/posts/0x000004/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000004/</guid>
+      <description>最近恰逢自己刚过完 26 周岁的生日，也算是在奔三的路上跑过一半的旅程，总结下最近的生活，自从毕业之后似乎一直忙忙碌碌的，但是没有半点自身的产出，一直算是为了糊口饭吃，所以想在人生的 35 岁之前成就点事情，不然总觉得自己这有点不甘心啊~</description>
+    </item>
+    
+  </channel>
+</rss>

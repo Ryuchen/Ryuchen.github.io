@@ -1,34 +1,228 @@
-<!doctype html><html lang=zh><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=yes"><title>首次搭建Hugo博客框架 | Sweet House</title><meta name=description content="Everyday is a holiday"><meta name=bytedance-verification-code content="MmXZwSvr8lAvM1hIXSkm"><meta name=author content="[Ryuchen WangOO]"><link rel=icon href=/favicon.ico><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css><link rel=stylesheet href=/dist/main.4707e15c5ca4eab5da71.min.css><link rel=stylesheet href=/css/shortcodes.css><link rel=canonical href=https://ryuchen.club/posts/0x00000e/><meta property="og:title" content="首次搭建Hugo博客框架"><meta property="og:description" content="之前使用Github Pages配合Hexo搭建的博客，长时间不进行维护，偶然想升级个版本，结果给搞砸了，导致运行起来样式错乱，加上本人不太喜欢写Javascript代码，所以索性把Blog迁移到Hugo框架下"><meta property="og:type" content="article"><meta property="og:url" content="https://ryuchen.club/posts/0x00000e/"><meta property="og:image" content="https://ryuchen.club/hugo-cover.png"><meta property="article:published_time" content="2020-03-23T00:00:00+00:00"><meta property="article:modified_time" content="2020-03-23T00:00:00+00:00"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000016/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000011/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000f/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000c/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000b/"><meta itemprop=name content="首次搭建Hugo博客框架"><meta itemprop=description content="之前使用Github Pages配合Hexo搭建的博客，长时间不进行维护，偶然想升级个版本，结果给搞砸了，导致运行起来样式错乱，加上本人不太喜欢写Javascript代码，所以索性把Blog迁移到Hugo框架下"><meta itemprop=datePublished content="2020-03-23T00:00:00+00:00"><meta itemprop=dateModified content="2020-03-23T00:00:00+00:00"><meta itemprop=wordCount content="332"><meta itemprop=image content="https://ryuchen.club/hugo-cover.png"><meta itemprop=keywords content="Hugo,静态网站,Blog,Github Pages,个人博客,bash,"></head><body><nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id=navbar-main-menu><div class=container><a class="navbar-brand font-weight-bold" href=https://ryuchen.club>>$ cd /home_</a>
-<button class=navbar-toggler type=button data-toggle=collapse data-target=#main-menu aria-controls=main-menu aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=main-menu><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=/>首页</a></li><li class=nav-item><a class=nav-link href=/posts/>博文</a></li><li class=nav-item><a class=nav-link href=/projects/>项目</a></li><li class=nav-item><a class=nav-link href=/snippet/>代码</a></li><li class=nav-item><a class=nav-link href=/essay/>随笔</a></li><li class=nav-item><a class=nav-link href=/gallery/>照片墙</a></li><li class=nav-item><a class=nav-link href=/about/>关于</a></li><li class=nav-item><a class=nav-link href=https://github.com/Ryuchen target=_blank>Github</a></li></ul></div></div></nav><main class="content-page container pt-7 pb-5"><div class=row><div class=col><article><div class="row justify-content-center"><div class=col-lg-10><h1>首次搭建Hugo博客框架</h1><div class="meta text-muted mb-3" style=text-align:right><p class="created text-muted text-uppercase font-weight-bold mb-1">March 23, 2020</p><span class=mr-2><i class="fas fa-book-open mr-2"></i>2168</span>
-<span><i class="fas fa-clock mr-2"></i>9 minutes and
-51 seconds</span></div><div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href=/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA><i class="fas fa-tag mr-2"></i>博客搭建</a></div></div></div><div class="row justify-content-center mb-3"><div class=col-lg-10><img data-src=/images/hugo-cover_hu5ff7678116e37e4148cba01ab439f068_13782_900x500_fit_box_2.png class="img-fluid rounded mx-auto d-block" alt=首次搭建Hugo博客框架></div></div><div class="row justify-content-center"><div class=col-lg-10><div class=content><blockquote><p>好久没更新博客了，都是因为懒惰惹的祸~ 不过兴致来了开始更新博客，却因为想要升级一下hexo导致博客样式错乱了，so~~~~</p></blockquote><h4 id=what-is-hugo>What is Hugo</h4><hr><p>官方是这么描述Hugo的：</p><blockquote><p>Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors.</p></blockquote><p>不过其实Hugo就是跟Hexo一样的静态网页生成器，能够帮助你在编辑Mardown格式的文档情况下，自动生成符合Github Pages的静态页面，本身是go编写的~~~</p><p><strong>本质上其实跟Hexo是一致的</strong></p><h4 id=why-choose-hugo>Why choose Hugo</h4><hr><p>下面说说具体为什么我把博客迁移到Hugo上，其实选择Hugo的原因主要有三点：</p><ul><li><p>被npm的管理和Hexo的编写打败</p><blockquote><p>其实最开始的时候我只是想升级一下hexo到最新的版本，然后将之前的hexo主题Next升级到官方最新，但是竟然出现了各种老版本兼容的问题。为了解决这个问题，花了我三天的时间，抓耳挠腮的想办法，各种百度、google教程，发现还是没办法把之前的样式完全还原回来，于是我放弃了我觉得世界上最乱的包管理工具npm，也顺便放弃了hexo这个博客利器吧，可能你是中文社区里面最好的博客系统，但是我用不习惯，我的问题~~~</p></blockquote></li><li><p>Hugo的语法更类似Python web编程的template</p><blockquote><p>之后找了很多其他的静态博客生成工具，然后比对了一番之后，还是决定选择Hugo作为新的博客生成工具，其实主要原因就是它是用go编写的，直接安装二进制就行，不需要依赖之前我烦的透顶的npm了，而且拜读了官网的说明，发现他的template语法跟Python的 Jinja2 其实很像，也很好记，油管的视频跟着学一遍很快就上手了，现在这个博哥样式就是基于人家的主题，自己修改的，这个入门门槛着实要低了不少，看到自己的博客跟千篇一律的Hexo NeXT拉开了差距，我像朱一旦一样的笑了起来~~~</p></blockquote></li><li><p>个人感觉主题的样式要比jekyll更好看点</p><blockquote><p>另外要说的一个原因就是在对比jekyll的时候出现的一个颜狗问题，没别的，jekyll依然是Github Pages领域顶尖的，但是实在是没找到好看的主题，所以放弃了~~~</p></blockquote></li></ul><h4 id=getting-started>Getting Started</h4><hr><h5 id=install-hugo>Install Hugo</h5><p>首先第一步就是进行Hugo的安装，由于Hugo是用Go编写的，所以它是编译成二进制的包，因此所有平台都是支持的，官方也提供了很多编译后的包自行下载就好：</p><ul><li>macOS (Darwin) for x64, i386, and ARM architectures</li><li>Windows</li><li>Linux</li><li>OpenBSD</li><li>FreeBSD</li></ul><p>在官方提供的以上编译包之外，只要是Go的编译工具能运行的地方，都可以clone源码进行编译安装。</p><p><strong>macOS using Homebrew</strong></p><p><code>brew install hugo</code></p><p><strong>linux using APT</strong></p><p><code>sudo apt install hugo</code></p><p><strong>Windows using choco</strong></p><p><code>choco install hugo --confirm</code></p><p><strong>Windows using scoop</strong></p><p><code>scoop install hugo</code></p><p>其实本质上就是将编译后的Hugo的二进制文件放到了你的/usr/bin目录下，或者是windows系统的path里面，不难理解，此外chocolate和scoop两个windows的命令行工具之后会有空再另写一篇博客来说~</p><h5 id=basic-usage>Basic Usage</h5><p>安装完成之后在你的命令行终端上就有了hugo的命令，具体你可以在你的终端中输入<code>hugo help</code>进行测试，如果出现以下内容，那么恭喜你，安装成功了~</p><div class=highlight><pre class=chroma><code class=language-Powershell data-lang=Powershell><span class=n>Loading</span> <span class=n>personal</span> <span class=n>and</span> <span class=n>system</span> <span class=n>profiles</span> <span class=n>took</span> <span class=n>1175ms</span><span class=p>.</span>
- <span class=n>chenh</span><span class=nv>@RYUCHEN</span><span class=n>-HOME-DE</span> <span class=p>&gt;</span> <span class=n>E:</span> <span class=p>&gt;</span> <span class=n>hugo</span> <span class=n>help</span>
-<span class=n>hugo</span> <span class=n>is</span> <span class=n>the</span> <span class=n>main</span> <span class=n>command</span><span class=p>,</span> <span class=n>used</span> <span class=n>to</span> <span class=n>build</span> <span class=n>your</span> <span class=n>Hugo</span> <span class=n>site</span><span class=p>.</span>
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     首次搭建Hugo博客框架 |  Sweet House
+  
+</title>
 
-<span class=n>Hugo</span> <span class=n>is</span> <span class=n>a</span> <span class=n>Fast</span> <span class=n>and</span> <span class=n>Flexible</span> <span class=n>Static</span> <span class=n>Site</span> <span class=n>Generator</span>
-<span class=n>built</span> <span class=n>with</span> <span class=n>love</span> <span class=n>by</span> <span class=n>spf13</span> <span class=n>and</span> <span class=n>friends</span> <span class=k>in</span> <span class=n>Go</span><span class=p>.</span>
 
-<span class=n>Complete</span> <span class=n>documentation</span> <span class=n>is</span> <span class=n>available</span> <span class=n>at</span> <span class=n>http</span><span class=err>:</span><span class=p>//</span><span class=n>gohugo</span><span class=p>.</span><span class=n>io</span><span class=p>/.</span>
+  <meta name="description" content="Everyday is a holiday">
 
-<span class=n>Usage</span><span class=err>:</span>
-  <span class=n>hugo</span> <span class=no>[flags]</span>
-  <span class=n>hugo</span> <span class=no>[command]</span>
 
-<span class=n>Available</span> <span class=n>Commands</span><span class=err>:</span>
-  <span class=n>config</span>      <span class=n>Print</span> <span class=n>the</span> <span class=n>site</span> <span class=n>configuration</span>
-  <span class=n>convert</span>     <span class=n>Convert</span> <span class=n>your</span> <span class=n>content</span> <span class=n>to</span> <span class=n>different</span> <span class=n>formats</span>
-  <span class=n>deploy</span>      <span class=n>Deploy</span> <span class=n>your</span> <span class=n>site</span> <span class=n>to</span> <span class=n>a</span> <span class=n>Cloud</span> <span class=n>provider</span><span class=p>.</span>
-  <span class=n>env</span>         <span class=n>Print</span> <span class=n>Hugo</span> <span class=n>version</span> <span class=n>and</span> <span class=n>environment</span> <span class=n>info</span>
-  <span class=n>gen</span>         <span class=n>A</span> <span class=n>collection</span> <span class=n>of</span> <span class=n>several</span> <span class=n>useful</span> <span class=n>generators</span><span class=p>.</span>
-  <span class=n>help</span>        <span class=n>Help</span> <span class=n>about</span> <span class=n>any</span> <span class=n>command</span>
-  <span class=n>import</span>      <span class=n>Import</span> <span class=n>your</span> <span class=n>site</span> <span class=n>from</span> <span class=n>others</span><span class=p>.</span>
-  <span class=n>list</span>        <span class=n>Listing</span> <span class=n>out</span> <span class=n>various</span> <span class=n>types</span> <span class=n>of</span> <span class=n>content</span>
-  <span class=n>mod</span>         <span class=n>Various</span> <span class=n>Hugo</span> <span class=n>Modules</span> <span class=n>helpers</span><span class=p>.</span>
-  <span class=n>new</span>         <span class=n>Create</span> <span class=n>new</span> <span class=n>content</span> <span class=k>for</span> <span class=n>your</span> <span class=n>site</span>
-  <span class=n>server</span>      <span class=n>A</span> <span class=n>high</span> <span class=n>performance</span> <span class=n>webserver</span>
-  <span class=n>version</span>     <span class=n>Print</span> <span class=n>the</span> <span class=n>version</span> <span class=n>number</span> <span class=n>of</span> <span class=n>Hugo</span>
-</code></pre></div><p>有了上述命令后咱们生成一个新的博客目录 <code>hugo new site /which/path/you/prefer</code></p><p>然后只需要了解三个命令你就可以开始你的博客编写了</p><ul><li><p>启动本地hugo预览环境</p><blockquote><p><code>hugo server</code></p></blockquote></li><li><p>创建hugo的文档</p><blockquote><p><code>hugo new post/xxxx.md</code></p></blockquote></li><li><p>生成hugo的静态页面</p><blockquote><p><code>hugo</code></p></blockquote></li></ul><p>之后会在你的目录下面生成一个public文件夹，将里面的内容push到你的Github Pages仓库就好了</p><p>其他细致的说明后续博客中会写到~~~</p><h5 id=directory-structure>Directory Structure</h5><p>然后就是Hugo博客的目录结构，这个是最基础的组织结构，能够有效地帮你组织你的博客内容分布，同时也是Hugo在帮你生成博客的时候会找寻文件的目录</p><div class=highlight><pre class=chroma><code class=language-Bash data-lang=Bash>.Your Site
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x00000e/"><meta property="og:title" content="首次搭建Hugo博客框架" />
+<meta property="og:description" content="之前使用Github Pages配合Hexo搭建的博客，长时间不进行维护，偶然想升级个版本，结果给搞砸了，导致运行起来样式错乱，加上本人不太喜欢写Javascript代码，所以索性把Blog迁移到Hugo框架下" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x00000e/" />
+<meta property="og:image" content="https://ryuchen.club/hugo-cover.png" />
+<meta property="article:published_time" content="2020-03-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-23T00:00:00+00:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000016/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000011/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000f/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000c/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000b/" />
+
+<meta itemprop="name" content="首次搭建Hugo博客框架">
+<meta itemprop="description" content="之前使用Github Pages配合Hexo搭建的博客，长时间不进行维护，偶然想升级个版本，结果给搞砸了，导致运行起来样式错乱，加上本人不太喜欢写Javascript代码，所以索性把Blog迁移到Hugo框架下">
+<meta itemprop="datePublished" content="2020-03-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="332">
+<meta itemprop="image" content="https://ryuchen.club/hugo-cover.png">
+
+
+
+<meta itemprop="keywords" content="Hugo,静态网站,Blog,Github Pages,个人博客,bash," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>首次搭建Hugo博客框架</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">March 23, 2020</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>2168</span>
+                            <span><i class="fas fa-clock mr-2"></i>9 minutes and
+                                51 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA">
+                                    <i class="fas fa-tag mr-2"></i>博客搭建
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/hugo-cover_hu5ff7678116e37e4148cba01ab439f068_13782_900x500_fit_box_2.png" class="img-fluid rounded mx-auto d-block" alt="首次搭建Hugo博客框架">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <blockquote>
+<p>好久没更新博客了，都是因为懒惰惹的祸~ 不过兴致来了开始更新博客，却因为想要升级一下hexo导致博客样式错乱了，so~~~~</p>
+</blockquote>
+<h4 id="what-is-hugo">What is Hugo</h4>
+<hr>
+<p>官方是这么描述Hugo的：</p>
+<blockquote>
+<p>Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors.</p>
+</blockquote>
+<p>不过其实Hugo就是跟Hexo一样的静态网页生成器，能够帮助你在编辑Mardown格式的文档情况下，自动生成符合Github Pages的静态页面，本身是go编写的~~~</p>
+<p><strong>本质上其实跟Hexo是一致的</strong></p>
+<h4 id="why-choose-hugo">Why choose Hugo</h4>
+<hr>
+<p>下面说说具体为什么我把博客迁移到Hugo上，其实选择Hugo的原因主要有三点：</p>
+<ul>
+<li>
+<p>被npm的管理和Hexo的编写打败</p>
+<blockquote>
+<p>其实最开始的时候我只是想升级一下hexo到最新的版本，然后将之前的hexo主题Next升级到官方最新，但是竟然出现了各种老版本兼容的问题。为了解决这个问题，花了我三天的时间，抓耳挠腮的想办法，各种百度、google教程，发现还是没办法把之前的样式完全还原回来，于是我放弃了我觉得世界上最乱的包管理工具npm，也顺便放弃了hexo这个博客利器吧，可能你是中文社区里面最好的博客系统，但是我用不习惯，我的问题~~~</p>
+</blockquote>
+</li>
+<li>
+<p>Hugo的语法更类似Python web编程的template</p>
+<blockquote>
+<p>之后找了很多其他的静态博客生成工具，然后比对了一番之后，还是决定选择Hugo作为新的博客生成工具，其实主要原因就是它是用go编写的，直接安装二进制就行，不需要依赖之前我烦的透顶的npm了，而且拜读了官网的说明，发现他的template语法跟Python的 Jinja2 其实很像，也很好记，油管的视频跟着学一遍很快就上手了，现在这个博哥样式就是基于人家的主题，自己修改的，这个入门门槛着实要低了不少，看到自己的博客跟千篇一律的Hexo NeXT拉开了差距，我像朱一旦一样的笑了起来~~~</p>
+</blockquote>
+</li>
+<li>
+<p>个人感觉主题的样式要比jekyll更好看点</p>
+<blockquote>
+<p>另外要说的一个原因就是在对比jekyll的时候出现的一个颜狗问题，没别的，jekyll依然是Github Pages领域顶尖的，但是实在是没找到好看的主题，所以放弃了~~~</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="getting-started">Getting Started</h4>
+<hr>
+<h5 id="install-hugo">Install Hugo</h5>
+<p>首先第一步就是进行Hugo的安装，由于Hugo是用Go编写的，所以它是编译成二进制的包，因此所有平台都是支持的，官方也提供了很多编译后的包自行下载就好：</p>
+<ul>
+<li>macOS (Darwin) for x64, i386, and ARM architectures</li>
+<li>Windows</li>
+<li>Linux</li>
+<li>OpenBSD</li>
+<li>FreeBSD</li>
+</ul>
+<p>在官方提供的以上编译包之外，只要是Go的编译工具能运行的地方，都可以clone源码进行编译安装。</p>
+<p><strong>macOS using Homebrew</strong></p>
+<p><code>brew install hugo</code></p>
+<p><strong>linux using APT</strong></p>
+<p><code>sudo apt install hugo</code></p>
+<p><strong>Windows using choco</strong></p>
+<p><code>choco install hugo --confirm</code></p>
+<p><strong>Windows using scoop</strong></p>
+<p><code>scoop install hugo</code></p>
+<p>其实本质上就是将编译后的Hugo的二进制文件放到了你的/usr/bin目录下，或者是windows系统的path里面，不难理解，此外chocolate和scoop两个windows的命令行工具之后会有空再另写一篇博客来说~</p>
+<h5 id="basic-usage">Basic Usage</h5>
+<p>安装完成之后在你的命令行终端上就有了hugo的命令，具体你可以在你的终端中输入<code>hugo help</code>进行测试，如果出现以下内容，那么恭喜你，安装成功了~</p>
+<div class="highlight"><pre class="chroma"><code class="language-Powershell" data-lang="Powershell"><span class="n">Loading</span> <span class="n">personal</span> <span class="n">and</span> <span class="n">system</span> <span class="n">profiles</span> <span class="n">took</span> <span class="n">1175ms</span><span class="p">.</span>
+ <span class="n">chenh</span><span class="nv">@RYUCHEN</span><span class="n">-HOME-DE</span> <span class="p">&gt;</span> <span class="n">E:</span> <span class="p">&gt;</span> <span class="n">hugo</span> <span class="n">help</span>
+<span class="n">hugo</span> <span class="n">is</span> <span class="n">the</span> <span class="n">main</span> <span class="n">command</span><span class="p">,</span> <span class="n">used</span> <span class="n">to</span> <span class="n">build</span> <span class="n">your</span> <span class="n">Hugo</span> <span class="n">site</span><span class="p">.</span>
+
+<span class="n">Hugo</span> <span class="n">is</span> <span class="n">a</span> <span class="n">Fast</span> <span class="n">and</span> <span class="n">Flexible</span> <span class="n">Static</span> <span class="n">Site</span> <span class="n">Generator</span>
+<span class="n">built</span> <span class="n">with</span> <span class="n">love</span> <span class="n">by</span> <span class="n">spf13</span> <span class="n">and</span> <span class="n">friends</span> <span class="k">in</span> <span class="n">Go</span><span class="p">.</span>
+
+<span class="n">Complete</span> <span class="n">documentation</span> <span class="n">is</span> <span class="n">available</span> <span class="n">at</span> <span class="n">http</span><span class="err">:</span><span class="p">//</span><span class="n">gohugo</span><span class="p">.</span><span class="n">io</span><span class="p">/.</span>
+
+<span class="n">Usage</span><span class="err">:</span>
+  <span class="n">hugo</span> <span class="no">[flags]</span>
+  <span class="n">hugo</span> <span class="no">[command]</span>
+
+<span class="n">Available</span> <span class="n">Commands</span><span class="err">:</span>
+  <span class="n">config</span>      <span class="n">Print</span> <span class="n">the</span> <span class="n">site</span> <span class="n">configuration</span>
+  <span class="n">convert</span>     <span class="n">Convert</span> <span class="n">your</span> <span class="n">content</span> <span class="n">to</span> <span class="n">different</span> <span class="n">formats</span>
+  <span class="n">deploy</span>      <span class="n">Deploy</span> <span class="n">your</span> <span class="n">site</span> <span class="n">to</span> <span class="n">a</span> <span class="n">Cloud</span> <span class="n">provider</span><span class="p">.</span>
+  <span class="n">env</span>         <span class="n">Print</span> <span class="n">Hugo</span> <span class="n">version</span> <span class="n">and</span> <span class="n">environment</span> <span class="n">info</span>
+  <span class="n">gen</span>         <span class="n">A</span> <span class="n">collection</span> <span class="n">of</span> <span class="n">several</span> <span class="n">useful</span> <span class="n">generators</span><span class="p">.</span>
+  <span class="n">help</span>        <span class="n">Help</span> <span class="n">about</span> <span class="n">any</span> <span class="n">command</span>
+  <span class="n">import</span>      <span class="n">Import</span> <span class="n">your</span> <span class="n">site</span> <span class="n">from</span> <span class="n">others</span><span class="p">.</span>
+  <span class="n">list</span>        <span class="n">Listing</span> <span class="n">out</span> <span class="n">various</span> <span class="n">types</span> <span class="n">of</span> <span class="n">content</span>
+  <span class="n">mod</span>         <span class="n">Various</span> <span class="n">Hugo</span> <span class="n">Modules</span> <span class="n">helpers</span><span class="p">.</span>
+  <span class="n">new</span>         <span class="n">Create</span> <span class="n">new</span> <span class="n">content</span> <span class="k">for</span> <span class="n">your</span> <span class="n">site</span>
+  <span class="n">server</span>      <span class="n">A</span> <span class="n">high</span> <span class="n">performance</span> <span class="n">webserver</span>
+  <span class="n">version</span>     <span class="n">Print</span> <span class="n">the</span> <span class="n">version</span> <span class="n">number</span> <span class="n">of</span> <span class="n">Hugo</span>
+</code></pre></div><p>有了上述命令后咱们生成一个新的博客目录 <code>hugo new site /which/path/you/prefer</code></p>
+<p>然后只需要了解三个命令你就可以开始你的博客编写了</p>
+<ul>
+<li>
+<p>启动本地hugo预览环境</p>
+<blockquote>
+<p><code>hugo server</code></p>
+</blockquote>
+</li>
+<li>
+<p>创建hugo的文档</p>
+<blockquote>
+<p><code>hugo new post/xxxx.md</code></p>
+</blockquote>
+</li>
+<li>
+<p>生成hugo的静态页面</p>
+<blockquote>
+<p><code>hugo</code></p>
+</blockquote>
+</li>
+</ul>
+<p>之后会在你的目录下面生成一个public文件夹，将里面的内容push到你的Github Pages仓库就好了</p>
+<p>其他细致的说明后续博客中会写到~~~</p>
+<h5 id="directory-structure">Directory Structure</h5>
+<p>然后就是Hugo博客的目录结构，这个是最基础的组织结构，能够有效地帮你组织你的博客内容分布，同时也是Hugo在帮你生成博客的时候会找寻文件的目录</p>
+<div class="highlight"><pre class="chroma"><code class="language-Bash" data-lang="Bash">.Your Site
 ├── archetypes
 ├── config.toml
 ├── content
@@ -36,14 +230,240 @@
 ├── layouts
 ├── static
 └── themes
-</code></pre></div><p><strong>archetypes</strong></p><p>这里面的文件是当你进行<code>hugo new xxx</code>指令的时候，生成的模板文件</p><p>举个例子来说，就是当你每次编写post(就是博客主体，你一可以根据需要改名)的时候，总有一些内容是重复的也就是一些头信息，这个时候在这个目录下面写一个post.md文件，将头部信息的未填充内容的格式放在里面，下次生成的时候将自动带上这个内容。</p><p><strong>content</strong></p><p>这个目录就是博客文档目录了，你所有的博客文档内容都写在这个下面，可以按需分门别类的创建多级目录</p><p><strong>data</strong></p><p>数据类型的文件，hugo在生成文件的时候可以去读取里面的内容，属于高级一点用法了，前期一般用不到</p><p><strong>layouts</strong></p><p>编写html样式的目录，你的博客想长成什么样，全看这里写的好不好~~~</p><p><strong>static</strong></p><p>静态资源文件，可以放图片，然后当成图床使用，也放入一般的js和css</p><p><strong>themes</strong></p><p>主题目录，同大多数静态页面生成器一样，hugo的主题和内容不是捆绑的，可以有很多的主题，全看你的高兴</p><p><strong>config.toml</strong></p><p>这个就是总体的配置文件了，它决定了你的hugo博客的功能内容</p><p>总的来说这个Hugo还是蛮符合我的胃口的，下次有机会详细说说具体我是如何使用的，这次就先说的到这，本来也不想写个千篇一律的博客内容，这个总的来说就是总结一下自己学习的基础入门内容</p><p>推荐查看官方文档进行学习，然后就是找别人写的主题的源码好好看看：</p><hr><p>官方文档内容 <a href=https://gohugo.io/documentation/>HugoDoc</a></p><p>官方油管视频 <a href="https://www.youtube.com/watch?v=sB0HLHjgQ7E&list=RDCMUCvmINlrza7JHB1zkIOuXEbw&start_radio=1&t=1">Youtube</a></p></div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href=/tags/hugo/><i class="fas fa-tag mr-2"></i>Hugo
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/><i class="fas fa-tag mr-2"></i>静态网站
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/blog/><i class="fas fa-tag mr-2"></i>Blog
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/github-pages/><i class="fas fa-tag mr-2"></i>Github Pages
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/><i class="fas fa-tag mr-2"></i>个人博客
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/bash/><i class="fas fa-tag mr-2"></i>bash</a></div><div style=text-align:center><div class=social-share data-sites=wechat,weibo,twitter,facebook,douban data-mobile-sites=wechat,weibo></div></div></div></div><div class="row justify-content-center"><div class=col-lg-8><div id=comments-gittalk></div><link rel=stylesheet href=https://unpkg.com/gitalk/dist/gitalk.css><script src=https://unpkg.com/gitalk/dist/gitalk.min.js></script><script>var gittalk=new Gitalk({id:'0x00000e',owner:'Ryuchen',repo:'ryuchen.github.io',admin:['Ryuchen'],clientID:'cda75f43f62ef6ebc3ea',clientSecret:'e405fb603c664a6436a481917a7ee70931413268',})
-gittalk.render('comments-gittalk')</script></div></div></article></div></div><div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x00000c/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/markdown-syntax_hu82f81192e936314d551c0b466c7e7bbb_24890_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt=Hexo博客SEO优化><div class=card-body><div class=card-title>Hexo博客SEO优化</div><div class=card-serie><span class="badge badge-pill badge-primary">博客搭建</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 31, 2019</p><div class=card-text>最近因为临近寒假课程也基本都结束了想着该把这个博客再好好维护一下了啊，所以想先把这个检索的功能优化加上，毕竟我是个爱显摆的人，写了没人看多令人憋屈～</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x00000a/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/hexo-cover_hu588948c47b599f6a83c91f83c37b364d_83056_700x350_resize_box_2.png class="card-img-top mx-auto d-block" alt=MWeb配合Hexo搭建博客发布><div class=card-body><div class=card-title>MWeb配合Hexo搭建博客发布</div><div class=card-serie><span class="badge badge-pill badge-primary">博客搭建</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 30, 2019</p><div class=card-text>利用MWeb软件实现配合Hexo进行Github Pages的个人博客搭建，hexo虽然已经很棒了，但是需要进行博客发布的时候，总是执行命令也挺麻烦的，所以想如何利用MWeb这个编辑器实现自动化发布的功能，方便自己的博客编写～</div></div></a></div></div></div></main><footer class="footer bg-dark py-6"><div class=container><div class=row><div class="col-sm text-center"><ul class=list-inline><li class=list-inline-item><a href=https://ryuchen.club/index.xml rel=alternate type=application/rss+xml class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=mailto:chenhaom1993@hotmail.com class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://github.com/Ryuchen class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://weibo.com/u/3147247770 class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-weibo fa-stack-1x fa-inverse"></i></span></a></li></ul><p class=text-muted>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</p><p class=text-muted>京ICP备2020040667号</p><p class=text-muted>本站总记被访问 <span id=busuanzi_value_site_pv></span>次，
-您是第 <span id=busuanzi_value_site_uv></span>个来访小伙伴。</p></div><div class="col-sm text-center"><p class=text-muted>维护不易，渴望您的资助</p><ul class=list-inline><div class=row><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg alt=WechatPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg alt=AliPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div></div></ul></div></div></div><div class=netease-music><audio id=music-player crossorigin playsinline></audio></div></footer><script src=/dist/main.bf9558b8596b4accd07a.min.js></script><script src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js></script><script>window.Prism=window.Prism||{};</script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js></script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script><script>(function(){var el=document.createElement("script");el.src="https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";el.id="ttzz";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(el,s);})(window)</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin=anonymous></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-0EFH27TG1R');</script></body></html>
+</code></pre></div><p><strong>archetypes</strong></p>
+<p>这里面的文件是当你进行<code>hugo new xxx</code>指令的时候，生成的模板文件</p>
+<p>举个例子来说，就是当你每次编写post(就是博客主体，你一可以根据需要改名)的时候，总有一些内容是重复的也就是一些头信息，这个时候在这个目录下面写一个post.md文件，将头部信息的未填充内容的格式放在里面，下次生成的时候将自动带上这个内容。</p>
+<p><strong>content</strong></p>
+<p>这个目录就是博客文档目录了，你所有的博客文档内容都写在这个下面，可以按需分门别类的创建多级目录</p>
+<p><strong>data</strong></p>
+<p>数据类型的文件，hugo在生成文件的时候可以去读取里面的内容，属于高级一点用法了，前期一般用不到</p>
+<p><strong>layouts</strong></p>
+<p>编写html样式的目录，你的博客想长成什么样，全看这里写的好不好~~~</p>
+<p><strong>static</strong></p>
+<p>静态资源文件，可以放图片，然后当成图床使用，也放入一般的js和css</p>
+<p><strong>themes</strong></p>
+<p>主题目录，同大多数静态页面生成器一样，hugo的主题和内容不是捆绑的，可以有很多的主题，全看你的高兴</p>
+<p><strong>config.toml</strong></p>
+<p>这个就是总体的配置文件了，它决定了你的hugo博客的功能内容</p>
+<p>总的来说这个Hugo还是蛮符合我的胃口的，下次有机会详细说说具体我是如何使用的，这次就先说的到这，本来也不想写个千篇一律的博客内容，这个总的来说就是总结一下自己学习的基础入门内容</p>
+<p>推荐查看官方文档进行学习，然后就是找别人写的主题的源码好好看看：</p>
+<hr>
+<p>官方文档内容 <a href="https://gohugo.io/documentation/">HugoDoc</a></p>
+<p>官方油管视频 <a href="https://www.youtube.com/watch?v=sB0HLHjgQ7E&amp;list=RDCMUCvmINlrza7JHB1zkIOuXEbw&amp;start_radio=1&amp;t=1">Youtube</a></p>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/hugo/">
+                                    <i class="fas fa-tag mr-2"></i>Hugo
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/">
+                                    <i class="fas fa-tag mr-2"></i>静态网站
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/blog/">
+                                    <i class="fas fa-tag mr-2"></i>Blog
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/github-pages/">
+                                    <i class="fas fa-tag mr-2"></i>Github Pages
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                                    <i class="fas fa-tag mr-2"></i>个人博客
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/bash/">
+                                    <i class="fas fa-tag mr-2"></i>bash
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x00000e',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00000c/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/markdown-syntax_hu82f81192e936314d551c0b466c7e7bbb_24890_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="Hexo博客SEO优化">
+                    <div class="card-body">
+            <div class="card-title">
+                Hexo博客SEO优化
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">博客搭建</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 31, 2019</p>
+            <div class="card-text">
+                最近因为临近寒假课程也基本都结束了想着该把这个博客再好好维护一下了啊，所以想先把这个检索的功能优化加上，毕竟我是个爱显摆的人，写了没人看多令人憋屈～
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00000a/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/hexo-cover_hu588948c47b599f6a83c91f83c37b364d_83056_700x350_resize_box_2.png" class="card-img-top mx-auto d-block" alt="MWeb配合Hexo搭建博客发布">
+                    <div class="card-body">
+            <div class="card-title">
+                MWeb配合Hexo搭建博客发布
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">博客搭建</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 30, 2019</p>
+            <div class="card-text">
+                利用MWeb软件实现配合Hexo进行Github Pages的个人博客搭建，hexo虽然已经很棒了，但是需要进行博客发布的时候，总是执行命令也挺麻烦的，所以想如何利用MWeb这个编辑器实现自动化发布的功能，方便自己的博客编写～
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

@@ -1,17 +1,691 @@
-<!doctype html><html lang=zh><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=yes"><title>打造最强windows开发环境 | Sweet House</title><meta name=description content="Everyday is a holiday"><meta name=bytedance-verification-code content="MmXZwSvr8lAvM1hIXSkm"><meta name=author content="[Ryuchen WangOO]"><link rel=icon href=/favicon.ico><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css><link rel=stylesheet href=/dist/main.4707e15c5ca4eab5da71.min.css><link rel=stylesheet href=/css/shortcodes.css><link rel=canonical href=https://ryuchen.club/posts/0x00000f/><meta property="og:title" content="打造最强windows开发环境"><meta property="og:description" content="赶巧是最近在教王圈圈同学学习Python编程，正好借此机会把我自己是如何打造自认为是最强windows开发环境的过程在她电脑上复现了一边，正好也借此机会记录一下，以备以后重装系统的时候有迹可循~"><meta property="og:type" content="article"><meta property="og:url" content="https://ryuchen.club/posts/0x00000f/"><meta property="og:image" content="https://ryuchen.club/awesome-wsl.jpg"><meta property="article:published_time" content="2020-03-23T00:00:00+00:00"><meta property="article:modified_time" content="2020-03-23T00:00:00+00:00"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000016/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000011/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000e/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000c/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000b/"><meta itemprop=name content="打造最强windows开发环境"><meta itemprop=description content="赶巧是最近在教王圈圈同学学习Python编程，正好借此机会把我自己是如何打造自认为是最强windows开发环境的过程在她电脑上复现了一边，正好也借此机会记录一下，以备以后重装系统的时候有迹可循~"><meta itemprop=datePublished content="2020-03-23T00:00:00+00:00"><meta itemprop=dateModified content="2020-03-23T00:00:00+00:00"><meta itemprop=wordCount content="236"><meta itemprop=image content="https://ryuchen.club/awesome-wsl.jpg"><meta itemprop=keywords content="Devops,Windows,WSL2,Terminal,VS Code,"></head><body><nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id=navbar-main-menu><div class=container><a class="navbar-brand font-weight-bold" href=https://ryuchen.club>>$ cd /home_</a>
-<button class=navbar-toggler type=button data-toggle=collapse data-target=#main-menu aria-controls=main-menu aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=main-menu><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=/>首页</a></li><li class=nav-item><a class=nav-link href=/posts/>博文</a></li><li class=nav-item><a class=nav-link href=/projects/>项目</a></li><li class=nav-item><a class=nav-link href=/snippet/>代码</a></li><li class=nav-item><a class=nav-link href=/essay/>随笔</a></li><li class=nav-item><a class=nav-link href=/gallery/>照片墙</a></li><li class=nav-item><a class=nav-link href=/about/>关于</a></li><li class=nav-item><a class=nav-link href=https://github.com/Ryuchen target=_blank>Github</a></li></ul></div></div></nav><main class="content-page container pt-7 pb-5"><div class=row><div class=col><article><div class="row justify-content-center"><div class=col-lg-10><h1>打造最强windows开发环境</h1><div class="meta text-muted mb-3" style=text-align:right><p class="created text-muted text-uppercase font-weight-bold mb-1">March 23, 2020</p><span class=mr-2><i class="fas fa-book-open mr-2"></i>1676</span>
-<span><i class="fas fa-clock mr-2"></i>7 minutes and
-37 seconds</span></div><div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href=/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83><i class="fas fa-tag mr-2"></i>开发环境</a></div></div></div><div class="row justify-content-center mb-3"><div class=col-lg-10><img data-src=/images/awesome-wsl_hubc5c27d055e49b072c364a2eb4ecf93b_3146531_900x500_fit_q75_box.jpg class="img-fluid rounded mx-auto d-block" alt=打造最强windows开发环境></div></div><div class="row justify-content-center"><div class=col-lg-10><div class=content><blockquote><p>所谓工欲善其事必先利其器，作为一个三年的开发人员，无论是对于linux开发平台的便捷深信不疑，所以该如何把windows也打造成linux那般开发神器？</p></blockquote><hr><p><strong>本教程所支持的平台为Windows 10 Build2004及以上版本</strong></p><p>如果你的电脑操作系统版本不是该版本，那么你有两个选择确保一下不会出现问题</p><ul><li>加入Windows预览体验计划，选择慢的分支</li><li>等到今年四月份Windows会推送build2004的版本，更新到该版本之后再来看该指南</li></ul><hr><h4 id=开启windows的wsl>开启windows的WSL</h4><p>在 Windows设置页面 > 选择应用 > 找到应用与功能</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/windows-settings.jpg class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/windows-settings.jpg width=100% class="figure-img img-fluid"></a></figure><p>然后在启用或者关闭 Windows 功能中选择开启 > 适用于 Linux 的 Windows 子系统(这里说的就是 Windows Subsystem Linux)</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/enable-wsl.jpg class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/enable-wsl.jpg width=100% class="figure-img img-fluid"></a></figure><p>点击确定后会重新启动 Windows ，这个期间什么都不用做，就等待就好了~</p><h4 id=安装心仪的-linuxubuntu>安装心仪的 Linux(Ubuntu)</h4><p>然后打开 Windows 的 Microsoft Store 搜索 WSL 就好，出现以下界面</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-wsl.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-wsl.png width=100% class="figure-img img-fluid"></a></figure><p>这个步骤具体要看你的网速怎么样了，顺便提一句，微软商城里面下载的速度轻易不要相信，因为有时候会将系统的IO也算进去，所以不准确。安装完成后启动 Linux</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/start-wsl.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/start-wsl.png width=100% class="figure-img img-fluid"></a></figure><p>这个时候会要求你配置默认账户，按照要求敲下去就行了，这里也顺便提一句，如果不设置直接关闭的话，以后你都会以默认root用户打开 WSL，虽然会很方便，但是不建议这么使用</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/set-user.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/set-user.png width=100% class="figure-img img-fluid"></a></figure><p>配置好之后我们打开 Powershell 测试一下 WSL，可以查看到如下的输出，就说明没有问题了.</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/test-wsl.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/test-wsl.png width=100% class="figure-img img-fluid"></a></figure><h4 id=安装-windows-terminal>安装 Windows Terminal</h4><p>微软官方还出品了最强的 Windows 平台下的 Terminal 工具，我个人在这里是强烈推荐使用，上瘾~~~</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-terminal.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-terminal.png width=100% class="figure-img img-fluid"></a></figure><p>然后我们配置一下 Windows Terminal 默认打开 Linux 时的路径</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/change-startup-dir.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/change-startup-dir.png width=100% class="figure-img img-fluid"></a></figure><p>网上有很多关于 Ternimal 的 Profile 分享了，帮你美化你的命令行，这里我也附上我的配置文件，可以作为参考~</p><script src=https://gist.github.com/Ryuchen/657cd2bd7cfa357f5fcee1b7b42f5d2f.js></script><h4 id=linuxubuntu-环境配置>Linux(Ubuntu) 环境配置</h4><p>安装好我们的 Linux 和 Terminal 之后，就是如何将我们的 Linux 打造成开发利器了，这里简单的举例说明一下(Python环境)</p><p>首先当然是将我们的Linux环境清理一下:</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/update-linux.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/update-linux.png width=100% class="figure-img img-fluid"></a></figure><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/upgrade-linux.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/upgrade-linux.png width=100% class="figure-img img-fluid"></a></figure><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/autoclean-linux.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/autoclean-linux.png width=100% class="figure-img img-fluid"></a></figure><p>其次是安装多版本的Python环境:</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-python2.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-python2.png width=100% class="figure-img img-fluid"></a></figure><blockquote><p>这里安装的是默认 Python2.7.x 的 Python 开发环境包</p></blockquote><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-python3.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-python3.png width=100% class="figure-img img-fluid"></a></figure><blockquote><p>这里安装的是默认 Python3.8.x 的 Python 开发环境包</p></blockquote><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-pip.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-pip.png width=100% class="figure-img img-fluid"></a></figure><blockquote><p>这里安装的是默认 Python3.6.x 的 Python 开发环境包</p></blockquote><p>之后是安装所需要的Linux开发包:</p><blockquote><p>这里就不截图了，粘贴一下我认为最基础的开发环境包</p></blockquote><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     打造最强windows开发环境 |  Sweet House
+  
+</title>
+
+
+  <meta name="description" content="Everyday is a holiday">
+
+
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x00000f/"><meta property="og:title" content="打造最强windows开发环境" />
+<meta property="og:description" content="赶巧是最近在教王圈圈同学学习Python编程，正好借此机会把我自己是如何打造自认为是最强windows开发环境的过程在她电脑上复现了一边，正好也借此机会记录一下，以备以后重装系统的时候有迹可循~" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x00000f/" />
+<meta property="og:image" content="https://ryuchen.club/awesome-wsl.jpg" />
+<meta property="article:published_time" content="2020-03-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-23T00:00:00+00:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000016/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000011/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000e/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000c/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00000b/" />
+
+<meta itemprop="name" content="打造最强windows开发环境">
+<meta itemprop="description" content="赶巧是最近在教王圈圈同学学习Python编程，正好借此机会把我自己是如何打造自认为是最强windows开发环境的过程在她电脑上复现了一边，正好也借此机会记录一下，以备以后重装系统的时候有迹可循~">
+<meta itemprop="datePublished" content="2020-03-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="236">
+<meta itemprop="image" content="https://ryuchen.club/awesome-wsl.jpg">
+
+
+
+<meta itemprop="keywords" content="Devops,Windows,WSL2,Terminal,VS Code," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>打造最强windows开发环境</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">March 23, 2020</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>1676</span>
+                            <span><i class="fas fa-clock mr-2"></i>7 minutes and
+                                37 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">
+                                    <i class="fas fa-tag mr-2"></i>开发环境
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/awesome-wsl_hubc5c27d055e49b072c364a2eb4ecf93b_3146531_900x500_fit_q75_box.jpg" class="img-fluid rounded mx-auto d-block" alt="打造最强windows开发环境">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <blockquote>
+<p>所谓工欲善其事必先利其器，作为一个三年的开发人员，无论是对于linux开发平台的便捷深信不疑，所以该如何把windows也打造成linux那般开发神器？</p>
+</blockquote>
+<hr>
+<p><strong>本教程所支持的平台为Windows 10 Build2004及以上版本</strong></p>
+<p>如果你的电脑操作系统版本不是该版本，那么你有两个选择确保一下不会出现问题</p>
+<ul>
+<li>加入Windows预览体验计划，选择慢的分支</li>
+<li>等到今年四月份Windows会推送build2004的版本，更新到该版本之后再来看该指南</li>
+</ul>
+<hr>
+<h4 id="开启windows的wsl">开启windows的WSL</h4>
+<p>在 Windows设置页面 &gt; 选择应用 &gt; 找到应用与功能</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/windows-settings.jpg" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/windows-settings.jpg" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<p>然后在启用或者关闭 Windows 功能中选择开启 &gt; 适用于 Linux 的 Windows 子系统(这里说的就是 Windows Subsystem Linux)</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/enable-wsl.jpg" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/enable-wsl.jpg" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<p>点击确定后会重新启动 Windows ，这个期间什么都不用做，就等待就好了~</p>
+<h4 id="安装心仪的-linuxubuntu">安装心仪的 Linux(Ubuntu)</h4>
+<p>然后打开 Windows 的 Microsoft Store 搜索 WSL 就好，出现以下界面</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-wsl.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-wsl.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<p>这个步骤具体要看你的网速怎么样了，顺便提一句，微软商城里面下载的速度轻易不要相信，因为有时候会将系统的IO也算进去，所以不准确。安装完成后启动 Linux</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/start-wsl.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/start-wsl.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<p>这个时候会要求你配置默认账户，按照要求敲下去就行了，这里也顺便提一句，如果不设置直接关闭的话，以后你都会以默认root用户打开 WSL，虽然会很方便，但是不建议这么使用</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/set-user.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/set-user.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<p>配置好之后我们打开 Powershell 测试一下 WSL，可以查看到如下的输出，就说明没有问题了.</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/test-wsl.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/test-wsl.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<h4 id="安装-windows-terminal">安装 Windows Terminal</h4>
+<p>微软官方还出品了最强的 Windows 平台下的 Terminal 工具，我个人在这里是强烈推荐使用，上瘾~~~</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-terminal.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-terminal.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<p>然后我们配置一下 Windows Terminal 默认打开 Linux 时的路径</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/change-startup-dir.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/change-startup-dir.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<p>网上有很多关于 Ternimal 的 Profile 分享了，帮你美化你的命令行，这里我也附上我的配置文件，可以作为参考~</p>
+
+    <script src="https://gist.github.com/Ryuchen/657cd2bd7cfa357f5fcee1b7b42f5d2f.js"></script>
+
+<h4 id="linuxubuntu-环境配置">Linux(Ubuntu) 环境配置</h4>
+<p>安装好我们的 Linux 和 Terminal 之后，就是如何将我们的 Linux 打造成开发利器了，这里简单的举例说明一下(Python环境)</p>
+<p>首先当然是将我们的Linux环境清理一下:</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/update-linux.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/update-linux.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/upgrade-linux.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/upgrade-linux.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/autoclean-linux.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/autoclean-linux.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<p>其次是安装多版本的Python环境:</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-python2.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-python2.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<blockquote>
+<p>这里安装的是默认 Python2.7.x 的 Python 开发环境包</p>
+</blockquote>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-python3.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-python3.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<blockquote>
+<p>这里安装的是默认 Python3.8.x 的 Python 开发环境包</p>
+</blockquote>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-pip.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-pip.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<blockquote>
+<p>这里安装的是默认 Python3.6.x 的 Python 开发环境包</p>
+</blockquote>
+<p>之后是安装所需要的Linux开发包:</p>
+<blockquote>
+<p>这里就不截图了，粘贴一下我认为最基础的开发环境包</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">
 sudo apt install virtualenv vim build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip p7zip p7zip-full
 
-</code></pre></div><p>最后是补充一项，这个是我推荐安装的，因为本人喜欢使用systemd作为linux的进程管理工具，所以找到了这个项目能够帮助WSL运行systemd指令</p><blockquote><p>Thanks to <a href=https://github.com/arkane-systems/genie>genie URL: https://github.com/arkane-systems/genie</a></p></blockquote><p>如果你是使用 Build2004 版本的检查一下你的 WSL 的 version</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-wsl-version.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-wsl-version.png width=100% class="figure-img img-fluid"></a></figure><p>如果很不幸你是 WSL 1 的版本，请您按照 微软的官方指南 切换到 WSL 2 版本</p><blockquote><p><a href=https://docs.microsoft.com/en-us/windows/wsl/wsl2-install>Microsoft Install WSL2 Instruction</a></p></blockquote><p><strong>需要指出的是WSL1是一套不完整的类容器化的Linux，但是到了WSL2微软将其切换到了Hype-V实现的Linux虚拟机，虽然是虚拟机了，但是仍然有一些功能是不完整的，需要稍微注意下</strong></p><p>打开上面的链接，进入到项目的 readme 页面，找到自己对应的 Linux 发行版本进行安装</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/genie-readme.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/genie-readme.png width=100% class="figure-img img-fluid"></a></figure><p>安装 Linux 下 .Net 运行时环境</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-dotnet-runtime.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-dotnet-runtime.png width=100% class="figure-img img-fluid"></a></figure><blockquote><p>配置微软的软件包源</p></blockquote><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-dotnet-runtime2.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-dotnet-runtime2.png width=100% class="figure-img img-fluid"></a></figure><blockquote><p>安装 dotnet 运行时</p></blockquote><p>安装 genie 软件包</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/add-genie-deb.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/add-genie-deb.png width=100% class="figure-img img-fluid"></a></figure><blockquote><p>配置genie的软件包源</p></blockquote><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-genie.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-genie.png width=100% class="figure-img img-fluid"></a></figure><blockquote><p>安装genie</p></blockquote><p>然后为了能够方便使用 genie 我们创建一个 bash_aliases 简短指令，这个步骤建议在root用户权限下，避免软件进程的启动用户问题</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/edit-aliases.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/edit-aliases.png width=100% class="figure-img img-fluid"></a></figure><blockquote><p>编辑 aliases 文件</p></blockquote><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/aliases-context.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/aliases-context.png width=100% class="figure-img img-fluid"></a></figure><blockquote><p>aliases 文件内容</p></blockquote><p>最后我们看一下当前这个 Linux 是否拥有 systemd 指令</p><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-systemctl.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-systemctl.png width=100% class="figure-img img-fluid"></a></figure><h4 id=virtualenv-使用>Virtualenv 使用</h4><p>通过上述复杂的过程我们终于把 Linux 环境配置好之后，针对具体的开发任务有具体的环境配置要求，对于以Python为例子来说，virtualenv 是必须要使用的工具，所以我们简要概述一下 virtualenv 的使用</p><p>创建 virtualenv 环境<figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/create-virtualenv.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/create-virtualenv.png width=100% class="figure-img img-fluid"></a></figure></p><p>启用 virtualenv 环境<figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/source-virtualenv.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/source-virtualenv.png width=100% class="figure-img img-fluid"></a></figure></p><p>检查 virtualenv 环境<figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-pkg-pip.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-pkg-pip.png width=100% class="figure-img img-fluid"></a></figure></p><h4 id=vs-code-remote模式>VS Code Remote模式</h4><p>Linux 环境配置好之后，我们在 Windows 上使用的开发 IDE 当然也是微软出品的 VS Code，这个官网下载就行了，免费、轻便、好用，但是在 Windows 环境下安装之后，如何连接到我们的 WSL 中呢？</p><p>打开 VS Code 切换到 Remote WSL 模式<figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-wsl.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-wsl.png width=100% class="figure-img img-fluid"></a></figure></p><p>选择你的 Linux 发行版本<figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-linux.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-linux.png width=100% class="figure-img img-fluid"></a></figure></p><p>VS Code 将会重新启动到该模式<figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote.png width=100% class="figure-img img-fluid"></a></figure><figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-final.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-final.png width=100% class="figure-img img-fluid"></a></figure></p><p>配置 Python 支持<figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-python.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-python.png width=100% class="figure-img img-fluid"></a></figure></p><p>然后我们可以看到在项目中生成了settings.json文件，这时候我们可以更改Python的解释器位置，到我们的virtualenv中<figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-virtualenv.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-virtualenv.png width=100% class="figure-img img-fluid"></a></figure></p><p>这样我们的VS Code开发环境就搭建好了，每次打开终端就会自动启用 virtualenv 环境<figure class=figure><a href=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-check.png class=d-block data-toggle=lightbox data-gallery=post-gallery><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-check.png width=100% class="figure-img img-fluid"></a></figure></p><h4 id=总结>总结</h4><p>如果你们按照上述的流程走下来，将你的 Windows 环境搭建好，那么恭喜你，你的 Windows 已经完全转化成开发者利器了，再也不用说买前生产力，买后打游戏了，顺便说一句，微软出品必属精品~</p><p>顺便说一下，下篇博客是 Powershell 和 Bash 的美化教程</p></div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href=/tags/devops/><i class="fas fa-tag mr-2"></i>Devops
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/windows/><i class="fas fa-tag mr-2"></i>Windows
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/wsl2/><i class="fas fa-tag mr-2"></i>WSL2
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/terminal/><i class="fas fa-tag mr-2"></i>Terminal
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/vs-code/><i class="fas fa-tag mr-2"></i>VS Code</a></div><div style=text-align:center><div class=social-share data-sites=wechat,weibo,twitter,facebook,douban data-mobile-sites=wechat,weibo></div></div></div></div><div class="row justify-content-center"><div class=col-lg-8><div id=comments-gittalk></div><link rel=stylesheet href=https://unpkg.com/gitalk/dist/gitalk.css><script src=https://unpkg.com/gitalk/dist/gitalk.min.js></script><script>var gittalk=new Gitalk({id:'0x00000f',owner:'Ryuchen',repo:'ryuchen.github.io',admin:['Ryuchen'],clientID:'cda75f43f62ef6ebc3ea',clientSecret:'e405fb603c664a6436a481917a7ee70931413268',})
-gittalk.render('comments-gittalk')</script></div></div></article></div></div></main><footer class="footer bg-dark py-6"><div class=container><div class=row><div class="col-sm text-center"><ul class=list-inline><li class=list-inline-item><a href=https://ryuchen.club/index.xml rel=alternate type=application/rss+xml class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=mailto:chenhaom1993@hotmail.com class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://github.com/Ryuchen class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://weibo.com/u/3147247770 class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-weibo fa-stack-1x fa-inverse"></i></span></a></li></ul><p class=text-muted>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</p><p class=text-muted>京ICP备2020040667号</p><p class=text-muted>本站总记被访问 <span id=busuanzi_value_site_pv></span>次，
-您是第 <span id=busuanzi_value_site_uv></span>个来访小伙伴。</p></div><div class="col-sm text-center"><p class=text-muted>维护不易，渴望您的资助</p><ul class=list-inline><div class=row><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg alt=WechatPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg alt=AliPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div></div></ul></div></div></div><div class=netease-music><audio id=music-player crossorigin playsinline></audio></div></footer><script src=/dist/main.bf9558b8596b4accd07a.min.js></script><script src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js></script><script>window.Prism=window.Prism||{};</script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js></script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script><script>(function(){var el=document.createElement("script");el.src="https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";el.id="ttzz";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(el,s);})(window)</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin=anonymous></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-0EFH27TG1R');</script></body></html>
+</code></pre></div><p>最后是补充一项，这个是我推荐安装的，因为本人喜欢使用systemd作为linux的进程管理工具，所以找到了这个项目能够帮助WSL运行systemd指令</p>
+<blockquote>
+<p>Thanks to <a href="https://github.com/arkane-systems/genie">genie URL: https://github.com/arkane-systems/genie</a></p>
+</blockquote>
+<p>如果你是使用 Build2004 版本的检查一下你的 WSL 的 version</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-wsl-version.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-wsl-version.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<p>如果很不幸你是 WSL 1 的版本，请您按照 微软的官方指南 切换到 WSL 2 版本</p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/wsl2-install">Microsoft Install WSL2 Instruction</a></p>
+</blockquote>
+<p><strong>需要指出的是WSL1是一套不完整的类容器化的Linux，但是到了WSL2微软将其切换到了Hype-V实现的Linux虚拟机，虽然是虚拟机了，但是仍然有一些功能是不完整的，需要稍微注意下</strong></p>
+<p>打开上面的链接，进入到项目的 readme 页面，找到自己对应的 Linux 发行版本进行安装</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/genie-readme.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/genie-readme.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<p>安装 Linux 下 .Net 运行时环境</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-dotnet-runtime.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-dotnet-runtime.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<blockquote>
+<p>配置微软的软件包源</p>
+</blockquote>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-dotnet-runtime2.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-dotnet-runtime2.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<blockquote>
+<p>安装 dotnet 运行时</p>
+</blockquote>
+<p>安装 genie 软件包</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/add-genie-deb.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/add-genie-deb.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<blockquote>
+<p>配置genie的软件包源</p>
+</blockquote>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-genie.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/install-genie.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<blockquote>
+<p>安装genie</p>
+</blockquote>
+<p>然后为了能够方便使用 genie 我们创建一个 bash_aliases 简短指令，这个步骤建议在root用户权限下，避免软件进程的启动用户问题</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/edit-aliases.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/edit-aliases.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<blockquote>
+<p>编辑 aliases 文件</p>
+</blockquote>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/aliases-context.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/aliases-context.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<blockquote>
+<p>aliases 文件内容</p>
+</blockquote>
+<p>最后我们看一下当前这个 Linux 是否拥有 systemd 指令</p>
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-systemctl.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-systemctl.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<h4 id="virtualenv-使用">Virtualenv 使用</h4>
+<p>通过上述复杂的过程我们终于把 Linux 环境配置好之后，针对具体的开发任务有具体的环境配置要求，对于以Python为例子来说，virtualenv 是必须要使用的工具，所以我们简要概述一下 virtualenv 的使用</p>
+<p>创建 virtualenv 环境
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/create-virtualenv.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/create-virtualenv.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+</p>
+<p>启用 virtualenv 环境
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/source-virtualenv.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/source-virtualenv.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+</p>
+<p>检查 virtualenv 环境
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-pkg-pip.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/check-pkg-pip.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+</p>
+<h4 id="vs-code-remote模式">VS Code Remote模式</h4>
+<p>Linux 环境配置好之后，我们在 Windows 上使用的开发 IDE 当然也是微软出品的 VS Code，这个官网下载就行了，免费、轻便、好用，但是在 Windows 环境下安装之后，如何连接到我们的 WSL 中呢？</p>
+<p>打开 VS Code 切换到 Remote WSL 模式
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-wsl.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-wsl.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+</p>
+<p>选择你的 Linux 发行版本
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-linux.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-linux.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+</p>
+<p>VS Code 将会重新启动到该模式
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-final.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-final.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+</p>
+<p>配置 Python 支持
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-python.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-python.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+</p>
+<p>然后我们可以看到在项目中生成了settings.json文件，这时候我们可以更改Python的解释器位置，到我们的virtualenv中
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-virtualenv.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-virtualenv.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+</p>
+<p>这样我们的VS Code开发环境就搭建好了，每次打开终端就会自动启用 virtualenv 环境
+<figure class="figure">
+    
+        <a href="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-check.png" class="d-block" data-toggle="lightbox" data-gallery="post-gallery">
+            <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/vs-remote-check.png" width="100%"class="figure-img img-fluid"
+            /> 
+        </a>
+    
+</figure>
+</p>
+<h4 id="总结">总结</h4>
+<p>如果你们按照上述的流程走下来，将你的 Windows 环境搭建好，那么恭喜你，你的 Windows 已经完全转化成开发者利器了，再也不用说买前生产力，买后打游戏了，顺便说一句，微软出品必属精品~</p>
+<p>顺便说一下，下篇博客是 Powershell 和 Bash 的美化教程</p>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/devops/">
+                                    <i class="fas fa-tag mr-2"></i>Devops
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/windows/">
+                                    <i class="fas fa-tag mr-2"></i>Windows
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/wsl2/">
+                                    <i class="fas fa-tag mr-2"></i>WSL2
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/terminal/">
+                                    <i class="fas fa-tag mr-2"></i>Terminal
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/vs-code/">
+                                    <i class="fas fa-tag mr-2"></i>VS Code
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x00000f',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

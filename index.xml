@@ -1,54 +1,1021 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sweet House</title><link>https://ryuchen.club/</link><description>Recent content on Sweet House</description><generator>Hugo -- gohugo.io</generator><language>zh</language><copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright><lastBuildDate>Fri, 27 Nov 2020 13:13:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/index.xml" rel="self" type="application/rss+xml"/><item><title>[读书笔记]《西瓜书》第六章 支持向量机</title><link>https://ryuchen.club/posts/0x00002a/</link><pubDate>Fri, 27 Nov 2020 13:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x00002a/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机</description></item><item><title>[读书笔记]《西瓜书》第六章 支持向量机 铺垫</title><link>https://ryuchen.club/posts/0x000029/</link><pubDate>Thu, 26 Nov 2020 18:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x000029/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 铺垫</description></item><item><title/><link>https://ryuchen.club/essay/0x000015/</link><pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000015/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 这两天家里的neiko被房子擦外墙的人吓坏了，几天下来尾巴都是耷拉着的，不过今天中午睡午觉的时候，乖乖的躺在我身边一动不动~
-突然感觉猫还是通人性的~</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充六</title><link>https://ryuchen.club/posts/0x000028/</link><pubDate>Wed, 25 Nov 2020 11:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x000028/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充六</description></item><item><title/><link>https://ryuchen.club/essay/0x000014/</link><pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000014/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 总算把西瓜书中神经网络章节的内容更新完了，头一次发现，想把一个内容写好，还真的是需要刷很多视频和内容。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sweet House</title>
+    <link>https://ryuchen.club/</link>
+    <description>Recent content on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
+    <lastBuildDate>Mon, 30 Nov 2020 11:13:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[读书笔记]《西瓜书》第六章 支持向量机 补充</title>
+      <link>https://ryuchen.club/posts/0x00002b/</link>
+      <pubDate>Mon, 30 Nov 2020 11:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00002b/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 补充</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第六章 支持向量机</title>
+      <link>https://ryuchen.club/posts/0x00002a/</link>
+      <pubDate>Fri, 27 Nov 2020 13:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00002a/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第六章 支持向量机 铺垫</title>
+      <link>https://ryuchen.club/posts/0x000029/</link>
+      <pubDate>Thu, 26 Nov 2020 18:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000029/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 铺垫</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000015/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000015/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   这两天家里的neiko被房子擦外墙的人吓坏了，几天下来尾巴都是耷拉着的，不过今天中午睡午觉的时候，乖乖的躺在我身边一动不动~
+   突然感觉猫还是通人性的~
+   </description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充六</title>
+      <link>https://ryuchen.club/posts/0x000028/</link>
+      <pubDate>Wed, 25 Nov 2020 11:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000028/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充六</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000014/</link>
+      <pubDate>Wed, 25 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000014/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   总算把西瓜书中神经网络章节的内容更新完了，头一次发现，想把一个内容写好，还真的是需要刷很多视频和内容。
 否则自己讲的内容不清楚不明白就会导致很多问题
 当然并不是说自己学的有多好，而是为了梳理自己在神经网络这块的内容究竟学了些什么
-等西瓜书的读书笔记都誊抄到博客上之后，会把开始对经典模型的梳理~</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充五</title><link>https://ryuchen.club/posts/0x000027/</link><pubDate>Tue, 24 Nov 2020 19:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x000027/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充五</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充四</title><link>https://ryuchen.club/posts/0x000026/</link><pubDate>Fri, 20 Nov 2020 19:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x000026/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充四</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充三</title><link>https://ryuchen.club/posts/0x000025/</link><pubDate>Fri, 20 Nov 2020 14:13:42 +0800</pubDate><guid>https://ryuchen.club/posts/0x000025/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充三</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充二</title><link>https://ryuchen.club/posts/0x000024/</link><pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000024/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充二</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 补充一</title><link>https://ryuchen.club/posts/0x000023/</link><pubDate>Thu, 19 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000023/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充一</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络</title><link>https://ryuchen.club/posts/0x000022/</link><pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000022/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络</description></item><item><title>[读书笔记]《西瓜书》第五章 神经网络 铺垫</title><link>https://ryuchen.club/posts/0x000021/</link><pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000021/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 铺垫</description></item><item><title>[读书笔记]《西瓜书》第四章 决策树 补充</title><link>https://ryuchen.club/posts/0x000020/</link><pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000020/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树 补充</description></item><item><title>[读书笔记]《西瓜书》第四章 决策树</title><link>https://ryuchen.club/posts/0x00001e/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00001e/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树</description></item><item><title>[读书笔记]《西瓜书》第四章 决策树 铺垫</title><link>https://ryuchen.club/posts/0x00001d/</link><pubDate>Sun, 15 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00001d/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树 铺垫</description></item><item><title>[读书笔记]《西瓜书》第一至三章 总结</title><link>https://ryuchen.club/posts/0x00001c/</link><pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00001c/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 1-3 总结</description></item><item><title/><link>https://ryuchen.club/essay/0x000012/</link><pubDate>Thu, 12 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000012/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 最近忙了好久，再加上出差，身心交瘁~ 第一次参加国家级的科研会议，感觉即使是各个大学的学者老师，也是水平参差不齐的，厉害的就真的非常厉害，对姚新老师印象极其深刻，道出了学生的痛楚~
-引用："我知道该用这个方法，你倒是告诉我怎么用啊~"，这就是导师和学生的鸿沟~哈哈</description></item><item><title/><link>https://ryuchen.club/essay/0x000013/</link><pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000013/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 还在深圳出差，接到姥爷出车祸的消息，一种无力感~</description></item><item><title>[读书笔记]《西瓜书》第三章 线性模型 补充</title><link>https://ryuchen.club/posts/0x00001b/</link><pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00001b/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 3.线性模型 补充</description></item><item><title>[读书笔记]《西瓜书》第三章 线性模型</title><link>https://ryuchen.club/posts/0x00001a/</link><pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00001a/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 3.线性模型</description></item><item><title>[读书笔记]《西瓜书》第二章 模型评估与选择 补充</title><link>https://ryuchen.club/posts/0x000019/</link><pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000019/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 2.模型评估与选择 的自己整理的补充内容</description></item><item><title>[读书笔记]《西瓜书》第二章 模型评估与选择</title><link>https://ryuchen.club/posts/0x000018/</link><pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000018/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 2.模型评估与选择</description></item><item><title>[读书笔记]《西瓜书》第一章 绪论</title><link>https://ryuchen.club/posts/0x000017/</link><pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000017/</guid><description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 1.绪论</description></item><item><title/><link>https://ryuchen.club/essay/0x000011/</link><pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000011/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 停更了好久~ 不过这段时间补了不少机器学习的知识，接下来要开始对这段时间的学习内容进行整理的工作了，上回说到的博客系列内容，已经想好了一个大项目了，尝试着跟着思路把这些内容串起来，并完成这个项目
-引用上次随笔说的话："怎么说呢，敬请期待~"</description></item><item><title>关于近期生活的个人杂谈(二)</title><link>https://ryuchen.club/posts/0x000016/</link><pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000016/</guid><description>一转眼，博客停更了半年的时间，不过并不是忘记了博客这件事，而是下了决心花了这半年恶补了一下自己的机器学习的基础知识，也是感谢因为疫情需要居家隔离和在校封闭的这段时间，能够有这半年的时间让自己静下心来好好的读了这么几本书~</description></item><item><title/><link>https://ryuchen.club/gallery/20200627/</link><pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200627/</guid><description> 煎饺 #瓜大厨# 2020-06-27</description></item><item><title/><link>https://ryuchen.club/gallery/20200617/</link><pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200617/</guid><description> 瓜哥历史最轻 #生活# 2020-06-17</description></item><item><title/><link>https://ryuchen.club/gallery/20200521/</link><pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200521/</guid><description> 小人样 #生活# 2020-05-21</description></item><item><title/><link>https://ryuchen.club/gallery/20200519/</link><pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200519/</guid><description> 猛兽出门 #生活# 2020-05-19</description></item><item><title/><link>https://ryuchen.club/gallery/20200517/</link><pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200517/</guid><description> 花 #生活# 2020-05-17</description></item><item><title/><link>https://ryuchen.club/gallery/20200518/</link><pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200518/</guid><description> 早餐 #瓜大厨# 2020-05-18</description></item><item><title/><link>https://ryuchen.club/gallery/20200504/</link><pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200504/</guid><description> 每日一餐 #瓜大厨# 2020-05-04</description></item><item><title/><link>https://ryuchen.club/gallery/20200502/</link><pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200502/</guid><description> 大大大~ neiko #生活# 2020-05-02 小家伙美照 #生活# 2020-05-02</description></item><item><title/><link>https://ryuchen.club/gallery/20200418/</link><pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200418/</guid><description> 小家伙美照 #生活# 2020-05-02</description></item><item><title>Beautifulsoup4入门使用</title><link>https://ryuchen.club/posts/0x000015/</link><pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000015/</guid><description>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</description></item><item><title>selenium入门使用</title><link>https://ryuchen.club/posts/0x000014/</link><pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000014/</guid><description>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</description></item><item><title/><link>https://ryuchen.club/essay/0x000010/</link><pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000010/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 正好今天晚上熬夜整理了一下之前 教女友的爬虫相关知识，准备在自己的博客开建三个系列内容
-爬虫系列
+ 等西瓜书的读书笔记都誊抄到博客上之后，会把开始对经典模型的梳理~
+   </description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充五</title>
+      <link>https://ryuchen.club/posts/0x000027/</link>
+      <pubDate>Tue, 24 Nov 2020 19:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000027/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充五</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充四</title>
+      <link>https://ryuchen.club/posts/0x000026/</link>
+      <pubDate>Fri, 20 Nov 2020 19:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000026/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充四</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充三</title>
+      <link>https://ryuchen.club/posts/0x000025/</link>
+      <pubDate>Fri, 20 Nov 2020 14:13:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000025/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充三</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充二</title>
+      <link>https://ryuchen.club/posts/0x000024/</link>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000024/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充二</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 补充一</title>
+      <link>https://ryuchen.club/posts/0x000023/</link>
+      <pubDate>Thu, 19 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000023/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 补充一</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络</title>
+      <link>https://ryuchen.club/posts/0x000022/</link>
+      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000022/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第五章 神经网络 铺垫</title>
+      <link>https://ryuchen.club/posts/0x000021/</link>
+      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000021/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 5 神经网络 铺垫</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第四章 决策树 补充</title>
+      <link>https://ryuchen.club/posts/0x000020/</link>
+      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000020/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树 补充</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第四章 决策树</title>
+      <link>https://ryuchen.club/posts/0x00001e/</link>
+      <pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00001e/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第四章 决策树 铺垫</title>
+      <link>https://ryuchen.club/posts/0x00001d/</link>
+      <pubDate>Sun, 15 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00001d/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树 铺垫</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第一至三章 总结</title>
+      <link>https://ryuchen.club/posts/0x00001c/</link>
+      <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00001c/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 1-3 总结</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000012/</link>
+      <pubDate>Thu, 12 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000012/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   最近忙了好久，再加上出差，身心交瘁~  第一次参加国家级的科研会议，感觉即使是各个大学的学者老师，也是水平参差不齐的，厉害的就真的非常厉害，对姚新老师印象极其深刻，道出了学生的痛楚~
+ 引用：&#34;我知道该用这个方法，你倒是告诉我怎么用啊~&#34;，这就是导师和学生的鸿沟~哈哈
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000013/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000013/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   还在深圳出差，接到姥爷出车祸的消息，一种无力感~    </description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第三章 线性模型 补充</title>
+      <link>https://ryuchen.club/posts/0x00001b/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00001b/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 3.线性模型 补充</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第三章 线性模型</title>
+      <link>https://ryuchen.club/posts/0x00001a/</link>
+      <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00001a/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 3.线性模型</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第二章 模型评估与选择 补充</title>
+      <link>https://ryuchen.club/posts/0x000019/</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000019/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 2.模型评估与选择 的自己整理的补充内容</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第二章 模型评估与选择</title>
+      <link>https://ryuchen.club/posts/0x000018/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000018/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 2.模型评估与选择</description>
+    </item>
+    
+    <item>
+      <title>[读书笔记]《西瓜书》第一章 绪论</title>
+      <link>https://ryuchen.club/posts/0x000017/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000017/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 1.绪论</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000011/</link>
+      <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000011/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   停更了好久~  不过这段时间补了不少机器学习的知识，接下来要开始对这段时间的学习内容进行整理的工作了，上回说到的博客系列内容，已经想好了一个大项目了，尝试着跟着思路把这些内容串起来，并完成这个项目
+ 引用上次随笔说的话：&#34;怎么说呢，敬请期待~&#34;
+   </description>
+    </item>
+    
+    <item>
+      <title>关于近期生活的个人杂谈(二)</title>
+      <link>https://ryuchen.club/posts/0x000016/</link>
+      <pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000016/</guid>
+      <description>一转眼，博客停更了半年的时间，不过并不是忘记了博客这件事，而是下了决心花了这半年恶补了一下自己的机器学习的基础知识，也是感谢因为疫情需要居家隔离和在校封闭的这段时间，能够有这半年的时间让自己静下心来好好的读了这么几本书~</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200627/</link>
+      <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200627/</guid>
+      <description>    煎饺   #瓜大厨#   2020-06-27      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200617/</link>
+      <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200617/</guid>
+      <description>    瓜哥历史最轻   #生活#   2020-06-17      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200521/</link>
+      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200521/</guid>
+      <description>    小人样   #生活#   2020-05-21      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200519/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200519/</guid>
+      <description>    猛兽出门   #生活#   2020-05-19      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200517/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200517/</guid>
+      <description>    花   #生活#   2020-05-17      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200518/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200518/</guid>
+      <description>    早餐   #瓜大厨#   2020-05-18      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200504/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200504/</guid>
+      <description>    每日一餐   #瓜大厨#   2020-05-04      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200502/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200502/</guid>
+      <description>    大大大~ neiko   #生活#   2020-05-02         小家伙美照   #生活#   2020-05-02      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200418/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200418/</guid>
+      <description>    小家伙美照   #生活#   2020-05-02      </description>
+    </item>
+    
+    <item>
+      <title>Beautifulsoup4入门使用</title>
+      <link>https://ryuchen.club/posts/0x000015/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000015/</guid>
+      <description>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</description>
+    </item>
+    
+    <item>
+      <title>selenium入门使用</title>
+      <link>https://ryuchen.club/posts/0x000014/</link>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000014/</guid>
+      <description>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000010/</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000010/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   正好今天晚上熬夜整理了一下之前 教女友的爬虫相关知识，准备在自己的博客开建三个系列内容
+ 爬虫系列
 沙箱系列
 NLP系列
-怎么说呢，敬请期待~</description></item><item><title/><link>https://ryuchen.club/gallery/20200405/</link><pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200405/</guid><description> 春天 #生活# 2020-05-02</description></item><item><title/><link>https://ryuchen.club/essay/0x00000f/</link><pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000f/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 最近在更新了WSL2使用之后时不时会遇上一些莫名其妙的情况，查了好久也终于找到解决方案了，记录一下
-其实主要原因还是因为WSL2使用的Hyper-V虚拟机进行的Linux系统承载，所以，在开机的时候Hyper-V会申请系统的tcp端口，默认情况下申请的端口是可能跟本身系统使用的软件有冲突的，只需要修改到不冲突地址段就行了。
+ 怎么说呢，敬请期待~
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200405/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200405/</guid>
+      <description>    春天   #生活#   2020-05-02      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000f/</link>
+      <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000f/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   最近在更新了WSL2使用之后时不时会遇上一些莫名其妙的情况，查了好久也终于找到解决方案了，记录一下
+ 其实主要原因还是因为WSL2使用的Hyper-V虚拟机进行的Linux系统承载，所以，在开机的时候Hyper-V会申请系统的tcp端口，默认情况下申请的端口是可能跟本身系统使用的软件有冲突的，只需要修改到不冲突地址段就行了。
 首先查看下当前绑定的端口地址
 netsh int ipv4 show dynamicport tcp
 然后停用Hyper-V的功能（期间可能会重启很多次）
 dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
 重新绑定Hyper-V的端口地址
 netsh int ipv4 set dynamicport udp start=49152 num=16383
-这里的start和num看自己喜好填，优先靠在比较后面的范围段
+ 这里的start和num看自己喜好填，优先靠在比较后面的范围段
 重新启用Hyper-V的功能
 dism.exe /Online /Enable-Feature:Microsoft-Hyper-V
-*注，这里并不会影响你的WSL虚拟机</description></item><item><title>梨视频高级爬取</title><link>https://ryuchen.club/posts/0x000013/</link><pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000013/</guid><description>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</description></item><item><title/><link>https://ryuchen.club/essay/0x00000e/</link><pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000e/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 哇！~！~ 最近每天都忙死了，每天在电脑前面要坐14、5个小时，关键是都在处理一些没有营养的东西，我服了</description></item><item><title/><link>https://ryuchen.club/essay/0x00000d/</link><pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000d/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 每次玩完LOL之后Windows的WSL2都会打不开，输入下面命令就好
-netsh winsock reset
-另外软路由每次重启或者是切换代理的时候，本机可能上不了Google需要刷新一下DNS缓存
-ipconfig flushdns</description></item><item><title/><link>https://ryuchen.club/essay/0x00000c/</link><pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000c/</guid><description>.suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 这两天在家一直读论文，准备把这些篇论文的内容好好深入研究一下
-Attachments 1-WWW- InfraNodus- Generating Insight Using Text Network Analysis.pdf (1753 kb) 10-WWW-Learning Clusters through Information Diffusion.pdf (954 kb) 11-WWW-Message Distortion in Information Cascades.pdf (3144 kb) 12-WWW-Neural Variational Correlated Topic Modeling.pdf (5122 kb) 13-WWW-Revisiting Opinion Dynamics with Varying Susceptibility to Persuasion via Non-Convex Local Search.</description></item><item><title>Windows配置深度学习环境</title><link>https://ryuchen.club/posts/0x000011/</link><pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000011/</guid><description>虽然准备开始着手进入机器学习的大门，但是穷苦研究生没有自己的服务器，没办法，只能对家里的台式机配置一下深度学习的环境。因为平时还时不时的需要休闲一下，所以就不安装自己深爱的Linux系统了，只能在Windows10平台下配置了~</description></item><item><title>梨视频初级爬取</title><link>https://ryuchen.club/posts/0x000012/</link><pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000012/</guid><description>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</description></item><item><title/><link>https://ryuchen.club/essay/0x00000b/</link><pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000b/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 吐槽一下~ 这个疫情导致在家上网课，研究生阶段的作业竟然让我感觉回到了高中！！！
-Always English thesis</description></item><item><title/><link>https://ryuchen.club/gallery/20200329/</link><pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200329/</guid><description> 那些天瓜哥的投食 #生活# 2020-03-29 瓜哥牌肉夹馍~ #瓜大厨# 2020-03-28 每日一餐 #瓜大厨# 2020-03-22</description></item><item><title/><link>https://ryuchen.club/essay/0x00000a/</link><pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x00000a/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 因为这个疫情，天天刷国际的爆发情况，发现这个舆情真的是越发有用了，已经成为一种战略武器了~~~
-之前虽然也了解过NLP的相关知识，但是感觉了解的不深，后续自己想开发个项目用技术的手段做一做舆情的风险预警，所以准备正式入手NLP的学习
+ *注，这里并不会影响你的WSL虚拟机
+   </description>
+    </item>
+    
+    <item>
+      <title>梨视频高级爬取</title>
+      <link>https://ryuchen.club/posts/0x000013/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000013/</guid>
+      <description>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000e/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000e/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   哇！~！~ 最近每天都忙死了，每天在电脑前面要坐14、5个小时，关键是都在处理一些没有营养的东西，我服了
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000d/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000d/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   每次玩完LOL之后Windows的WSL2都会打不开，输入下面命令就好
+ netsh winsock reset
+ 另外软路由每次重启或者是切换代理的时候，本机可能上不了Google需要刷新一下DNS缓存
+ ipconfig flushdns
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000c/</link>
+      <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000c/</guid>
+      <description>.suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   这两天在家一直读论文，准备把这些篇论文的内容好好深入研究一下
+     Attachments   1-WWW- InfraNodus- Generating Insight Using Text Network Analysis.pdf  (1753 kb)   10-WWW-Learning Clusters through Information Diffusion.pdf  (954 kb)   11-WWW-Message Distortion in Information Cascades.pdf  (3144 kb)   12-WWW-Neural Variational Correlated Topic Modeling.pdf  (5122 kb)   13-WWW-Revisiting Opinion Dynamics with Varying Susceptibility to Persuasion via Non-Convex Local Search.</description>
+    </item>
+    
+    <item>
+      <title>Windows配置深度学习环境</title>
+      <link>https://ryuchen.club/posts/0x000011/</link>
+      <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000011/</guid>
+      <description>虽然准备开始着手进入机器学习的大门，但是穷苦研究生没有自己的服务器，没办法，只能对家里的台式机配置一下深度学习的环境。因为平时还时不时的需要休闲一下，所以就不安装自己深爱的Linux系统了，只能在Windows10平台下配置了~</description>
+    </item>
+    
+    <item>
+      <title>梨视频初级爬取</title>
+      <link>https://ryuchen.club/posts/0x000012/</link>
+      <pubDate>Tue, 31 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000012/</guid>
+      <description>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000b/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000b/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   吐槽一下~ 这个疫情导致在家上网课，研究生阶段的作业竟然让我感觉回到了高中！！！
+Always English thesis    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200329/</link>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200329/</guid>
+      <description>    那些天瓜哥的投食   #生活#   2020-03-29         瓜哥牌肉夹馍~   #瓜大厨#   2020-03-28         每日一餐   #瓜大厨#   2020-03-22      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x00000a/</link>
+      <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x00000a/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   因为这个疫情，天天刷国际的爆发情况，发现这个舆情真的是越发有用了，已经成为一种战略武器了~~~
+ 之前虽然也了解过NLP的相关知识，但是感觉了解的不深，后续自己想开发个项目用技术的手段做一做舆情的风险预警，所以准备正式入手NLP的学习
 优先从B站的视频入手
-斯坦福自然语言处理经典入门课程-Dan Jurafsky 和 Chris Manning 教授授课</description></item><item><title>requests入门使用</title><link>https://ryuchen.club/posts/0x000010/</link><pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000010/</guid><description>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</description></item><item><title/><link>https://ryuchen.club/essay/0x000009/</link><pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000009/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 本人也开通了B站的直播间，不定期直播写代码，算是督促？？？(黑人问号脸)
-B站技术宅的炫技直播间</description></item><item><title>打造最强windows开发环境</title><link>https://ryuchen.club/posts/0x00000f/</link><pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00000f/</guid><description>赶巧是最近在教王圈圈同学学习Python编程，正好借此机会把我自己是如何打造自认为是最强windows开发环境的过程在她电脑上复现了一边，正好也借此机会记录一下，以备以后重装系统的时候有迹可循~</description></item><item><title>首次搭建Hugo博客框架</title><link>https://ryuchen.club/posts/0x00000e/</link><pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00000e/</guid><description>之前使用Github Pages配合Hexo搭建的博客，长时间不进行维护，偶然想升级个版本，结果给搞砸了，导致运行起来样式错乱，加上本人不太喜欢写Javascript代码，所以索性把Blog迁移到Hugo框架下</description></item><item><title/><link>https://ryuchen.club/essay/0x000008/</link><pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000008/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 看到外国的新冠肺炎防御手段，才明白外国人少不是没有原因的</description></item><item><title/><link>https://ryuchen.club/gallery/20200321/</link><pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200321/</guid><description> 心心念的火锅！ #瓜大厨# 2020-03-21 魔镜魔镜，哪只喵最美腻 #宠物# 2020-03-14 每日一餐 #瓜大厨# 2020-03-14</description></item><item><title/><link>https://ryuchen.club/essay/0x000007/</link><pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000007/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 王圈圈童靴的直播间~~~
-B站手残的炫技直播间</description></item><item><title/><link>https://ryuchen.club/essay/0x000006/</link><pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000006/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 王圈圈童靴沉迷奥日不可自拔课程学习暂停几日了~~~</description></item><item><title/><link>https://ryuchen.club/essay/0x000005/</link><pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000005/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 教王圈圈童靴学习Python的第0x000004天：
-1、Python异常的机制 所有异常的基类：BaseException 异常分为 系统内置异常 和 用户自定义异常 2、系统内置异常 主要分为 Error 和 Warning 两种 有些Error会返回错误码errno 时用时查，内置异常类层次参见Python文档 Build-in Exceptions 3、自定义异常最佳推荐 用户自定义异常均从派生于异常类Exception 建议自定义异常都以Exceptions或者except结尾，方便和内置异常区分 4、异常处理相关语法 捕获异常：try:...except(Exception1[, Exception2[,...ExceptionN]]]):...else:... try语句工作原理如下： 首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。 如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。 如果在执行try子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和except关键字后面的异常匹配，则执行except子句 ，然后继续执行try语句之后的代码。 如果发生的异常和except子句中指定的异常不匹配，则将其传递到外部的try语句中；如果没有找到处理程序，则它是一个未处理异常，执行将停止并显示如上所示的消息。 强制抛出异常raise raise唯一的参数就是要抛出的异常。 这个参数必须是一个异常实例或者是一个异常类(派生自Exception的类) finally的使用 如果存在finally子句，则finally子句将作为try语句结束前的最后一项任务被执行。finally子句不论try语句是否产生了异常都会被执行 对于释放外部资源(例如文件或者网络连接)非常有用</description></item><item><title/><link>https://ryuchen.club/essay/0x000004/</link><pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000004/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 教王圈圈童靴学习Python的第0x000003天：
-1、Python的三大生成式 列表生成式：[exp for val in collection if condition] 字典生成式：{key-exp:val-exp for value in collection if condition} 集合生成式：{exp for value in collection if condition} 2、Python枚举函数enumerate() 语法： enumerate(sequence, [start=0]) sequence：一个序列、迭代器或其他支持迭代对象 start：下标起始位置 返回值：返回一个enumerate(枚举)对象，包含数据下标和数据</description></item><item><title/><link>https://ryuchen.club/essay/0x000003/</link><pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000003/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 教王圈圈童靴学习Python的第0x000002天：
-Q、(复习)如何旋转Python中的二维数组? (list切片实现) 1、Python中的六个数据类型 数字number 字符串string 列表list 元组tuple 集合set 字典dict 2、六个数据类型中的两大类 不可变数据：number、string、tuple 可变数据：list、dict、set 3、dict是python区别于其他语言的特殊存在</description></item><item><title/><link>https://ryuchen.club/gallery/20200313/</link><pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200313/</guid><description> 家里有三只🐷 #生活# 2020-03-13 每日一餐 #瓜大厨# 2020-03-13</description></item><item><title/><link>https://ryuchen.club/essay/0x000002/</link><pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000002/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 教王圈圈童靴学习Python的第0x000001天：
-1、is 和 == 的区别 2、Python小型内存池机制（整型和字符串） 3、list切片的三个参数的意义start、end、step</description></item><item><title/><link>https://ryuchen.club/gallery/20200311/</link><pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200311/</guid><description> 每日一餐 #瓜大厨# 2020-03-11</description></item><item><title/><link>https://ryuchen.club/essay/0x000001/</link><pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/essay/0x000001/</guid><description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; } 总算是把博客从Hexo迁移到了Hugo上面了，不得不说Hexo弄得我心力交瘁，再也不想用Hexo了！！！</description></item><item><title/><link>https://ryuchen.club/gallery/20200309/</link><pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200309/</guid><description> 每日一餐-麻辣香锅 #瓜大厨# 2020-03-09</description></item><item><title/><link>https://ryuchen.club/gallery/20200307/</link><pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200307/</guid><description> 每日一餐 #瓜大厨# 2020-03-07</description></item><item><title/><link>https://ryuchen.club/gallery/20200305/</link><pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200305/</guid><description> 每日一餐 #瓜大厨# 2020-03-05</description></item><item><title/><link>https://ryuchen.club/gallery/20200303/</link><pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200303/</guid><description> 每日一餐 #瓜大厨# 2020-03-03</description></item><item><title/><link>https://ryuchen.club/gallery/20200301/</link><pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200301/</guid><description> 每日一餐 #瓜大厨# 2020-03-01</description></item><item><title/><link>https://ryuchen.club/gallery/20200229/</link><pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200229/</guid><description> 每周唯一的出门机会，超市购物(手动🐶) #生活# 2020-02-29</description></item><item><title/><link>https://ryuchen.club/gallery/20200228/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200228/</guid><description> 每日一餐 #瓜大厨# 2020-02-28</description></item><item><title/><link>https://ryuchen.club/gallery/2020022401/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/2020022401/</guid><description> 每日一餐 #瓜大厨# 2020-02-24</description></item><item><title/><link>https://ryuchen.club/gallery/2020022402/</link><pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/2020022402/</guid><description> 瓜哥的书桌 #生活# 2020-02-24</description></item><item><title/><link>https://ryuchen.club/gallery/20200221/</link><pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200221/</guid><description> 王圈圈的书桌 #生活# 2020-02-21</description></item><item><title/><link>https://ryuchen.club/gallery/2020021901/</link><pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/2020021901/</guid><description> 圈圈破壳日 #瓜大厨# 2020-02-19</description></item><item><title/><link>https://ryuchen.club/gallery/2020021902/</link><pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/2020021902/</guid><description> 颓废的neiko😂 #宠物# 2020-02-19</description></item><item><title/><link>https://ryuchen.club/gallery/20200216/</link><pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200216/</guid><description> 每日一餐 #瓜大厨# 2020-02-16</description></item><item><title/><link>https://ryuchen.club/gallery/20200210/</link><pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200210/</guid><description> 喵俩 #宠物# 2020-02-10</description></item><item><title/><link>https://ryuchen.club/gallery/20200206/</link><pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200206/</guid><description> 2020年初的雪 #生活# 2020-02-06</description></item><item><title/><link>https://ryuchen.club/gallery/20200201/</link><pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200201/</guid><description> 大懒猫 #宠物# 2020-02-01</description></item><item><title/><link>https://ryuchen.club/gallery/20200107/</link><pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200107/</guid><description> 每日一餐-酸汤肥牛 #瓜大厨# 2020-01-07</description></item><item><title/><link>https://ryuchen.club/gallery/20200106/</link><pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20200106/</guid><description> 2020年第一场雪 #生活# 2020-01-06</description></item><item><title>Hexo博客SEO优化</title><link>https://ryuchen.club/posts/0x00000c/</link><pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00000c/</guid><description>最近因为临近寒假课程也基本都结束了想着该把这个博客再好好维护一下了啊，所以想先把这个检索的功能优化加上，毕竟我是个爱显摆的人，写了没人看多令人憋屈～</description></item><item><title>通过lede开源社区谈谈自己的感想</title><link>https://ryuchen.club/posts/0x00000b/</link><pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00000b/</guid><description>最近一段时间因为入手了一台软路由，所以接触到了openwrt的固件体系，也通过油管的视频认识到了L大这样的优秀开源人，贡献了优秀的代码和优秀的项目，但仍然产生了苦恼，于是有那么一番感想想写出来~</description></item><item><title>MWeb配合Hexo搭建博客发布</title><link>https://ryuchen.club/posts/0x00000a/</link><pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x00000a/</guid><description>利用MWeb软件实现配合Hexo进行Github Pages的个人博客搭建，hexo虽然已经很棒了，但是需要进行博客发布的时候，总是执行命令也挺麻烦的，所以想如何利用MWeb这个编辑器实现自动化发布的功能，方便自己的博客编写～</description></item><item><title>基于区块链技术实现开放网络威胁情报共享平台设计报告</title><link>https://ryuchen.club/posts/0x000009/</link><pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000009/</guid><description>课程中关于一点区块链和网络威胁情报的构想，初步想构想成一个可以实践的平台，目前还不成熟，希望后续有机会把它建立起来尝试一下。</description></item><item><title>AntDesignVue使用尝鲜</title><link>https://ryuchen.club/posts/0x000008/</link><pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000008/</guid><description>基于上一次编写 django admin 应用的时候使用 simpleui 的经验，结合之前的 django 开发经验，准备自己着手写一套可以扩展的方便使用的 admin theme，结合之前熟悉的 vue 和 ant design 组件库的样式比较喜欢，所以打算基于这个去开发，下面将介绍我在实践过程中所遇到的问题和如何解决~</description></item><item><title/><link>https://ryuchen.club/gallery/20190810/</link><pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/gallery/20190810/</guid><description> 北戴河 #生活# 2019-08-10</description></item><item><title>Bistu后台管理项目</title><link>https://ryuchen.club/posts/0x000007/</link><pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000007/</guid><description>这个项目起始是因为学校之前的老师找到我，说让我帮忙弄个进行管理基本管理数据的小工具，听起来也并不是很难（然而，后期我一直在搞这个，深陷其中不可自拔），于是痛快的答应下来，后续就一直在弄这个小平台了~</description></item><item><title>JWT认证系统尝鲜</title><link>https://ryuchen.club/posts/0x000006/</link><pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000006/</guid><description>最近在&amp;rsquo;正式退休&amp;rsquo;之后，并不能完全闲着啊，所以想起来之前给学校的老师做的一个项目，并没有完全做完，于是想正好借助这个机会，先把 angluar 学习起来，然后顺便再把之前一些感兴趣的并没有在工作中正式使用的一些技术栈给用上~</description></item><item><title>Panda开源沙箱项目</title><link>https://ryuchen.club/posts/0x000005/</link><pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000005/</guid><description>目前Github社区中的开源沙箱系统，相较活跃的是 cuckoosandbox，但是这个项目在过去的一年中变得更新较为缓慢，后续也未见其进行卓越性的改进，逐渐走向闭源。这将是一个基于已经初见成熟的 cuckoo 开源版本的沙箱的修订版本，但将进行彻底的重新构建，后续该版本将彻底重构，能够完全适配国内软件环境。</description></item><item><title>关于近期生活的个人杂谈</title><link>https://ryuchen.club/posts/0x000004/</link><pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000004/</guid><description>最近恰逢自己刚过完 26 周岁的生日，也算是在奔三的路上跑过一半的旅程，总结下最近的生活，自从毕业之后似乎一直忙忙碌碌的，但是没有半点自身的产出，一直算是为了糊口饭吃，所以想在人生的 35 岁之前成就点事情，不然总觉得自己这有点不甘心啊~</description></item><item><title>Django中间件的理解</title><link>https://ryuchen.club/posts/0x000003/</link><pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000003/</guid><description>这篇文章的主要目的是帮助自己总结下过去使用 django 中间件中发生的问题的时候，需要进行注意的地方，那是在一次审查 django 在接收前端请求过程中过慢的问题，后续发现是中间件中频繁对文本资源进行读取，而且还通过递归的方式进行了文件的遍历，造成效率的低下，于是总结了一下经验。</description></item><item><title>企业前端开发隔离方案</title><link>https://ryuchen.club/posts/0x000002/</link><pubDate>Sat, 29 Jun 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000002/</guid><description>之前的工作环境中，由于系统的整体性过于强，尤其是对于面向企业级客户的单机项目中，解耦合程度不高的情况下，我们无法让多位开发人员共享一台开发环境，导致最终造成开发效率低下和开发成本过高，对于这个问题我也思考了很久，后来整理了一些自己的看法和方式，形成了下面的文章，算是面向以前的经验和教训</description></item><item><title>谈谈RESTfulAPI标准理解</title><link>https://ryuchen.club/posts/0x000001/</link><pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/posts/0x000001/</guid><description>通过工作实践过程中，总结的一些关于在进行前后端分离过程中的 restful api 编写规范，主要是来自于自己工作的心得，并且并不是完全的在工作场景下的使用情况，但是具体的内容也算是广泛查看了各路大神的总结，或多或少对接口编写有些指导作用，适用于以后自己的项目实战。</description></item><item><title>About Me</title><link>https://ryuchen.club/about/</link><pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate><guid>https://ryuchen.club/about/</guid><description>博客内容 关于这个博客以后将要更新的内容主要会涉及三大部分：个人生活、全栈技术、开源项目
-个人生活：
+     斯坦福自然语言处理经典入门课程-Dan Jurafsky 和 Chris Manning 教授授课    </description>
+    </item>
+    
+    <item>
+      <title>requests入门使用</title>
+      <link>https://ryuchen.club/posts/0x000010/</link>
+      <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000010/</guid>
+      <description>这是一个系列内容，最近女友在跟我学习Python编程，然后就开了这个爬虫系列，主要也是借此机会将自己所会的爬虫相关的知识进行梳理并同时做好备课工作~~【如果这个系列对你有帮助的话，请在这个博客下面留言，我会尽可能做好思路梳理】</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000009/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000009/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   本人也开通了B站的直播间，不定期直播写代码，算是督促？？？(黑人问号脸)
+ B站技术宅的炫技直播间    </description>
+    </item>
+    
+    <item>
+      <title>打造最强windows开发环境</title>
+      <link>https://ryuchen.club/posts/0x00000f/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00000f/</guid>
+      <description>赶巧是最近在教王圈圈同学学习Python编程，正好借此机会把我自己是如何打造自认为是最强windows开发环境的过程在她电脑上复现了一边，正好也借此机会记录一下，以备以后重装系统的时候有迹可循~</description>
+    </item>
+    
+    <item>
+      <title>首次搭建Hugo博客框架</title>
+      <link>https://ryuchen.club/posts/0x00000e/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00000e/</guid>
+      <description>之前使用Github Pages配合Hexo搭建的博客，长时间不进行维护，偶然想升级个版本，结果给搞砸了，导致运行起来样式错乱，加上本人不太喜欢写Javascript代码，所以索性把Blog迁移到Hugo框架下</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000008/</link>
+      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000008/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   看到外国的新冠肺炎防御手段，才明白外国人少不是没有原因的
+        </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200321/</link>
+      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200321/</guid>
+      <description>    心心念的火锅！   #瓜大厨#   2020-03-21         魔镜魔镜，哪只喵最美腻   #宠物#   2020-03-14         每日一餐   #瓜大厨#   2020-03-14      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000007/</link>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000007/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   王圈圈童靴的直播间~~~
+ B站手残的炫技直播间    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000006/</link>
+      <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000006/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   王圈圈童靴沉迷奥日不可自拔课程学习暂停几日了~~~
+       </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000005/</link>
+      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000005/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000004天：
+1、Python异常的机制  所有异常的基类：BaseException 异常分为 系统内置异常 和 用户自定义异常  2、系统内置异常  主要分为 Error 和 Warning 两种 有些Error会返回错误码errno 时用时查，内置异常类层次参见Python文档 Build-in Exceptions  3、自定义异常最佳推荐  用户自定义异常均从派生于异常类Exception 建议自定义异常都以Exceptions或者except结尾，方便和内置异常区分  4、异常处理相关语法  捕获异常：try:...except(Exception1[, Exception2[,...ExceptionN]]]):...else:...  try语句工作原理如下：  首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。 如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。 如果在执行try子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和except关键字后面的异常匹配，则执行except子句 ，然后继续执行try语句之后的代码。 如果发生的异常和except子句中指定的异常不匹配，则将其传递到外部的try语句中；如果没有找到处理程序，则它是一个未处理异常，执行将停止并显示如上所示的消息。     强制抛出异常raise  raise唯一的参数就是要抛出的异常。 这个参数必须是一个异常实例或者是一个异常类(派生自Exception的类)   finally的使用  如果存在finally子句，则finally子句将作为try语句结束前的最后一项任务被执行。finally子句不论try语句是否产生了异常都会被执行 对于释放外部资源(例如文件或者网络连接)非常有用       </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000004/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000004/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000003天：
+1、Python的三大生成式  列表生成式：[exp for val in collection if condition] 字典生成式：{key-exp:val-exp for value in collection if condition} 集合生成式：{exp for value in collection if condition}  2、Python枚举函数enumerate()  语法：  enumerate(sequence, [start=0]) sequence：一个序列、迭代器或其他支持迭代对象 start：下标起始位置   返回值：返回一个enumerate(枚举)对象，包含数据下标和数据     </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000003/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000003/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000002天：
+Q、(复习)如何旋转Python中的二维数组? (list切片实现) 1、Python中的六个数据类型  数字number 字符串string 列表list 元组tuple 集合set 字典dict  2、六个数据类型中的两大类  不可变数据：number、string、tuple 可变数据：list、dict、set  3、dict是python区别于其他语言的特殊存在    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200313/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200313/</guid>
+      <description>    家里有三只🐷   #生活#   2020-03-13         每日一餐   #瓜大厨#   2020-03-13      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000002/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000002/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   教王圈圈童靴学习Python的第0x000001天：
+1、is 和 == 的区别 2、Python小型内存池机制（整型和字符串） 3、list切片的三个参数的意义start、end、step    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200311/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200311/</guid>
+      <description>    每日一餐   #瓜大厨#   2020-03-11      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/essay/0x000001/</link>
+      <pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/essay/0x000001/</guid>
+      <description> .suibi-item { padding: 20px; margin: 20px 0; border: 1px solid #eee; border-left-width: 5px; border-radius: 5px; border-left-color: #aa6708; }   总算是把博客从Hexo迁移到了Hugo上面了，不得不说Hexo弄得我心力交瘁，再也不想用Hexo了！！！
+   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200309/</link>
+      <pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200309/</guid>
+      <description>    每日一餐-麻辣香锅   #瓜大厨#   2020-03-09      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200307/</link>
+      <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200307/</guid>
+      <description>    每日一餐   #瓜大厨#   2020-03-07      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200305/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200305/</guid>
+      <description>    每日一餐   #瓜大厨#   2020-03-05      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200303/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200303/</guid>
+      <description>    每日一餐   #瓜大厨#   2020-03-03      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200301/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200301/</guid>
+      <description>    每日一餐   #瓜大厨#   2020-03-01      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200229/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200229/</guid>
+      <description>    每周唯一的出门机会，超市购物(手动🐶)   #生活#   2020-02-29      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200228/</link>
+      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200228/</guid>
+      <description>    每日一餐   #瓜大厨#   2020-02-28      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/2020022401/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/2020022401/</guid>
+      <description>    每日一餐   #瓜大厨#   2020-02-24      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/2020022402/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/2020022402/</guid>
+      <description>    瓜哥的书桌   #生活#   2020-02-24      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200221/</link>
+      <pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200221/</guid>
+      <description>    王圈圈的书桌   #生活#   2020-02-21      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/2020021901/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/2020021901/</guid>
+      <description>    圈圈破壳日   #瓜大厨#   2020-02-19      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/2020021902/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/2020021902/</guid>
+      <description>    颓废的neiko😂   #宠物#   2020-02-19      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200216/</link>
+      <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200216/</guid>
+      <description>    每日一餐   #瓜大厨#   2020-02-16      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200210/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200210/</guid>
+      <description>    喵俩   #宠物#   2020-02-10      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200206/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200206/</guid>
+      <description>    2020年初的雪   #生活#   2020-02-06      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200201/</link>
+      <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200201/</guid>
+      <description>    大懒猫   #宠物#   2020-02-01      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200107/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200107/</guid>
+      <description>    每日一餐-酸汤肥牛   #瓜大厨#   2020-01-07      </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20200106/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20200106/</guid>
+      <description>    2020年第一场雪   #生活#   2020-01-06      </description>
+    </item>
+    
+    <item>
+      <title>Hexo博客SEO优化</title>
+      <link>https://ryuchen.club/posts/0x00000c/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00000c/</guid>
+      <description>最近因为临近寒假课程也基本都结束了想着该把这个博客再好好维护一下了啊，所以想先把这个检索的功能优化加上，毕竟我是个爱显摆的人，写了没人看多令人憋屈～</description>
+    </item>
+    
+    <item>
+      <title>通过lede开源社区谈谈自己的感想</title>
+      <link>https://ryuchen.club/posts/0x00000b/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00000b/</guid>
+      <description>最近一段时间因为入手了一台软路由，所以接触到了openwrt的固件体系，也通过油管的视频认识到了L大这样的优秀开源人，贡献了优秀的代码和优秀的项目，但仍然产生了苦恼，于是有那么一番感想想写出来~</description>
+    </item>
+    
+    <item>
+      <title>MWeb配合Hexo搭建博客发布</title>
+      <link>https://ryuchen.club/posts/0x00000a/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x00000a/</guid>
+      <description>利用MWeb软件实现配合Hexo进行Github Pages的个人博客搭建，hexo虽然已经很棒了，但是需要进行博客发布的时候，总是执行命令也挺麻烦的，所以想如何利用MWeb这个编辑器实现自动化发布的功能，方便自己的博客编写～</description>
+    </item>
+    
+    <item>
+      <title>基于区块链技术实现开放网络威胁情报共享平台设计报告</title>
+      <link>https://ryuchen.club/posts/0x000009/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000009/</guid>
+      <description>课程中关于一点区块链和网络威胁情报的构想，初步想构想成一个可以实践的平台，目前还不成熟，希望后续有机会把它建立起来尝试一下。</description>
+    </item>
+    
+    <item>
+      <title>AntDesignVue使用尝鲜</title>
+      <link>https://ryuchen.club/posts/0x000008/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000008/</guid>
+      <description>基于上一次编写 django admin 应用的时候使用 simpleui 的经验，结合之前的 django 开发经验，准备自己着手写一套可以扩展的方便使用的 admin theme，结合之前熟悉的 vue 和 ant design 组件库的样式比较喜欢，所以打算基于这个去开发，下面将介绍我在实践过程中所遇到的问题和如何解决~</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/gallery/20190810/</link>
+      <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/gallery/20190810/</guid>
+      <description>    北戴河   #生活#   2019-08-10      </description>
+    </item>
+    
+    <item>
+      <title>Bistu后台管理项目</title>
+      <link>https://ryuchen.club/posts/0x000007/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000007/</guid>
+      <description>这个项目起始是因为学校之前的老师找到我，说让我帮忙弄个进行管理基本管理数据的小工具，听起来也并不是很难（然而，后期我一直在搞这个，深陷其中不可自拔），于是痛快的答应下来，后续就一直在弄这个小平台了~</description>
+    </item>
+    
+    <item>
+      <title>JWT认证系统尝鲜</title>
+      <link>https://ryuchen.club/posts/0x000006/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000006/</guid>
+      <description>最近在&amp;rsquo;正式退休&amp;rsquo;之后，并不能完全闲着啊，所以想起来之前给学校的老师做的一个项目，并没有完全做完，于是想正好借助这个机会，先把 angluar 学习起来，然后顺便再把之前一些感兴趣的并没有在工作中正式使用的一些技术栈给用上~</description>
+    </item>
+    
+    <item>
+      <title>Panda开源沙箱项目</title>
+      <link>https://ryuchen.club/posts/0x000005/</link>
+      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000005/</guid>
+      <description>目前Github社区中的开源沙箱系统，相较活跃的是 cuckoosandbox，但是这个项目在过去的一年中变得更新较为缓慢，后续也未见其进行卓越性的改进，逐渐走向闭源。这将是一个基于已经初见成熟的 cuckoo 开源版本的沙箱的修订版本，但将进行彻底的重新构建，后续该版本将彻底重构，能够完全适配国内软件环境。</description>
+    </item>
+    
+    <item>
+      <title>关于近期生活的个人杂谈</title>
+      <link>https://ryuchen.club/posts/0x000004/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000004/</guid>
+      <description>最近恰逢自己刚过完 26 周岁的生日，也算是在奔三的路上跑过一半的旅程，总结下最近的生活，自从毕业之后似乎一直忙忙碌碌的，但是没有半点自身的产出，一直算是为了糊口饭吃，所以想在人生的 35 岁之前成就点事情，不然总觉得自己这有点不甘心啊~</description>
+    </item>
+    
+    <item>
+      <title>Django中间件的理解</title>
+      <link>https://ryuchen.club/posts/0x000003/</link>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000003/</guid>
+      <description>这篇文章的主要目的是帮助自己总结下过去使用 django 中间件中发生的问题的时候，需要进行注意的地方，那是在一次审查 django 在接收前端请求过程中过慢的问题，后续发现是中间件中频繁对文本资源进行读取，而且还通过递归的方式进行了文件的遍历，造成效率的低下，于是总结了一下经验。</description>
+    </item>
+    
+    <item>
+      <title>企业前端开发隔离方案</title>
+      <link>https://ryuchen.club/posts/0x000002/</link>
+      <pubDate>Sat, 29 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000002/</guid>
+      <description>之前的工作环境中，由于系统的整体性过于强，尤其是对于面向企业级客户的单机项目中，解耦合程度不高的情况下，我们无法让多位开发人员共享一台开发环境，导致最终造成开发效率低下和开发成本过高，对于这个问题我也思考了很久，后来整理了一些自己的看法和方式，形成了下面的文章，算是面向以前的经验和教训</description>
+    </item>
+    
+    <item>
+      <title>谈谈RESTfulAPI标准理解</title>
+      <link>https://ryuchen.club/posts/0x000001/</link>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000001/</guid>
+      <description>通过工作实践过程中，总结的一些关于在进行前后端分离过程中的 restful api 编写规范，主要是来自于自己工作的心得，并且并不是完全的在工作场景下的使用情况，但是具体的内容也算是广泛查看了各路大神的总结，或多或少对接口编写有些指导作用，适用于以后自己的项目实战。</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://ryuchen.club/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/about/</guid>
+      <description>博客内容 关于这个博客以后将要更新的内容主要会涉及三大部分：个人生活、全栈技术、开源项目
+  个人生活：
 主要是记录一下阶段性的自己的感悟，算是一个检讨的部分，目前这个部分的内容还是构思之中，不过慢慢会将内容结构补齐，希望等后续有时间将这个部分以视频的方式作为承载体，这样的整体来说会对自己以后回顾带来点不一样的感觉！毕竟难得走上这么一遭，不留下点什么不算是成功吧~
-全栈技术：
+  全栈技术：
 当初在大学本科的时候，就开始搞什么外包，导致自己从毕业一开始，似乎就一直跟 Web 脱离不了什么关系，进了创业公司，一干就是直接入手全栈，所以算是对这一方面还是有点积累的，不过也跟不上现在技术发展，还是得慢慢学习的，这里就算是一些总结和积累的地方，能够后续回头看看，希望不会太差~
-开源项目：
+  开源项目：
 自己写的开源项目越来越多，虽然没有太多是完全写完的，但是有的时候真的想歇一歇，很多想法在脑子里面打转，但是自己还差的远，并不是一个大佬，希望有机会将以下项目完成！！！
-DeadPool项目：
-总的来说这个项目起源于之前使用celery的见解，希望能够将celery的用法使用的炉火纯青，并且因为对NLP有一点涉猎，暂时先这个项目作为爬虫项目进行维护，后续会结合之前的django知识和NLP的知识，共同构建一个FireWatch项目，这个将是一个开放域的舆情监测系统，似乎有点透露了后续的开发重心，不过不知道有没有能够力做完，希望最后能够凭借自己实现一个自己的magi项目和学迹项目
-Django UIKit项目
-先前是使用django做过两年的开发，不过一直没有怎么使用过django的admin界面，后来接触到了simpleui这个项目，发现其实有的小需求似乎凭借django的admin就可以完成了，所以考虑到是否自己可以开发一个相比simpleui更大型的工程，只需要按照配置添加参数就能够自定义生成现代化的前端页面，正好也是结合vue的学习配套编写，这样这个项目就可以帮助我减低以后编写前端的过程中花费的时间
-Panda项目：
-这个项目说起来还是有那么点自豪的，因为毕业的时候进了创业公司，一边顾及着公司里面的前端部分，另一边就是一直在看开源的 cuckoo 沙箱，不过慢慢的似乎 cuckoo 在走向闭源，开发者也成立了自己的公司，更新进度也不如之前的速度，并且 Python2 也将被暂停维护，一切的一切都是这么好的一个机会，于是我自己便发起了这个项目，希望将我自己对于 cuckoo 的理解重新重构一下它的整体结构，当然这期间也会慢慢去学习他的 monitor 的核心内容（之前没有怎么看过），成立一个中国的开源沙箱项目，站在巨人的肩膀上面~
-博客社区 首先是我将利用自己读研究生的这段时间，发起构建一个基于自己博客的一个社区，社区维护的内容主要是：
-Firwatch(看火人) 的舆情监控项目 Deadpool(死海) 的爬虫项目 dajngo-vue-suit(UIKit) 的django主题项目 Panda(钟馗) 的沙箱项目 后续会将无论是使用文档，开发文档，还是社区讨论都迁移到这个地方来，构建一个活跃的社区论坛
+  DeadPool项目：
+ 总的来说这个项目起源于之前使用celery的见解，希望能够将celery的用法使用的炉火纯青，并且因为对NLP有一点涉猎，暂时先这个项目作为爬虫项目进行维护，后续会结合之前的django知识和NLP的知识，共同构建一个FireWatch项目，这个将是一个开放域的舆情监测系统，似乎有点透露了后续的开发重心，不过不知道有没有能够力做完，希望最后能够凭借自己实现一个自己的magi项目和学迹项目
+   Django UIKit项目
+ 先前是使用django做过两年的开发，不过一直没有怎么使用过django的admin界面，后来接触到了simpleui这个项目，发现其实有的小需求似乎凭借django的admin就可以完成了，所以考虑到是否自己可以开发一个相比simpleui更大型的工程，只需要按照配置添加参数就能够自定义生成现代化的前端页面，正好也是结合vue的学习配套编写，这样这个项目就可以帮助我减低以后编写前端的过程中花费的时间
+   Panda项目：
+ 这个项目说起来还是有那么点自豪的，因为毕业的时候进了创业公司，一边顾及着公司里面的前端部分，另一边就是一直在看开源的 cuckoo 沙箱，不过慢慢的似乎 cuckoo 在走向闭源，开发者也成立了自己的公司，更新进度也不如之前的速度，并且 Python2 也将被暂停维护，一切的一切都是这么好的一个机会，于是我自己便发起了这个项目，希望将我自己对于 cuckoo 的理解重新重构一下它的整体结构，当然这期间也会慢慢去学习他的 monitor 的核心内容（之前没有怎么看过），成立一个中国的开源沙箱项目，站在巨人的肩膀上面~
+     博客社区 首先是我将利用自己读研究生的这段时间，发起构建一个基于自己博客的一个社区，社区维护的内容主要是：
+ Firwatch(看火人) 的舆情监控项目 Deadpool(死海) 的爬虫项目 dajngo-vue-suit(UIKit) 的django主题项目 Panda(钟馗) 的沙箱项目  后续会将无论是使用文档，开发文档，还是社区讨论都迁移到这个地方来，构建一个活跃的社区论坛
 联系方式 Ryuchen (陈 浩)
-如果你想赞助或者参与到该项目的开发，或者想进行任何的技术交流可以通过以下方式跟我进行联系。</description></item><item><title/><link>https://ryuchen.club/snippet/0x0001/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ryuchen.club/snippet/0x0001/</guid><description>Python 中实现单例的方式 参考 stackoverflow
-class Singleton(type): &amp;#34;&amp;#34;&amp;#34; Instance Singleton &amp;#34;&amp;#34;&amp;#34; _instances = {} def __call__(cls, *args, **kwargs): if cls not in cls._instances: cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs) return cls._instances[cls]</description></item><item><title/><link>https://ryuchen.club/snippet/0x0002/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ryuchen.club/snippet/0x0002/</guid><description>Python 中实现线程单例的方式 import threading class ThreadSingleton(type): &amp;#34;&amp;#34;&amp;#34;Singleton per thread.&amp;#34;&amp;#34;&amp;#34; _instances = threading.local() def __call__(cls, *args, **kwargs): if not getattr(cls._instances, &amp;#34;instance&amp;#34;, None): cls._instances.instance = super(ThreadSingleton, cls).__call__(*args, **kwargs) return cls._instances.instance</description></item><item><title/><link>https://ryuchen.club/snippet/0x0003/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ryuchen.club/snippet/0x0003/</guid><description>Python 中通过元类实现数据类型 参考Panda-Sandbox中实现数据类型
-import abc class Type(metaclass=abc.ABCMeta): &amp;#34;&amp;#34;&amp;#34; Base Class for Panda-Sandbox Type Definitions &amp;#34;&amp;#34;&amp;#34; __doc__ = &amp;#34;&amp;#34;&amp;#34; Must Implement this class for subtype to create new instance. Initialise its with params: :param default::默认值 :param allow_empty::可取空 @Must implement with below methods: :method parse::转化 :method check::校验 &amp;#34;&amp;#34;&amp;#34; def __init__(self, default=None, allow_empty=False): self.default = default self.allow_empty = allow_empty self._value = None def __set__(self, instance, value): if self.check(value): self._value = value else: self.</description></item><item><title/><link>https://ryuchen.club/snippet/0x0004/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ryuchen.club/snippet/0x0004/</guid><description>Python 列举目录下指定名称文件 import os import glob _current_dir = os.path.abspath(os.path.dirname(__file__)) DATA_ROOT = os.path.normpath(os.path.join(_current_dir, &amp;#34;..&amp;#34;, &amp;#34;data&amp;#34;)) if __name__ = &amp;#34;__main__&amp;#34;: data_sets = glob.glob(os.path.join(DATA_ROOT, &amp;#39;part_*.csv&amp;#39;)) for item in data_sets: print(item)</description></item><item><title/><link>https://ryuchen.club/snippet/0x0005/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ryuchen.club/snippet/0x0005/</guid><description>Python ABC元类编程 import abc class Type(metaclass=abc.ABCMeta): &amp;#34;&amp;#34;&amp;#34; Base Class for Panda-Sandbox Type Definitions &amp;#34;&amp;#34;&amp;#34; __doc__ = &amp;#34;&amp;#34;&amp;#34; Must Implement this class for subtype to create new instance. Initialise its with params: :param default::默认值 :param allow_empty::可取空 @Must implement with below methods: :method parse::转化 :method check::校验 &amp;#34;&amp;#34;&amp;#34; def __init__(self, default=None, allow_empty=False): self.default = default self.allow_empty = allow_empty self._value = None def __set__(self, instance, value): if self.check(value): self._value = value else: self._value = self.</description></item><item><title/><link>https://ryuchen.club/snippet/0x0006/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ryuchen.club/snippet/0x0006/</guid><description>Python 实现三个自带验证的数据类型 class Int(Type): &amp;#34;&amp;#34;&amp;#34; Integer Type Definition class &amp;#34;&amp;#34;&amp;#34; __doc__ = &amp;#34;&amp;#34;&amp;#34; Initialise its with params below: :param default::默认值 :param allow_empty::可取空 :param v_range::范围 eg: (1, 10) &amp;#34;&amp;#34;&amp;#34; def __init__(self, default, allow_empty, v_range=None): if v_range: (self.min_value, self.max_value) = v_range if self.min_value &amp;gt; self.max_value: raise PandaStartupError(&amp;#34;value range incorrect&amp;#34;) else: (self.min_value, self.max_value) = (None, None) super(Int, self).__init__(default, allow_empty) def parse(self, value): def num_range(ctx, val): _fin = val if ctx.min_value and val &amp;lt; ctx.</description></item><item><title/><link>https://ryuchen.club/snippet/0x0007/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ryuchen.club/snippet/0x0007/</guid><description>Python 实现两个配置文件合并 class Settings(object): &amp;#34;&amp;#34;&amp;#34; This function to protect the custom setting config does not influence the program successfully start up. &amp;#34;&amp;#34;&amp;#34; # The default program settings default_path = os.path.join(SANDBOX_CONFIG_DIR, &amp;#34;default.yaml&amp;#34;) # The finally running settings version = String(default=&amp;#34;v1.0.0-alpha&amp;#34;, allow_empty=False) variable = Variable() advanced = Advanced() @classmethod def loading_settings(cls): &amp;#34;&amp;#34;&amp;#34; To merge the settings of default.yaml &amp;amp; the settings of custom.yaml into the running setting. :return: &amp;#34;&amp;#34;&amp;#34; def merge_dict(target, source): for key, value in source.</description></item><item><title/><link>https://ryuchen.club/snippet/0x0008/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ryuchen.club/snippet/0x0008/</guid><description>Python 实现Yaml文件动态加载 import os import yaml class Loader(yaml.SafeLoader): def __init__(self, stream): self._root = os.path.split(stream.name)[0] super(Loader, self).__init__(stream) def include(self, node): filename = os.path.join(self._root, self.construct_scalar(node)) with open(filename, &amp;#39;r&amp;#39;) as f: return yaml.load(f, Loader) Loader.add_constructor(&amp;#39;!include&amp;#39;, Loader.include)</description></item><item><title/><link>https://ryuchen.club/snippet/0x0009/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ryuchen.club/snippet/0x0009/</guid><description>Python 实现celery动态加载task # When celery after initialise we register our task into the celery. @app.on_after_configure.connect def setup_celery_tasks(sender, **kwargs): for task_name, task_option in Settings.jobs_config.get(&amp;#34;jobs&amp;#34;, {}).items(): module_path = &amp;#39;apps.{0}.tasks.{1}&amp;#39;.format(task_option.get(&amp;#34;module&amp;#34;), task_name) try: ip_module = importlib.import_module(module_path) ip_module_class = getattr(ip_module, task_option.get(&amp;#34;class&amp;#34;)) ip_module_class.options = task_option.get(&amp;#34;options&amp;#34;) ip_module_class.register(app) task_instance = ip_module_class() sender.register_task(task_instance) log.info(&amp;#34;successes load job task on deadpool app at on_after_configure.connect&amp;#34;) except Exception as e: log.exception(e)</description></item></channel></rss>
+如果你想赞助或者参与到该项目的开发，或者想进行任何的技术交流可以通过以下方式跟我进行联系。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/snippet/0x0001/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/snippet/0x0001/</guid>
+      <description>Python 中实现单例的方式  参考 stackoverflow
+ class Singleton(type): &amp;#34;&amp;#34;&amp;#34; Instance Singleton &amp;#34;&amp;#34;&amp;#34; _instances = {} def __call__(cls, *args, **kwargs): if cls not in cls._instances: cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs) return cls._instances[cls] </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/snippet/0x0002/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/snippet/0x0002/</guid>
+      <description>Python 中实现线程单例的方式   import threading class ThreadSingleton(type): &amp;#34;&amp;#34;&amp;#34;Singleton per thread.&amp;#34;&amp;#34;&amp;#34; _instances = threading.local() def __call__(cls, *args, **kwargs): if not getattr(cls._instances, &amp;#34;instance&amp;#34;, None): cls._instances.instance = super(ThreadSingleton, cls).__call__(*args, **kwargs) return cls._instances.instance </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/snippet/0x0003/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/snippet/0x0003/</guid>
+      <description>Python 中通过元类实现数据类型  参考Panda-Sandbox中实现数据类型
+ import abc class Type(metaclass=abc.ABCMeta): &amp;#34;&amp;#34;&amp;#34; Base Class for Panda-Sandbox Type Definitions &amp;#34;&amp;#34;&amp;#34; __doc__ = &amp;#34;&amp;#34;&amp;#34; Must Implement this class for subtype to create new instance. Initialise its with params: :param default::默认值 :param allow_empty::可取空 @Must implement with below methods: :method parse::转化 :method check::校验 &amp;#34;&amp;#34;&amp;#34; def __init__(self, default=None, allow_empty=False): self.default = default self.allow_empty = allow_empty self._value = None def __set__(self, instance, value): if self.check(value): self._value = value else: self.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/snippet/0x0004/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/snippet/0x0004/</guid>
+      <description>Python 列举目录下指定名称文件 import os import glob _current_dir = os.path.abspath(os.path.dirname(__file__)) DATA_ROOT = os.path.normpath(os.path.join(_current_dir, &amp;#34;..&amp;#34;, &amp;#34;data&amp;#34;)) if __name__ = &amp;#34;__main__&amp;#34;: data_sets = glob.glob(os.path.join(DATA_ROOT, &amp;#39;part_*.csv&amp;#39;)) for item in data_sets: print(item) </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/snippet/0x0005/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/snippet/0x0005/</guid>
+      <description>Python ABC元类编程 import abc class Type(metaclass=abc.ABCMeta): &amp;#34;&amp;#34;&amp;#34; Base Class for Panda-Sandbox Type Definitions &amp;#34;&amp;#34;&amp;#34; __doc__ = &amp;#34;&amp;#34;&amp;#34; Must Implement this class for subtype to create new instance. Initialise its with params: :param default::默认值 :param allow_empty::可取空 @Must implement with below methods: :method parse::转化 :method check::校验 &amp;#34;&amp;#34;&amp;#34; def __init__(self, default=None, allow_empty=False): self.default = default self.allow_empty = allow_empty self._value = None def __set__(self, instance, value): if self.check(value): self._value = value else: self._value = self.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/snippet/0x0006/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/snippet/0x0006/</guid>
+      <description>Python 实现三个自带验证的数据类型 class Int(Type): &amp;#34;&amp;#34;&amp;#34; Integer Type Definition class &amp;#34;&amp;#34;&amp;#34; __doc__ = &amp;#34;&amp;#34;&amp;#34; Initialise its with params below: :param default::默认值 :param allow_empty::可取空 :param v_range::范围 eg: (1, 10) &amp;#34;&amp;#34;&amp;#34; def __init__(self, default, allow_empty, v_range=None): if v_range: (self.min_value, self.max_value) = v_range if self.min_value &amp;gt; self.max_value: raise PandaStartupError(&amp;#34;value range incorrect&amp;#34;) else: (self.min_value, self.max_value) = (None, None) super(Int, self).__init__(default, allow_empty) def parse(self, value): def num_range(ctx, val): _fin = val if ctx.min_value and val &amp;lt; ctx.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/snippet/0x0007/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/snippet/0x0007/</guid>
+      <description>Python 实现两个配置文件合并 class Settings(object): &amp;#34;&amp;#34;&amp;#34; This function to protect the custom setting config does not influence the program successfully start up. &amp;#34;&amp;#34;&amp;#34; # The default program settings default_path = os.path.join(SANDBOX_CONFIG_DIR, &amp;#34;default.yaml&amp;#34;) # The finally running settings version = String(default=&amp;#34;v1.0.0-alpha&amp;#34;, allow_empty=False) variable = Variable() advanced = Advanced() @classmethod def loading_settings(cls): &amp;#34;&amp;#34;&amp;#34; To merge the settings of default.yaml &amp;amp; the settings of custom.yaml into the running setting. :return: &amp;#34;&amp;#34;&amp;#34; def merge_dict(target, source): for key, value in source.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/snippet/0x0008/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/snippet/0x0008/</guid>
+      <description>Python 实现Yaml文件动态加载 import os import yaml class Loader(yaml.SafeLoader): def __init__(self, stream): self._root = os.path.split(stream.name)[0] super(Loader, self).__init__(stream) def include(self, node): filename = os.path.join(self._root, self.construct_scalar(node)) with open(filename, &amp;#39;r&amp;#39;) as f: return yaml.load(f, Loader) Loader.add_constructor(&amp;#39;!include&amp;#39;, Loader.include) </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://ryuchen.club/snippet/0x0009/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryuchen.club/snippet/0x0009/</guid>
+      <description>Python 实现celery动态加载task # When celery after initialise we register our task into the celery. @app.on_after_configure.connect def setup_celery_tasks(sender, **kwargs): for task_name, task_option in Settings.jobs_config.get(&amp;#34;jobs&amp;#34;, {}).items(): module_path = &amp;#39;apps.{0}.tasks.{1}&amp;#39;.format(task_option.get(&amp;#34;module&amp;#34;), task_name) try: ip_module = importlib.import_module(module_path) ip_module_class = getattr(ip_module, task_option.get(&amp;#34;class&amp;#34;)) ip_module_class.options = task_option.get(&amp;#34;options&amp;#34;) ip_module_class.register(app) task_instance = ip_module_class() sender.register_task(task_instance) log.info(&amp;#34;successes load job task on deadpool app at on_after_configure.connect&amp;#34;) except Exception as e: log.exception(e) </description>
+    </item>
+    
+  </channel>
+</rss>

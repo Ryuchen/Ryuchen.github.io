@@ -1,39 +1,669 @@
-<!doctype html><html lang=zh><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=yes"><title>[读书笔记]《西瓜书》第四章 决策树 | Sweet House</title><meta name=description content="Everyday is a holiday"><meta name=bytedance-verification-code content="MmXZwSvr8lAvM1hIXSkm"><meta name=author content="[Ryuchen WangOO]"><link rel=icon href=/favicon.ico><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css><link rel=stylesheet href=/dist/main.4707e15c5ca4eab5da71.min.css><link rel=stylesheet href=/css/shortcodes.css><link rel=canonical href=https://ryuchen.club/posts/0x00001e/><meta property="og:title" content="[读书笔记]《西瓜书》第四章 决策树"><meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树"><meta property="og:type" content="article"><meta property="og:url" content="https://ryuchen.club/posts/0x00001e/"><meta property="og:image" content="https://ryuchen.club/machine-learning.jpg"><meta property="article:published_time" content="2020-11-16T00:00:00+00:00"><meta property="article:modified_time" content="2020-11-16T00:00:00+00:00"><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002a/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000029/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000028/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000027/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000026/"><meta property="og:see_also" content="https://ryuchen.club/posts/0x000025/"><meta itemprop=name content="[读书笔记]《西瓜书》第四章 决策树"><meta itemprop=description content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树"><meta itemprop=datePublished content="2020-11-16T00:00:00+00:00"><meta itemprop=dateModified content="2020-11-16T00:00:00+00:00"><meta itemprop=wordCount content="449"><meta itemprop=image content="https://ryuchen.club/machine-learning.jpg"><meta itemprop=keywords content="周志华,线性模型,西瓜书,"></head><body><nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id=navbar-main-menu><div class=container><a class="navbar-brand font-weight-bold" href=https://ryuchen.club>>$ cd /home_</a>
-<button class=navbar-toggler type=button data-toggle=collapse data-target=#main-menu aria-controls=main-menu aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=main-menu><ul class="navbar-nav ml-auto"><li class=nav-item><a class=nav-link href=/>首页</a></li><li class=nav-item><a class=nav-link href=/posts/>博文</a></li><li class=nav-item><a class=nav-link href=/projects/>项目</a></li><li class=nav-item><a class=nav-link href=/snippet/>代码</a></li><li class=nav-item><a class=nav-link href=/essay/>随笔</a></li><li class=nav-item><a class=nav-link href=/gallery/>照片墙</a></li><li class=nav-item><a class=nav-link href=/about/>关于</a></li><li class=nav-item><a class=nav-link href=https://github.com/Ryuchen target=_blank>Github</a></li></ul></div></div></nav><main class="content-page container pt-7 pb-5"><div class=row><div class=col><article><div class="row justify-content-center"><div class=col-lg-10><h1>[读书笔记]《西瓜书》第四章 决策树</h1><div class="meta text-muted mb-3" style=text-align:right><p class="created text-muted text-uppercase font-weight-bold mb-1">November 16, 2020</p><span class=mr-2><i class="fas fa-book-open mr-2"></i>3305</span>
-<span><i class="fas fa-clock mr-2"></i>15 minutes and
-1 seconds</span></div><div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href=/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0><i class="fas fa-tag mr-2"></i>机器学习</a></div></div></div><div class="row justify-content-center mb-3"><div class=col-lg-10><img data-src=/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第四章 决策树"></div></div><div class="row justify-content-center"><div class=col-lg-10><div class=content><h2 id=第四章-决策树>第四章 决策树</h2><hr><h3 id=41-基本流程>4.1 基本流程</h3><h4 id=基本概念>基本概念</h4><hr><p><strong>决策树是基于树结构来进行决策的</strong></p><p>决策树的目的是为了产生一棵泛化能力强，即处理未见示例能力强的决策树，其基本流程遵循简单且直观的“分而治之”（divide-and-conquer）策略</p><hr><h4 id=书中西瓜例子>书中西瓜例子</h4><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/49c16f1fdba957c4be22b5258d3a89a8.webp alt=西瓜例子></p><h4 id=构建流程>构建流程</h4><ul><li>决策过程的最终结论对应了我们所希望的判定结果</li><li>决策过程中提出的每个判定问题都是对某个属性的“测试”</li><li>每个测试的结果或是导出最终结论，或是导出进一步的判定问题，其考虑范围是上次决策结果的下定范围之内</li></ul><h4 id=树的组成>树的组成</h4><ul><li>一个根结点</li><li>若干个内部结点</li><li>若干个叶结点</li></ul><p>叶子节点对应于决策结果，其他每个节点则对应于一个属性测试</p><blockquote><p>每个结点包含的样本集合根据属性测试的结果被划分到子结点中，而根结点包含了样本全集
-从根结点到每个叶结点的路径对应了一个判定测试序列</p></blockquote><h4 id=算法示例>算法示例</h4><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/c0d22d97464b4bb1fadf8dbeb97053fd.webp alt=算法示例></p><p><strong>决策树的生成是一个递归过程</strong></p><p>三种会导致递归返回的情形</p><ul><li>当前结点包含的样本全属于同一类别，无需划分</li><li>当前属性集为空，或是所有样本在所有属性上取值相同，无法划分<ul><li>把当前结点标记为叶结点，并将其类别设定为该结点所含样本最多的类别</li><li>利用当前结点的后验分布</li></ul></li><li>当前结点包含的样本集合为空，不能划分<ul><li>把当前结点标记为叶结点，但将其类别设定为父结点所含样本做多的类别</li><li>把父结点的样本分布作为当前结点的先验分布</li></ul></li></ul><p><strong>决策树各类算法的核心就就在于：如何解决“从A中选择最优划分属性”？</strong></p><h3 id=42-划分选择>4.2 划分选择</h3><blockquote><p>核心问题：如何解决“从A中选择最优划分属性”？</p></blockquote><blockquote><p>划分目的：决策树分支结点所包含的样本尽可能属于同一类别，即结点的“纯度”（purity）越来越高</p></blockquote><h4 id=信息熵information-entropy>信息熵（information entropy）</h4><p>在决策树种，信息熵通常是用来度量样本集合纯度最常用的一种指标</p><p>$$\text{Ent}(D)=-\sum_{k=1}^{|\mathcal{Y}|}p_k\log_2p_k$$</p><ul><li>$\text{Ent}(D)$ 的值越小，则 $D$ 的纯度越高</li><li>$\text{Ent}(D)$ 的最小值为0，最大值为 $\log_2|\mathcal{Y}|$</li></ul><blockquote><p>PS: 更加具体的内容参见前一个上一篇博文（决策树 铺垫）中的内容</p></blockquote><h4 id=西瓜例子>西瓜例子</h4><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/a9237f1110f818d79dfd8afc3d0935fd.webp alt></p><p>接下来就是围绕这个数据集进行展开</p><h4 id=常见方法>常见方法</h4><p>参数设置</p><ul><li>假定离散属性 $a$ 有 $V$ 个可能的取值 ${a^1,a^2,&mldr;,a^V}$</li><li>其中第 $v$ 个分支结点包含了 $D$ 中所有在属性 $a$ 上取值为 $a^v$ 的样本，记为 $D^v$</li><li>根据信息熵公式计算出 $D^v$ 的信息熵</li><li>再根据不同的分支结点所包含的样本数不同，给分支结点赋予不同的权重 $\frac{|D^v|}{|D|}$</li></ul><h5 id=信息增益information-gain>信息增益（information gain）</h5><p><strong>关键公式:</strong></p><p>$$\text{Gain}(D,a)=\text{Ent}(D)-\sum_{v=1}^V\frac{|D^v|}{|D|}\text{Ent}(D^v)$$</p><ul><li>信息增益越大，则意味着使用属性a来进行划分所获得的“纯度提升”越大</li><li>经典的ID3决策树算法就是以信息增益来为准则进行属性选择的</li></ul><p><strong>西瓜例子:</strong></p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/fa9933db77500123689811b28fca321d.webp alt=西瓜例子></p><p><strong>计算过程:</strong></p><p>根结点的信息熵为：</p><p>$$\text{Ent}(D)=-\sum_{k=1}^2p_k\log_2p_k=-(\frac{8}{17}\log_2\frac{8}{17}+\frac{9}{17}\log_2\frac{9}{17})=0.998$$</p><p>例如以“色泽”作为划分依据，则可以建立三个分支其对应的信息熵为</p><p>$$\text{Ent}(D^1)=-(\frac{3}{6}\log_2\frac{3}{6}+\frac{3}{6}\log_2\frac{3}{6})=1.000$$</p><p>$$\text{Ent}(D^2)=-(\frac{4}{6}\log_2\frac{4}{6}+\frac{2}{6}\log_2\frac{2}{6})=0.918$$</p><p>$$\text{Ent}(D^3)=-(\frac{1}{5}\log_2\frac{1}{5}+\frac{4}{5}\log_2\frac{4}{5})=0.722$$</p><p>则“色泽”对应的信息增益为</p><p>$$
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     [读书笔记]《西瓜书》第四章 决策树 |  Sweet House
+  
+</title>
+
+
+  <meta name="description" content="Everyday is a holiday">
+
+
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x00001e/"><meta property="og:title" content="[读书笔记]《西瓜书》第四章 决策树" />
+<meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x00001e/" />
+<meta property="og:image" content="https://ryuchen.club/machine-learning.jpg" />
+<meta property="article:published_time" content="2020-11-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-16T00:00:00+00:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002b/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002a/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000029/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000028/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000027/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000026/" />
+
+<meta itemprop="name" content="[读书笔记]《西瓜书》第四章 决策树">
+<meta itemprop="description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 4 决策树">
+<meta itemprop="datePublished" content="2020-11-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-16T00:00:00+00:00" />
+<meta itemprop="wordCount" content="449">
+<meta itemprop="image" content="https://ryuchen.club/machine-learning.jpg">
+
+
+
+<meta itemprop="keywords" content="周志华,线性模型,西瓜书," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>[读书笔记]《西瓜书》第四章 决策树</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">November 16, 2020</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>3305</span>
+                            <span><i class="fas fa-clock mr-2"></i>15 minutes and
+                                1 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+                                    <i class="fas fa-tag mr-2"></i>机器学习
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg" class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第四章 决策树">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <h2 id="第四章-决策树">第四章 决策树</h2>
+<hr>
+<h3 id="41-基本流程">4.1 基本流程</h3>
+<h4 id="基本概念">基本概念</h4>
+<hr>
+<p><strong>决策树是基于树结构来进行决策的</strong></p>
+<p>决策树的目的是为了产生一棵泛化能力强，即处理未见示例能力强的决策树，其基本流程遵循简单且直观的“分而治之”（divide-and-conquer）策略</p>
+<hr>
+<h4 id="书中西瓜例子">书中西瓜例子</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/49c16f1fdba957c4be22b5258d3a89a8.webp" alt="西瓜例子"></p>
+<h4 id="构建流程">构建流程</h4>
+<ul>
+<li>决策过程的最终结论对应了我们所希望的判定结果</li>
+<li>决策过程中提出的每个判定问题都是对某个属性的“测试”</li>
+<li>每个测试的结果或是导出最终结论，或是导出进一步的判定问题，其考虑范围是上次决策结果的下定范围之内</li>
+</ul>
+<h4 id="树的组成">树的组成</h4>
+<ul>
+<li>一个根结点</li>
+<li>若干个内部结点</li>
+<li>若干个叶结点</li>
+</ul>
+<p>叶子节点对应于决策结果，其他每个节点则对应于一个属性测试</p>
+<blockquote>
+<p>每个结点包含的样本集合根据属性测试的结果被划分到子结点中，而根结点包含了样本全集
+从根结点到每个叶结点的路径对应了一个判定测试序列</p>
+</blockquote>
+<h4 id="算法示例">算法示例</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/c0d22d97464b4bb1fadf8dbeb97053fd.webp" alt="算法示例"></p>
+<p><strong>决策树的生成是一个递归过程</strong></p>
+<p>三种会导致递归返回的情形</p>
+<ul>
+<li>当前结点包含的样本全属于同一类别，无需划分</li>
+<li>当前属性集为空，或是所有样本在所有属性上取值相同，无法划分
+<ul>
+<li>把当前结点标记为叶结点，并将其类别设定为该结点所含样本最多的类别</li>
+<li>利用当前结点的后验分布</li>
+</ul>
+</li>
+<li>当前结点包含的样本集合为空，不能划分
+<ul>
+<li>把当前结点标记为叶结点，但将其类别设定为父结点所含样本做多的类别</li>
+<li>把父结点的样本分布作为当前结点的先验分布</li>
+</ul>
+</li>
+</ul>
+<p><strong>决策树各类算法的核心就就在于：如何解决“从A中选择最优划分属性”？</strong></p>
+<h3 id="42-划分选择">4.2 划分选择</h3>
+<blockquote>
+<p>核心问题：如何解决“从A中选择最优划分属性”？</p>
+</blockquote>
+<blockquote>
+<p>划分目的：决策树分支结点所包含的样本尽可能属于同一类别，即结点的“纯度”（purity）越来越高</p>
+</blockquote>
+<h4 id="信息熵information-entropy">信息熵（information entropy）</h4>
+<p>在决策树种，信息熵通常是用来度量样本集合纯度最常用的一种指标</p>
+<p>$$\text{Ent}(D)=-\sum_{k=1}^{|\mathcal{Y}|}p_k\log_2p_k$$</p>
+<ul>
+<li>$\text{Ent}(D)$ 的值越小，则 $D$ 的纯度越高</li>
+<li>$\text{Ent}(D)$ 的最小值为0，最大值为 $\log_2|\mathcal{Y}|$</li>
+</ul>
+<blockquote>
+<p>PS: 更加具体的内容参见前一个上一篇博文（决策树 铺垫）中的内容</p>
+</blockquote>
+<h4 id="西瓜例子">西瓜例子</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/a9237f1110f818d79dfd8afc3d0935fd.webp" alt=""></p>
+<p>接下来就是围绕这个数据集进行展开</p>
+<h4 id="常见方法">常见方法</h4>
+<p>参数设置</p>
+<ul>
+<li>假定离散属性 $a$ 有 $V$ 个可能的取值 ${a^1,a^2,&hellip;,a^V}$</li>
+<li>其中第 $v$ 个分支结点包含了 $D$ 中所有在属性 $a$ 上取值为 $a^v$ 的样本，记为 $D^v$</li>
+<li>根据信息熵公式计算出 $D^v$ 的信息熵</li>
+<li>再根据不同的分支结点所包含的样本数不同，给分支结点赋予不同的权重 $\frac{|D^v|}{|D|}$</li>
+</ul>
+<h5 id="信息增益information-gain">信息增益（information gain）</h5>
+<p><strong>关键公式:</strong></p>
+<p>$$\text{Gain}(D,a)=\text{Ent}(D)-\sum_{v=1}^V\frac{|D^v|}{|D|}\text{Ent}(D^v)$$</p>
+<ul>
+<li>信息增益越大，则意味着使用属性a来进行划分所获得的“纯度提升”越大</li>
+<li>经典的ID3决策树算法就是以信息增益来为准则进行属性选择的</li>
+</ul>
+<p><strong>西瓜例子:</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/fa9933db77500123689811b28fca321d.webp" alt="西瓜例子"></p>
+<p><strong>计算过程:</strong></p>
+<p>根结点的信息熵为：</p>
+<p>$$\text{Ent}(D)=-\sum_{k=1}^2p_k\log_2p_k=-(\frac{8}{17}\log_2\frac{8}{17}+\frac{9}{17}\log_2\frac{9}{17})=0.998$$</p>
+<p>例如以“色泽”作为划分依据，则可以建立三个分支其对应的信息熵为</p>
+<p>$$\text{Ent}(D^1)=-(\frac{3}{6}\log_2\frac{3}{6}+\frac{3}{6}\log_2\frac{3}{6})=1.000$$</p>
+<p>$$\text{Ent}(D^2)=-(\frac{4}{6}\log_2\frac{4}{6}+\frac{2}{6}\log_2\frac{2}{6})=0.918$$</p>
+<p>$$\text{Ent}(D^3)=-(\frac{1}{5}\log_2\frac{1}{5}+\frac{4}{5}\log_2\frac{4}{5})=0.722$$</p>
+<p>则“色泽”对应的信息增益为</p>
+<p>$$
 \begin{align}
-\text{Gain}(D,色泽) &= \text{Ent}(D) - \sum_{v=1}^3\frac{|D^v|}{|D|}\text{Ent}(D^v) \\<br>&= 0.998 - (\frac{6}{17} \times {1.000} + \frac{6}{17} \times {0.918} + \frac{5}{17} \times {0.722}) \\<br>&= 0.109
+\text{Gain}(D,色泽) &amp;= \text{Ent}(D) - \sum_{v=1}^3\frac{|D^v|}{|D|}\text{Ent}(D^v) \\<br>
+&amp;= 0.998 - (\frac{6}{17} \times {1.000} + \frac{6}{17} \times {0.918} + \frac{5}{17} \times {0.722}) \\<br>
+&amp;= 0.109
 \end{align}
-$$</p><p>其他属性对应的信息增益</p><p>$\text{Gain}(D,根蒂) = 0.143$</p><p>$\text{Gain}(D,敲声) = 0.141$</p><p>$\text{Gain}(D,纹理) = 0.381$</p><p>$\text{Gain}(D,脐部) = 0.289$</p><p>$\text{Gain}(D,触感) = 0.006$</p><blockquote><p>ID*3 算法就是使用的信息增益算法</p></blockquote><p><strong>算法特点:</strong></p><p>信息增益准则对可取值数目较多的属性有所偏好，因此其在选择分类属性的时候倾向混乱程度更大的属性</p><h5 id=增益率gain-ratio>增益率（gain ratio）</h5><p><strong>关键公式:</strong></p><p>$$
+$$</p>
+<p>其他属性对应的信息增益</p>
+<p>$\text{Gain}(D,根蒂) = 0.143$</p>
+<p>$\text{Gain}(D,敲声) = 0.141$</p>
+<p>$\text{Gain}(D,纹理) = 0.381$</p>
+<p>$\text{Gain}(D,脐部) = 0.289$</p>
+<p>$\text{Gain}(D,触感) = 0.006$</p>
+<blockquote>
+<p>ID*3 算法就是使用的信息增益算法</p>
+</blockquote>
+<p><strong>算法特点:</strong></p>
+<p>信息增益准则对可取值数目较多的属性有所偏好，因此其在选择分类属性的时候倾向混乱程度更大的属性</p>
+<h5 id="增益率gain-ratio">增益率（gain ratio）</h5>
+<p><strong>关键公式:</strong></p>
+<p>$$
 \begin{align}
-& \text{Gain_ratio}(D,a)=\frac{\text{Gain}(D,a)}{\text{IV}(a)} \\<br>& \text{IV}(a)=-\sum_{v=1}^V\frac{|D^v|}{|D|}\log_2\frac{|D^v|}{|D|}
+&amp; \text{Gain_ratio}(D,a)=\frac{\text{Gain}(D,a)}{\text{IV}(a)} \\<br>
+&amp; \text{IV}(a)=-\sum_{v=1}^V\frac{|D^v|}{|D|}\log_2\frac{|D^v|}{|D|}
 \end{align}
-$$</p><p>其中 $\text{IV}(a)=-\sum_{v=1}^V\frac{|D^v|}{|D|}\log_2\frac{|D^v|}{|D|}$ 称为属性 $a$ 的固有值(intrinsic value)</p><blockquote><p>属性a的可能取值数目越多（即V越大），则IV（a）得值通常会越大
-著名的C4.5决策算法则是使用“增益率”来选择最优划分属性</p></blockquote><p><strong>西瓜例子:</strong></p><p>略</p><p><strong>算法特点</strong></p><p>增益率准则对可取数值数目较少的属性有所偏好，因此其在选择分类属性的时候倾向混乱程度更小的属性</p><h5 id=基尼指数gini-index>基尼指数（Gini index）</h5><p><strong>关键公式:</strong></p><p>$$
+$$</p>
+<p>其中 $\text{IV}(a)=-\sum_{v=1}^V\frac{|D^v|}{|D|}\log_2\frac{|D^v|}{|D|}$ 称为属性 $a$ 的固有值(intrinsic value)</p>
+<blockquote>
+<p>属性a的可能取值数目越多（即V越大），则IV（a）得值通常会越大
+著名的C4.5决策算法则是使用“增益率”来选择最优划分属性</p>
+</blockquote>
+<p><strong>西瓜例子:</strong></p>
+<p>略</p>
+<p><strong>算法特点</strong></p>
+<p>增益率准则对可取数值数目较少的属性有所偏好，因此其在选择分类属性的时候倾向混乱程度更小的属性</p>
+<h5 id="基尼指数gini-index">基尼指数（Gini index）</h5>
+<p><strong>关键公式:</strong></p>
+<p>$$
 \begin{align}
-\text{Gini_index}(D,a) & = \sum_{v=1}^V\frac{|D^v|}{|D|}\text{Gini(D^v)} \\<br>\text{Gini}(D) & = \sum_{k=1}^{|\mathcal{Y}|}\sum_{k'\neq k}p_kp_{k'} \\<br>& = 1 - \sum_{k=1}^{|\mathcal{Y}|}p_{k}^2
+\text{Gini_index}(D,a) &amp; = \sum_{v=1}^V\frac{|D^v|}{|D|}\text{Gini(D^v)} \\<br>
+\text{Gini}(D) &amp; = \sum_{k=1}^{|\mathcal{Y}|}\sum_{k'\neq k}p_kp_{k'} \\<br>
+&amp; = 1 - \sum_{k=1}^{|\mathcal{Y}|}p_{k}^2
 \end{align}
-$$</p><p>直观来说基尼指数反省了从数据集D中随机抽取两个样本，期类别标记不一致的概率</p><p>基尼指数越小，数据集D的纯度越高</p><p>在候选属性集合A中，选择那个使得划分后基尼指数最小的属性作为最优划分属性，即</p><p>$$
+$$</p>
+<p>直观来说基尼指数反省了从数据集D中随机抽取两个样本，期类别标记不一致的概率</p>
+<p>基尼指数越小，数据集D的纯度越高</p>
+<p>在候选属性集合A中，选择那个使得划分后基尼指数最小的属性作为最优划分属性，即</p>
+<p>$$
 a_* = \underset{a \in A}{\arg\min} \text{Gini_index}(D,a)
-$$</p><blockquote><p>CART决策树使用基尼指数来选择划分属性</p></blockquote><p><strong>西瓜例子:</strong></p><p>略</p><p><strong>算法特点</strong></p><p>基尼系数是一种衡量信息不确定性的方法，与信息熵计算出来的结果差距很小，基本可以忽略，但是基尼系数要计算快得多，因为没有对数</p><p>在特征选取中，会优先选择基尼指数最小的属性作为优先划分属性</p><h3 id=43-剪枝处理>4.3 剪枝处理</h3><p>在决策树算法中对付“过拟合”的主要手段</p><p><strong>如何理解决策树过拟合？</strong></p><p>决策树分支结点过多，把训练集本生学得太好了，以致于把训练集自身的一些特点当作是所有数据集都具有的一般性质而导致过拟合</p><h4 id=基本策略>基本策略</h4><h5 id=预剪枝prepruning>预剪枝（prepruning）</h5><p>预剪枝是指在决策树生成过程中，对每个结点在划分前先进行估计，若当前结点的划分不能带来决策树泛化性能提升，则停止划分并将当前结点标记为叶结点</p><h5 id=后减枝postpruning>后减枝（postpruning）</h5><p>后剪枝则是先从训练集生成一颗完整的决策树，然后自底向上地对非叶子结点进行考察，若将该结点对应的子树替换为叶结点能带来决策树泛化性能提升，则将该子树替换为叶结点</p><h4 id=西瓜例子-1>西瓜例子</h4><p>数据集</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/fc4aa5db8195f09a8fefaa08deb3d73e.webp alt></p><p>生成树</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/b0aa4ac4f8479cd39002351bdbd16e1f.webp alt></p><h5 id=预剪枝>预剪枝</h5><p>假设以 “脐部” 属性来对训练集进行划分</p><blockquote><p>不进行划分与使用脐部进行划分验证集精度前后变化</p></blockquote><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/336203e2853ed8c2fc7acca122ac581d.webp alt></p><p><strong>特点</strong></p><ul><li>预剪枝使得决策树的分支都没有展开，这不仅降低了过拟合的风险，还显著减少了决策树的训练时间开销和测试时间开销</li><li>有些分支的当前划分虽然不能提升泛化性能、甚至可能导致泛化性能暂时下降，但在其基础上进行的后续划分却有可能导致性能的显著提高</li></ul><blockquote><p>PS: 使用的是贪心算法，因此会有欠拟合的风险</p></blockquote><h5 id=后减枝>后减枝</h5><p>假设以 “脐部” 属性来对训练集进行划分</p><blockquote><p>自下而上观察子树替换为叶结点后的验证集精度</p></blockquote><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/23196a0255d3be76f1af31e9bd46efc9.webp alt></p><p><strong>特点</strong></p><ul><li>一般情况下，后剪枝决策树的欠拟合风险很小，繁华性能往往优于预剪枝决策树</li><li>后剪枝过程是在生成完全决策树之后进行的，并且要自底向上地对树中的所有非叶结点进行逐一考察，因此其训练时间开销比未剪枝决策树和预剪枝决策树都要大得多</li></ul><hr><blockquote><p>PS：后剪枝决策树通常比预剪枝决策树保留了更多的分支</p></blockquote><hr><h3 id=44-连续与缺失值>4.4 连续与缺失值</h3><h4 id=连续值处理>连续值处理</h4><p><strong>二分法（bi-partition）</strong></p><p>概念</p><ul><li>给定样本集 $D$ 合连续属性 $a$，假定 $a$ 在 $D$ 上出现了 $n$ 个不同的取值，将这些值从小到大进行排序，记为 ${a^1,a^2,&mldr;,a^n}$</li><li>基于划分点 $t$ 可将 $D$ 分为子集 $D_{t^-}$ 和 $D_{t^+}$ ，其中 $D_{t^-}$ 中包含那些在属性 $a$ 上取值不大于 $t$ 的样本，而 $D_{t^+}$ 则包含那些在属性 $a$ 上取值大于 $t$ 的样本</li></ul><p>步骤</p><ul><li>对相邻的属性取值 $a^i$ 和 $a^{i+1}$ 来说，$t$ 在区间 $[a^i,a^{i+1})$ 中取任意值所产生的划分结果相同</li></ul><p>属性在实际情况中取值是连续的，但是样本集中也是呈现离散的装态，这里的取值不影响划分是指样本集中的离散状态</p><ul><li>对连续属性 $a$，可考察包含 $n-1$ 个元素的候选划分点集合</li></ul><p>$$T_a={\frac{a^i+a^{i+1}}{2}|1 \le i \le n-1}$$</p><p>即将每个区间的中位点作为候选划分点</p><ul><li>通过离散属性值一样里考察这些划分点，选择最优划分点进行样本集合的划分</li></ul><p>$$
+$$</p>
+<blockquote>
+<p>CART决策树使用基尼指数来选择划分属性</p>
+</blockquote>
+<p><strong>西瓜例子:</strong></p>
+<p>略</p>
+<p><strong>算法特点</strong></p>
+<p>基尼系数是一种衡量信息不确定性的方法，与信息熵计算出来的结果差距很小，基本可以忽略，但是基尼系数要计算快得多，因为没有对数</p>
+<p>在特征选取中，会优先选择基尼指数最小的属性作为优先划分属性</p>
+<h3 id="43-剪枝处理">4.3 剪枝处理</h3>
+<p>在决策树算法中对付“过拟合”的主要手段</p>
+<p><strong>如何理解决策树过拟合？</strong></p>
+<p>决策树分支结点过多，把训练集本生学得太好了，以致于把训练集自身的一些特点当作是所有数据集都具有的一般性质而导致过拟合</p>
+<h4 id="基本策略">基本策略</h4>
+<h5 id="预剪枝prepruning">预剪枝（prepruning）</h5>
+<p>预剪枝是指在决策树生成过程中，对每个结点在划分前先进行估计，若当前结点的划分不能带来决策树泛化性能提升，则停止划分并将当前结点标记为叶结点</p>
+<h5 id="后减枝postpruning">后减枝（postpruning）</h5>
+<p>后剪枝则是先从训练集生成一颗完整的决策树，然后自底向上地对非叶子结点进行考察，若将该结点对应的子树替换为叶结点能带来决策树泛化性能提升，则将该子树替换为叶结点</p>
+<h4 id="西瓜例子-1">西瓜例子</h4>
+<p>数据集</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/fc4aa5db8195f09a8fefaa08deb3d73e.webp" alt=""></p>
+<p>生成树</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/b0aa4ac4f8479cd39002351bdbd16e1f.webp" alt=""></p>
+<h5 id="预剪枝">预剪枝</h5>
+<p>假设以 “脐部” 属性来对训练集进行划分</p>
+<blockquote>
+<p>不进行划分与使用脐部进行划分验证集精度前后变化</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/336203e2853ed8c2fc7acca122ac581d.webp" alt=""></p>
+<p><strong>特点</strong></p>
+<ul>
+<li>预剪枝使得决策树的分支都没有展开，这不仅降低了过拟合的风险，还显著减少了决策树的训练时间开销和测试时间开销</li>
+<li>有些分支的当前划分虽然不能提升泛化性能、甚至可能导致泛化性能暂时下降，但在其基础上进行的后续划分却有可能导致性能的显著提高</li>
+</ul>
+<blockquote>
+<p>PS: 使用的是贪心算法，因此会有欠拟合的风险</p>
+</blockquote>
+<h5 id="后减枝">后减枝</h5>
+<p>假设以 “脐部” 属性来对训练集进行划分</p>
+<blockquote>
+<p>自下而上观察子树替换为叶结点后的验证集精度</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/23196a0255d3be76f1af31e9bd46efc9.webp" alt=""></p>
+<p><strong>特点</strong></p>
+<ul>
+<li>一般情况下，后剪枝决策树的欠拟合风险很小，繁华性能往往优于预剪枝决策树</li>
+<li>后剪枝过程是在生成完全决策树之后进行的，并且要自底向上地对树中的所有非叶结点进行逐一考察，因此其训练时间开销比未剪枝决策树和预剪枝决策树都要大得多</li>
+</ul>
+<hr>
+<blockquote>
+<p>PS：后剪枝决策树通常比预剪枝决策树保留了更多的分支</p>
+</blockquote>
+<hr>
+<h3 id="44-连续与缺失值">4.4 连续与缺失值</h3>
+<h4 id="连续值处理">连续值处理</h4>
+<p><strong>二分法（bi-partition）</strong></p>
+<p>概念</p>
+<ul>
+<li>给定样本集 $D$ 合连续属性 $a$，假定 $a$ 在 $D$ 上出现了 $n$ 个不同的取值，将这些值从小到大进行排序，记为 ${a^1,a^2,&hellip;,a^n}$</li>
+<li>基于划分点 $t$ 可将 $D$ 分为子集 $D_{t^-}$ 和 $D_{t^+}$ ，其中 $D_{t^-}$ 中包含那些在属性 $a$ 上取值不大于 $t$ 的样本，而 $D_{t^+}$ 则包含那些在属性 $a$ 上取值大于 $t$ 的样本</li>
+</ul>
+<p>步骤</p>
+<ul>
+<li>对相邻的属性取值 $a^i$ 和 $a^{i+1}$ 来说，$t$ 在区间 $[a^i,a^{i+1})$ 中取任意值所产生的划分结果相同</li>
+</ul>
+<p>属性在实际情况中取值是连续的，但是样本集中也是呈现离散的装态，这里的取值不影响划分是指样本集中的离散状态</p>
+<ul>
+<li>对连续属性 $a$，可考察包含 $n-1$ 个元素的候选划分点集合</li>
+</ul>
+<p>$$T_a={\frac{a^i+a^{i+1}}{2}|1 \le i \le n-1}$$</p>
+<p>即将每个区间的中位点作为候选划分点</p>
+<ul>
+<li>通过离散属性值一样里考察这些划分点，选择最优划分点进行样本集合的划分</li>
+</ul>
+<p>$$
 \begin{align}
-\text {Gain} (D,a) &= \underset{t\in T_a}{\max } \text {Gain} (D,a,t) \\<br>&= \underset{t\in T_a}{\max} \text{Ent}(D) - \sum_{\lambda \in { -,+ }}
+\text {Gain} (D,a) &amp;= \underset{t\in T_a}{\max } \text {Gain} (D,a,t) \\<br>
+&amp;= \underset{t\in T_a}{\max} \text{Ent}(D) -  \sum_{\lambda \in { -,+ }}
 \frac{|D_t^{\lambda}|}{|D|}\text{Ent}(D_t^{\lambda})
 \end{align}
-$$</p><blockquote><p>与离散属性不同，若当前结点划分属性为连续属性，该属性还可作为其后代结点的划分属性</p></blockquote><h4 id=缺失值处理>缺失值处理</h4><h5 id=问题描述>问题描述</h5><p>现实任务中常会遇到不完整的样本，即样本的某些属性值缺失</p><p>（1）如何在属性值缺失的情况下进行划分属性选择？</p><p>（2）给定划分属性，若样本在该属性上的值缺失，如何对样本进行划分？</p><p><strong>权重法</strong></p><p>符号定义</p><ul><li>令 $\tilde{D}$ 表示 $D$ 在属性 $a$ 上没有缺失值得样本子集</li><li>令 $\tilde{D^v}$ 表示 $\tilde{D}$ 中在属性 $a$ 上取值为 $a^v$ 的样本子集</li><li>令 $\tilde{D_k}$ 表示 $\tilde{D}$ 中属于第 $k$ 类的样本子集</li></ul><p>为每个样本 $\boldsymbol{x}$ 赋予一个权重 $w_{\boldsymbol{x}}$</p><ul><li>无缺失值的比例</li></ul><p>$$\rho=\frac{\sum_{\boldsymbol{x} \in \tilde{D}}w_{\boldsymbol{x}}}{\sum_{\boldsymbol{x} \in D}w_{\boldsymbol{x}}}$$</p><ul><li>无缺失样本中第 $k$ 类所占的比例</li></ul><p>$$\tilde{p_k}=\frac{\sum_{\boldsymbol{x} \in \tilde{D_k}}w_{\boldsymbol{x}}}{\sum_{\boldsymbol{x} \in D}w_{\boldsymbol{x}}}, (1 \le k \le |\mathcal{Y}|)$$</p><ul><li>无缺失样本中属性 $a$ 上取值的样本所占的比例</li></ul><p>$$\tilde{r_v}=\frac{\sum_{\boldsymbol{x} \in \tilde{D^v}}w_{\boldsymbol{x}}}{\sum_{\boldsymbol{x} \in D}w_{\boldsymbol{x}}}, (1 \le v \le V)$$</p><p>公式</p><ul><li>解决问题（1）</li></ul><p>$$
+$$</p>
+<blockquote>
+<p>与离散属性不同，若当前结点划分属性为连续属性，该属性还可作为其后代结点的划分属性</p>
+</blockquote>
+<h4 id="缺失值处理">缺失值处理</h4>
+<h5 id="问题描述">问题描述</h5>
+<p>现实任务中常会遇到不完整的样本，即样本的某些属性值缺失</p>
+<p>（1）如何在属性值缺失的情况下进行划分属性选择？</p>
+<p>（2）给定划分属性，若样本在该属性上的值缺失，如何对样本进行划分？</p>
+<p><strong>权重法</strong></p>
+<p>符号定义</p>
+<ul>
+<li>令 $\tilde{D}$ 表示 $D$ 在属性 $a$ 上没有缺失值得样本子集</li>
+<li>令 $\tilde{D^v}$ 表示 $\tilde{D}$ 中在属性 $a$ 上取值为 $a^v$ 的样本子集</li>
+<li>令 $\tilde{D_k}$ 表示 $\tilde{D}$ 中属于第 $k$ 类的样本子集</li>
+</ul>
+<p>为每个样本 $\boldsymbol{x}$ 赋予一个权重 $w_{\boldsymbol{x}}$</p>
+<ul>
+<li>无缺失值的比例</li>
+</ul>
+<p>$$\rho=\frac{\sum_{\boldsymbol{x} \in \tilde{D}}w_{\boldsymbol{x}}}{\sum_{\boldsymbol{x} \in D}w_{\boldsymbol{x}}}$$</p>
+<ul>
+<li>无缺失样本中第 $k$ 类所占的比例</li>
+</ul>
+<p>$$\tilde{p_k}=\frac{\sum_{\boldsymbol{x} \in \tilde{D_k}}w_{\boldsymbol{x}}}{\sum_{\boldsymbol{x} \in D}w_{\boldsymbol{x}}}, (1 \le k \le |\mathcal{Y}|)$$</p>
+<ul>
+<li>无缺失样本中属性 $a$ 上取值的样本所占的比例</li>
+</ul>
+<p>$$\tilde{r_v}=\frac{\sum_{\boldsymbol{x} \in \tilde{D^v}}w_{\boldsymbol{x}}}{\sum_{\boldsymbol{x} \in D}w_{\boldsymbol{x}}}, (1 \le v \le V)$$</p>
+<p>公式</p>
+<ul>
+<li>解决问题（1）</li>
+</ul>
+<p>$$
 \begin{align}
-\text{Gain}(D,a) & = \rho \times \text{Gain}(\tilde{D}, a) \\<br>& = \rho \times \left ( \text{Ent}(\tilde{D} - \sum_{v=1}^V\tilde{r_v} \text{Ent}(\tilde{D^v})) \right )
+\text{Gain}(D,a) &amp; = \rho \times \text{Gain}(\tilde{D}, a) \\<br>
+&amp; = \rho \times \left ( \text{Ent}(\tilde{D} - \sum_{v=1}^V\tilde{r_v} \text{Ent}(\tilde{D^v})) \right )
 \end{align}
-$$</p><ul><li>让同一个样本以不同的概率划分到不同的子结点中去：解决的问题（2）</li></ul><p>若样本 $\boldsymbol{x}$ 在划分属性 $a$ 上的取值未知，则将 $\boldsymbol{x}$ 同时划入所有子结点，且样本权值在于属性值 $a^v$ 对应的子结点中调整为 $\tilde{r_v}·w_{\boldsymbol{x}}$</p><h3 id=45-多变量决策树>4.5 多变量决策树</h3><h4 id=单变量决策树univariate-decision-tree>单变量决策树（univariate decision tree）</h4><p>特点：轴平行（axis-parallel）：即它的分类边界由若干个与坐标轴平行的分段组成</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/e78b2687d3f15147410e1c58d78dc584.webp alt></p><h4 id=多变量决策树multivariate-decision-tree>多变量决策树（multivariate decision tree）</h4><p>特点：非叶结点不再是仅对某个属性进行测试，而是对属性的线性组合进行测试</p><p>每一个非叶结点是一个形如 $\sum_{i=1}^dw_ia_i=t$ 的线性分类器，其中 $w_i$ 是属性 $a_i$ 的权重</p><p><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/047fa2288461f524df9b3ade35797aa0.webp alt></p><blockquote><p>以上内容也可以到我的 Github 去查看(附了相应实现代码哟) <a href=https://github.com/Ryuchen/Machine-Learning-Notes>Machine-Learning-Notes</a></p></blockquote><section class="attachments grey"><label><span><i class="fa fa-paperclip"></i></span>笔记内容（XMind、Markdown、PNG）</label><div class=attachments-files><li><a href=/posts/0x00001e.files/%e7%ac%ac%e5%9b%9b%e7%ab%a0%20%e5%86%b3%e7%ad%96%e6%a0%91.png>第四章 决策树.png</a>
-(2602 kb)</li><li><a href=/posts/0x00001e.files/%e7%ac%ac%e5%9b%9b%e7%ab%a0%20%e5%86%b3%e7%ad%96%e6%a0%91.xmind>第四章 决策树.xmind</a>
-(1996 kb)</li><div></section></div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href=/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/><i class="fas fa-tag mr-2"></i>周志华
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/><i class="fas fa-tag mr-2"></i>线性模型
-</a><a class="badge badge-pill badge-light border mr-2" href=/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/><i class="fas fa-tag mr-2"></i>西瓜书</a></div><div style=text-align:center><div class=social-share data-sites=wechat,weibo,twitter,facebook,douban data-mobile-sites=wechat,weibo></div></div></div></div><div class="row justify-content-center"><div class=col-lg-8><div id=comments-gittalk></div><link rel=stylesheet href=https://unpkg.com/gitalk/dist/gitalk.css><script src=https://unpkg.com/gitalk/dist/gitalk.min.js></script><script>var gittalk=new Gitalk({id:'0x00001e',owner:'Ryuchen',repo:'ryuchen.github.io',admin:['Ryuchen'],clientID:'cda75f43f62ef6ebc3ea',clientSecret:'e405fb603c664a6436a481917a7ee70931413268',})
-gittalk.render('comments-gittalk')</script></div></div></article></div></div><div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x00001c/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第一至三章 总结"><div class=card-body><div class=card-title>[读书笔记]《西瓜书》第一至三章 总结</div><div class=card-serie><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 13, 2020</p><div class=card-text>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 1-3 总结</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x00001b/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第三章 线性模型 补充"><div class=card-body><div class=card-title>[读书笔记]《西瓜书》第三章 线性模型 补充</div><div class=card-serie><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 5, 2020</p><div class=card-text>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 3.线性模型 补充</div></div></a></div></div><div class="col mb-3"><div class="card h-100 shadow"><a href=/posts/0x00001a/ class=d-block><img data-src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第三章 线性模型"><div class=card-body><div class=card-title>[读书笔记]《西瓜书》第三章 线性模型</div><div class=card-serie><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">October 30, 2020</p><div class=card-text>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 3.线性模型</div></div></a></div></div></div></main><footer class="footer bg-dark py-6"><div class=container><div class=row><div class="col-sm text-center"><ul class=list-inline><li class=list-inline-item><a href=https://ryuchen.club/index.xml rel=alternate type=application/rss+xml class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=mailto:chenhaom1993@hotmail.com class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://github.com/Ryuchen class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li class=list-inline-item><a href=https://weibo.com/u/3147247770 class="icons d-block"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fab fa-weibo fa-stack-1x fa-inverse"></i></span></a></li></ul><p class=text-muted>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</p><p class=text-muted>京ICP备2020040667号</p><p class=text-muted>本站总记被访问 <span id=busuanzi_value_site_pv></span>次，
-您是第 <span id=busuanzi_value_site_uv></span>个来访小伙伴。</p></div><div class="col-sm text-center"><p class=text-muted>维护不易，渴望您的资助</p><ul class=list-inline><div class=row><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg alt=WechatPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div><div class="col-sm text-center"><li class=list-inline-item><img src=https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg alt=AliPay class=loaded data-was-processed=true style=width:140px;padding:4px></li></div></div></ul></div></div></div><div class=netease-music><audio id=music-player crossorigin playsinline></audio></div></footer><script src=/dist/main.bf9558b8596b4accd07a.min.js></script><script src=https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js></script><script>window.Prism=window.Prism||{};</script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js></script><script src=https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js></script><script>MathJax={tex:{inlineMath:[["$","$"]],},displayMath:[["$$","$$"],["\[\[","\]\]"],],svg:{fontCache:"global",},};</script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js></script><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script>(function(){var bp=document.createElement('script');var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script><script>(function(){var el=document.createElement("script");el.src="https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";el.id="ttzz";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(el,s);})(window)</script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin=anonymous></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-0EFH27TG1R');</script></body></html>
+$$</p>
+<ul>
+<li>让同一个样本以不同的概率划分到不同的子结点中去：解决的问题（2）</li>
+</ul>
+<p>若样本 $\boldsymbol{x}$ 在划分属性 $a$ 上的取值未知，则将 $\boldsymbol{x}$ 同时划入所有子结点，且样本权值在于属性值 $a^v$ 对应的子结点中调整为 $\tilde{r_v}·w_{\boldsymbol{x}}$</p>
+<h3 id="45-多变量决策树">4.5 多变量决策树</h3>
+<h4 id="单变量决策树univariate-decision-tree">单变量决策树（univariate decision tree）</h4>
+<p>特点：轴平行（axis-parallel）：即它的分类边界由若干个与坐标轴平行的分段组成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/e78b2687d3f15147410e1c58d78dc584.webp" alt=""></p>
+<h4 id="多变量决策树multivariate-decision-tree">多变量决策树（multivariate decision tree）</h4>
+<p>特点：非叶结点不再是仅对某个属性进行测试，而是对属性的线性组合进行测试</p>
+<p>每一个非叶结点是一个形如 $\sum_{i=1}^dw_ia_i=t$ 的线性分类器，其中 $w_i$ 是属性 $a_i$ 的权重</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2020/11/16/047fa2288461f524df9b3ade35797aa0.webp" alt=""></p>
+<blockquote>
+<p>以上内容也可以到我的 Github 去查看(附了相应实现代码哟)  <a href="https://github.com/Ryuchen/Machine-Learning-Notes">Machine-Learning-Notes</a></p>
+</blockquote>
+
+<section class="attachments grey">
+	<label>
+		<span>
+			<i class="fa fa-paperclip"></i>
+		</span>
+		笔记内容（XMind、Markdown、PNG）
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			<li>
+				<a href="/posts/0x00001e.files/%e7%ac%ac%e5%9b%9b%e7%ab%a0%20%e5%86%b3%e7%ad%96%e6%a0%91.png" >
+					第四章 决策树.png
+				</a>
+				(2602 kb)
+			</li>
+		
+	
+		
+		
+			<li>
+				<a href="/posts/0x00001e.files/%e7%ac%ac%e5%9b%9b%e7%ab%a0%20%e5%86%b3%e7%ad%96%e6%a0%91.xmind" >
+					第四章 决策树.xmind
+				</a>
+				(1996 kb)
+			</li>
+		
+	
+	<div>
+	
+</section>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/">
+                                    <i class="fas fa-tag mr-2"></i>周志华
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">
+                                    <i class="fas fa-tag mr-2"></i>线性模型
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/">
+                                    <i class="fas fa-tag mr-2"></i>西瓜书
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x00001e',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00001c/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第一至三章 总结">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第一至三章 总结
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 13, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 1-3 总结
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00001b/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第三章 线性模型 补充">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第三章 线性模型 补充
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 5, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 3.线性模型 补充
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00001a/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第三章 线性模型">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第三章 线性模型
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">October 30, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 3.线性模型
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

@@ -1,7 +1,0 @@
-+++
-author = [
-    "Ryuchen",
-    "WangOO"
-]
-+++
-

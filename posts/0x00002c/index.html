@@ -47,7 +47,7 @@
 <meta itemprop="description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 铺垫">
 <meta itemprop="datePublished" content="2020-12-08T21:13:42+08:00" />
 <meta itemprop="dateModified" content="2020-12-08T21:13:42+08:00" />
-<meta itemprop="wordCount" content="703">
+<meta itemprop="wordCount" content="713">
 <meta itemprop="image" content="https://ryuchen.club/machine-learning.jpg">
 
 
@@ -99,9 +99,9 @@
                         <div class="meta text-muted mb-3" style="text-align: right;">
                             
                             <p class="created text-muted text-uppercase font-weight-bold mb-1">December 8, 2020</p>
-                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>4600</span>
-                            <span><i class="fas fa-clock mr-2"></i>20 minutes and
-                                54 seconds</span>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>4697</span>
+                            <span><i class="fas fa-clock mr-2"></i>21 minutes and
+                                21 seconds</span>
                         </div>
                         <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
                                     <i class="fas fa-tag mr-2"></i>机器学习
@@ -349,10 +349,10 @@ $$</p>
 <p>$$
 \boldsymbol{\mu} = \boldsymbol{\Sigma}\mathbf{X}^{\text{T}}\mathbf{Y}
 $$</p>
-<p>最终我们带入化简则可以得到
-$$
+<p>最终我们带入化简则可以得到</p>
+<p>$$
 \begin{align}
-P(\boldsymbol{w}|\mathbf{Y},\mathbf{X}) &amp; \propto C \exp \left(-\frac{1}{2}(\boldsymbol{w} - \boldsymbol{\mu})^{\text{T}}\boldsymbol{\Sigma}(\boldsymbol{w}-\boldsymbol{\mu})\right)
+P(\boldsymbol{w}|\mathbf{Y},\mathbf{X}) &amp; \propto C \exp \left(-\frac{1}{2}(\boldsymbol{w} - \boldsymbol{\mu})^{\text{T}}\boldsymbol{\Sigma}^{-1}(\boldsymbol{w}-\boldsymbol{\mu})\right)
 \end{align}
 $$</p>
 <blockquote>
@@ -367,6 +367,11 @@ $$</p>
 <li>预测 perdiction：$x^* \mapsto y^*$</li>
 </ul>
 </blockquote>
+<p>我们至此已经完成了贝叶斯方法中的Inference，之后要开始Perdiction，对于一个新的 $\boldsymbol{x}^*$ 来说，即我们需要求解得仅仅是</p>
+<p>$$
+P(\boldsymbol{w}\boldsymbol{x}^*|Data,\boldsymbol{x}^*) = \mathcal{N}({\boldsymbol{x}^*}^{\text{T}}\boldsymbol{\mu}, {\boldsymbol{x}^*}^{\text{T}}\boldsymbol{\Sigma}^{-1}\boldsymbol{x}^*)
+$$</p>
+<p>这样的一个高斯分布，然后我们求取其中最符合我们需求的即可</p>
 <h3 id="reference">Reference</h3>
 <ul>
 <li>《Deep learning》花书——第五章 6 小节 贝叶斯统计</li>

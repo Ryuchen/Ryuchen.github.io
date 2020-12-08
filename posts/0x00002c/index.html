@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     [读书笔记]《西瓜书》第七章 贝叶斯分类器 铺垫 |  Sweet House
+  
+</title>
+
+
+  <meta name="description" content="Everyday is a holiday">
+
+
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x00002c/"><meta property="og:title" content="[读书笔记]《西瓜书》第七章 贝叶斯分类器 铺垫" />
+<meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 铺垫" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x00002c/" />
+<meta property="og:image" content="https://ryuchen.club/machine-learning.jpg" />
+<meta property="article:published_time" content="2020-12-08T21:13:42+08:00" />
+<meta property="article:modified_time" content="2020-12-08T21:13:42+08:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002b/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002a/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000029/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000028/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000027/" />
+
+<meta itemprop="name" content="[读书笔记]《西瓜书》第七章 贝叶斯分类器 铺垫">
+<meta itemprop="description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 铺垫">
+<meta itemprop="datePublished" content="2020-12-08T21:13:42+08:00" />
+<meta itemprop="dateModified" content="2020-12-08T21:13:42+08:00" />
+<meta itemprop="wordCount" content="703">
+<meta itemprop="image" content="https://ryuchen.club/machine-learning.jpg">
+
+
+
+<meta itemprop="keywords" content="周志华,贝叶斯分类器,西瓜书," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>[读书笔记]《西瓜书》第七章 贝叶斯分类器 铺垫</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">December 8, 2020</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>4600</span>
+                            <span><i class="fas fa-clock mr-2"></i>20 minutes and
+                                54 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+                                    <i class="fas fa-tag mr-2"></i>机器学习
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg" class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器 铺垫">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <h2 id="第七章-贝叶斯分类器-铺垫">第七章 贝叶斯分类器 铺垫</h2>
+<hr>
+<h2 id="mle-vs-map">MLE vs MAP</h2>
+<p>还记得在学习机器学习的时候，开篇第一个打击就是shuhuai008大佬的贝叶斯派和频率派视频的讲解，当时跟着视频看了两遍他对于高斯分布情况下的无论是贝叶斯派还是频率派的有偏估计的推导，看完就懵了，再说什么?所以当时感觉自己要不要继续往下看了，这似乎是基本问题都搞不清楚。不过硬着头皮看了下去之后，再回头重新审视这个分类，发现也没有想象中的那么难以理解，虽然没有理解那么透彻，下面就把自己在搜集答案的过程中一些材料整理在下面~</p>
+<h3 id="频率派和贝叶斯派">频率派和贝叶斯派</h3>
+<p>要明白到底什么是最大似然估计（Maximum Likelihood Estimation）和最大后验估计（Maximum A Posteriori）就必须先弄懂现在机器学习的两大学派，频率派和贝叶斯派，这一点在周老师的西瓜书与李老师的统计机器学习中都有提及到，但是并没有说的很深刻（PS：可能是我自己的理解不够到位~）</p>
+<p>于是在参考了《深度学习》——花书中的部分讲解结合网上搜集的一些例子整理了如下的一些解释：</p>
+<p>首先我们先入为主一下，以线性回归为例子，结合前面学习的知识，我们知道了最普遍的线性回归的公式为：</p>
+<p>$$
+\boldsymbol{y} = \boldsymbol{w} \mathbf{X} + \boldsymbol{b}
+$$</p>
+<p><strong>在频率派眼中</strong></p>
+<p>线性回归模型的系数是确定的，真实值是惟一的，我们的任务就是从数据中找出这个系数</p>
+<p><strong>在贝叶斯派眼中</strong></p>
+<p>线性回归模型的系数是不确定的，系数可能取任何值，也是一个随机变量，而仅仅是取不同值的时候概率是不一样的</p>
+<hr>
+<p><strong>两派对比</strong></p>
+<p>好，在有了这样直接的先入为主的概念后，我们再提升一个层次来看待这个问题，即对于参数空间的认知上来说，两派学者的观点是不一样的。所谓参数空间，就是你关系的那个参数的可能的取值范围。</p>
+<p>频率学派（其实就是当年的 Fisher）并不关心参数空间的所有细节，他们相信数据都是在这个空间里的“某个参数值”下产生的（虽然你不知道那个值是啥），所以他们的方法论一开始就是从“哪个值是真实值”这个角度出发的。</p>
+<blockquote>
+<p>可以这么理解，即这个参数值是天然形成的，没有选定这么一说，无论你观测与否他都是那个值~</p>
+</blockquote>
+<p>贝叶斯学派恰恰相反，他们关心参数空间里的每一个值，因为他们觉得我们又没有上帝视角，怎么可能知道哪个值是真的呢？所以参数空间里的每个值都有可能是真实模型使用的值，区别只是概率不同而已。</p>
+<blockquote>
+<p>这里也说明了贝叶斯派的观点，即参数值的选定是上帝来决定的，具体他选择了哪个值只能是凭他的喜好~</p>
+</blockquote>
+<p>于是，在这种情况下，频率主义学派引出了两个概念，即最大似然（maximum likelihood）以及置信区间（confidence interval），从名字就可以看出来他们关心的就是我对于选定的这个接近天然情况下的值有多大的把握。而贝叶斯主义学派则引入了先验分布（prior distribution）和后验分布（posterior distribution）这样的概念来设法找出参数空间上的每个值的概率。</p>
+<blockquote>
+<p>最好诠释这种差别的例子就是想象如果你的后验分布是双峰的，频率学派的方法会去选这两个峰当中较高的那一个对应的值作为他们的最好猜测，而贝叶斯学派则会同时报告这两个值，并给出对应的概率。</p>
+</blockquote>
+<hr>
+<p>结合知乎上的举得最多的一个例子来看频率学派和贝叶斯学派</p>
+<p>你看<strong>打麻将</strong>的时候：
+只看下面有什么牌来决策的就是<strong>频率学派，</strong>
+而不光看下面有什么牌，还看这个牌是谁打出的，什么时候打出的，这个人打出所有牌友什么联系的，就是<strong>贝叶斯学派</strong>。</p>
+<p>比如现在你需要一个五万才能胡牌，你看了看桌面上一个五万都没有，所以你想当然的认为在剩下没有亮出的每一张牌是五万的概率是4/N，N为剩下没有亮出的麻将牌数。这种认为某种期望始终存在且不变的方法就是频率学派。</p>
+<p>但是其实某个人全程高能的打条子和饼子，而且偶然打出三万和七万，那么虽然你没有看到亮出的五万也可以猜测他手里至少应该有一张。但是你摸到五万的概率不是恒定的，而是随时根据场上的情况来变化，不断验证的。这种方法就是贝叶斯学派。</p>
+<h3 id="最大似然估计和最大后验估计">最大似然估计和最大后验估计</h3>
+<blockquote>
+<p>PS：本想是自己写一下自己的理解，但是发现知乎上有大佬总结的相当不错~</p>
+<p>整理加上转载 <a href="https://zhuanlan.zhihu.com/p/32480810">聊一聊机器学习的MLE和MAP：最大似然估计和最大后验估计</a></p>
+</blockquote>
+<p>结合之前上面所述和这篇博文中谈到的，总结一下：</p>
+<blockquote>
+<p>贝叶斯派的观点可能更符合自然界的实际情况，但是核心关键得问题却在于先验的选择上，如果先验的分布选择的不恰当，别说模型训练的不好，可能你最终的后验分布都求不出来。</p>
+<p>此外因为随着训练的样本数据量的增加，参数分布会越来越向数据集靠拢，即先验的影响力会越来越小。</p>
+<p>如果先验是uniform distribution，则贝叶斯方法等价于频率方法。因为直观上来讲，先验如果是uniform distribution本质上表示对事物没有任何预判</p>
+</blockquote>
+<h4 id="mle---最大似然估计">MLE - 最大似然估计</h4>
+<blockquote>
+<p>Maximum Likelihood Estimation，MLE是频率学派常用的估计方法！</p>
+</blockquote>
+<p>假设数据 $x_1;x_2;&hellip;;x_n$ 是 i.i.d.的一组抽样，记为 $\mathbf{X}=(x_1,x_2,&hellip;,x_n)$。则 MLE 对于 $\theta$ 的估计方法可以如下推导：</p>
+<p>$$
+\begin{align}
+\hat{\theta}_{MLE} &amp; = \arg\max P(\mathbf{X};\theta) \\<br>
+&amp; = \arg\max P(x_1;\theta)P(x_2;\theta)··· P(x_n;\theta) \\<br>
+&amp; = \arg\max\log \prod_{i=1}^n P(x_i;\theta) \\<br>
+&amp; = \arg\max \sum_{i=1}^n\log P(x_i;\theta) \\<br>
+&amp; = \arg\min - \sum_{i=1}^n\log P(x_i;\theta)
+\end{align}
+$$</p>
+<p>最后这一行所优化的函数被称为Negative Log Likelihood (NLL)，这个概念和上面的推导是非常重要的！我们经常在不经意间使用MLE，例如</p>
+<ul>
+<li>给定一些数据，求对应的高斯分布时，我们经常会算这些数据点的均值和方差然后带入到高斯分布的公式，其理论依据是优化NLL</li>
+<li>深度学习做分类任务时所用的cross entropy loss，其本质也是MLE</li>
+</ul>
+<blockquote>
+<p>PS：第二点其实在我之前的决策树铺垫中也有提到过~</p>
+</blockquote>
+<h4 id="map---最大后验估计">MAP - 最大后验估计</h4>
+<blockquote>
+<p>Maximum A Posteriori, MAP是贝叶斯学派常用的估计方法！</p>
+</blockquote>
+<p>假设数据 $x_1;x_2;&hellip;;x_n$ 是 i.i.d.的一组抽样，记为 $\mathbf{X}=(x_1,x_2,&hellip;,x_n)$。则 MAP 对于 $\theta$ 的估计方法可以如下推导：</p>
+<p>$$
+\begin{align}
+\hat{\theta}_{MAP} &amp; = \arg\max P(\theta|\mathbf{X}) \\<br>
+&amp; = \arg\min - \log P(\theta|\mathbf{X}) \\<br>
+&amp; = \arg\min - \log P(\mathbf{X}|\theta) - \log P(\theta) + \log P(\mathbf{X}) \\<br>
+&amp; = \arg\min - \log P(\mathbf{X}|\theta) - \log P(\theta)
+\end{align}
+$$</p>
+<p>其中，第二行到第三行使用了贝叶斯定理，第三行到第四行 $P(\mathbf{X})$ 可以丢掉是因为这一项与 $\theta$ 无关。<strong>注意 $- \log P(\mathbf{X}|\theta)$ 其实就是NLL</strong>，<strong>所以 MLE 与 MAP 在优化时的不同就是在于先验项 $- \log P(\theta)$</strong> 。</p>
+<blockquote>
+<p>那现在我们来研究一下这个先验项，假定先验是一个高斯分布，即:
+$$
+P(\theta) = C \times e^{-\frac{\theta^2}{2\sigma^2}}
+$$
+那么，$-\log P(\theta) = \hat{C} + \frac{\theta^2}{2\sigma^2}$ 。至此，一件神奇的事情发生了——在 MAP 中使用一个高斯分布的先验等价于在 MLE 中采用 L2 的正则化项（regularization）</p>
+</blockquote>
+<h3 id="两者角度看线性回归">两者角度看线性回归</h3>
+<p>说到这里，然后咱们再回头看一眼线性回归，还记得当初在第三章线性模型中我们做的求解过程吗？其实那个本质上有一个先决条件，即我们假设了符合条件的最优权重仅有一个，因此我们使用了凸优化求解方法中的最小二乘法来求解了目标函数。如果使用贝叶斯的思想来看的，显然求解权重矩阵就有另一种思考方式了~</p>
+<blockquote>
+<p>PS：虽然有一些重复，但是我们还是将两者的求解过程直接罗列在下面~</p>
+</blockquote>
+<h4 id="频率派求解线性回归">频率派求解线性回归</h4>
+<p>前面的过程就不进行重复描述了，直接来看我们的求解目标，即求下面的损失函数的最小值
+$$
+L(\boldsymbol{w}) = \sum_{i=1}^n(\boldsymbol{x}_i\boldsymbol{w} - \boldsymbol{y}_i)^2
+$$
+利用最小二乘估计进行求解，在前面我们已经提到了，频率派的眼中参数 $\boldsymbol{w}$ 是一个常量，也就是说这里只需要做点估计的最优化问题求解就行了，因此我们使用了最小二乘估计。求解过程的话，之前的章节中写的并不是很详细，下面补全一下~
+$$
+\begin{align}
+L(\boldsymbol{w}) &amp; = \sum_{i=1}^n(\boldsymbol{w}^{\text{T}}\boldsymbol{x}_i - y_i)^2 \\<br>
+&amp; = (\boldsymbol{w}^{\text{T}}\boldsymbol{x}_1 - y_1)^2 + (\boldsymbol{w}^{\text{T}}\boldsymbol{x}_2 - y_2)^2 + &hellip; +  (\boldsymbol{w}^{\text{T}}\boldsymbol{x}_n - y_n)^2 \\<br>
+&amp; = [\boldsymbol{w}^{\text{T}}\boldsymbol{x}_1 - y_1 \quad ··· \quad \boldsymbol{w}^{\text{T}}\boldsymbol{x}_n - y_n]
+{
+\begin{bmatrix}
+\boldsymbol{w}^{\text{T}}\boldsymbol{x}_1 - y_1 \\<br>
+··· \\<br>
+\boldsymbol{w}^{\text{T}}\boldsymbol{x}_n - y_n
+\end{bmatrix}
+} \\<br>
+&amp; = (\boldsymbol{w}^{\text{T}}[\boldsymbol{x}_1 \quad ··· \quad \boldsymbol{x}_n]- \mathbf{Y}^{\text{T}})
+{
+\begin{pmatrix}
+{
+\begin{bmatrix}
+\boldsymbol{x}_1^{\text{T}}\\<br>
+··· \\<br>
+\boldsymbol{x}_n^{\text{T}}
+\end{bmatrix}
+}\boldsymbol{w} - \mathbf{Y}
+\end{pmatrix}
+} \\<br>
+&amp; = (\boldsymbol{w}^{\text{T}}\mathbf{X} - \mathbf{Y}^{\text{T}})(\mathbf{X}^{\text{T}}\boldsymbol{w} - \mathbf{Y}) \\<br>
+&amp; = \boldsymbol{w}^{\text{T}}\mathbf{X}\mathbf{X}^{\text{T}}\boldsymbol{w} - \mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}\boldsymbol{w} - \boldsymbol{w}^{\text{T}}\mathbf{X}\mathbf{Y} + \mathbf{Y}^{\text{T}}\mathbf{Y} \\<br>
+&amp; = \boldsymbol{w}^{\text{T}}\mathbf{X}\mathbf{X}^{\text{T}}\boldsymbol{w} - 2\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}\boldsymbol{w} + \mathbf{Y}^{\text{T}}\mathbf{Y}
+\end{align}
+$$</p>
+<blockquote>
+<p>PS：这两项之所以能够合并，是因为按照维度计算的话，其值最终为标量（实数），而且值一样，所以直接合并为一项即可。</p>
+</blockquote>
+<p>然后我们的目标就是求取 $\boldsymbol{w} = \arg\min L(\boldsymbol{w}) $ 于是有
+$$
+\begin{align}
+\hat{\boldsymbol{w}} &amp; = \arg\min L(\boldsymbol{w}) \\<br>
+&amp; = \arg\min (\boldsymbol{w}^{\text{T}}\mathbf{X}\mathbf{X}^{\text{T}}\boldsymbol{w} - 2\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}\boldsymbol{w} + \mathbf{Y}^{\text{T}}\mathbf{Y}) \\<br>
+&amp; \simeq \arg\min (\boldsymbol{w}^{\text{T}}\mathbf{X}\mathbf{X}^{\text{T}}\boldsymbol{w} - 2\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}\boldsymbol{w})
+\end{align}
+$$
+因为是凸二次优化，所以直接求导令其为零就可以求出 $\boldsymbol{w}$
+$$
+\frac{\partial L(\boldsymbol{w})}{\partial \boldsymbol{w}} = 2\mathbf{X}\mathbf{X}^{\text{T}}\boldsymbol{w} - 2\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}} = 0
+$$
+最终求得
+$$
+\boldsymbol{w} = (\mathbf{X}\mathbf{X}^{\text{T}})^{-1}\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}
+$$</p>
+<blockquote>
+<p>PS：这里忽略了偏差，当然偏差可以当做服从高斯正态分布的噪声，具体的可以见之前的第三章的线性模型的博文以及中间添加的shuhuai008大佬的视频~</p>
+</blockquote>
+<p>在上面我们提到了**“在 MAP 中使用一个高斯分布的先验等价于在 MLE 中采用 L2 的正则化项（regularization）”**为了能够得到这一个结论，我们先看一下使用L2正则化项（即之前在线性模型中提到的岭回归&ndash;Ridge）的MLE如何计算。
+$$
+\begin{align}
+J(\boldsymbol{w}) &amp; = L(\boldsymbol{w}) + \lambda \boldsymbol{w}^2 \\<br>
+&amp; = \boldsymbol{w}^{\text{T}}\mathbf{X}\mathbf{X}^{\text{T}}\boldsymbol{w} - 2\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}\boldsymbol{w} + \mathbf{Y}^{\text{T}}\mathbf{Y} + \lambda\boldsymbol{w}^{\text{T}}\boldsymbol{w} \\<br>
+&amp; = \boldsymbol{w}^{\text{T}}(\mathbf{X}\mathbf{X}^{\text{T}} + \lambda\mathbf{I})\boldsymbol{w} - 2\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}\boldsymbol{w} + \mathbf{Y}^{\text{T}}\mathbf{Y}
+\end{align}
+$$
+则在Ridge回归中，我们的优化目标从 $L(\boldsymbol{w})$ 变为 $J(\boldsymbol{w})$ ，同样采用凸优化中的最小二乘估计对其直接求导并令其为零就可以求出 $\boldsymbol{w}$
+$$
+\begin{align}
+\hat{\boldsymbol{w}} &amp; = \arg\min J(\boldsymbol{w}) \\<br>
+&amp; = \arg\min (\boldsymbol{w}^{\text{T}}(\mathbf{X}\mathbf{X}^{\text{T}} + \lambda\mathbf{I})\boldsymbol{w} - 2\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}\boldsymbol{w} + \mathbf{Y}^{\text{T}}\mathbf{Y}) \\<br>
+&amp; \simeq \arg\min (\boldsymbol{w}^{\text{T}}(\mathbf{X}\mathbf{X}^{\text{T}} + \lambda\mathbf{I})\boldsymbol{w} - 2\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}\boldsymbol{w})
+\end{align}
+$$</p>
+<p>$$
+\frac{\partial J(\boldsymbol{w})}{\partial \boldsymbol{w}} = 2(\mathbf{X}\mathbf{X}^{\text{T}} + \lambda\mathbf{I})\boldsymbol{w} - 2\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}} = 0
+$$</p>
+<p>$$
+\boldsymbol{w} = (\mathbf{X}\mathbf{X}^{\text{T}} + \lambda\mathbf{I})^{-1}\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}
+$$</p>
+<p>为了更直观的理解 $\lambda$ 的作用，我们假设现在是一元线性回归，因此上式中的值都可以用实数来估计，于是得到
+$$
+\boldsymbol{w} = \frac{\mathbf{Y}^{\text{T}}\mathbf{X}^{\text{T}}}{\mathbf{X}\mathbf{X}^{\text{T}} + \lambda}
+$$
+因此我们可以看出来，随着 $\lambda$ —— L2正则化的系数的增大，$\boldsymbol{w}$ 的值会随之减小，从而起到了抑制作用。</p>
+<blockquote>
+<p>PS：这里顺便重提一下，在前面的博文中提到的 L1 和 L2 正则化的性质：</p>
+<ul>
+<li>L2 正则化梯度减小的性质</li>
+<li>L1 正则化稀疏的性质</li>
+</ul>
+</blockquote>
+<h4 id="贝叶斯派求解线性回归">贝叶斯派求解线性回归</h4>
+<p>在前面我们已经提到了贝叶斯派的眼中，$\boldsymbol{w}$ 不在是一个确定的值，而是一个服从特定分布的随机变量，因此我们第一件事就是先将 $P(\boldsymbol{w})$ 引入我们的计算公式，这里需要注意的是，此时如果用贝叶斯的角度来看待线性回归求解问题的话，就不再是点估计了，因此我们也无法使用凸优化中的最小二乘估计算法了，所以我们来看看借助贝叶斯公式我们能够做出什么样的答案出来~</p>
+<p>根据贝叶斯公式 $P(\theta|x) = \frac{P(x|\theta)P(\theta)}{P(x)}$ ，后验概率可以由先验概率和似然概率共同求出。
+$$
+\begin{align}
+P(\boldsymbol{w}|\mathbf{Y},\mathbf{X}) &amp; = \frac{P(\mathbf{Y},\boldsymbol{w}|\mathbf{X})}{P(\mathbf{Y}|\mathbf{X})} \\<br>
+&amp; = \frac{P(\mathbf{Y}|\mathbf{X},\boldsymbol{w})P(\boldsymbol{w}|\mathbf{X})}{\int P(\mathbf{Y}|\boldsymbol{w},\mathbf{X})P(\boldsymbol{w}|\mathbf{X}) d\boldsymbol{w}} \\<br>
+&amp; \propto P(\mathbf{Y}|\mathbf{X},\boldsymbol{w})P(\boldsymbol{w}|\mathbf{X})
+\end{align}
+$$
+由于 $\boldsymbol{w}$ 与数据集 $\mathbf{X}$ 之间相互独立，所以上式最终可以写为
+$$
+P(\boldsymbol{w}|\mathbf{Y},\mathbf{X}) \propto P(\mathbf{Y}|\mathbf{X},\boldsymbol{w})P(\boldsymbol{w})
+$$
+然后为了计算出 $\boldsymbol{w}$ 在样本集下的后验概率，所以需要引入我们对其的前提假设，即 $\boldsymbol{w}$ 的先验概率为高斯分布 $\boldsymbol{w} \sim \mathcal{N}(0, \Sigma_p)$ 。</p>
+<blockquote>
+<p>PS：这里需要用到共轭分布的性质，即似然和先验都是高斯分布的话，则对应的后验也为高斯分布</p>
+</blockquote>
+<p>$$
+P(\mathbf{Y}|\mathbf{X},\boldsymbol{w}) \sim \mathcal{N}(\mathbf{Y};\mathbf{X}^{\text{T}}\boldsymbol{w},\sigma^2)
+$$</p>
+<p>因为数据之间相互独立，所以可得
+$$
+\begin{align}
+P(\mathbf{Y}|\mathbf{X},\boldsymbol{w}) &amp; = \prod_{i=1}^n P(y_i|\boldsymbol{x}_i,\boldsymbol{w}) \\<br>
+&amp; \propto C \exp (-\frac{1}{2\sigma^2}\sum_{i=1}^n(\boldsymbol{x}_i\boldsymbol{w} - \boldsymbol{y}_i)^2) \\<br>
+&amp; = C \exp (-\frac{1}{2\sigma^2}(\mathbf{Y} - \mathbf{X}\boldsymbol{w})^{\text{T}}(\mathbf{Y} - \mathbf{X}\boldsymbol{w}))
+\end{align}
+$$
+同理，我们可以求出 $\boldsymbol{w}$ 的先验概率
+$$
+P(\boldsymbol{w}) \propto \exp (-\frac{1}{2}\boldsymbol{w}^{\text{T}}\Sigma^{-1}\boldsymbol{w})
+$$
+于是我们可以得到（这里为了后面好计算，我们假设 $\sigma^2$ 为 1）
+$$
+\begin{align}
+P(\boldsymbol{w}|\mathbf{Y},\mathbf{X}) &amp; \propto P(\mathbf{Y}|\mathbf{X},\boldsymbol{w})P(\boldsymbol{w}) \\<br>
+&amp; = C \exp (-\frac{1}{2\sigma^2}(\mathbf{Y} - \mathbf{X}\boldsymbol{w})^{\text{T}}(\mathbf{Y} - \mathbf{X}\boldsymbol{w})) · \exp (-\frac{1}{2}\boldsymbol{w}^{\text{T}}\Sigma^{-1}\boldsymbol{w}) \\<br>
+&amp; = C \exp\left(-\frac{1}{2}\left[(\mathbf{Y} - \mathbf{X}\boldsymbol{w})^{\text{T}}(\mathbf{Y} - \mathbf{X}\boldsymbol{w}) + \boldsymbol{w}^{\text{T}}\Sigma^{-1}\boldsymbol{w}\right]\right) \\<br>
+&amp; \propto C \exp\left(-\frac{1}{2}\left((\boldsymbol{w}^{\text{T}}\mathbf{X}^{\text{T}}\mathbf{X}\boldsymbol{w} + \boldsymbol{w}^{\text{T}}\Sigma^{-1}\boldsymbol{w} - 2\mathbf{Y}^{\text{T}}\mathbf{X}\boldsymbol{w}\right)\right)
+\end{align}
+$$
+然后我们定义
+$$
+\boldsymbol{\Sigma} = (\mathbf{X}^{\text{T}}\mathbf{X} + \Sigma^{-1})^{-1}​
+$$</p>
+<p>$$
+\boldsymbol{\mu} = \boldsymbol{\Sigma}\mathbf{X}^{\text{T}}\mathbf{Y}
+$$</p>
+<p>最终我们带入化简则可以得到
+$$
+\begin{align}
+P(\boldsymbol{w}|\mathbf{Y},\mathbf{X}) &amp; \propto C \exp \left(-\frac{1}{2}(\boldsymbol{w} - \boldsymbol{\mu})^{\text{T}}\boldsymbol{\Sigma}(\boldsymbol{w}-\boldsymbol{\mu})\right)
+\end{align}
+$$</p>
+<blockquote>
+<p>PS：参考《Deep Learning》花书中的解释，如果我们设置 $\Sigma = \frac{1}{\alpha}\mathbf{I}$ ，那么最终 $\boldsymbol{\mu}$ 对 $\boldsymbol{w}$ 的估计就和频率派带权重衰减惩罚 $\alpha \boldsymbol{w}^{\text{T}}\boldsymbol{w}$ 的线性估计是一致的。可以动手推导试试~</p>
+<p>此外，从这里我们也可以大致理解，为啥<strong>线性回归</strong>的假设前提中有噪声服从高斯分布的一条~</p>
+</blockquote>
+<p>当我们求得了 $\boldsymbol{w}$ 的后验估计后，剩下的就好办了~</p>
+<blockquote>
+<p>PS：贝叶斯方法主要的两个用途</p>
+<ul>
+<li>推断 inference：后验概率</li>
+<li>预测 perdiction：$x^* \mapsto y^*$</li>
+</ul>
+</blockquote>
+<h3 id="reference">Reference</h3>
+<ul>
+<li>《Deep learning》花书——第五章 6 小节 贝叶斯统计</li>
+<li><a href="https://www.zhihu.com/question/20587681/answer/41436978">贝叶斯学派与频率学派有何不同？ - Xiangyu Wang的回答 - 知乎</a></li>
+<li><a href="https://www.zhihu.com/question/20587681/answer/23124365">贝叶斯学派与频率学派有何不同？ - Heinrich的回答 - 知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/86009986">回字的四种写法——从线性回归到贝叶斯线性回归</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/130974579">浅入浅出贝叶斯线性回归 (Bayesian Linear Regression)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/32480810">聊一聊机器学习的MLE和MAP：最大似然估计和最大后验估计</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/26638720">如何理解「共轭分布」？</a></li>
+<li><a href="https://www.bilibili.com/video/BV1aE411o7qd?p=110">白板推导系列-贝叶斯线性回归3</a></li>
+</ul>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/">
+                                    <i class="fas fa-tag mr-2"></i>周志华
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/">
+                                    <i class="fas fa-tag mr-2"></i>贝叶斯分类器
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/">
+                                    <i class="fas fa-tag mr-2"></i>西瓜书
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x00002c',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00002b/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第六章 支持向量机 补充">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第六章 支持向量机 补充
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 30, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 补充
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00002a/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第六章 支持向量机">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第六章 支持向量机
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 27, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000029/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第六章 支持向量机 铺垫">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第六章 支持向量机 铺垫
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 26, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 铺垫
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

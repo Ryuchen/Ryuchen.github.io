@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     [读书笔记]《西瓜书》第七章 贝叶斯分类器 |  Sweet House
+  
+</title>
+
+
+  <meta name="description" content="Everyday is a holiday">
+
+
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x00002d/"><meta property="og:title" content="[读书笔记]《西瓜书》第七章 贝叶斯分类器" />
+<meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x00002d/" />
+<meta property="og:image" content="https://ryuchen.club/machine-learning.jpg" />
+<meta property="article:published_time" content="2020-12-09T22:13:42+08:00" />
+<meta property="article:modified_time" content="2020-12-09T22:13:42+08:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002c/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002b/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002a/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000029/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000028/" />
+
+<meta itemprop="name" content="[读书笔记]《西瓜书》第七章 贝叶斯分类器">
+<meta itemprop="description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器">
+<meta itemprop="datePublished" content="2020-12-09T22:13:42+08:00" />
+<meta itemprop="dateModified" content="2020-12-09T22:13:42+08:00" />
+<meta itemprop="wordCount" content="899">
+<meta itemprop="image" content="https://ryuchen.club/machine-learning.jpg">
+
+
+
+<meta itemprop="keywords" content="周志华,贝叶斯分类器,西瓜书," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>[读书笔记]《西瓜书》第七章 贝叶斯分类器</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">December 9, 2020</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>6481</span>
+                            <span><i class="fas fa-clock mr-2"></i>29 minutes and
+                                27 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+                                    <i class="fas fa-tag mr-2"></i>机器学习
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg" class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <h2 id="第七章-贝叶斯分类器">第七章 贝叶斯分类器</h2>
+<hr>
+<p>有了上一篇博文中关于贝叶斯派和频率派的认识之后，我们知道了贝叶斯派的主要两个主要方式，一是推断Inference，二是预测Prediction。而西瓜书中在这一章——<strong>贝叶斯分类器</strong>中就涉及了这两方面的内容，所以接下来咱们看看西瓜书中都涉及到了哪些内容？</p>
+<h3 id="71-贝叶斯决策论">7.1 贝叶斯决策论</h3>
+<h4 id="贝叶斯决策论bayesian-decision-theory">贝叶斯决策论（Bayesian decision theory）</h4>
+<p>贝叶斯决策论是<strong>概率框架</strong>下实施决策的基本方法</p>
+<p>例如：</p>
+<p>对分类任务来说，在<!-- raw HTML omitted -->所有相关概率都已知<!-- raw HTML omitted -->的理想情况下，贝叶斯决策论考虑如何基于这些概率和误判损失来选择最优的类别标记</p>
+<blockquote>
+<p>PS：在前面的贝叶斯线性回归中我们已经感受到了贝叶斯决策论的魅力，可以这么说导致其最近这几年发展远不如概率学派的一个主要原因就是其计算条件过于苛刻并且计算过于复杂~</p>
+</blockquote>
+<h4 id="多分类任务">多分类任务</h4>
+<blockquote>
+<p>借助这个例子来讲解其基本原理</p>
+</blockquote>
+<h5 id="定义">定义</h5>
+<p>假设有 $N$ 种可能的类别标记，即 $\mathcal{Y}=\{c_1,c_2,&hellip;,c_N\}$，$\lambda_{ij}$ 是将一个真实标记为 $c_j$ 的样本误分类为 $c_i$ 所产生的损失，基于后验概率 $P(c_i|\boldsymbol{x})$ 可获得样本 $\boldsymbol{x}$ 分类为 $c_i$ 所产生的期望损失 $\text{(expected loss)}$，即在样本 $\boldsymbol{x}$ 上的“条件风险”(conditional risk)
+$$
+R(c_i|\boldsymbol{x})=\sum_{j=1}^N\lambda_{ij}P(c_j|\boldsymbol{x})
+$$</p>
+<h5 id="任务本质">任务本质</h5>
+<p>寻找一个判定准则 $h：\mathcal{X} \rightarrow \mathcal{Y}$ 以最小化总体风险</p>
+<p>公式表示：
+$$
+R(h)=\mathbb{E}_x[R(h(\boldsymbol{x})|\boldsymbol{x})]
+$$</p>
+<p><strong>贝叶斯判定准则（Bayes decision rule）</strong></p>
+<p>为最小化总体风险，只需在每个样本上选择哪个能使条件风险 $R(c|\boldsymbol{x})$ 最小的类别标记</p>
+<p>公式表示：</p>
+<p>$$
+h^*(\boldsymbol{x})=\underset{c\in\mathcal{Y}}{\arg\min}R(c|\boldsymbol{x})
+$$</p>
+<ul>
+<li>
+<p>$h^*$ 称之为贝叶斯最优化分类器(Bayes optimal classifier)</p>
+</li>
+<li>
+<p>$R(h^*)$ 称之为贝叶斯风险(Bayes risk)</p>
+</li>
+</ul>
+<p>则 $1-R(h^*)$ 反映了分类器所能达到的最好性能，即通过机器学习所能产生的模型精度的理论上限。</p>
+<blockquote>
+<p>即对每个样本 $\boldsymbol{x}$，若 $h$ 能最小化条件风险 $R(h(\boldsymbol{x})|\boldsymbol{x})$，则总体风险 $R(h)$ 也将被最小化</p>
+</blockquote>
+<hr>
+<p>将 $\lambda_{ij}$ 定义为 $0-1$ 损失函数时
+$$
+\lambda_{ij} =
+\begin{cases}
+&amp; 0, &amp; \quad \text{if} \quad i = j; \\<br>
+&amp; 1, &amp; \quad \text{otherwise}
+\end{cases}
+$$
+条件风险变为：$R(c|\boldsymbol{x}) = 1-P(c|\boldsymbol{x})$</p>
+<p>此时的贝叶斯最优化分类器变为
+$$
+h^*(\boldsymbol{x})=\underset{c\in\mathcal{Y}}{\arg\max}P(c|\boldsymbol{x})
+$$</p>
+<blockquote>
+<p>PS：即对每个样本 $\boldsymbol{x}$ ，选择能使后验概率 $P(c|\boldsymbol{x})$ 最大的类别标记，这个结果有没有老眼熟了~</p>
+</blockquote>
+<h5 id="关键是如何获得后验概率-pcboldsymbolx">关键是如何获得后验概率 $P(c|\boldsymbol{x})$</h5>
+<blockquote>
+<p>PS：这里引入了新的一种对于机器学习模型的分类方式</p>
+</blockquote>
+<p><strong>判别式模型（discriminative models）</strong></p>
+<p>给定 $\boldsymbol{x}$，可通过直接建模 $P(c|\boldsymbol{x})$ 来预测 $c$</p>
+<p>例如：</p>
+<p>​	决策树、BP神经网络、支持向量机等模型</p>
+<p><strong>生成式模型（generative models）</strong></p>
+<p>通过联合概率分布 $P(\boldsymbol{x},c)$ 建模，然后再由此获取 $P(c|\boldsymbol{x})$</p>
+<p>借助贝叶斯定理我们能有如下公式：
+$$
+P(c|\boldsymbol{x})=\frac{P(\boldsymbol{x}, c)}{P(\boldsymbol{x})}=\frac{P(c)P(\boldsymbol{x}|c)}{P(\boldsymbol{x})}
+$$</p>
+<ul>
+<li>$P(c)$ 是类先验概率</li>
+<li>$P(\boldsymbol{x}|c)$ 是样本 $\boldsymbol{x}$ 相对于类标记 $c$ 的类条件概率（class-conditional probability），或称为“似然”（likelihood）</li>
+<li>$P(\boldsymbol{x})$ 是用于归一化的“证据”（evidence）因子</li>
+</ul>
+<blockquote>
+<p>总结：</p>
+<ul>
+<li>对于给定的样本 $\boldsymbol{x}$，证据因子 $P(\boldsymbol{x})$ 与类标记无关</li>
+<li>借助贝叶斯公式，估计 $P(c|\boldsymbol{x})$ 的问题就转化为如何基于训练数据 $D$ 来估计先验 $P(c)$ 和似然 $P(\boldsymbol{x}|c)$</li>
+<li>对于类条件概率 $P(\boldsymbol{x}|c)$，由于它涉及关于 $\boldsymbol{x}$ 所有属性的联合概率，因此直接使用频率来估计 $P(\boldsymbol{x}|c)$ 显然是不行，因为“未被观测到”和“出现概率为零”是不同的</li>
+</ul>
+</blockquote>
+<p>例如：</p>
+<p>​	贝叶斯分类器</p>
+<h3 id="72-极大似然估计">7.2 极大似然估计</h3>
+<h4 id="问题来源">问题来源</h4>
+<p><strong>如何估计类条件概率（似然）—— $P(\boldsymbol{x}|c)$ ？</strong></p>
+<p>基本策略</p>
+<ul>
+<li>
+<p>先假定其具有某种确定的概率分布形式，再基于训练样本对概率分布的参数进行估计</p>
+</li>
+<li>
+<p>具体步骤</p>
+<ul>
+<li>记关于类别 $c$ 的类条件概率为 $P(\boldsymbol{x}|c)$</li>
+<li>假设 $P(\boldsymbol{x}|c)$ 具有确定的形式并且被参数向量 $\theta_c$ 唯一确定</li>
+<li>利用训练集 $D$ 估计参数 $\theta_c$</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>概率模型训练过程就是参数估计过程</strong></p>
+</blockquote>
+<h4 id="两大学派">两大学派</h4>
+<blockquote>
+<p>PS：这一部分在前一篇博文中做了详细的整理</p>
+</blockquote>
+<h5 id="频率主义学派frequentist">频率主义学派（Frequentist）</h5>
+<p><strong>核心想法：</strong></p>
+<p>参数虽然未知，但却是客观存在的固定值，因此，可以通过优化似然函数等准则来确定参数值</p>
+<h5 id="贝叶斯学派bayesian">贝叶斯学派（Bayesian）</h5>
+<p><strong>核心想法：</strong></p>
+<p>参数是未观察到的随机变量，其本身也可有分布，因此，可假定参数服从一个先验分布，然后基于观察到的舒俱来计算参数的后验分布</p>
+<h5 id="极大似然估计maximum-likelihood-estimation简称mle">极大似然估计(Maximum Likelihood Estimation，简称MLE)</h5>
+<p><strong>本质：</strong></p>
+<p>根据数据采样来估计概率分布参数</p>
+<p><strong>前提假设：</strong></p>
+<p>训练集中的样本是独立同分布的</p>
+<blockquote>
+<p>因此估计结果的准确性严重依赖与所假设的概率分布形式是否符合潜在的真实数据分布</p>
+</blockquote>
+<p><strong>公式表示：</strong></p>
+<p>$$
+P(D_c|\boldsymbol{\theta}_c) = \prod_{\boldsymbol{x} \in D_c} P(\boldsymbol{x}|\boldsymbol{\theta}_c)
+$$</p>
+<ul>
+<li>$D_c$ 表示训练集中第 $c$ 类样本组成的集合</li>
+<li>表示参数 $\boldsymbol{\theta}_c$ 对于数据集 $D_c$ 的似然</li>
+</ul>
+<p><strong>对数似然（log-likelihood）：</strong></p>
+<p>连乘操作易产生下溢（引入的原因）
+$$
+LL(\theta_c) = \sum_{\boldsymbol{x} \in D_c} \log P(\boldsymbol{x}|\boldsymbol{\theta}_c)
+$$</p>
+<ul>
+<li>此时的参数 $\boldsymbol{\theta}_c$ 的极大似然估计 $\hat{\boldsymbol{\theta}}_c$
+$$
+\hat{\boldsymbol{\theta}}_c= \underset{\theta_c}{\arg\max}LL(\boldsymbol{\theta}_c)
+$$</li>
+</ul>
+<blockquote>
+<p><strong>如何直观理解极大似然估计?</strong></p>
+<p>极大似然估计是试图在 $\theta_c$ 所有可能的取值中，找到一个能使数据出现的可能性最大的值</p>
+</blockquote>
+<blockquote>
+<p>PS：结合西瓜书和花书，我们其实可以明白一件事，并不是说MLE和MAP就是区分频率派和贝叶斯派的方法，而在两者的计算过程中都会引入MLE的方式~</p>
+</blockquote>
+<h3 id="73-朴素贝叶斯分类器">7.3 朴素贝叶斯分类器</h3>
+<p><strong>问题来源</strong></p>
+<p>基于贝叶斯公式来估计后验概率 $P(c|\boldsymbol{x})$ 的相当困难</p>
+<p><strong>原因</strong></p>
+<ul>
+<li>类条件概率 $P(\boldsymbol{x}|c)$ 是所有属性上的联合概率，难以从有限的训练样本直接估计得到</li>
+<li>在计算上会遭遇组合爆炸问题</li>
+<li>在数据上会遭遇样本稀疏问题</li>
+</ul>
+<blockquote>
+<p>属性数越多，问题越严重</p>
+</blockquote>
+<h4 id="朴素贝叶斯分类器naive-bayes-classifier">朴素贝叶斯分类器（naive Bayes classifier）</h4>
+<h5 id="假设前提">假设前提</h5>
+<p>属性条件独立性假设（attribute conditional independence assumption）</p>
+<ul>
+<li>即假设所有属性相互独立</li>
+<li>换言之，假设每个属性独立地对分类结果发生影响</li>
+</ul>
+<h5 id="核心内容">核心内容</h5>
+<p>此时的后验概率公式可以写为
+$$
+P(c|\boldsymbol{x})=\frac{P(c)P(\boldsymbol{x}|c)}{P(\boldsymbol{x})}=\frac{P(c)}{P(\boldsymbol{x})}\prod_{i=1}^d P(x_i|c)
+$$</p>
+<ul>
+<li>$d$ 为属性个数</li>
+<li>$x_i$ 为属性取值</li>
+</ul>
+<p>即属性相互独立：
+$$
+P(\boldsymbol{x}|c)=\prod_{i=1}^dP(x_i|c)
+$$
+对于所有类别来说 $P(\boldsymbol{x})$ 相同，因此基于贝叶斯判定准则有
+$$
+h_{nb}(\boldsymbol{x})=\underset{c \in \mathcal{Y}}{\arg\max}P(c)\prod_{i=1}^dP(x_i|c)
+$$</p>
+<hr>
+<blockquote>
+<p>PS：看似公式很难，但是其实本质很简单~</p>
+<p>西瓜书中是这么说的：</p>
+<p><strong>朴素贝叶斯分类器的训练过程就是基于训练集 $D$ 来估计类先验概率 $P(c)$ ，并为每个属性估计类条件概率 $P(x_i|c)$</strong></p>
+<p>其实公式看着复杂，但是借助书中的例子很容易就看明白了~</p>
+</blockquote>
+<h5 id="类先验概率">类先验概率</h5>
+<p>$$
+P(c)=\frac{|D_c|}{|D|}
+$$</p>
+<p>其中 $D_c$ 表示训练集 $D$ 中第 $c$ 类样本组成的集合</p>
+<h5 id="类条件概率">类条件概率</h5>
+<p><strong>离散属性</strong>
+$$
+P(x_i|c)=\frac{|D_{c,x_i}|}{|D_c|}
+$$
+其中 $D_{c,x_i}$ 表示 $D_c$ 中在第 $i$ 个属性上取值为 $x_i$ 的样本组成的集合</p>
+<p><strong>连续属性</strong>
+$$
+p(x_i|c)=\frac{1}{\sqrt{2\pi}\sigma_{c,i}}\exp\left( - \frac{(x_i-\mu_{c,i})^2}{2\sigma_{c,i}^2} \right)
+$$
+$\mu_{c,i}$ 和 $\sigma_{c,i}^2$ 分别是第 $c$ 类样本在第 $i$ 个属性上取值的均值和方差</p>
+<p>并且假设 $p(x_i|c)\sim \mathcal{N}(\mu_{c,i},\sigma_{c,i}^2)$</p>
+<blockquote>
+<p>PS：这里的假设高斯分布并不是绝对的，分布的选取是源自于背景知识的，通常选取高斯分布是因为高斯分布是普遍现象，而且如果选取其他分布，你可能也会产生疑问为啥会选取这个分布？</p>
+</blockquote>
+<h4 id="西瓜例子其实结合例子看就会发现这个其实很简单">西瓜例子（其实结合例子看，就会发现这个其实很简单）</h4>
+<p><strong>西瓜数据集3.0</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/f6e843384e588b781f2cc730613379bd.webp" alt="image-20201209211925094"></p>
+<p><strong>假设测试例</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/3b15a687729795de7009b57d87501b3d.webp" alt="image-20201209212202155"></p>
+<p><strong>训练朴素贝叶斯分类器</strong></p>
+<p>估计类先验概率 $P(c)$</p>
+<ul>
+<li>$P(好瓜 = 是) = \frac{8}{17} \approx 0.471$</li>
+<li>$P(好瓜=否) = \frac{9}{17} \approx 0.529$</li>
+</ul>
+<p>估计每个属性的类条件概率 $P(x_i|c)$</p>
+<p>离散型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/a70faa18bdb3a90ee7dee3b459cfacfe.webp" alt="image-20201209212421172"></p>
+<p>连续型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/af43c89a9a964d40e1e8d03d286b676a.webp" alt="image-20201209212437544"></p>
+<p><strong>结论推测</strong></p>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/a03a9032b7507a68a5bf27fc68c073ac.webp" alt="image-20201209212519037"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/21a22e509bb3393f0b7248d4a5ed49c6.webp" alt="image-20201209212533174"></li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>如果某个属性取值在训练集上出现的次数为零如何处理？</strong></p>
+<p>因为朴素贝叶斯分类器是连乘式，因此会导致其他属性携带的信息会被某个训练集中未出现的属性值“抹去”</p>
+<p><em><strong>前面其实已经提到了，“未被观测到”和“出现概率为零”是不同的，所以需要引入平滑处理</strong></em></p>
+<p>拉普拉斯修正（Laplacian correction）</p>
+<ul>
+<li>类先验概率 $\hat{P}(c)=\frac{|D_c|+1}{|D|+N}$</li>
+<li>类条件概率 $\hat{P}(x_i|c)=\frac{|D_{c,x_i}|+1}{|D_c|+N_i}$</li>
+</ul>
+</blockquote>
+<h3 id="74-半朴素贝叶斯分类器">7.4 半朴素贝叶斯分类器</h3>
+<h4 id="半朴素贝叶斯分类器semi-naive-bayes-classifiers">半朴素贝叶斯分类器（semi-naive Bayes classifiers）</h4>
+<p><strong>核心问题：</strong></p>
+<p>现实任务中属性条件独立性假设难以成立</p>
+<p><strong>解决方式：</strong></p>
+<p>适当考虑一部分属性间的相互依赖信息</p>
+<p>相对于朴素贝叶斯分类器，对属性条件独立性假设进行了一定程度的放松</p>
+<ul>
+<li>贝叶斯分类器（完全联合概率计算）</li>
+<li>朴素贝叶斯分类器（完全独立概率计算）</li>
+</ul>
+<p><strong>基本策略：</strong></p>
+<p>独依赖估计（One-Dependent Estimator，简称 ODE）</p>
+<p>基本思想：<strong>假设每个属性在类别之外最多仅依赖于一个其他属性</strong></p>
+<p>公式
+$$
+P(c|\boldsymbol{x}) \propto P(c)\prod_{i=1}^dP(x_i|c,pa_i)
+$$
+其中 $pa_i$ 为属性 $x_i$ 所依赖的属性，称为 $x_i$ 的父属性</p>
+<p>基本形式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/1fe2ca26e91473e2dba0a4225f740f00.webp" alt="image-20201209213357810"></p>
+<blockquote>
+<p>PS：其实这里不借助西瓜书的内容展开，也能想到关键性问题，如何确定每个属性的父属性呢？</p>
+</blockquote>
+<p><strong>如何确定每个属性的父属性？</strong></p>
+<p>最直接暴力的方式：</p>
+<p>假设所有属性都依赖于同一个属性，称为“超父”（super-parent）</p>
+<p><strong>两种策略：</strong></p>
+<p><strong>SPODE（Super-Parent ODE）：</strong></p>
+<p>通过交叉验证等模型选择方法来确定超父属性</p>
+<p><strong>AODE（Averaged ODE）：</strong></p>
+<p>一种基于集成学习机制、更为强大的独依赖分类器</p>
+<p>尝试将每个属性作为超父来构建SPODE，然后将那些具有足够训练数据支撑的SPODE集成起来作为最终结果
+$$
+P(c|\boldsymbol{x}) \propto \sum_{ \underset{|D_{x_i}| \ge m'}{i=1} }^d P(c,x_i)\prod_{j=1}^dP(x_j|c,x_i)
+$$
+$D_{x_i}$ 是在第 $i$ 个属性上取值为 $x_i$ 的样本的集合，$m'$ 为人为设定的阈值常数（常用30）</p>
+<p><strong>与朴素贝叶斯分类器同样是“计数”过程</strong></p>
+<p>类先验概率
+$$
+\hat{P}(c,x_i) = \frac{|D_{c,x_i}| + 1}{|D| + N \times N_i}
+$$
+类条件概率
+$$
+\hat{P}(x_j|c,x_i) = \frac{|D_{c,x_i,x_j}| + 1}{|D_c,x_i| + N_j}
+$$</p>
+<blockquote>
+<p>类似 朴素贝叶斯分类器 一样需要进行拉普拉斯修正</p>
+</blockquote>
+<p>参数说明</p>
+<ul>
+<li>$N$ 是 $D$ 中可能的类别数</li>
+<li>$N_i$ 是第 $i$ 个属性可能的取值数</li>
+<li>$D_{c,x_i}$ 是类别为 $c$ 且在第 $i$ 个属性上取值为 $x_i$ 的样本集合</li>
+<li>$D_{c,x_i,x_j}$ 是类别为 $c$ 且在第 $i$ 个和第 $j$ 个属性上取值分别为 $x_i$ 和 $x_j$ 的样本集合</li>
+</ul>
+<hr>
+<p><strong>TAN（Tree Augmented naive Bayes）：</strong></p>
+<ul>
+<li>
+<p>在最大带权生成树（maximum weighted spanning tree）算法的基础上，将属性间的依赖关系整理成树形结果</p>
+</li>
+<li>
+<p>步骤</p>
+<ul>
+<li>计算任意两个属性之间的条件互信息（conditional mutual information）</li>
+</ul>
+<p>$$
+I(x_i,x_j|y)=\sum_{x_i,xj;c \in \mathcal{Y}} P(x_i,x_j|c)\log \frac{P(x_i,x_j|c)}{P(x_i|c)P(x_j|c)}
+$$</p>
+<blockquote>
+<p>PS：决策树铺垫中虽然没有提及，但是相互熵即KL散度也涉及到了互信息</p>
+</blockquote>
+<ul>
+<li>以属性为结点构建完全图，任意两个结点之间边的权重设为</li>
+<li>构建此完全图的最大带权生成树，挑选根变量，将边置为有向</li>
+<li>加入类别结点 $y$ ，增加从 $y$ 到每个属性的有向边</li>
+</ul>
+</li>
+<li>
+<p>条件互信息 $\mathbf{I}(x_i,x_j|y)$ 刻画了属性 $x_i$ 和 $x_j$ 在已知类别情况下的相关性，因此，通过最大生成树算法，TAN 实际上仅保留了强相关属性之间的依赖性</p>
+</li>
+</ul>
+<h3 id="75-贝叶斯网">7.5 贝叶斯网</h3>
+<h4 id="概念">概念</h4>
+<p>贝叶斯网（Bayesian network）亦称 “信念网”（belief network）</p>
+<ul>
+<li>借助有向无环图（Directed Acyclic Graph，简称DAG）来刻画属性之间的依赖关系</li>
+<li>使用条件概率表（Conditional Probability Table，简称 CPT）来描述属性的联合概率分布</li>
+</ul>
+<p>贝叶斯网定义为 $B=&lt;G,\Theta&gt;$</p>
+<ul>
+<li>
+<p>结构 $G$ ：一个有向无环图，其每个结点对应于一个属性，若两个属性有直接依赖关系，则它们由一条边连接起来</p>
+</li>
+<li>
+<p>参数 $\Theta$：参数 $\Theta$ 定量描述这种依赖关系，假设属性 $x_i$ 在 $G$ 中的父节点为 $\pi_i$，则 $\Theta$ 包含了每个属性的条件概率表 $\theta_{x_i|\pi_i}=P_B(x_i|\pi_i)$</p>
+<h4 id="如何体现属性间的关系">如何体现属性间的关系？</h4>
+</li>
+</ul>
+<p>贝叶斯网结构有效表达了属性间的条件独立性</p>
+<h5 id="解释">解释</h5>
+<p><strong>给定父节点集，贝叶斯网假设每个属性与它的非后裔属性独立</strong></p>
+<p>$B=&lt;G,\Theta&gt;$ 将属性 $x_1,x_2,&hellip;,x_d$ 的联合概率分布定义为 $P_B(x_1,x_2,&hellip;,x_d)=\prod_{i=1}^dP_B(x_i|\pi_i)=\prod_{i=1}^d\theta_{x_i|\pi_i}$</p>
+<h5 id="举例">举例</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/04e6f9e09e12f183e983464b9e115252.webp" alt="image-20201209215742846">
+$$
+P(x_1,x_2,x_3,x_4,x_5) = P(x_1)P(x_2)P(x_3|x_1)P(x_4|x_1,x_2)P(x_5|x_2)
+$$
+说明</p>
+<ul>
+<li>
+<p>$x_3$ 和 $x_4$ 在给定 $x_1$ 的取值时独立，记为 $x_3 \bot x_4 | x_1$</p>
+</li>
+<li>
+<p>$x_4$ 和 $x_5$ 在给定 $x_2$ 的取值时独立，记为 $x_4 \bot x_5 | x_2$</p>
+</li>
+<li>
+<p>上图的几个属性的联合概率分布为</p>
+</li>
+</ul>
+<h5 id="典型结构">典型结构</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/3217871cf63f306e64e524d2dc3903c7.webp" alt="image-20201209215931706"></p>
+<p><strong>同父结构</strong></p>
+<ul>
+<li>给定父节点的取值，则两个子结点条件独立</li>
+</ul>
+<p><strong>顺序结构</strong></p>
+<ul>
+<li>给定中间结点的取值，则前后结点的条件独立</li>
+</ul>
+<p><strong>V型结构</strong></p>
+<ul>
+<li>“冲撞”结构</li>
+<li>若给定子结点的取值，则两个父节点一定不条件独立；若子结点取值完全未知，则两个父节点是条件独立</li>
+<li>这种独立性称为“边际独立性”（marginal independence）</li>
+</ul>
+<h5 id="如何分析有向图中变量间的条件独立性">如何分析有向图中变量间的条件独立性？</h5>
+<p><strong>方法</strong></p>
+<ul>
+<li>将有向图转变为一个无向图，产生的无向图称为“道德图”（moral graph）——有向分离（D-separation）</li>
+<li>孩子的父母应建立牢靠的关系，否则是不道德的</li>
+</ul>
+<p><strong>步骤</strong></p>
+<ul>
+<li>找出有向图中的所有V型结构，在V型结构的两个父节点之间加上一条无向边——令父节点相连的过程称为道德化（moralization）</li>
+<li>将所有有向边改为无向边</li>
+</ul>
+<p><strong>举例</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/8aad283fb1704d13da245e987ae39f57.webp" alt="image-20201209220158548"></p>
+<ul>
+<li>所有的条件独立关系：$x_3 \bot x_4 | x_1,x_4 \bot x_5 | x_2,x_3 \bot x_2 | x_1,x_3 \bot x_5 | x_1,x_3 \bot x_5 | x_2$</li>
+</ul>
+<h4 id="学习">学习</h4>
+<h5 id="两种类型的学习任务">两种类型的学习任务</h5>
+<ul>
+<li>网络结构</li>
+<li>条件概率</li>
+</ul>
+<blockquote>
+<p>前面介绍的贝叶斯网络都是假设网络结构已知，但现实中往往不知晓网络结构，因此贝叶斯网络学习的首要任务就是根据训练集找出结构最“恰当”的贝叶斯网</p>
+</blockquote>
+<h5 id="评分搜索">评分搜索</h5>
+<p><strong>评分函数（score function）</strong></p>
+<ul>
+<li>
+<p>体现的是算法的归纳偏好</p>
+</li>
+<li>
+<p>常用评分函数基于信息论准则</p>
+<ul>
+<li>将学习问题看作一个数据压缩任务</li>
+<li>找到一个能以最短编码长度描述训练数据的模型</li>
+</ul>
+</li>
+</ul>
+<p>以此来评估贝叶斯网与训练数据的契合程度，基于这个评分函数来寻找结构最优的贝叶斯网</p>
+<blockquote>
+<p>这里所说的最短编码长度是一种：综合编码长度</p>
+<ul>
+<li>描述模型自身所需的编码位数</li>
+<li>使用该模型描述数据所需的编码位数</li>
+</ul>
+<p>又称 最小描述长度（Minimal Description Length， 简称MDL）准则</p>
+</blockquote>
+<p><strong>最小描述长度准则</strong></p>
+<p>评分函数公式：
+$$
+s(B|D)=f(\theta)|B|-LL(B|D)
+$$</p>
+<ul>
+<li>$|B|$ 是贝叶斯网的参数个数</li>
+<li>$f(\theta)$ 表示描述每个参数 $\theta$ 所需的编码位数</li>
+</ul>
+<blockquote>
+<p>这是第一项：计算编码贝叶斯网 $B$ 所需的编码位数</p>
+<p>统计学习角度：结构风险</p>
+</blockquote>
+<ul>
+<li>贝叶斯网 $B$ 的对数似然：$LL(B|D)=\sum_{i=1}^m \log P_B(\boldsymbol{x}_i)$</li>
+</ul>
+<blockquote>
+<p>这是第二项：计算 $B$ 所对应的概率分布 $P$ 对 $D$ 描述得有多好</p>
+<p>统计学习角度：经验风险</p>
+</blockquote>
+<p>几种变形</p>
+<ul>
+<li>
+<p>AIC（Akaike Information Criterion）</p>
+<ul>
+<li>$f(\theta)=1$，即每个参数用1编码位描述</li>
+<li>$\text{AIC}(B|D)=|B|-LL(B|D)$</li>
+</ul>
+</li>
+<li>
+<p>BIC（Bayesian Information Criterion）</p>
+<ul>
+<li>$f(\theta)=\frac{1}{2}\log m$，即每个参数用 $\frac{1}{2}\log m$ 编码位描述</li>
+<li>$\text{BIC}(B|D)=\frac{1}{2}\log m |B| - LL(B|D)$</li>
+</ul>
+</li>
+<li>
+<p>MLE（Maximum Likelihood Estimation ）</p>
+<ul>
+<li>$f(\theta)=0$，即不计算对网络进行编码的长度</li>
+<li>$\text{MLE}(B|D)=-LL(B|D)$</li>
+</ul>
+</li>
+</ul>
+<p>若网络结构 $G$ 固定</p>
+<ul>
+<li>评分函数 $s(B|D)$ 第一项为常数</li>
+<li>最小化 $s(B|D)$ 等价于对参数 $\Theta$ 的极大似然估计</li>
+<li>参数 $\theta_{x_i|\pi_i}$ 能直接在训练数据 $D$ 上通过经验估计获得</li>
+</ul>
+<blockquote>
+<p>问题转化为：如何找到最合适的网络结构？</p>
+<p>一种是贪心算法，例如从某个网络结构出发，每次调整一条边（增加、删除或调整方向），直到评分函数值不再降低为止</p>
+<p>第二种是通过给网络结构施加约束来削减搜索空间，例如将网络结构限定为树形结构</p>
+</blockquote>
+<h4 id="推断">推断</h4>
+<h5 id="分类结构">分类结构</h5>
+<ul>
+<li>
+<p>精确推断</p>
+</li>
+<li>
+<p>近似推断</p>
+<ul>
+<li>
+<p>确定性推断</p>
+<ul>
+<li>基于近似的变分推理（Variational Inference，简称VI）</li>
+</ul>
+</li>
+<li>
+<p>随机性推断</p>
+<ul>
+<li>
+<p>基于采样的马尔可夫链蒙特卡罗（Markov Chain &amp; Monte Carlo，简称MCMC）</p>
+<ul>
+<li>MH算法（Metropolis-Hasting）</li>
+<li>吉布斯采样（Gibbs sampling）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="吉布斯采样gibbs-sampling">吉布斯采样（Gibbs sampling）</h5>
+<p><strong>本质</strong></p>
+<p>吉布斯采样是在贝叶斯网所有变量的联合状态空间与证据 $\boldsymbol{E}=\boldsymbol{e}$ 一致的子空间进行“随机漫步”（random walk）</p>
+<blockquote>
+<p>关键信息点：</p>
+<ul>
+<li>吉布斯采样过程中每一步仅依赖于前一步的状态，这是一个“马尔科夫链”（Markov chain）</li>
+<li>对于吉布斯采样来说，马尔科夫链在 $t\rightarrow\infty$ 时收敛的平稳分布恰好是 $P(\boldsymbol{Q}|\boldsymbol{E}=\boldsymbol{e})$</li>
+</ul>
+</blockquote>
+<p><strong>流程</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2020/12/09/b9a514a56e332e6d46312911eaf7c90e.webp" alt="image-20201209221458087"></p>
+<ul>
+<li>
+<p>参数说明</p>
+<ul>
+<li>$\boldsymbol{Q}=\{Q_1,Q_2,&hellip;Q_n\}$ 表示待查询变量</li>
+<li>$\boldsymbol{E}=\{E_1,E_2,&hellip;,E_n\}$ 表示证据变量</li>
+<li>$\boldsymbol{e}=\{e_1,e_2,&hellip;,e_k\}$ 表示证据变量的取值</li>
+<li>$\boldsymbol{q}^t$ 表示第 $t$ 次待查询变量的取值 $\boldsymbol{q}=\{q_1,q_2,&hellip;,q_n\}$</li>
+</ul>
+</li>
+<li>
+<p>步骤说明</p>
+<ul>
+<li>先随机产生一个与证据 $\boldsymbol{E}=\boldsymbol{e}$ 一致的样本 $\boldsymbol{q}^0$ 作为起始点，然后每步从当前样本出发产生下一个样本</li>
+<li>具体来说，在第 $t$ 次采样中，算法先假设 $\boldsymbol{q}^t=\boldsymbol{q}^{t-1}$，然后对非证据变量逐个进行采样改变其取值</li>
+<li>采样概率根据贝叶斯 $B$ 和其他变量的当前取值（即 $\boldsymbol{Z}=z$）计算获得</li>
+</ul>
+</li>
+<li>
+<p>结论说明</p>
+<ul>
+<li>假定经过 $T$ 次采样得到的与 $\boldsymbol{q}$ 一致的样本共有 $n_q$ 个，则可以近似估算出后验概率</li>
+<li>$P(\boldsymbol{{Q=q|E=e}}) \simeq \frac{n_q}{T}$</li>
+</ul>
+</li>
+</ul>
+<p>注意</p>
+<ul>
+<li>由于马尔科夫链需要一个较长时间才能趋于平稳的分布，因此吉布斯采样算法的收敛速度较慢</li>
+<li>若贝叶斯网中存在极端概率&quot;0&quot;或&quot;1&quot;，则不能保证马尔科夫链存在平稳分布</li>
+</ul>
+<h3 id="76-em算法">7.6 EM算法</h3>
+<h4 id="问题的由来">问题的由来</h4>
+<p>现实现象中样本所有属性的值并非都已被观测到的，即训练样本是“完整”的</p>
+<blockquote>
+<p>引入了部分可观测的知识点~</p>
+</blockquote>
+<p>参数说明</p>
+<ul>
+<li>未观测变量的学名是“隐变量”（latent variable），$\boldsymbol{Z}$ 表示隐变量集</li>
+<li>$\boldsymbol{X}$ 表示已观测变量集</li>
+<li>$\Theta$ 表示模型参数</li>
+</ul>
+<p>欲对 $\Theta$ 做极大似然估计，则应最大化对数似然
+$$
+LL(\Theta|\boldsymbol{{X,Z}})=\ln P(\boldsymbol{{X,Z}}|
+\Theta)
+$$</p>
+<blockquote>
+<p>核心障碍是无法直接求解~</p>
+<p>可通过对 $\boldsymbol{Z}$ 计算期望，来最大化观测数据的对数“边际似然”(marginal likelihood)
+$$
+LL(\Theta|\boldsymbol{X})=\ln P(\boldsymbol{X}|\Theta)=\ln \sideset{}{_\boldsymbol{Z}}\sum P(\boldsymbol{{X,Z}}|\Theta)
+$$</p>
+</blockquote>
+<h4 id="em算法expectation-maximization期望最大化算法">EM算法（Expectation-Maximization，期望最大化算法）</h4>
+<h5 id="基本思想">基本思想</h5>
+<p>若参数 $\Theta$ 已知，则可根据训练数据推断出最优隐变量 $\boldsymbol{Z}$ 的值（ $E$ 步），反之，若 $\boldsymbol{Z}$ 的值已知，则可以方便地对参数 $\Theta$ 做极大似然估计（ $M$ 步）</p>
+<h5 id="步骤">步骤</h5>
+<ul>
+<li>
+<p>若是求 $\boldsymbol{Z}$ 的期望</p>
+<ul>
+<li>$E$  步：基于 $\Theta^t$ 推断隐变量 $\boldsymbol{Z}$ 的期望，记为 $\boldsymbol{Z}^t$</li>
+<li>$M$ 步：基于已观测变量 $\boldsymbol{X}$ 和 $\boldsymbol{Z}^t$ 对参数 $\Theta$ 做极大似然估计，记为 $\Theta^{t+1}$</li>
+</ul>
+</li>
+<li>
+<p>若是求 $\boldsymbol{Z}$ 的分布</p>
+<ul>
+<li>
+<p>$E$  步：以当前参数 $\Theta^t$ 推断隐变量分布 $P(\boldsymbol{{Z|X}},\Theta^t)$，并计算对数似然 $LL(\Theta|\boldsymbol{{X,Z}})$ 关于 $\boldsymbol{Z}$ 的期望</p>
+<ul>
+<li>公式表达 $Q(\Theta|\Theta^t)=\mathbb{E}_{\boldsymbol{{Z|X}},\Theta^t}LL(\Theta|\boldsymbol{{X,Z}})$</li>
+</ul>
+</li>
+<li>
+<p>$M$ 步：寻找参数最大化期望似然，即 $\Theta^{t+1}=\underset{\Theta}{\arg\max}Q(\Theta|\Theta^t)$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>EM算法可以看做是一种非梯度优化算法，能够得到局部最优解</p>
+</li>
+</ul>
+
+<section class="attachments grey">
+	<label>
+		<span>
+			<i class="fa fa-paperclip"></i>
+		</span>
+		笔记内容（XMind、Markdown、PNG）
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			<li>
+				<a href="/posts/0x00002d.files/%e7%ac%ac%e4%b8%83%e7%ab%a0%20%e8%b4%9d%e5%8f%b6%e6%96%af%e5%88%86%e7%b1%bb%e5%99%a8.png" >
+					第七章 贝叶斯分类器.png
+				</a>
+				(5145 kb)
+			</li>
+		
+	
+		
+		
+			<li>
+				<a href="/posts/0x00002d.files/%e7%ac%ac%e4%b8%83%e7%ab%a0%20%e8%b4%9d%e5%8f%b6%e6%96%af%e5%88%86%e7%b1%bb%e5%99%a8.xmind" >
+					第七章 贝叶斯分类器.xmind
+				</a>
+				(3748 kb)
+			</li>
+		
+	
+	<div>
+	
+</section>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/">
+                                    <i class="fas fa-tag mr-2"></i>周志华
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/">
+                                    <i class="fas fa-tag mr-2"></i>贝叶斯分类器
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/">
+                                    <i class="fas fa-tag mr-2"></i>西瓜书
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x00002d',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00002c/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器 铺垫">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第七章 贝叶斯分类器 铺垫
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 8, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 铺垫
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00002b/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第六章 支持向量机 补充">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第六章 支持向量机 补充
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 30, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机 补充
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00002a/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第六章 支持向量机">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第六章 支持向量机
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">November 27, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 6 支持向量机
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

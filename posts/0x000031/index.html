@@ -40,14 +40,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ryuchen.club/posts/0x000031/" />
 <meta property="og:image" content="https://ryuchen.club/machine-learning.jpg" />
-<meta property="article:published_time" content="2020-01-11T15:46:42+08:00" />
-<meta property="article:modified_time" content="2020-01-11T15:46:42+08:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000030/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002e/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002d/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002c/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002b/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002a/" />
+<meta property="article:published_time" content="2021-01-11T15:46:42+08:00" />
+<meta property="article:modified_time" content="2021-01-11T15:46:42+08:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000030/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002e/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002d/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002c/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002b/" />
 
 <meta itemprop="name" content="[读书笔记]《西瓜书》第七章 贝叶斯分类器 补充三">
 <meta itemprop="description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 补充三">
-<meta itemprop="datePublished" content="2020-01-11T15:46:42+08:00" />
-<meta itemprop="dateModified" content="2020-01-11T15:46:42+08:00" />
-<meta itemprop="wordCount" content="1131">
+<meta itemprop="datePublished" content="2021-01-11T15:46:42+08:00" />
+<meta itemprop="dateModified" content="2021-01-11T15:46:42+08:00" />
+<meta itemprop="wordCount" content="1130">
 <meta itemprop="image" content="https://ryuchen.club/machine-learning.jpg">
 
 
@@ -98,10 +98,10 @@
                         <h1>[读书笔记]《西瓜书》第七章 贝叶斯分类器 补充三</h1>
                         <div class="meta text-muted mb-3" style="text-align: right;">
                             
-                            <p class="created text-muted text-uppercase font-weight-bold mb-1">January 11, 2020</p>
-                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>8471</span>
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">January 11, 2021</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>8477</span>
                             <span><i class="fas fa-clock mr-2"></i>38 minutes and
-                                30 seconds</span>
+                                31 seconds</span>
                         </div>
                         <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
                                     <i class="fas fa-tag mr-2"></i>机器学习
@@ -392,17 +392,17 @@ $$
 \pi(x)k(x^*|x) = \pi(x^*)k(x|x^*)
 $$
 这个其实很好理解，其实就是忽略了前后关系，然后反复横跳，两两之间横跳过程中得出的概率一定是相等的。更进一步理解的话，可以看出马尔科夫链的样本一定是满足这个条件的，但是满足这个条件的不一定是马尔科夫链，因此这个条件是马尔科夫链的充分条件，而非必要条件。</p>
-<p>证明一下就是：
-$$
+<p>证明一下就是：</p>
+<p>$$
 \begin{align}
-\pi(x^<em>) &amp; = \int \pi(x)k(x \mapsto x^</em>)dx \\<br>
-&amp; = \int \pi(x*)k(x^* \mapsto x)dx  \quad (\text{带入了detailed balance condition})\\<br>
+\pi(x^*) &amp; = \int \pi(x)k(x \mapsto x^*)dx \\<br>
+&amp; = \int \pi(x^*)k(x^* \mapsto x)dx \quad (\text{带入了detailed balance condition})\\<br>
 &amp; = \pi(x^*)\int k(x^* \mapsto x)dx \\<br>
 &amp; = \pi(x^*)
 \end{align}
 $$</p>
 <hr>
-<h5 id="马尔科夫链marko-chain-">马尔科夫链（Marko chain ）</h5>
+<h5 id="马尔科夫链marko-chain">马尔科夫链（Marko Chain）</h5>
 <p>在阐述马尔科夫链之前，首先还是一贯的基础基调，我们得先明白什么是<strong>马尔科夫性质</strong>。</p>
 <blockquote>
 <p>马尔科夫性质是概率论中的一个概念，当一个随机过程在定现在状态以及所有过去状态下，其未来状态的条件概率分布仅依赖于当前状态；换句话说，在给定现在状态时，它与过去状态（即该过程的历史路径）是条件独立的，那么此随机过程即具有<strong>马尔科夫性质</strong>。 —— quote from wikipedia</p>
@@ -461,7 +461,7 @@ $\pi$ 称为马氏链的平稳分布。</p>
 <p>下面的内容也就以徐老师的课件为主</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2021/01/11/d85d5ab8fb5228bad04abbdfeaae8dfc.webp" alt="image-20210111101735103"></p>
-<p>在前面理解了MCMC的整体框架之后，我们再看MH算法就会发现，其在整体框架的下面，加入了一个接收函数，而这个函数就是上面截图中的 $\min(1, \frac{\pi(x^<em>)q(x|x^</em>)}{\pi(x)q(x^*|x)})$。</p>
+<p>在前面理解了MCMC的整体框架之后，我们再看MH算法就会发现，其在整体框架的下面，加入了一个接收函数，而这个函数就是上面截图中的 $\min(1, \frac{\pi(x^*)q(x|x^*)}{\pi(x)q(x^*|x)})$。</p>
 <p>然后算法下面给了两点：</p>
 <ul>
 <li>如果得到的值小于采样的 $u$ ，则重复当前的这个样本</li>
@@ -471,19 +471,19 @@ $\pi$ 称为马氏链的平稳分布。</p>
 <p>首先要证明这个采样方法是有效的话，则我们首先想到的就是 detailed balance 条件，因此我们先看 $k(x \mapsto x^*)$ 是什么~</p>
 <p>$k(x \mapsto x^*)$ 包含了两个部分的：</p>
 <ul>
-<li>$x^<em>$ 从原始分布 $q(x)$ 中被采样出来的概率 $q(x^</em>|x)$</li>
+<li>$x^*$ 从原始分布 $q(x)$ 中被采样出来的概率 $q(x^*|x)$</li>
 <li>这个 $x^*$ 被接收的概率 $\alpha_{accept}(x^*, x) = \min(1, \frac{\pi(x^*)q(x|x^*)}{\pi(x)q(x^*|x)})$</li>
 </ul>
 <p>将这两个带入到 detailed balance 的公式中
 $$
 \begin{align}
-\pi(x)q(x^<em>|x)\alpha(x^</em>, x) &amp; = \pi(x)q(x^<em>|x)\min(1, \frac{\pi(x^</em>)q(x|x^<em>)}{\pi(x)q(x^</em>|x)}) \\<br>
-&amp; = \min(\pi(x)q(x^<em>|x), \pi(x^</em>)q(x|x^<em>)) \\<br>
-&amp; = \pi(x^</em>)q(x|x^<em>)\min(1, \frac{\pi(x)q(x^</em>|x)}{\pi(x^<em>)q(x|x^</em>)}) \\<br>
-&amp; = \pi(x^<em>)q(x|x^</em>)\alpha(x, x^<em>)
+\pi(x)q(x^*|x)\alpha(x^*, x) &amp; = \pi(x)q(x^*|x)\min(1, \frac{\pi(x^*)q(x|x^*)}{\pi(x)q(x^*|x)}) \\<br>
+&amp; = \min(\pi(x)q(x^*|x), \pi(x^*)q(x|x^*)) \\<br>
+&amp; = \pi(x^*)q(x|x^*)\min(1, \frac{\pi(x)q(x^*|x)}{\pi(x^*)q(x|x^*)}) \\<br>
+&amp; = \pi(x^*)q(x|x^*)\alpha(x, x^*)
 \end{align}
 $$
-可见 detailed balance 的条件是符合的，但是需要注意的是，在这里 $\alpha(x^</em>, x) \neq \alpha(x, x^*)$</p>
+可见 detailed balance 的条件是符合的，但是需要注意的是，在这里 $\alpha(x^*, x) \neq \alpha(x, x^*)$</p>
 <h5 id="gibbs-采样">Gibbs 采样</h5>
 <p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@life/2021/01/11/3bd9a6c376039972d3bddbc520cabee3.webp" alt="image-20210111135543294"></p>
 <blockquote>
@@ -542,7 +542,55 @@ $$
         </div>
     </div>
 
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
     
+    <a href="/posts/0x000030/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器 补充二">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第七章 贝叶斯分类器 补充二
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 22, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 补充二
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00002e/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器 补充一">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第七章 贝叶斯分类器 补充一
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 10, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 补充一
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00002d/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第七章 贝叶斯分类器
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 9, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
 </main>
 
         <footer class="footer bg-dark py-6">

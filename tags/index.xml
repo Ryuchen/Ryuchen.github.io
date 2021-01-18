@@ -7,20 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
-    <lastBuildDate>Tue, 22 Dec 2020 16:49:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Jan 2021 15:46:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>EM算法</title>
-      <link>https://ryuchen.club/tags/em%E7%AE%97%E6%B3%95/</link>
-      <pubDate>Tue, 22 Dec 2020 16:49:42 +0800</pubDate>
+      <title>Gibbs采样</title>
+      <link>https://ryuchen.club/tags/gibbs%E9%87%87%E6%A0%B7/</link>
+      <pubDate>Mon, 11 Jan 2021 15:46:42 +0800</pubDate>
       
-      <guid>https://ryuchen.club/tags/em%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://ryuchen.club/tags/gibbs%E9%87%87%E6%A0%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MH采样</title>
+      <link>https://ryuchen.club/tags/mh%E9%87%87%E6%A0%B7/</link>
+      <pubDate>Mon, 11 Jan 2021 15:46:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/mh%E9%87%87%E6%A0%B7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>周志华</title>
       <link>https://ryuchen.club/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
-      <pubDate>Tue, 22 Dec 2020 16:49:42 +0800</pubDate>
+      <pubDate>Mon, 11 Jan 2021 15:46:42 +0800</pubDate>
       
       <guid>https://ryuchen.club/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
       <description></description>
@@ -29,7 +38,7 @@
     <item>
       <title>最大期望算法</title>
       <link>https://ryuchen.club/tags/%E6%9C%80%E5%A4%A7%E6%9C%9F%E6%9C%9B%E7%AE%97%E6%B3%95/</link>
-      <pubDate>Tue, 22 Dec 2020 16:49:42 +0800</pubDate>
+      <pubDate>Mon, 11 Jan 2021 15:46:42 +0800</pubDate>
       
       <guid>https://ryuchen.club/tags/%E6%9C%80%E5%A4%A7%E6%9C%9F%E6%9C%9B%E7%AE%97%E6%B3%95/</guid>
       <description></description>
@@ -38,7 +47,7 @@
     <item>
       <title>西瓜书</title>
       <link>https://ryuchen.club/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/</link>
-      <pubDate>Tue, 22 Dec 2020 16:49:42 +0800</pubDate>
+      <pubDate>Mon, 11 Jan 2021 15:46:42 +0800</pubDate>
       
       <guid>https://ryuchen.club/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/</guid>
       <description></description>
@@ -47,9 +56,18 @@
     <item>
       <title>贝叶斯分类器</title>
       <link>https://ryuchen.club/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/</link>
-      <pubDate>Tue, 22 Dec 2020 16:49:42 +0800</pubDate>
+      <pubDate>Mon, 11 Jan 2021 15:46:42 +0800</pubDate>
       
       <guid>https://ryuchen.club/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EM算法</title>
+      <link>https://ryuchen.club/tags/em%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Tue, 22 Dec 2020 16:49:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/em%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
     
@@ -293,24 +311,6 @@
       <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ryuchen.club/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gibbs采样</title>
-      <link>https://ryuchen.club/tags/gibbs%E9%87%87%E6%A0%B7/</link>
-      <pubDate>Sat, 11 Jan 2020 15:46:42 +0800</pubDate>
-      
-      <guid>https://ryuchen.club/tags/gibbs%E9%87%87%E6%A0%B7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MH采样</title>
-      <link>https://ryuchen.club/tags/mh%E9%87%87%E6%A0%B7/</link>
-      <pubDate>Sat, 11 Jan 2020 15:46:42 +0800</pubDate>
-      
-      <guid>https://ryuchen.club/tags/mh%E9%87%87%E6%A0%B7/</guid>
       <description></description>
     </item>
     

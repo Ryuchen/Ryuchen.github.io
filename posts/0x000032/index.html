@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     [读书笔记]《西瓜书》第八章 集成学习 |  Sweet House
+  
+</title>
+
+
+  <meta name="description" content="Everyday is a holiday">
+
+
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x000032/"><meta property="og:title" content="[读书笔记]《西瓜书》第八章 集成学习" />
+<meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 8 集成学习" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x000032/" />
+<meta property="og:image" content="https://ryuchen.club/machine-learning.jpg" />
+<meta property="article:published_time" content="2021-01-19T15:46:42+08:00" />
+<meta property="article:modified_time" content="2021-01-19T15:46:42+08:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000031/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000030/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002e/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002d/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002c/" />
+
+<meta itemprop="name" content="[读书笔记]《西瓜书》第八章 集成学习">
+<meta itemprop="description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 8 集成学习">
+<meta itemprop="datePublished" content="2021-01-19T15:46:42+08:00" />
+<meta itemprop="dateModified" content="2021-01-19T15:46:42+08:00" />
+<meta itemprop="wordCount" content="957">
+<meta itemprop="image" content="https://ryuchen.club/machine-learning.jpg">
+
+
+
+<meta itemprop="keywords" content="周志华,Boosting,AdaBoost,Bagging,Stacking," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>[读书笔记]《西瓜书》第八章 集成学习</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">January 19, 2021</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>5986</span>
+                            <span><i class="fas fa-clock mr-2"></i>27 minutes and
+                                12 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+                                    <i class="fas fa-tag mr-2"></i>机器学习
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg" class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第八章 集成学习">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <h2 id="第八章-集成学习">第八章 集成学习</h2>
+<hr>
+<p>花了五篇文章把贝叶斯分类器总结完了，接下来要看集成学习算法了，不过个人推荐还是先看第九章——聚类算法那一章的内容，然后再回头看集成学习这一章的内容，感觉对于整体的内容安排更加合适一点。不过为了符合读书笔记这个内容组织形式，所以还是按照章节的顺序来。对于集成学习这块，大家现在接触的一些SOTA模型基本上都是集成模型，所以了解的内容也一定很多，这里这个章节就不组织太多内容了，优先介绍书上的内容，然后再补充一个章节的个人结合一些模型的总结和理解就差不多了。好了，废话不多说，我们开始本章的知识点学习吧~</p>
+<h3 id="81-个体与集成">8.1 个体与集成</h3>
+<h4 id="集成学习ensemble-learning">集成学习（ensemble learning）</h4>
+<h5 id="概念">概念</h5>
+<p>通过构建并结合多个学习器来完成学习任务</p>
+<p><strong>别称</strong></p>
+<p>多分类器学习（multi-classifier system）</p>
+<p>基于委员会的学习（committee-based learning）</p>
+<h5 id="结构">结构</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/19/6d624fe8f6e3435e55524b0d77fc89b5.webp" alt="image-20210119093835868"></p>
+<p>先产生一组“个体学习器”（individual learner），再用某种策略将它们结合起来</p>
+<blockquote>
+<p>分类：</p>
+<ul>
+<li>同质（homogeneous）：集成的个体学习器只包含同种类型（基学习器 base learner），相应的学习算法称为“基学习算法”（base learning algorithm）</li>
+<li>异质（heterogeneous）：集成的个体学习器由不同的学习算法组成（组件学习器 component learner）</li>
+</ul>
+</blockquote>
+<h5 id="目的">目的</h5>
+<p>集成学习通过将多个学习器进行结合，常可获得比单一学习器显著优越的泛化性能</p>
+<blockquote>
+<p>弱学习器（weak learner）尤为明显：泛化性能略优于随机猜测的学习器</p>
+</blockquote>
+<h5 id="类型">类型</h5>
+<p>根据个体学习器的生成方式：</p>
+<ul>
+<li>个体学习器间存在强依赖关系
+<ul>
+<li>必须串行生成的序列化方法</li>
+<li>Boosting</li>
+</ul>
+</li>
+<li>个体学习器间不存在强依赖关系
+<ul>
+<li>可同时生成的并行化方法</li>
+<li>Bagging和“随机森林”（Random Forest）</li>
+</ul>
+</li>
+</ul>
+<h4 id="如何获得比最好的单一学习器更好的性能">如何获得比最好的单一学习器更好的性能？</h4>
+<h4 id="经验表现">经验表现</h4>
+<p>投票法（voting）：少数服从多数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/19/3903108737ea475b0e7c7329e15c95b7.webp" alt="image-20210119095843345"></p>
+<p>个体学习器要有一定的准确性，不能差于弱学习器</p>
+<p>学习器之间要有“多样性”（diversity），学习器间要有差异</p>
+<h4 id="理论推导">理论推导</h4>
+<p>考虑二分类问题的集成学习来看</p>
+<ul>
+<li>$y \in {-1, 1}$</li>
+<li>真实函数 $f$</li>
+<li>假定基分类器的错误率为 $\epsilon$</li>
+</ul>
+<p>则每个基分类器 $h_i$ 有 $P(h_i(\boldsymbol{x}) \neq f(\boldsymbol{x})) = \epsilon$</p>
+<hr>
+<p>假定采用简单投票法病结合T个基分类器</p>
+<p>集成分类正确： $F(\boldsymbol{x}) = \text{sign}\left(\sum_{i=1}^Th_i(\boldsymbol{x})\right)$</p>
+<p>集成分类错误率：$P(F(\boldsymbol{x}) \neq f(\boldsymbol{x})) = \sum_{k=0}^{[T/2]}\binom{T}{k}(1-\epsilon)^k\epsilon^{T-k} \le \exp \left( -\frac{1}{2}T(1-2\epsilon)^2 \right)$</p>
+<blockquote>
+<p>假定基分类器之间相互独立，随着个体分类器个数增大，集成的错误率指数级下降，最终趋于零</p>
+</blockquote>
+<p>事实上：个体学习器是为了解决同一个问题训练出来的，显然不可能相互独立；个体学习器的“准确性”和“多样性”本身是存在冲突的</p>
+<h3 id="82-boosting">8.2 Boosting</h3>
+<p>Boosting是一族可将弱学习器升为强学习器的算法，主要关注如何降低偏差</p>
+<h4 id="算法逻辑">算法逻辑</h4>
+<ul>
+<li>先从初始训练集训练处一个基学习器</li>
+<li>再根据基学习器的表现对训练样本分布进行调整，使得先前基学习器做错的训练样本在后续受到更多关注</li>
+<li>然后基于调整后的样本分布来训练下一个学习器</li>
+<li>如此重复进行，直至学习器数目达到预先指定的T值，最终将这T个基学习器进行加权结合</li>
+</ul>
+<h4 id="adaboost">AdaBoost</h4>
+<p>Boosting 族算法最著名的代表是AdaBoost [Freund and Schapire, 1997]</p>
+<blockquote>
+<p>AdaBoost 算法有多种推导方式，比较容易理解的是基于&quot;加性模型&quot; (additive model) ，即基学习器的线性组合</p>
+</blockquote>
+<h5 id="基于加性模型的推导方式">基于“加性模型”的推导方式</h5>
+<p><strong>公式表达</strong>
+$$
+H(\boldsymbol{x}) = \sum_{t=1}^T\alpha_t h_t(\boldsymbol{x})
+$$
+$h_t(\boldsymbol{x})$ 是第 $t$ 次训练出来的分类器</p>
+<p>$\alpha_t$ 是第 $t$ 次训练出来的分类器的权重</p>
+<p><strong>权重公式</strong>
+$$
+\alpha_t = \frac{1}{2}\ln\left(\frac{1-\epsilon_t}{\epsilon_t}\right)
+$$
+由 $\ln$ 函数的单调性可知，该分类器的权重只与分类器的错误率负相关（即 <strong>错误率越大，权重越低</strong>）</p>
+<p><strong>指数损失函数</strong>
+$$
+\ell_{\exp}(H|\mathcal{D}) = \mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}}\left[ e^{-f(\boldsymbol{x})H(\boldsymbol{x})} \right]
+$$
+参数说明：</p>
+<ul>
+<li>$f(\boldsymbol{x})$ 为样本的真实取值情况</li>
+<li>$H(\boldsymbol{x})$ 为集成学习分类器的取值情况</li>
+<li>$\boldsymbol{x} \sim \mathcal{D}$ 为一次从样本集合中的随机取样，并假定其样本集合服从某种分布</li>
+</ul>
+<blockquote>
+<p>公式解释：</p>
+<p>从指数损失函数 $e^{-f(\boldsymbol{x})H(\boldsymbol{x})}$ 可知：</p>
+<ul>
+<li>若 $f(\boldsymbol{x})H(\boldsymbol{x})$ 同号，即预测准确，此时损失函数近似为 $e^{-|H(\boldsymbol{x})|} &lt; 1$ ，且 $H(\boldsymbol{x})$ 值越大，则损失函数值越小</li>
+<li>若 $f(\boldsymbol{x})H(\boldsymbol{x})$ 异号，即预测错误，此时损失函数近似为 $e^{|H(\boldsymbol{x})|} &gt; 1$ ，且 $H(\boldsymbol{x})$ 值越大，则损失函数值越大</li>
+</ul>
+<p><em>可以看出 $|H(\boldsymbol{x})|$ 越大意味着分类器本身对预测结果的信心越大，而最终损失函数的值则意味着预测结果的正确与否</em></p>
+<p>基于“加性模型”$H(\boldsymbol{x})$ ：</p>
+<ul>
+<li>是将多次分类器的结果加权得到，因此其值 $|H(\boldsymbol{x})|$ 表达了集成学习对于样本的预测结果的信心</li>
+</ul>
+<p>$\mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}}[·]$ 表达样本在 $\mathcal{D}$ 概率分布上的期望：</p>
+<ul>
+<li>可简单理解为在一次随机取样中，数据集 $\mathcal{D}$ 中的样本被取到的概率</li>
+<li>$\mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}}\left[e^{-f(\boldsymbol{x})H(\boldsymbol{x})} \right]$ 可以理解为对数据集 $D$ 以概率分布 $\mathcal{D}$ 进行加权后的期望</li>
+</ul>
+<p>$$
+\mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}}\left[e^{-f(\boldsymbol{x})H(\boldsymbol{x})} \right] = \sum_{\boldsymbol{x} \in D} \mathcal{D}(\boldsymbol{x})e^{-f(\boldsymbol{x})H(\boldsymbol{x})}
+$$</p>
+</blockquote>
+<p><strong>如何使指数损失函数最小化？</strong></p>
+<p>Step 1、 通过观察可以看出来指数损失函数的值域与H(x)相关
+$$
+\frac{\partial \ell_{\exp}(H|\mathcal{D})}{\partial H(\boldsymbol{x})} = -e^{-H(\boldsymbol{x})}P(f(\boldsymbol{x})=1|\boldsymbol{x})+e^{H(\boldsymbol{x})}P(f(\boldsymbol{x})=-1|\boldsymbol{x})
+$$
+Step 2、 每次迭代地生成 $h_t$ 和 $\alpha_t$ ，当基分类器 $h_t$ 基于分布 $\mathcal{D}_t$ 产生后，该基分类器的权重 $\alpha_t$ 应使 $\alpha_th_t$ 最小化指数损失函数</p>
+<blockquote>
+<p>因为是基于”加性模型“，所以加性模型在欲求最小值的情况即为求每一项最小即可</p>
+</blockquote>
+<hr>
+<p><strong>如何理解？</strong></p>
+<p>$$
+\begin{align}
+\ell(\alpha_th_t|\mathcal{D}_t) &amp; = \mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}_t}\left[ e^{-f(\boldsymbol{x})\alpha_th_t(\boldsymbol{x})} \right] \\<br>
+&amp; = \mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}_t}\left[e^{-\alpha_t}\mathbb{I}(f(\boldsymbol{x}) = h_t(\boldsymbol{x})) + e^{\alpha_t}\mathbb{I}(f(\boldsymbol{x}) \neq h_t(\boldsymbol{x})) \right] \\<br>
+&amp; = e^{-\alpha_t}P_{\boldsymbol{x} \sim \mathcal{D}_t}(f(\boldsymbol{x}) = h_t(\boldsymbol{x})) + e^{\alpha_t}P_{\boldsymbol{x} \sim \mathcal{D}_t}(f(\boldsymbol{x}) \neq h_t(\boldsymbol{x})) \\<br>
+&amp; = e^{-\alpha_t}(1 - \epsilon_t) + e^{\alpha_t}\epsilon_t
+\end{align}
+$$</p>
+<blockquote>
+<p>这是一次迭代过程中的损失函数，其中 $\epsilon_t = P_{\boldsymbol{x} \sim \mathcal{D}_t}(h_t(\boldsymbol{x}) \neq f(\boldsymbol{x}))$</p>
+</blockquote>
+<p>求指数损失函数的偏导：
+$$
+\frac{\partial \ell_{\exp}(\alpha_th_t|\mathcal{D}_t)}{\partial{\alpha_t}} = -e^{-\alpha_t}(1 - \epsilon_t) + e^{\alpha_t}\epsilon_t
+$$
+令其为零解得：
+$$
+\alpha_t = \frac{1}{2}\ln\left( \frac{1-\epsilon_t}{\epsilon_t} \right)
+$$</p>
+<hr>
+<p>Step 3、 每次迭代完成 $（H_{t-1}）$ 之后的样本分布将进行调整，使下一轮的基学习器 $h_t$ 能纠正上一次迭代中的一些错误</p>
+<blockquote>
+<p>最理想的状态就是下一轮训练能够纠正上一次迭代地全部错误</p>
+</blockquote>
+<hr>
+<p><strong>如何理解？</strong>
+$$
+\begin{align}
+\ell_{\exp}(H_{t-1}+\alpha_th_t|\mathcal{D}) = \ell_{\exp}(H_{t-1}+h_t|\mathcal{D}) &amp; = \mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}}[e^{-f(\boldsymbol{x})(H_{t-1}(\boldsymbol{x}) + h_t(\boldsymbol{x}))}] \\<br>
+&amp; = \mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}}[e^{-f(\boldsymbol{x})H_{t-1}(\boldsymbol{x})} + e^{-f(\boldsymbol{x})h_t(\boldsymbol{x})}] \\<br>
+&amp; \simeq \mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}}\left[e^{-f(\boldsymbol{x})H_{t-1}(\boldsymbol{x})}\left(1 - f(\boldsymbol{x})h_t(\boldsymbol{x}) + \frac{f^2(\boldsymbol{x})h_{t}^2(\boldsymbol{x})}{2} \right)\right] \\<br>
+&amp; = \mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}}\left[ e^{-f(\boldsymbol{x})H_{t-1}(\boldsymbol{x})}\left( 1 - f(\boldsymbol{x})h_t(\boldsymbol{x}) + \frac{1}{2} \right) \right]
+\end{align}
+$$
+理想基学习器：
+$$
+\begin{align}
+h_t(\boldsymbol{x}) &amp; = \underset{h}{\arg\min}\ell_{\exp}(H_{t-1} + h|\mathcal{D}) \\<br>
+&amp; = \underset{h}{\arg\min}\mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}}\left[ e^{-f(\boldsymbol{x})H_{t-1}(\boldsymbol{x})}\left( 1 - f(\boldsymbol{x})h(\boldsymbol{x}) + \frac{1}{2} \right) \right] \\<br>
+&amp; = \underset{h}{\arg\max} \mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}} \left[ e^{-f(\boldsymbol{x})H_{t-1}(\boldsymbol{x})}f(\boldsymbol{x})h(\boldsymbol{x}) \right] \\<br>
+&amp; = \underset{h}{\arg\max} \mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}} \left[ \frac{e^{-f(\boldsymbol{x})H_{t-1}(\boldsymbol{x})}}{\mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}}[ e^{-f(\boldsymbol{x})H_{t-1}(\boldsymbol{x})}]}f(\boldsymbol{x})h(\boldsymbol{x}) \right] \\<br>
+&amp; = \underset{h}{\arg\max}\mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}_t}[f(\boldsymbol{x})h(\boldsymbol{x})] \\<br>
+&amp; = \underset{h}{\arg\min}\mathbb{E}_{\boldsymbol{x} \sim \mathcal{D}_t}\left[\mathbb{I}(f(\boldsymbol{x}) \neq h(\boldsymbol{x}))\right]
+\end{align}
+$$
+即跟经验一致：理想的 $h_t$ 将在分布 $\mathcal{D}_t$ 下最小化分类误差</p>
+<h4 id="两种训练方式">两种训练方式</h4>
+<h5 id="重赋权法re-weighting">重赋权法（re-weighting）</h5>
+<p>即在训练过程的每一轮中，根据样本分布为每个训练样本重新赋予一个权重</p>
+<h5 id="重采样法re-sampling">重采样法（re-sampling）</h5>
+<p>在每一轮的学习中，根据样本分布对训练集重新进行采样，再用重采样而得到的样本集对基学习器进行训练</p>
+<blockquote>
+<p>拥有“重启动”机会以避免训练过程过早的停止</p>
+</blockquote>
+<h3 id="83-bagging和随机森林">8.3 Bagging和随机森林</h3>
+<blockquote>
+<p><strong>目的：</strong></p>
+<p>集成学习的目的是为了将多个弱学习器结合起来得到泛化性能更强的集成</p>
+<p><strong>需求：</strong></p>
+<p>为了获得更好的集成效果，则需要其中的每个个体学习器尽可能“独立”</p>
+<p><strong>方法：</strong></p>
+<p>从样本数据集中产生出不同的训练子集，并同时需要保证训练数据的一定数量。</p>
+<hr>
+<p>相互有交叠的采样子集（bootstrap sampling）</p>
+</blockquote>
+<h4 id="baggingbootstrap-aggregating">Bagging（Bootstrap AGGregatING）</h4>
+<h5 id="基本流程">基本流程</h5>
+<p>利用自助采样法（bootstrap sampling）通过样本数据集，产生 $T$ 个包含 $m$ 个训练样本的采样集，然后基于每个采样集训练出一个基学习器，再将这些基学习器进行结合。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/19/652b968fbd90d660897ac8bc54ddaed6.webp" alt="image-20210119144620718"></p>
+<h5 id="优势">优势</h5>
+<p><strong>算法复杂度</strong>：</p>
+<p>Bagging 的算法复杂度为：$T(O(m)+O(s))$</p>
+<p>基学习器的计算复杂度：$O(m)$</p>
+<p>采样与决策的过程的复杂度：$O(s)$</p>
+<p>因此Bagging的计算复杂度跟直接使用基学习算法训练一个学习器的复杂度同阶</p>
+<p><strong>Bagging 能够不经修改地用于多分类、回归等任务</strong></p>
+<p><strong>样本使用方式</strong></p>
+<p>自助采样法带来的优势</p>
+<ul>
+<li>每个基学习器只使用了初始训练集中的 63.2% 的样本</li>
+<li>剩下 36.8% 的样本可作为验证集来对泛化性能进行”包外估计“（out-of-bag estimate）</li>
+</ul>
+<p>包外样本的其他用途</p>
+<ul>
+<li>当基学习器是决策树时，辅助剪枝，或用于估计决策树中各结点的后验概率以辅助对零训练样本结点的处理</li>
+<li>当基学习器是神经网络时，辅助早期停止以减小过拟合风险</li>
+</ul>
+<hr>
+<p>Bagging 主要关注降低方差，因此它在不剪枝决策树、神经网络等易受样本扰动的学习器上效用更为明显</p>
+<h4 id="随机森林random-forest">随机森林（Random Forest）</h4>
+<h5 id="基本流程-1">基本流程</h5>
+<p>RF是以决策树为基学习器构建Bagging集成的基础上，进一步在决策树的训练过程中引入随机属性选择</p>
+<h5 id="具体方式">具体方式</h5>
+<p>在划分属性时，先从该结点的属性集合中随机选择一个包含k个属性的子集，然后再从这个子集中选择一个最优属性用于划分</p>
+<p>$k$ 的可选取值：</p>
+<ul>
+<li>$k=d$ ，则基决策树的构建与传统决策树相同</li>
+<li>$k=1$ ，则是随机选择一个属性用于划分</li>
+<li>$k=\log_2d$，推荐值（Breiman）</li>
+</ul>
+<blockquote>
+<p>盛誉：<strong>“代表集成学习技术水平的方法”</strong></p>
+</blockquote>
+<h3 id="84-结合策略">8.4 结合策略</h3>
+<h4 id="学习器结合带来的好处">学习器结合带来的好处</h4>
+<h5 id="从统计的方面看">从统计的方面看</h5>
+<p>由于学习任务的假设空间往往很大，可能有很多假设在训练集上达到同样性能</p>
+<p>避免因使用单学习器带来的泛化性能不佳</p>
+<h5 id="从计算的方面看">从计算的方面看</h5>
+<p>学习算法往往会陷入局部极小陷阱，单个学习器很容易陷入局部极小的风险</p>
+<p>通过多个学习器可降低陷入局部极小陷阱的风险</p>
+<h5 id="从表示的方面看">从表示的方面看</h5>
+<p>某些学习任务的真实假设可能不在当前学习算法所考虑的假设空间中</p>
+<p>避免当前算法学习器所考虑的的假设不在假设空间</p>
+<hr>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/19/e86b6fe2adca17f7029686e579f26509.webp" alt="image-20210119145447424"></p>
+<h4 id="常见的结合策略">常见的结合策略</h4>
+<h5 id="平均法">平均法</h5>
+<p>主要是一些数值型输出 $h_i(\boldsymbol{x}) \in \mathbb{R}$</p>
+<p><strong>类型</strong></p>
+<ul>
+<li>简单平均法</li>
+</ul>
+<p>$$
+H(\boldsymbol{x}) = \frac{1}{T}\sum_{i=1}^{T}h_i(\boldsymbol{x})
+$$</p>
+<p>个体学习器<strong>性能相近</strong>时宜用简单平均法</p>
+<ul>
+<li>加权平均法</li>
+</ul>
+<p>$$
+H(\boldsymbol{x})=\sum_{i=1}^Tw_ih_i(\boldsymbol{x})
+$$</p>
+<blockquote>
+<p>其中 $w_i$ 是个体学习器 $h_i$ 的权重，通常要求 $w_i \ge 0$， $\sum_{i=1}^Tw_i = 1$</p>
+</blockquote>
+<p>个体学习器<strong>性能相差较大</strong>时宜使用加权平均法</p>
+<h5 id="投票法">投票法</h5>
+<p>主要是一些分类任务</p>
+<p>学习器 $h_i$ 从类别标记集合 ${c_1,c_2,&hellip;,c_N}$ 中预测出一个标记，将 $h_i$ 在样本 $\boldsymbol{x}$ 上的预测输出表示为一个 $N$ 维向量$(h_i^1(\boldsymbol{x});h_i^2(\boldsymbol{x});&hellip;;h_i^N(\boldsymbol{x}))$ $h_i^j(\boldsymbol{x})$ 是 $h_i$ 在类别标记 $c_j$ 上的输出</p>
+<p><strong>类型</strong></p>
+<ul>
+<li>绝对多数投票法（majority voting）</li>
+</ul>
+<p>$$
+H(\boldsymbol{x}) =
+\begin{cases}
+c_j, &amp; \text{if} \quad \sum_{i=1}^Th_i^j(\boldsymbol{x}) &gt; 0.5\sum_{k=1}^N\sum_{i=1}^Th_i^k(\boldsymbol{x}) \\<br>
+\text{reject}, &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<p>即若某标记得票超过半数，则预测为该标记；否则拒绝预测</p>
+<ul>
+<li>相对多数投票法（plurality voting）</li>
+</ul>
+<p>$$
+H(\boldsymbol{x})=c_{\underset{j}{\arg\max}\sum_{i=1}^Th_i^j(\boldsymbol{x})}
+$$</p>
+<p>即预测为得票最多的标记，若同时有多个标记获最高票，则从中随机选择一个</p>
+<ul>
+<li>加权投票法（weighted voting）</li>
+</ul>
+<p>$$
+H(\boldsymbol{x})=c_{\underset{j}{\arg\max}\sum_{i=1}^Tw_ih_i^j(\boldsymbol{x})}
+$$</p>
+<p>与加权平均法类似，加权后分数最高票为标记</p>
+<hr>
+<blockquote>
+<p>根据学习器输出值还可以进一步分类:</p>
+<ul>
+<li>类标记：$h_i^j(\boldsymbol{x}) \in {0, 1}$ —— 硬投票（hard voting）</li>
+<li>类概率：$h_i^j(\boldsymbol{x}) \in [0,1]$ —— 软投票（soft voting）</li>
+</ul>
+<hr>
+<p>不同类型的输出值不能混用</p>
+<p><strong>对一些能在预测类别标记的同时产生分类置信度的学习器，其分类置信度可转化为类概率使用</strong></p>
+<p>规范化：</p>
+<ul>
+<li>Platt 缩放（Platt scaling）</li>
+<li>等分回归（isotonic regression）</li>
+</ul>
+</blockquote>
+<h5 id="学习法">学习法</h5>
+<p>通过另一个学习器来进行结合，即结合的方法就是本身就是一种学习法</p>
+<p><strong>Stacking（典型代表）</strong></p>
+<p>概念：</p>
+<ul>
+<li>把个体学习器称为初学习器</li>
+<li>用于结合的学习器称为次级学习器或元学习器</li>
+</ul>
+<blockquote>
+<p><strong>Stacking</strong> 本身是一种著名的集成学习方法，它也可看作一种特殊的结合策略</p>
+</blockquote>
+<p>算法逻辑：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/19/c319567cc56b87e11b0f30745939a78a.webp" alt="image-20210119151833085"></p>
+<p>Stacking 先从初始数据集训练出初级学习器，然后“生成”一个新数据集用于训练次级学习器</p>
+<blockquote>
+<ul>
+<li>在训练阶段，次级训练器是利用初级学习器产生的，若直接用初级学习器的训练集来产生次级训练器，则过拟合风险会比较大</li>
+<li>一般通过使用交叉验证或留一法这样的方式，用训练初级学习器未使用的样本来产生次级学习器的训练样本</li>
+</ul>
+</blockquote>
+<hr>
+<p>举例说明：（以 $K$ 折交叉验证为例）</p>
+<ul>
+<li>初始训练集 $D$ 被随机划分为 $k$ 个大小相似的集合 $D_1,D_2,&hellip;,D_k$</li>
+<li>令 $D_j$ 和 $\overline{D}_j = D \setminus D_j$  分别表示第 $j$ 折的测试集和训练集</li>
+<li>给定 $T$ 个初级学习算法，初级学习器 $h_{t}^{(j)}$ 通过在 $\overline{D}_j$ 上使用第 $t$ 个学习算法而得</li>
+<li>对 $D_j$ 中每个样本 $\boldsymbol{x}<em>i$ ，令 $z</em>{it}=h_t^{(j)}(\boldsymbol{x}<em>i)$ ，则由 $\boldsymbol{x}<em>i$ 所产生的次级训练样例的示例部分为 $\boldsymbol{z}<em>i = (z</em>{i1},z</em>{i2},&hellip;,z</em>{iT})$ ，标记部分为 $y_i$</li>
+<li>从这 $T$ 个初级学习器产生的次级训练集是 $D'={(\boldsymbol{z}<em>i,y_i)}</em>{i=1}^m$ ，然后 $D'$ 将用于训练次级学习器</li>
+</ul>
+<hr>
+<p>泛化性能影响因素：</p>
+<ul>
+<li>次级学习器的输入属性表示</li>
+<li>次级学习算法</li>
+</ul>
+<h3 id="85-多样性">8.5 多样性</h3>
+<h4 id="误差-分歧分解error-ambiguity-decomposition">误差-分歧分解（error-ambiguity decomposition）</h4>
+<blockquote>
+<p>结论(概念)：个体学习器准确性越高、多样性越好，则集成越好</p>
+</blockquote>
+<h5 id="推导过程">推导过程</h5>
+<p>假定用个体学习器通过加权平均法结合产生的集成来完成回归学习任务</p>
+<p><strong>”分歧“的定义</strong>：</p>
+<p>个体学习器的“分歧”
+$$
+A(h_i|\boldsymbol{x})=\left(h_i(\boldsymbol{x}) - H(\boldsymbol{x})\right)^2
+$$
+集成的“分歧”
+$$
+\begin{align}
+\overline{A}(h|\boldsymbol{x}) &amp; = \sum_{i=1}^T w_iA(h_i|\boldsymbol{x}) \\<br>
+&amp; = \sum_{i=1}^T w_i\left( h_i(\boldsymbol{x}) - H(\boldsymbol{x}) \right)^2
+\end{align}
+$$</p>
+<blockquote>
+<p>表征了个体学习器在样本上的不一致性，即在一定程度上反映了个体学习器的多样性</p>
+</blockquote>
+<p><strong>平方误差</strong></p>
+<p>个体学习器的平方误差
+$$
+E(h_i|\boldsymbol{x}) = \left( f(\boldsymbol{x}) - h_i(\boldsymbol{x}) \right)^2
+$$
+集成的平方误差
+$$
+E(H|\boldsymbol{x})=\left( f(\boldsymbol{x}) - H(\boldsymbol{x}) \right)^2
+$$</p>
+<blockquote>
+<p>当我们用 $\overline{E}(h|\boldsymbol{x})=\sum_{i=1}^Tw_iE(h_i|\boldsymbol{x})$ 表示个体学习器误差的加权平均值</p>
+</blockquote>
+<hr>
+<p>于是带入后者到前者的公式后我们得到
+$$
+\begin{align}
+\overline{A}(h|\boldsymbol{x}) &amp; = \sum_{i=1}^T w_iE(h_i|\boldsymbol{x}) - E(H|\boldsymbol{x}) \\<br>
+&amp; = \overline{E}(h|\boldsymbol{x}) - E(H|\boldsymbol{x})
+\end{align}
+$$
+令 $p(\boldsymbol{x})$ 表示样本的概率密度，则在全样本上有
+$$
+\sum_{i=1}^Tw_i\int A(h_i|\boldsymbol{x})p(\boldsymbol{x})d\boldsymbol{x} = \sum_{i=1}^T w_i\int E(h_i|\boldsymbol{x})p(\boldsymbol{x})d\boldsymbol{x} - \int E(H|\boldsymbol{x})p(\boldsymbol{x})d\boldsymbol{x}
+$$</p>
+<hr>
+<blockquote>
+<p>个体学习器 $h_i$ ：</p>
+<ul>
+<li>泛化误差：$E(h_i)=\int E(h_i|\boldsymbol{x})p(\boldsymbol{x})d\boldsymbol{x}$</li>
+<li>分歧项：$A(h_i) = \int A(h_i|\boldsymbol{x})p(\boldsymbol{x})d\boldsymbol{x}$</li>
+</ul>
+<p>集成的泛化误差：$E(H) = \int E(H|\boldsymbol{x})p(\boldsymbol{x})d\boldsymbol{x}$</p>
+<hr>
+<p>带入上面方程：</p>
+<ul>
+<li>令 $\overline{E}=\sum_{i=1}^T w_iE_i$ 表示个体学习器泛化误差的加权均值</li>
+<li>令 $\overline{A} = \sum_{i=1}^Tw_iA_i$ 表示个体学习器的加权分歧值</li>
+</ul>
+</blockquote>
+<p>最终得到
+$$
+E = \overline{E} - \overline{A}
+$$</p>
+<blockquote>
+<p>PS：仅适用于回归学习，难以直接推广到分类学习任务上去</p>
+</blockquote>
+<h4 id="多样性度量diversity-measure">多样性度量（diversity measure）</h4>
+<blockquote>
+<p>结论（概念）：用于度量集成中个体分类器的多样性，即估算个体学习器的多样化程度</p>
+</blockquote>
+<p>典型做法：</p>
+<p>​	<strong>考虑个体分类器的两两相似\不相似性</strong></p>
+<p>对于二分类任务，两两分类器的预测结果列联表（contingency table）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/19/c1090542a178d1633eaaaa4e058420e9.webp" alt="image-20210119153742944"></p>
+<p>其中：a + b + c + d = m</p>
+<p><strong>常见的多样性度量方式</strong></p>
+<ul>
+<li>不合度量（disagreement measure）</li>
+</ul>
+<p>$$
+dis_{ij} = \frac{b + c}{m}
+$$</p>
+<p>$dis_{ij} \in [0, 1]$，值越大则多样性越大</p>
+<ul>
+<li>相关系数（correlation coefficient）</li>
+</ul>
+<p>$$
+\rho_{ij} = \frac{ad - bc}{\sqrt{(a+b)(a+c)(c+d)(b+d)}}
+$$</p>
+<p>$\rho_{ij}$ 的值域为 $[-1, +1]$ ，若 $h_i$ 与 $h_j$ 无关，则值为 $0$ ；若正相关则值为正；若负相关则值为负</p>
+<ul>
+<li>$Q$ - 统计量（Q-statistic）</li>
+</ul>
+<p>$$
+Q_{ij}=\frac{ad-bc}{ad+bc}
+$$</p>
+<p>$Q_{ij}$ 与 $\rho_{ij}$ 的符号性质相同，且 $|Q_{ij}| \ge |\rho_{ij}|$</p>
+<ul>
+<li>$\kappa$ - 统计量（$\kappa$-statistic）</li>
+</ul>
+<p>$$
+\kappa = \frac{p_1 - p_2}{1 - p_2}
+$$</p>
+<p>其中
+$$
+p_1 = \frac{a + d}{m}
+$$
+两个分类器取得一致的概率
+$$
+p_2 = \frac{(a + b)(a + c) + (c + d)(b + d)}{m^2}
+$$
+两个分类器偶然达成一致的概率</p>
+<hr>
+<p>数值情况</p>
+<ul>
+<li>若分类器 $h_i$ 与 $h_j$ 在 $D$ 上完全一致，则 $\kappa = 1$</li>
+<li>若它们仅是偶然达成一致，则 $\kappa = 0$</li>
+<li>仅在 $h_i$ 和 $h_j$ 达成一致的概率甚至低于偶然性的情况下取值为负</li>
+</ul>
+<p>$\kappa$ - 误差图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/19/18829434b5bef0a8bdfdf44ab32fc451.webp" alt="image-20210119155501924"></p>
+<ul>
+<li>
+<p>数据点云的位置越高，则个体分类器准确性越低</p>
+</li>
+<li>
+<p>点云的位置越靠右，则个体学习器的多样性越小</p>
+</li>
+</ul>
+<h4 id="多样性增强">多样性增强</h4>
+<blockquote>
+<p>核心问题：在集成学习过程中如何有效的生成多样性大的个体学习器？</p>
+</blockquote>
+<h5 id="常见做法">常见做法</h5>
+<p><strong>数据样本扰动</strong></p>
+<p>实现方式：通过采样实现</p>
+<ul>
+<li>Bagging中的自助采样</li>
+<li>AdaBoost中的序列采样</li>
+</ul>
+<p>基学习器分类</p>
+<p>不稳定基学习器：数据稍加变化就会导致学习器有显著变动</p>
+<ul>
+<li>决策树</li>
+<li>神经网络</li>
+</ul>
+<p>稳定基学习器：对数据样本的扰动不敏感</p>
+<ul>
+<li>线性学习器</li>
+<li>支持向量机</li>
+<li>朴素贝叶斯</li>
+<li>$k$ 近邻学习器</li>
+</ul>
+<p><strong>输入属性扰动</strong></p>
+<p>实现方式：属性”子空间“（属性子集）</p>
+<p>随机子空间（random subspace）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/19/485cc127b18f4c88c6995c5cef0d33ea.webp" alt="image-20210119160420076"></p>
+<p>该算法从初始属性集中抽取出若干个属性子集，再基于每个属性子集训练一个基学习器</p>
+<p><strong>输出表示扰动</strong></p>
+<p>实现方式：对输出表示进行操纵以增强多样性</p>
+<p>常见方法：</p>
+<ul>
+<li>翻转法（Flipping Output）：随机改变一些训练样本的标记</li>
+<li>输出调制法（Output Smearing）：将分类输出转化为回归输出后构建个体学习器</li>
+<li>ECOC法：利用纠错输出码将多分类任务拆解为一系列二分类任务来训练基学习器</li>
+</ul>
+<p><strong>算法参数扰动</strong></p>
+<p>实现方式：随机设置算法中的一些参数，产生差别较大的基学习器</p>
+<p>常见方法：</p>
+<ul>
+<li>负相关法（Negative Correlation）：显式地通过正则化项来强制个体神经网络使用不同的参数</li>
+<li>环节替换
+<ul>
+<li>将学习过程中某些环节用其他类似方式代替，从而达到扰动的目的</li>
+<li>决策树的属性选择机制替换成其他的属性选择机制</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>不同的多样性增强机制可同时使用，像随机森林中同时使用了数据样本扰动和输入属性扰动</p>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/">
+                                    <i class="fas fa-tag mr-2"></i>周志华
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/boosting/">
+                                    <i class="fas fa-tag mr-2"></i>Boosting
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/adaboost/">
+                                    <i class="fas fa-tag mr-2"></i>AdaBoost
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/bagging/">
+                                    <i class="fas fa-tag mr-2"></i>Bagging
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/stacking/">
+                                    <i class="fas fa-tag mr-2"></i>Stacking
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x000032',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000031/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器 补充三">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第七章 贝叶斯分类器 补充三
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">January 11, 2021</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 补充三
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000030/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器 补充二">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第七章 贝叶斯分类器 补充二
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 22, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 补充二
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x00002e/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器 补充一">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第七章 贝叶斯分类器 补充一
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 10, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 补充一
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

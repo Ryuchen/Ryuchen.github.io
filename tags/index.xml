@@ -7,7 +7,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
-    <lastBuildDate>Mon, 11 Jan 2021 15:46:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Jan 2021 15:46:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AdaBoost</title>
+      <link>https://ryuchen.club/tags/adaboost/</link>
+      <pubDate>Tue, 19 Jan 2021 15:46:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/adaboost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bagging</title>
+      <link>https://ryuchen.club/tags/bagging/</link>
+      <pubDate>Tue, 19 Jan 2021 15:46:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/bagging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boosting</title>
+      <link>https://ryuchen.club/tags/boosting/</link>
+      <pubDate>Tue, 19 Jan 2021 15:46:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/boosting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stacking</title>
+      <link>https://ryuchen.club/tags/stacking/</link>
+      <pubDate>Tue, 19 Jan 2021 15:46:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/stacking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>周志华</title>
+      <link>https://ryuchen.club/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
+      <pubDate>Tue, 19 Jan 2021 15:46:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Gibbs采样</title>
       <link>https://ryuchen.club/tags/gibbs%E9%87%87%E6%A0%B7/</link>
@@ -23,15 +68,6 @@
       <pubDate>Mon, 11 Jan 2021 15:46:42 +0800</pubDate>
       
       <guid>https://ryuchen.club/tags/mh%E9%87%87%E6%A0%B7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>周志华</title>
-      <link>https://ryuchen.club/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
-      <pubDate>Mon, 11 Jan 2021 15:46:42 +0800</pubDate>
-      
-      <guid>https://ryuchen.club/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
       <description></description>
     </item>
     

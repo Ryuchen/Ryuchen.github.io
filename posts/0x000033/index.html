@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     [读书笔记]《西瓜书》第八章 集成学习 补充 |  Sweet House
+  
+</title>
+
+
+  <meta name="description" content="Everyday is a holiday">
+
+
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x000033/"><meta property="og:title" content="[读书笔记]《西瓜书》第八章 集成学习 补充" />
+<meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 8 集成学习 补充" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x000033/" />
+<meta property="og:image" content="https://ryuchen.club/machine-learning.jpg" />
+<meta property="article:published_time" content="2021-01-20T11:35:42+08:00" />
+<meta property="article:modified_time" content="2021-01-20T11:35:42+08:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000032/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000031/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000030/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002e/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002d/" />
+
+<meta itemprop="name" content="[读书笔记]《西瓜书》第八章 集成学习 补充">
+<meta itemprop="description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 8 集成学习 补充">
+<meta itemprop="datePublished" content="2021-01-20T11:35:42+08:00" />
+<meta itemprop="dateModified" content="2021-01-20T11:35:42+08:00" />
+<meta itemprop="wordCount" content="713">
+<meta itemprop="image" content="https://ryuchen.club/machine-learning.jpg">
+
+
+
+<meta itemprop="keywords" content="周志华,Boosting,Random Forest,GBDT,XGBoost,LightGBM," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>[读书笔记]《西瓜书》第八章 集成学习 补充</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">January 20, 2021</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>5260</span>
+                            <span><i class="fas fa-clock mr-2"></i>23 minutes and
+                                54 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+                                    <i class="fas fa-tag mr-2"></i>机器学习
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg" class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第八章 集成学习 补充">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <h2 id="第八章-集成学习-补充">第八章 集成学习 补充</h2>
+<hr>
+<p>集成学习这一章节的内容相比于前面神经网络、支持向量机、贝叶斯分类器要相对少一点，同时这一块理解上也要更贴近人类的直观感受，毕竟中国自古有句老话：三个臭皮匠，顶过诸葛亮。所以这一章的内容只需要进行一个简单的总结和补充就可以完结了，相比书上的内容来说，现在无论在 Kaggle 比赛中，还是在工程实施上最常用的 xgboost 和 lightgbm 也借此机会补充一下。好了，开始咱们对这一章的总结和补充吧~</p>
+<h3 id="为什么有效">为什么有效？</h3>
+<p>虽然集成学习的有效性是十分符合直观感受的，但是“是否有效”和“为什么有效”这两个问题在学术上是非常严谨的。于是在网上查找相关的内容的时候，找到了一本PDF电子书《<strong>The Handbook of Brain Theory and Neural Network</strong>》，在这本书中有一篇 <em>Thomas G. Dietterich</em> 写的 <code>Ensemble Learning</code> 一篇论文，这篇论文中有关于这个问题的详细描述。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/20/80bfdcc64639649243f835a24ae6925b.webp" alt="image-20210120094731849"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/20/cba10b1ea7e75cf427774445de20f909.webp" alt="image-20210120094748594"></p>
+<h4 id="统计上的原因">统计上的原因</h4>
+<p>一个学习算法可以理解为在一个假设空间 $\mathcal{H}$ 中选找到一个最好的假设。但是，当训练样本的数据量小到不够用来精确的学习到目标假设时，学习算法可以找到很多满足训练样本的分类器。所以，学习算法选择任何一个分类器都会面临一定错误分类的风险，因此将多个假设集成起来可以降低选择错误分类器的风险。</p>
+<h4 id="计算上的原因">计算上的原因</h4>
+<p>很多学习算法在进行最优化搜索时很有可能陷入局部最优的错误中，因此对于学习算法而言很难得到一个全局最优的假设。事实上人工神经网络和决策树已经被证实为是一个 NP 问题。集成算法可以从多个起始点进行局部搜索，从而分散陷入局部最优的风险。</p>
+<h4 id="表示上的原因">表示上的原因</h4>
+<p>在多数应用场景中，假设空间 $\mathcal{H}$ 中的任意一个假设都无法表示 (或近似表示) 真正的分类函数 $f$。因此，对于不同的假设条件，通过加权的形式可以扩大假设空间，从而学习算法可以在一个无法表示或近似表示真正分类函数 $f$ 的假设空间中找到一个逼近函数 $f$ 的近似值。</p>
+<h3 id="集成学习的分类">集成学习的分类</h3>
+<p>在理论上了解了集成学习为什么有效之后，紧接着的问题就是集成学习如何分类，这方面业界应该也算是比较统一了。</p>
+<h4 id="从集成效果来看">从集成效果来看</h4>
+<p>集成学习可以分为三大类：</p>
+<ul>
+<li>用于减少方差的 <strong>Bagging</strong></li>
+<li>用于减少偏差的 <strong>Boosting</strong></li>
+<li>用于提升预测结果的 <strong>Stacking</strong></li>
+</ul>
+<h4 id="从训练过程来看">从训练过程来看</h4>
+<p>集成学习方法可以归为如下两大类：</p>
+<ul>
+<li>
+<p>串行集成方法，这种方法串行地生成基础模型（如AdaBoost）。</p>
+<blockquote>
+<p>串行集成的基本动机是利用基础模型之间的依赖。通过给错分样本一个较大的权重来提升性能。</p>
+</blockquote>
+</li>
+<li>
+<p>并行集成方法，这种方法并行地生成基础模型（如Random Forest）。</p>
+<blockquote>
+<p>并行集成的基本动机是利用基础模型的独立性，因为通过平均能够较大地降低误差。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="从基学习器来看">从基学习器来看</h4>
+<p>集成学习方法分类两种类型：</p>
+<ul>
+<li>同质集成：这种集成学习模型，通过一个基础学习算法来生成一个同质的基学习器，即同类型的学习器。</li>
+<li>异质集成：使用不同类型的基学习器最终集成在一起，为了集成后的结果表现的更好，异质基础学习器需要尽可能准确并且差异性够大。</li>
+</ul>
+<h3 id="三大类型的总结">三大类型的总结</h3>
+<p>在上面集成算法分类中，最出名就是三中类型的分类：<strong>Bagging</strong>、<strong>Boosting</strong> 和 <strong>Stacking</strong>。虽然在西瓜书中有相关内容的介绍，但是感觉比较散，这里重新组织和总结一下。</p>
+<h4 id="bagging">Bagging</h4>
+<p><strong>Bagging (Boostrap Aggregating)</strong>  是由 <em>Breiman</em> 于 1996 年提出，基本思想如下：</p>
+<ul>
+<li>每次采用有放回的抽样从训练集中取出 $n$ 个训练样本组成新的训练集。</li>
+<li>利用新的训练集，训练得到 $M$ 个子模型 ${h_1,h_2,&hellip;,h_M}$。</li>
+<li>对于分类问题，采用投票的方法，得票最多子模型的分类类别为最终的类别；对于回归问题，采用简单的平均方法得到预测值。</li>
+</ul>
+<p>对于 <strong>Bagging</strong> 来说，其采用的基本想法就是通过多个估计值取平均的方式来减少模型验证时的方差。这里通过有放回的随机采样来训练 $M$ 个基学习器达到这个效果，因此其对于每一个样本来说，其始终不被采用的概率为 $(1 - \frac{1}{M})^M$ ，这个值取极限的话，意味着存在 36.8% 的训练集样本可以用作验证集对于学习器的泛化能力进行包外估计（out-of-bag estimate）。</p>
+<p>在这一类算法中最出名的就是随机森林了，而对于随机森林来说，其本身是一种利用决策树作为基学习器的集成学习算法。</p>
+<blockquote>
+<p>PS: 这一部分在西瓜书中有详细的说明，并且对于随机森林在构建过程中引入样本扰动和特征扰动的特性也有说明。这里需要补充一点书上没说的内容，即在训练随机森林时需要注意的一些点：</p>
+<p>1.在构建决策树的过程中是不需要剪枝的。</p>
+<p>2.整个森林的树的数量和每棵树的特征需要人为进行设定。</p>
+<p>3.构建决策树的时候分裂节点的选择是依据最小基尼系数的。</p>
+</blockquote>
+<h4 id="boosting">Boosting</h4>
+<p><strong>Boosting</strong> 是一种提升算法，可以将弱的学习算法提升 (boost) 为强的学习算法。基本思路如下：</p>
+<ul>
+<li>
+<p>利用初始训练样本集训练得到一个基学习器。</p>
+</li>
+<li>
+<p>提高被基学习器误分的样本的权重，使得那些被错误分类的样本在下一轮训练中可以得到更大的关注，利用调整后的样本训练得到下一个基学习器。</p>
+</li>
+<li>
+<p>重复上述步骤，直至得到 $M$ 个学习器。</p>
+</li>
+<li>
+<p>对于分类问题，采用有权重的投票方式；对于回归问题，采用加权平均得到预测值。</p>
+</li>
+</ul>
+<p>对于 <strong>Boosting</strong> 来说，其采用的基本想法就是将数据通过每一次基学习器的训练结果进行权重修正，最终达到一个比较好的准确性和泛化误差。这种方式最终达到的效果就是我们修改了我们决策平面，因此这是一种对于偏差的修正方式。</p>
+<p>在这一类算法中出了书上提及的 <strong>Adaboost</strong> 之外，我们还需要额外补充一下 <strong>GBDT</strong>、<strong>XGBoost</strong>、<strong>LightGBM</strong> 这三种常见的 <strong>Boosting</strong> 算法。</p>
+<blockquote>
+<p>PS：对于 <strong>Adaboost</strong> 来说，额外的知识点并没有太多，书上已经介绍的很详细了，需要着重提的就是更新训练集样本的权重是根据基学习器的误差来定的。</p>
+</blockquote>
+<hr>
+<h4 id="gbdt">GBDT</h4>
+<p>GBDT (Gradient Boosting Decision Tree) 是另一种基于 Boosting 思想的集成算法，除此之外 GBDT 还有很多其他的叫法，例如：GBM (Gradient Boosting Machine)，GBRT (Gradient Boosting Regression Tree)，MART (Multiple Additive Regression Tree) 等等。GBDT 算法由 3 个主要概念构成：Gradient Boosting (GB)，Regression Decision Tree (DT 或 RT) 和 Shrinkage。</p>
+<p>从 GBDT 的众多别名中可以看出，GBDT 中使用的决策树并非我们最常用的分类树，而是回归树。分类树主要用于处理响应变量为因子型的数据，例如天气 (可以为晴，阴或下雨等)。回归树主要用于处理响应变量为数值型的数据，例如商品的价格。当然回归树也可以用于二分类问题，对于回归树预测出的数值结果，通过设置一个阈值即可以将数值型的预测结果映射到二分类问题标签上，即 $Y=\{−1, +1\}$。</p>
+<blockquote>
+<p>PS：这里说的回归树在前面决策树一章节中，对于补充内容中提到过，<strong>CART</strong> 树可以用作回归树~</p>
+</blockquote>
+<p>对于 Gradient Boosting 而言，首先，<strong>Boosting 并不是 Adaboost 中 Boost 的概念，也不是 Random Forest 中的重抽样</strong>。在 Adaboost 中，Boost 是指在生成每个新的基学习器时，根据上一轮基学习器分类对错对训练集设置不同的权重，使得在上一轮中分类错误的样本在生成新的基学习器时更被重视。GBDT 中在应用 Boost 概念时，每一轮所使用的数据集没有经过重抽样，也没有更新样本的权重，而是<strong>每一轮选择了不用的回归目标，即上一轮计算得到的残差 (Residual)</strong>。其次，Gradient 是指在新一轮中在残差减少的梯度 (Gradient) 上建立新的基学习器。</p>
+<p>此外 GBDT 中也应用到了 Shrinkage 的思想，其基本思想可以理解为每一轮利用残差学习得到的回归树仅学习到了一部分知识，因此我们无法完全信任一棵树的结果。<strong>Shrinkage 思想认为在新的一轮学习中，不能利用全部残差训练模型，而是仅利用其中一部分</strong>，即：
+$$
+r_m=y − sF_m(x),0≤s≤1
+$$
+注意，这里的 Shrinkage 和学习算法中 Gradient 的步长是两个不一样的概念。Shrinkage 设置小一些可以避免发生过拟合现象；而 Gradient 中的步长如果设置太小则会陷入局部最优，如果设置过大又容易结果不收敛。</p>
+<hr>
+<h4 id="xgboost">XGBoost</h4>
+<p>XGBoost 是由 Chen 等人提出的一种梯度提升树模型框架。XGBoost 的基本思想同 GBDT 一样，对于一个包含 $n$ 个样本和 $m$ 个特征的数据集 $D={(x_i, y_i)}$，其中 $ |D| = n, x_i \in \mathbb{R}^m,y_i \in \mathbb{R}$，一个集成树模型可以用 $K$ 个加法函数预测输出：</p>
+<p>$$
+\hat{y}_i = \phi (x_i) = \sum_{k=1}^K f_k(x_i),f_k \in F
+$$</p>
+<p>其中，$\mathcal{F} = \{f \left(\mathbf{x}\right) = w_{q \left(\mathbf{x}\right)}\} \left(q: \mathbb{R}^m \to T, w \in \mathbb{R}^T\right)$ 为回归树 (CART)，$q$ 表示每棵树的结构，其将一个样本映射到最终的叶子节点，$T$ 为叶子节点的数量，每个 $f_w$ 单独的对应一棵结构为 $q$ 和权重为 $w$ 的树。不同于决策树，每棵回归树的每个叶子节点上包含了一个连续的分值，我们用 $w_i$ 表示第 $i$ 个叶子节点上的分值。</p>
+<p>XGBoost 首先对损失函数进行了改进，添加了 L2 正则项，同时进行了二阶泰勒展开。损失函数表示为：
+$$
+\begin{equation}
+\begin{split}
+\mathcal{L} \left(\phi\right) = \sum_{i}{l \left(\hat{y}_i, y_i\right)} + \sum_{k}{\Omega \left(f_k\right)} \\<br>
+\text{where} \ \Omega \left(f\right) = \gamma T + \dfrac{1}{2} \lambda \left| w \right|^2
+\end{split}
+\end{equation}
+$$
+其中，$l$ 为衡量预测值 $\hat{y}_i$ 和真实值 $y_i$ 之间差异的函数，$\Omega$ 为惩罚项，$\gamma$ 和 $\lambda$ 为惩罚项系数。</p>
+<p>我们用 $\hat{y}_i^{(t)}$ 表示第 $t$ 次迭代的第 $i$ 个实例，我们需要增加 $f_t$ 来最小化如下的损失函数：</p>
+<p>$$
+\mathcal{L}^{\left(t\right)} = \sum_{i=1}^{n}{l \left(y_i, \hat{y}_i^{\left(t-1\right)} + f_t \left(\mathbf{x}_i\right)\right)} + \Omega \left(f_t\right)
+$$</p>
+<p>对上式进行二阶泰勒展开有：</p>
+<p>$$
+\mathcal{L}^{\left(t\right)} \simeq \sum_{i=1}^{n}{\left[l \left(y_i, \hat{y}_i^{\left(t-1\right)}\right) + g_i f_t \left(\mathbf{x}_i\right) + \dfrac{1}{2} h_i f_t^2 \left(\mathbf{x}_i\right)\right]} + \Omega \left(f_t\right)
+$$</p>
+<p>其中，$g_i = \partial_{\hat{y}^{\left(t-1\right)}} l \left(y_i, \hat{y}^{\left(t-1\right)}\right), h_i = \partial_{\hat{y}^{\left(t-1\right)}}^{2} l \left(y_i, \hat{y}^{\left(t-1\right)}\right)$ 分别为损失函数的一阶梯度和二阶梯度。去掉常数项，第 $t$ 步的损失函数可以简化为：</p>
+<p>$$
+\tilde{\mathcal{L}}^{\left(t\right)} = \sum_{i=1}^{n}{\left[ g_i f_t \left(\mathbf{x}_i\right) + \dfrac{1}{2} h_i f_t^2 \left(\mathbf{x}_i\right)\right]} + \Omega \left(f_t\right)
+$$</p>
+<p>令 $I_j = \{i \ | \ q \left(\mathbf{x}_i\right) = j \}$ 表示叶子节点 $j$ 的实例集合，上式可重写为：</p>
+<p>$$
+\begin{equation}
+\begin{split}
+\tilde{\mathcal{L}}^{\left(t\right)} &amp;= \sum_{i=1}^{n}{\left[ g_i f_t \left(\mathbf{x}_i\right) + \dfrac{1}{2} h_i f_t^2 \left(\mathbf{x}_i\right)\right]} + \gamma T + \dfrac{1}{2} \lambda \sum_{j=1}^{T}{w_j^2} \\<br>
+&amp;= \sum_{j=1}^{T}{\left[\left(\sum_{i \in I_j}{g_i}\right) w_j + \dfrac{1}{2} \left(\sum_{i \in I_j}{h_i + \lambda}\right) w_j^2\right]} + \gamma T
+\end{split}
+\end{equation}
+$$</p>
+<p>对于一个固定的结构 $q \left(\mathbf{x}\right)$，可以通过下式计算叶子节点 $j$ 的最优权重 $w_j^*$：
+$$
+w_j^* = - \dfrac{\sum_{i \in I_j}{g_i}}{\sum_{i \in I_j}{h_i} + \lambda}
+$$
+进而计算对应的最优值：
+$$
+\tilde{\mathcal{L}}^{\left(t\right)} \left(q\right) = - \dfrac{1}{2} \sum_{j=1}^{T}{\dfrac{\left(\sum_{i \in I_j}{g_i}\right)^2}{\sum_{i \in I_j}{h_i} + \lambda}} + \gamma T
+$$
+上式可以作为评价树的结构 $q$ 的评分函数。通常情况下很难枚举所有可能的树结构，一个贪心的算法是从一个节点出发，逐层的选择最佳的分裂节点。令 $I_L$ 和 $I_R$ 分别表示分裂后左侧和右侧的节点集合，令 $I = I_L \cup I_R$，则分裂后损失的减少量为：
+$$
+\mathcal{L}_{\text{split}} = \dfrac{1}{2} \left[\dfrac{\left(\sum_{i \in I_L}{g_i}\right)^2}{\sum_{i \in I_L}{h_i} + \lambda} + \dfrac{\left(\sum_{i \in I_R}{g_i}\right)^2}{\sum_{i \in I_R}{h_i} + \lambda} - \dfrac{\left(\sum_{i \in I}{g_i}\right)^2}{\sum_{i \in I}{h_i} + \lambda}\right] - \gamma
+$$
+XGBoost 也采用了 Shrinkage 的思想减少每棵树的影响，为后续树模型留下更多的改进空间。同时 XGBoost 也采用了随机森林中的特征下采样 (列采样) 方法用于避免过拟合，同时 XGBoost 也支持样本下采样 (行采样)。XGBoost 在分裂点的查找上也进行了优化，使之能够处理无法将全部数据读入内存的情况，同时能够更好的应对一些由于数据缺失，大量零值和 One-Hot 编码导致的特征稀疏问题。除此之外，XGBoost 在系统实现，包括：并行化，Cache-Aware 加速和数据的核外计算 (Out-of-Core Computation) 等方面也进行了大量优化，相关具体实现请参见论文和 <a href="https://xgboost.readthedocs.io/en/latest/">文档</a>。</p>
+<hr>
+<h4 id="lightgbm">LightGBM</h4>
+<p>LightGBM 是由微软研究院的 Ke 等人提出了一种梯度提升树模型框架。之前的 GBDT 模型在查找最优分裂点时需要扫描所有的样本计算信息增益，因此其计算复杂度与样本的数量和特征的数量成正比，这使得在处理大数据量的问题时非常耗时。LightGBM 针对这个问题提出了两个算法：</p>
+<ul>
+<li>Gradient-based One-Side Sampling (GOSS)</li>
+<li>Exclusive Feature Bundling (EFB)</li>
+</ul>
+<h5 id="gradient-based-one-side-sampling">Gradient-based One-Side Sampling</h5>
+<p>在 AdaBoost 中，样本的权重很好的诠释了数据的重要性，但在 GBDT 中并没有这样的权重，因此无法直接应用 AdaBoost 的采样方法。幸运的是 GBDT 中每个样本的梯度可以为我们的数据采样提供有用的信息。当一个样本具有较小的梯度时，其训练的误差也较小，表明其已经训练好了。一个直观的想法就是丢弃这些具有较小梯度的样本，但是这样操作会影响整个数据的分布，从而对模型的精度造成损失。</p>
+<p>GOSS 的做法是保留具有较大梯度的样本，并从具有较小梯度的样本中随机采样。同时为了补偿对数据分布的影响，在计算信息增益的时候，GOSS 针对梯度较小的样本引入了一个常数乘子。这样就保证了模型更多的关注未得到较好训练的数据，同时又不会对原始数据分布改变过多。整个算法流程如下：</p>
+<h5 id="exclusive-feature-bundling">Exclusive Feature Bundling</h5>
+<p>高维数据往往是稀疏的，特征空间的稀疏性为我们提供了可能的近似无损的特征降维实现。进一步而言，在稀疏的特征空间中，很多特征之间是互斥的，也就是说它们不同时取非零值。因此，我们就可以将这些互斥的特征绑定成一个特征。由于 $bundle≪ feature$，因此构建直方图的复杂度就可以从 $O(data \times features)$ 减小至 $O(data \times bundle)$，从而在不损失精度的情况下加速模型的训练。这样我们就需要解决如下两个问题：</p>
+<ul>
+<li>确定对哪些特征进行绑定。</li>
+<li>如果对这些特征进行绑定。</li>
+</ul>
+<p>对哪些特征进行绑定可以利用 <a href="https://en.wikipedia.org/wiki/Graph_coloring">图着色问题</a> 进行解决。对于一个图 $G=(V,E)$，将 $G$ 的 <a href="https://en.wikipedia.org/wiki/Incidence_matrix">关联矩阵</a> 中的每一行看成特征，得到 $|V|$ 个特征，从而可以得出图中颜色相同的节点即为互斥的特征。算法如下：</p>
+<p>上述算法的复杂度为 $O(feature^2)$ ，并且仅在模型训练前运行一次。对于特征数不是很大的情况是可以接受的，但当特征数量很大时算法效率并不令人满意。进一步的优化是在不构造图的情况下进行高效的排序，即根据非零值的数量进行排序，更多的非零值意味着更高的冲突概率。</p>
+<p>合并特征的关键在于确保原始特征的值能够从合并后的特征之中识别出来。由于基于直方图的算法保存的是原始特征的离散桶，而非连续的值，因此我们可以将互斥的特征置于不同的桶内。算法如下：</p>
+<p>EFB 算法可以将大量的互斥特征合并为少量的稠密特征，从而通过避免对零值特征的计算提高算法的运行效率。</p>
+<hr>
+<blockquote>
+<p>PS：结合上面的模型和之前在总结神经网络章节补充内容中的正则化时，<strong>一些算法在解决稀疏性问题的时候往往可以用来作为特征工程中特征选取的功能</strong>！</p>
+</blockquote>
+<h3 id="reference">Reference</h3>
+<ul>
+<li>
+<p>《<strong>The Handbook of Brain Theory and Neural Network</strong>》</p>
+</li>
+<li>
+<p><a href="https://blog.statsbot.co/ensemble-learning-d1dcd548e936">Ensemble Learning to Improve Machine Learning Results</a></p>
+</li>
+<li>
+<p>Chen, T., &amp; Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. In <em>Proceedings of the 22Nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining</em> (pp. 785–794).</p>
+</li>
+<li>
+<p><a href="https://xgboost.readthedocs.io/en/latest/">XGBoost Documentation — xgboost 1.4.0-SNAPSHOT documentation</a></p>
+</li>
+<li>
+<p>Ke, G., Meng, Q., Finley, T., Wang, T., Chen, W., Ma, W., … Liu, T.-Y. (2017). LightGBM: A Highly Efficient Gradient Boosting Decision Tree. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, &amp; R. Garnett (Eds.), <em>Advances in Neural Information Processing Systems 30</em> (pp. 3146–3154).</p>
+</li>
+</ul>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/">
+                                    <i class="fas fa-tag mr-2"></i>周志华
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/boosting/">
+                                    <i class="fas fa-tag mr-2"></i>Boosting
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/random-forest/">
+                                    <i class="fas fa-tag mr-2"></i>Random Forest
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/gbdt/">
+                                    <i class="fas fa-tag mr-2"></i>GBDT
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/xgboost/">
+                                    <i class="fas fa-tag mr-2"></i>XGBoost
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/lightgbm/">
+                                    <i class="fas fa-tag mr-2"></i>LightGBM
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x000033',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000032/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第八章 集成学习">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第八章 集成学习
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">January 19, 2021</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 8 集成学习
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000031/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器 补充三">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第七章 贝叶斯分类器 补充三
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">January 11, 2021</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 补充三
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000030/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器 补充二">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第七章 贝叶斯分类器 补充二
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">December 22, 2020</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 补充二
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

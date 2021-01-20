@@ -7,7 +7,61 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
-    <lastBuildDate>Tue, 19 Jan 2021 15:46:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Jan 2021 11:35:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boosting</title>
+      <link>https://ryuchen.club/tags/boosting/</link>
+      <pubDate>Wed, 20 Jan 2021 11:35:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/boosting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GBDT</title>
+      <link>https://ryuchen.club/tags/gbdt/</link>
+      <pubDate>Wed, 20 Jan 2021 11:35:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/gbdt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LightGBM</title>
+      <link>https://ryuchen.club/tags/lightgbm/</link>
+      <pubDate>Wed, 20 Jan 2021 11:35:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/lightgbm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random Forest</title>
+      <link>https://ryuchen.club/tags/random-forest/</link>
+      <pubDate>Wed, 20 Jan 2021 11:35:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/random-forest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>XGBoost</title>
+      <link>https://ryuchen.club/tags/xgboost/</link>
+      <pubDate>Wed, 20 Jan 2021 11:35:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/xgboost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>周志华</title>
+      <link>https://ryuchen.club/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
+      <pubDate>Wed, 20 Jan 2021 11:35:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>AdaBoost</title>
       <link>https://ryuchen.club/tags/adaboost/</link>
@@ -27,29 +81,11 @@
     </item>
     
     <item>
-      <title>Boosting</title>
-      <link>https://ryuchen.club/tags/boosting/</link>
-      <pubDate>Tue, 19 Jan 2021 15:46:42 +0800</pubDate>
-      
-      <guid>https://ryuchen.club/tags/boosting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Stacking</title>
       <link>https://ryuchen.club/tags/stacking/</link>
       <pubDate>Tue, 19 Jan 2021 15:46:42 +0800</pubDate>
       
       <guid>https://ryuchen.club/tags/stacking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>周志华</title>
-      <link>https://ryuchen.club/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</link>
-      <pubDate>Tue, 19 Jan 2021 15:46:42 +0800</pubDate>
-      
-      <guid>https://ryuchen.club/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/</guid>
       <description></description>
     </item>
     

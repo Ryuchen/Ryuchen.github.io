@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang='zh'>
+    <head>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>
+  
+     [读书笔记]《西瓜书》第九章 聚类 |  Sweet House
+  
+</title>
+
+
+  <meta name="description" content="Everyday is a holiday">
+
+
+<meta name="bytedance-verification-code" content="MmXZwSvr8lAvM1hIXSkm" />
+
+<meta name="author" content='[Ryuchen WangOO]'>
+
+<link rel="icon" href='/favicon.ico'>
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/themes/prism-dark.min.css">
+  
+
+
+
+  
+      
+        <link rel="stylesheet" href='/dist/main.4707e15c5ca4eab5da71.min.css'>
+      
+  
+
+
+<link rel="stylesheet" href='/css/shortcodes.css'>
+
+<link rel="canonical" href="https://ryuchen.club/posts/0x000034/"><meta property="og:title" content="[读书笔记]《西瓜书》第九章 聚类" />
+<meta property="og:description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 9 聚类" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ryuchen.club/posts/0x000034/" />
+<meta property="og:image" content="https://ryuchen.club/machine-learning.jpg" />
+<meta property="article:published_time" content="2021-01-20T11:35:42+08:00" />
+<meta property="article:modified_time" content="2021-01-20T11:35:42+08:00" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000033/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000032/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000031/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x000030/" /><meta property="og:see_also" content="https://ryuchen.club/posts/0x00002e/" />
+
+<meta itemprop="name" content="[读书笔记]《西瓜书》第九章 聚类">
+<meta itemprop="description" content="周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 9 聚类">
+<meta itemprop="datePublished" content="2021-01-20T11:35:42+08:00" />
+<meta itemprop="dateModified" content="2021-01-20T11:35:42+08:00" />
+<meta itemprop="wordCount" content="1086">
+<meta itemprop="image" content="https://ryuchen.club/machine-learning.jpg">
+
+
+
+<meta itemprop="keywords" content="周志华,K-means,DBSCAN,聚类,Cluster,AGNES," />
+
+    </head>
+    <body>
+        
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://ryuchen.club"> >$ cd /home_</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                    
+                        <li class='nav-item'><a class="nav-link" href="/">首页</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/posts/">博文</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/projects/">项目</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/snippet/">代码</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/essay/">随笔</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/gallery/">照片墙</a></li>
+                    
+                        <li class='nav-item'><a class="nav-link" href="/about/">关于</a></li>
+                    
+                
+                <li class="nav-item"><a class="nav-link" href="https://github.com/Ryuchen" target="_blank">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h1>[读书笔记]《西瓜书》第九章 聚类</h1>
+                        <div class="meta text-muted mb-3" style="text-align: right;">
+                            
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">January 20, 2021</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>5848</span>
+                            <span><i class="fas fa-clock mr-2"></i>26 minutes and
+                                34 seconds</span>
+                        </div>
+                        <div class="category my-3"><a class="badge badge-pill badge-light border mr-2" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+                                    <i class="fas fa-tag mr-2"></i>机器学习
+                                </a></div></div>
+                </div><div class="row justify-content-center mb-3">
+                                <div class="col-lg-10">
+                                    <img data-src="/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_900x500_fit_q75_box.jpg" class="img-fluid rounded mx-auto d-block" alt="[读书笔记]《西瓜书》第九章 聚类">
+                                </div>
+                            </div><div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="content">
+                            <h2 id="第九章-聚类">第九章 聚类</h2>
+<hr>
+<p>聚类这一章在西瓜书中的地位主要是作为无监督学习的开篇，这一部分西瓜书中主要介绍了两部分的内容：聚类（本章节）和降维（第十章节）。而就目前我自己狭窄的知识面看来，无监督学习也主要是围绕着这两大主题开展的，此外还有一部分需要补充的：规则挖掘（频繁项集）和自编码器（Autoencoders）—— 这也仅仅是基于自己的理解。鉴于聚类这一部分的内容也同样相比前面其他章节来说容易理解的多，因此这部分的内容也就三篇文章（知识点总结、谱聚类补充、无监督学习）就可以涵盖了。OK，老惯例，继续我们的知识整理~</p>
+<h3 id="91-聚类任务">9.1 聚类任务</h3>
+<h4 id="无监督学习unsupervised-learning">无监督学习（unsupervised learning）</h4>
+<p>定义：训练样本的标记信息是未知的，目的是通过对无标记训练样本的学习来揭示数据的内在性质及规律，为进一步的数据分析提供基础</p>
+<p>常见学习任务：</p>
+<ul>
+<li>密度估计（density estimation）</li>
+<li>异常检测（anomaly detection）</li>
+</ul>
+<p>等。</p>
+<blockquote>
+<p>PS：我理解的这里的<code>学习任务</code>并不是指无监督学习的研究方向，而是指其应用领域（application）</p>
+</blockquote>
+<h4 id="聚类clustering">聚类（clustering）</h4>
+<h5 id="定义">定义</h5>
+<p>将数据集中的样本划分为若干个通常是不想交的子集，这里的子集称之为&quot;簇&quot;（cluster）。</p>
+<blockquote>
+<ul>
+<li>训练过程仅能自动形成簇结构</li>
+<li>簇所对应的概念语义需要人为定义</li>
+</ul>
+</blockquote>
+<hr>
+<h5 id="数学定义">数学定义</h5>
+<p>参数设定：</p>
+<p>假定样本集 $D=\{ \boldsymbol{x}_1,\boldsymbol{x}_2,&hellip;,\boldsymbol{x}_m \}$ 包含 $m$ 个无标记样本，每个样本 $\boldsymbol{x}_i=\{ x_{i1};x_{i2};&hellip;;x_{in} \}$ 是一个 $n$ 维特征向量，聚类算法将样本集划分为 $k$ 个不相交的簇 $\{ C_l|l=1,2,&hellip;,k \}$ ，用 $\lambda_j \in \{ 1,2,&hellip;,k \}$ 表示样本 $\boldsymbol{x}_j$ 的“簇标记”。</p>
+<p>则存在以下公式</p>
+<ul>
+<li>簇不相交：$C_{l'}\cap_{l' \neq l}C_l = \varnothing$</li>
+<li>并集为样本集：$D=\cup_{l=1}^kC_l$</li>
+<li>聚类结果：$\boldsymbol{\lambda} = (\lambda_1;\lambda_2;&hellip;;\lambda_m)$</li>
+</ul>
+<hr>
+<h5 id="基本问题">基本问题</h5>
+<p>聚类算法一般研究两个基本问题：</p>
+<ul>
+<li>性能度量</li>
+<li>距离计算</li>
+</ul>
+<blockquote>
+<p>PS：这里抛出了两个基本问题，然后分成了两个小节展开进行叙述~</p>
+</blockquote>
+<h3 id="92-性能度量">9.2 性能度量</h3>
+<blockquote>
+<p>性能度量亦称聚类“有效性指标”（validity index）</p>
+</blockquote>
+<h4 id="主要用途">主要用途</h4>
+<ul>
+<li>对聚类的结果的好坏进行评估</li>
+<li>作为聚类过程的优化目标</li>
+</ul>
+<h4 id="物以类聚">&ldquo;物以类聚&rdquo;</h4>
+<p>两个方向进行衡量：<strong>簇内相似度（intra-cluster similarity）高</strong> 和 <strong>簇间相似度（inter-cluster similarity）低</strong></p>
+<h4 id="度量方式">度量方式</h4>
+<h5 id="外部指标external-index">外部指标（external index）</h5>
+<p>将聚类结果于某个“参考模型”（reference model）进行比较</p>
+<p><strong>参数定义</strong></p>
+<p>数据集 $D=\{ \boldsymbol{x}_1,\boldsymbol{x}_2,&hellip;,\boldsymbol{x}_m \}$ ，聚类的划分结果为 $\mathcal{C}=\{ C_1, C_2,&hellip;,C_k \}$，参考模型划分结果为 $\mathcal{C}^* = \{ C_1^*,C_2^*,&hellip;,C_s^* \}$ ，$\boldsymbol{\lambda}$ 和$\boldsymbol{\lambda}^*$ 分别表示聚类和参考模型的簇标记向量。</p>
+<blockquote>
+<p><strong>度量定义</strong>：</p>
+<ul>
+<li>
+<p>$a = |SS|, \quad SS = \{ (\boldsymbol{x}_i,\boldsymbol{x}_j)|\lambda_i = \lambda_j, \quad \lambda_i^* = \lambda_j^*, \quad i &lt; j \}$</p>
+<p>表示两两样本在聚类结果和参考模型中都属于相同的簇</p>
+</li>
+<li>
+<p>$b=|SD|, \quad SD = \{ (\boldsymbol{x}_i,\boldsymbol{x}_j) | \lambda_i = \lambda_j, \quad \lambda_i^* \neq \lambda_j^*, \quad i &lt; j \}$</p>
+<p>表示样本对中在聚类结果中属于相同簇但在参考模型中不属于相同的簇</p>
+</li>
+<li>
+<p>$c=|DS|, \quad DS = \{ (\boldsymbol{x}_i,\boldsymbol{x}_j) | \lambda_i \neq \lambda_j, \quad \lambda_i^* = \lambda_j^*, \quad i &lt; j \}$</p>
+<p>表示样本对中在聚类结果中不属于相同簇但在参考模型中属于相同簇</p>
+</li>
+<li>
+<p>$d = |DD|, \quad DD = \{ (\boldsymbol{x}_i,\boldsymbol{x}_j) | \lambda_i \neq \lambda_j, \quad \lambda_i^* \neq \lambda_j^*, \quad i &lt; j \}$</p>
+<p>表示两两样本在聚类结果和参考模型中都不属于相同的簇</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>常见的聚类性能度量外部指标</strong></p>
+<p>Jaccard 系数（Jaccard Coefficient，简称JC）：
+$$
+JC=\frac{a}{a+b+c}
+$$
+FM 指数（Fowlkes and Mallows Index，简称FMI）：
+$$
+\text{FMI}=\sqrt{\frac{a}{a + b} · \frac{a}{a + c}}
+$$
+Rand 指数（Rand Index，简称RI）：
+$$
+\text{RI} = \frac{2(a + d)}{m(m - 1)}
+$$
+这些值得结果值在 $[0, 1]$ 之间，越大越好</p>
+<h5 id="内部指标internal-index">内部指标（internal index）</h5>
+<p>直接考察聚类结果而不利用任何参考模型</p>
+<p><strong>参数定义</strong></p>
+<p>聚类的划分结果为 $\mathcal{C} = \{ C_1, C_2,&hellip;,C_k \}$ ，簇 $C_i$ 的中心点 $\boldsymbol{\mu}<em>i = \frac{1}{|C_i|}\sum</em>{1 \le k \le |C|} \boldsymbol{x}_{i_k}$</p>
+<blockquote>
+<p><strong>度量定义</strong>:</p>
+<ul>
+<li>
+<p>$\text{avg}(C) = \frac{2}{|C|(|C| - 1)} \sum_{1 \le i &lt; j \le |C|} \text{dist}(\boldsymbol{x}_i,\boldsymbol{x}_j)$</p>
+<p>对应于簇内样本间的平均距离</p>
+</li>
+<li>
+<p>$\text{diam}(C) = \max_{1 \le i &lt; j \le |C|} \text{dist}(\boldsymbol{x}_i, \boldsymbol{x}_j)$</p>
+<p>簇内样本间的最远距离</p>
+</li>
+<li>
+<p>$d_{\min}(C_i,C_j) = \min_{\boldsymbol{x}_i \in C_i, \boldsymbol{x}_j \in C_j} \text{dist}(\boldsymbol{x}_i, \boldsymbol{x}_j)$</p>
+<p>簇间最近样本的间距</p>
+</li>
+<li>
+<p>$d_{\text{cen}}(C_i,C_j) = \text{dist}(\boldsymbol{\mu}_i, \boldsymbol{\mu}_j)$</p>
+<p>簇间中心点的间距</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>常用的聚类性能度量内部指标</strong></p>
+<p>DB 指数（Davies-Bouldin Index，简称DBI）：
+$$
+DBI = \frac{1}{k}\sum_{i=1}^k\max_{j \neq i}\left( \frac{\text{avg}(C_i) + \text{avg}(C_j)}{d_{\text{cen}}(C_i, C_j)} \right)
+$$</p>
+<blockquote>
+<p>这里是值越小越好</p>
+</blockquote>
+<p>Dunn 指数（Dunn Index，简称DI）：
+$$
+DI = \min_{1 \le i \le k} \{ \min_{j \neq i} \left( \frac{d_{\min}(C_i, C_j)}{\max_{1 \le l \le k} \text{diam}(C_l)} \right) \}
+$$</p>
+<blockquote>
+<p>这里是值越大越好</p>
+</blockquote>
+<h3 id="93-距离度量">9.3 距离度量</h3>
+<h4 id="距离函数-textdist">距离函数 $\text{dist}(·,·)$</h4>
+<p>定义：它是一个距离度量（distance measure）</p>
+<h5 id="基本性质">基本性质</h5>
+<ul>
+<li>非负性：$\text{dist}(\boldsymbol{x}_i,\boldsymbol{x}_j) \ge 0$</li>
+<li>同一性：$\text{dist}(\boldsymbol{x}_i,\boldsymbol{x}_j) = 0$ 当且仅当 $\boldsymbol{x}_i = \boldsymbol{x}_j$</li>
+<li>对称性：$\text{dist}(\boldsymbol{x}_i,\boldsymbol{x}_j) = \text{dist}(\boldsymbol{x}_j, \boldsymbol{x}_i)$</li>
+<li>直递性：$\text{dist}(\boldsymbol{x}_i,\boldsymbol{x}_j) \le \text{dist}(\boldsymbol{x}_i,\boldsymbol{x}_k) + \text{dist}(\boldsymbol{x}_k,\boldsymbol{x}_j)$</li>
+</ul>
+<blockquote>
+<p>这些性质也可以用来检测一个函数是否可以用来作为距离度量函数</p>
+<ul>
+<li>通常基于某种形式的距离来定义“相似度度量”（similarity measure），距离越大，相似度越小</li>
+<li>但是一定条件下可以不满足所有的基本性质，尤其是直递性
+<ul>
+<li>在一些特殊情况下可以使三角结构中不相似的距离边达到一定程度的大小突破直递性的性质</li>
+<li>这种距离成为“非度量距离”（non-metric disttance）</li>
+</ul>
+</li>
+<li>此外也可以基于数据样本来确定合适的距离计算公式——<strong>距离度量学习（distance metric learning）</strong></li>
+</ul>
+</blockquote>
+<h4 id="属性划分">属性划分</h4>
+<ul>
+<li>连续属性（continuous attribute）</li>
+<li>离散属性（categorical attribute）
+<ul>
+<li>有序属性（ordinal attribute）</li>
+<li>无序属性（non-ordinal attribute）</li>
+</ul>
+</li>
+</ul>
+<h4 id="闵可夫斯基距离minkowski-distance">闵可夫斯基距离（Minkowski distance）</h4>
+<p>公式定义：
+$$
+\text{dist}<em>{mk}(\boldsymbol{x}<em>i,\boldsymbol{x}<em>j) = \left( 
+\sum</em>{u=1}^n |x</em>{iu} - x</em>{ju}|^p \right)^{\frac{1}{p}}
+$$
+也称为 $\boldsymbol{x}_i - \boldsymbol{x}_j$ 的 $\text{L}_p$ 范数 ${\Vert \boldsymbol{x}_i - \boldsymbol{x}_j \Vert}_p$</p>
+<blockquote>
+<p>常见变形：</p>
+<ul>
+<li>
+<p>曼哈顿距离（Manhattan distance）—— $\text{L}_1$ 范数：
+$$
+\text{dist}_{ed}(\boldsymbol{x}_i, \boldsymbol{x}_j) = {\Vert \boldsymbol{x}_i - \boldsymbol{x}_j \Vert}_2 = \sqrt{\sum_{u=1}^n{|x_{iu} - x_{ju}|}^2}
+$$</p>
+</li>
+<li></li>
+<li>
+<p>欧氏距离（Euclidean distance） —— $\text{L}_2$ 范数：
+$$
+\text{dist}_{man}(\boldsymbol{x}_i, \boldsymbol{x}_j) = {\Vert \boldsymbol{x}_i - \boldsymbol{x}_j \Vert}_1 = \sum_{u=1}^n{|x_{iu} - x_{ju}|}
+$$</p>
+</li>
+<li>
+<p>切比雪夫距离（Chebyshev distance）—— $\text{L}_{\infty}$ 范数：
+$$
+\text{dist}_{che} = {\Vert \boldsymbol{x}_i - \boldsymbol{x}_j \Vert}_{\infty} = \max_{u=1}^n{(|x_{iu} - x_{ju}|)}
+$$</p>
+</li>
+</ul>
+</blockquote>
+<p>适用有序属性，当属性重要性不同时，可适用”加权距离“（weighted distance）</p>
+<h4 id="vdmvalue-difference-metric">VDM（Value Difference Metric）</h4>
+<p>公式定义：
+$$
+\text{VDM}_p(a,b) = \sum_{i=1}^k {\left| \frac{m_{u,a,i}}{m_{u,a}} - \frac{m_{u,b,i}}{m_{u,b}}  \right|}^p
+$$
+参数说明：</p>
+<ul>
+<li>$m_{u,a}$ 表示在属性 $u$ 上取值为 $a$ 的样本数</li>
+<li>$m_{u,a,i}$ 表示在第 $i$ 个样本簇中在属性 $u$ 上取值为 $a$ 的样本数</li>
+<li>$k$ 为样本簇数</li>
+</ul>
+<p>适用无序属性，当属性重要性不同时，可适用”加权距离“（weighted distance）</p>
+<hr>
+<p>将两者结合到一起
+$$
+\text{MinkovDM}_p(\boldsymbol{x}_i,\boldsymbol{x}_j) = \left( \sum_{u=1}^{n_{c}} |x_{iu} - x_{ju}|^p + \sum_{u = n_c + 1}^n \text{VDM}_p(x_{iu}, x_{ju}) \right)^{\frac{1}{p}}
+$$</p>
+<blockquote>
+<p>PS：了解完聚类任务的定义和性能度量指标，然后就是按照聚类算法的类型划分整理了~</p>
+</blockquote>
+<h3 id="94-原型聚类">9.4 原型聚类</h3>
+<blockquote>
+<p>很自然的一个问题：什么是原型聚类？</p>
+</blockquote>
+<p>定义：“原型”（prototype）是指样本空间中具有代表性的点</p>
+<p>以 西瓜数据集4.0 为例子书中介绍了三种原型聚类算法：$k$-均值算法（k-means）、学习向量化（LVQ）和 高斯混合聚类（GMM）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/20/5638bcdbe51ed2647a2cf188a3590dc8.webp" alt="image-20210120171403806"></p>
+<h4 id="k-均值算法">$k$-均值算法</h4>
+<h5 id="算法定义">算法定义</h5>
+<p>给定样本集 $D = \{\boldsymbol{x}_1，\boldsymbol{x}_2, &hellip;, \boldsymbol{x}_m \}$，“$k$ - 均值” （k-means）算法针对聚类所得簇划分 $C = \{C_1, C_2,&hellip;, C_k \}$ 最小化平方误差
+$$
+E = \sum_{i=1}^k\sum_{\boldsymbol{x} \in C_i} \Vert \boldsymbol{x} - \boldsymbol{\mu}_i \Vert_2^2
+$$
+其中 $\boldsymbol{\mu}_i = \frac{1}{|C_i|} \sum_{\boldsymbol{x} \in C_i} \boldsymbol{x}$ 是簇 $C_i$ 的均值向量。</p>
+<blockquote>
+<p>最小化上式并不容易，找到它的最优解需考察样本集 $D$ 所有可能的簇划分，这是一个 NP 难问题[Aloise et al., 2009]。</p>
+</blockquote>
+<h5 id="算法描述">算法描述</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/20/4c8d98cbf73ad7d40a46e1b598b58b96.webp" alt="image-20210120171522685"></p>
+<h5 id="训练结果">训练结果</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/20/1d9c148211025b82529245a6fec4f2bc.webp" alt="image-20210120171545839"></p>
+<blockquote>
+<p>PS：$k$ - 均值算法应该算是聚类算法中特别好理解和掌握的一种了，因此书上也没有详细的介绍其内容。</p>
+</blockquote>
+<h4 id="学习向量量化learning-vector-quantization简称lvq">学习向量量化（Learning Vector Quantization，简称LVQ）</h4>
+<h5 id="算法定义-1">算法定义</h5>
+<blockquote>
+<p>同样是试图找到一组原型向量来刻画聚类结构，不同的是 LVQ 假设数据样本带有类别标记，学习过程中利用样本的这些监督信息来辅助聚类。</p>
+</blockquote>
+<p>给定样本集 $D=\{ (\boldsymbol{x}_1,y_1), (\boldsymbol{x}_2,y_2),&hellip;,(\boldsymbol{x}_m,y_m) \}$，$y_j \in \mathcal{Y}$ 是样本 $\boldsymbol{x}_j$ 的类别标记，LVQ 目标是学得一组 $n$ 维原型向量 $\{ 
+\boldsymbol{p}_1, \boldsymbol{p}_2, &hellip;, \boldsymbol{p}_q \}$，</p>
+<p>每个原型向量代表一个聚类簇，簇标记 $t_i \in \mathcal{Y}$。</p>
+<hr>
+<h5 id="引发一个问题向量是如何划分空间的">引发一个问题：向量是如何划分空间的？</h5>
+<p>对任意样本，它将被划入与其<strong>距离最近</strong>的原型向量所代表的的簇中。</p>
+<blockquote>
+<p>每个原型向量 $\boldsymbol{p}_i$ 定义了一个与之相关的一个区域 $R_i$ ，该区域中每个样本与 $\boldsymbol{p}_i$ 的距离不大于它与其他原型向量之间的距离
+$$
+R_i = \{ \boldsymbol{x} \in \mathcal{X} | {\Vert \boldsymbol{x} - \boldsymbol{p}_i \Vert}_2 \le {\Vert \boldsymbol{x} - \boldsymbol{p}_{i'} \Vert}_2, i' \neq i \}
+$$
+即完成了对样本空间 $\mathcal{X}$ 的簇划分 $\{R_1,R_2,&hellip;,R_q \}$</p>
+</blockquote>
+<p>该划分通常称为“Voronoi剖分”（Voronoi tessellation）</p>
+<hr>
+<h5 id="算法描述-1">算法描述</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/21/d466b9599205a09fcac6a6c348f2268d.webp" alt="image-20210121091521391"></p>
+<p>其中第七行和第九行都是源自 $\boldsymbol{p}'$ 与 $\boldsymbol{x}_j$ 之间的距离推导 ${\Vert \boldsymbol{p}' - \boldsymbol{x}_j \Vert}_2$</p>
+<ul>
+<li>
+<p>当类别标记相同时
+$$
+\boldsymbol{p}' = \boldsymbol{p}_{i^*} + \eta ·(\boldsymbol{x}_j - \boldsymbol{p}_{i^*})
+$$</p>
+<p>$$
+{\Vert \boldsymbol{p}' - \boldsymbol{x}_j \Vert}_2 = {\Vert \boldsymbol{p}_{i^*} + \eta ·(\boldsymbol{x}_j - \boldsymbol{p}_{i^*}) - \boldsymbol{x}_j \Vert}_2 = (1 - \eta)·{\Vert \boldsymbol{p}_{i^*} - \boldsymbol{x}_j \Vert}_2
+$$</p>
+</li>
+<li>
+<p>当类别标记不同时
+$$
+\boldsymbol{p}' = \boldsymbol{p}_{i^*} - \eta ·(\boldsymbol{x}_j - \boldsymbol{p}_{i^*})
+$$</p>
+<p>$$
+{\Vert \boldsymbol{p}' - \boldsymbol{x}_j \Vert}_2 = {\Vert \boldsymbol{p}_{i^*} - \eta ·(\boldsymbol{x}_j - \boldsymbol{p}_{i^*}) - \boldsymbol{x}_j \Vert}_2 = (1 + \eta)·{\Vert \boldsymbol{p}_{i^*} - \boldsymbol{x}_j \Vert}_2
+$$</p>
+</li>
+</ul>
+<p>最终学得一组原型向量 $\{ \boldsymbol{p}_1, \boldsymbol{p}_2,&hellip;,\boldsymbol{p}_q \}$ 后，即可实现对样本空间 $\mathcal{X}$ 的簇划分。</p>
+<h5 id="训练结果-1">训练结果</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/21/7c78e9f7e87fbe4b7122cb5424defd3a.webp" alt="image-20210121095733678"></p>
+<blockquote>
+<p>学习目的是找到5个原型向量 $\boldsymbol{p}_1,\boldsymbol{p}_2,\boldsymbol{p}_3,\boldsymbol{p}_4,\boldsymbol{p}_5$</p>
+<p>其分别对应的类别标记假定为 $c_1, c_2, c_2, c_1, c_1$，其中 $c_1$ 为好瓜， $c_2$ 为坏瓜</p>
+</blockquote>
+<h4 id="高斯混合聚类">高斯混合聚类</h4>
+<p>高斯混合（Mixture-of-Gaussian）聚类采用概率模型来表达聚类原型</p>
+<blockquote>
+<ul>
+<li>高斯混合聚类是采用概率模型对原型进行刻画</li>
+<li>簇划分则由原型对应后验概率确定</li>
+</ul>
+</blockquote>
+<h5 id="多元高斯分布的定义">多元高斯分布的定义</h5>
+<ul>
+<li>$\boldsymbol{\mu}$ 是 $n$ 维均值向量</li>
+<li>$\boldsymbol{\Sigma}$ 是 $n \times n$ 的协方差矩阵</li>
+</ul>
+<p>多元高斯高斯分布由这两个参数确定</p>
+<p>概率密度记为：$p(\boldsymbol{x}|\boldsymbol{\mu}, \boldsymbol{\Sigma})$</p>
+<blockquote>
+<p>为了凸显相应参数的依赖关系</p>
+</blockquote>
+<h5 id="高斯混合分布">高斯混合分布</h5>
+<p>$$
+p_{\mathcal{M}} = \sum_{i=1}^k \alpha_i · p(\boldsymbol{x}|\boldsymbol{\mu}_i,\boldsymbol{\Sigma}_i)
+$$</p>
+<p><strong>参数说明</strong></p>
+<ul>
+<li>该分布由 $k$ 个混合成分组成，每个成分对应一个高斯分布</li>
+<li>$\boldsymbol{\mu}_i$ 与 $\boldsymbol{\Sigma}_i$ 是第 $i$ 个高斯混合成分的参数</li>
+<li>$\alpha_i &gt; 0$ 为相应的“混合系数” （mixture coefficient）， $\sum_{i=1}^k \alpha_i = 1$</li>
+</ul>
+<h4 id="算法过程">算法过程</h4>
+<h5 id="训练集生成方式">训练集生成方式</h5>
+<p>首先，根据 $\alpha_1,\alpha_2,&hellip;,\alpha_k$ 定义的先验分布选择高斯混合成分，其中 $\alpha_i$ 为选择第 $i$ 个混合成分的概率，然后，根据被选择的混合成分的概率密度函数进行采样，从而生成相应的样本。</p>
+<h5 id="高斯混合成分生成的后验概率确定">高斯混合成分生成的后验概率确定</h5>
+<p>令随机变量 $z_j \in \{ 1,2,&hellip;,k \}$ 表示生成样本 $\boldsymbol{x}_j$ 的高斯混合成分，其取值未知，显然，$z_j$ 的先验概率 $P(z_j=i)$ 对应于 $\alpha_i(i=1,2,&hellip;,k)$，根据贝叶斯定理，$z_j$ 的后验概率分布对应于
+$$
+p_{\mathcal{M}}(z_j=i|\boldsymbol{x}_j) = \frac{P(z_j=i)·p_{\mathcal{M}}(\boldsymbol{x}_j|z_j=i)}{p_{\mathcal{M}}(\boldsymbol{x}_j)} = \frac{\alpha_i·p(\boldsymbol{x}_i|\boldsymbol{\mu}_i,\boldsymbol{\Sigma}_i)}{\sum_{l=1}^k\alpha_l·p(\boldsymbol{x}_j|\boldsymbol{\mu}_l,\boldsymbol{\Sigma}_l)}
+$$
+记为 $\gamma_{ji}(i=1,2,&hellip;,k)$</p>
+<h5 id="簇标记确定">簇标记确定</h5>
+<p>当高斯混合分布已知时，高斯混合聚类将把样本集 $D$ 划分为 $k$ 个簇 $\mathcal{C}=\{ C_1,C_2,&hellip;,C_k \}$</p>
+<p>每个样本 $\boldsymbol{x}_j$ 的簇标记 $\lambda_j$ 如下确定 $\lambda_j = \underset{i \in \{1,2,&hellip;,k \}}{\arg\max} \gamma_{ji}$</p>
+<h5 id="参数求解">参数求解</h5>
+<p>给定样本集 $D$，可采用极大似然估计，即最大化（对数）似然
+$$
+LL(D) = \ln\left( \prod_{j=1}^m p_{\mathcal{M}}(\boldsymbol{x}_j) \right) = \sum_{j=1}^m \ln \left( \sum_{i=1}^k\alpha_i · p(\boldsymbol{x}_j|\boldsymbol{\mu}_i,\boldsymbol{\Sigma}_i) \right)
+$$</p>
+<blockquote>
+<p>EM算法求解:</p>
+<ul>
+<li>根据当前参数来计算每个样本属于每个高斯成分的后验概率（E步）</li>
+<li>再根据极大似然估计极值条件，更新参数（M步）</li>
+</ul>
+<p>PS：这一部分在前面章节贝叶斯分类器中介绍过~</p>
+</blockquote>
+<h4 id="算法描述-2">算法描述</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/21/da506dc9865c2b2731ea260eaa1cab0b.webp" alt="image-20210121101900353"></p>
+<h4 id="训练结果-2">训练结果</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/21/b00df575b651b147a769858ed65c9974.webp" alt="image-20210121101915605"></p>
+<h3 id="95-密度聚类">9.5 密度聚类</h3>
+<p>密度聚类亦称“基于密度的聚类”（density-based clustering），此类算法假设聚类结构能通过样本分布的紧密程度确定。</p>
+<h4 id="dbscandensity-based-spatial-clustering-of-applications-with-noise">DBSCAN（Density-Based Spatial Clustering of Applications with Noise）</h4>
+<blockquote>
+<p>最著名的密度聚类算法</p>
+<p>PS：这里算法名字中 <strong>密度</strong> 是基于 Spatial（空间上）的，而另一种 <strong>谱聚类（Spectral Clustering）算法</strong> 是基于 Spectral（频谱上）的。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/21/54e8b4edafe383b238d4fa9161513e6c.webp" alt="image-20210121102537449"></p>
+<p>原理简单总结就是：基于一组“邻域”参数 $(\epsilon,MinPts)$ 来刻画样本分布的紧密程度</p>
+<h5 id="概念定义">概念定义</h5>
+<p><strong>$\epsilon$ - 领域：</strong></p>
+<p>对 $\boldsymbol{x}_j \in D$，其 $\epsilon$ - 领域包含样本集 $D$ 中与 $\boldsymbol{x}_j$ 的距离不大于 $\epsilon$ 的样本，即 $N_{\epsilon}(\boldsymbol{x}_j) = \{ \boldsymbol{x}_i \in D | \text{dist}(\boldsymbol{x}_i, \boldsymbol{x}_j) \le \epsilon \}$</p>
+<p><strong>核心对象：</strong></p>
+<p>若 $\boldsymbol{x}_j$ 的 $\epsilon$ - 领域至少包含 $MinPts$ 个样本，即 $|N_{\epsilon}(\boldsymbol{x}_j)| \ge MinPts$ ，则 $\boldsymbol{x}_j$ 是一个核心对象</p>
+<hr>
+<p>对于结点间关系的定义：</p>
+<p><strong>密度直达（directly density-reachable）：</strong></p>
+<p>若 $\boldsymbol{x}_j$ 位于 $\boldsymbol{x}_i$ 的 $\epsilon$ - 领域中，且 $\boldsymbol{x}_i$ 是核心对象，则称 $\boldsymbol{x}_j$ 由 $\boldsymbol{x}_i$ 密度直达</p>
+<blockquote>
+<p>密度直达关系通常不满足对称性：核心对象有交集的情况比较特殊</p>
+</blockquote>
+<p><strong>密度可达（density-reachable）：</strong></p>
+<p>对 $\boldsymbol{x}_i$ 与 $\boldsymbol{x}_j$ ，若存在样本序列 $\boldsymbol{p}_1,\boldsymbol{p}_2,&hellip;,\boldsymbol{p}_n$ ，其中 $\boldsymbol{p}_1=\boldsymbol{x}_i,\boldsymbol{p}_n=\boldsymbol{x}_j$ 且 $\boldsymbol{p}_{i+1}$ 由 $\boldsymbol{p}_i$ 密度直达，则称 $\boldsymbol{x}_j$ 由 $\boldsymbol{x}_i$ 密度可达</p>
+<blockquote>
+<p>密度可达关系满足直递性，但不满足对称性：同样因为有核心对象的参与</p>
+</blockquote>
+<p><strong>密度相连（density-connected）：</strong></p>
+<p>对 $\boldsymbol{x}_i$ 与 $\boldsymbol{x}_j$ ，若存在 $\boldsymbol{x}_k$ 使得 $\boldsymbol{x}_i$ 与 $\boldsymbol{x}_j$ 均由 $\boldsymbol{x}_k$ 密度可达，则称 $\boldsymbol{x}_i$ 与 $\boldsymbol{x}_j$ 密度相连</p>
+<blockquote>
+<p>密度相连关系满足对称性</p>
+</blockquote>
+<hr>
+<p>$D$ 中不属于任何簇的样本被认为是噪声（noise）或异常（anomaly）样本</p>
+<h4 id="簇的定义">簇的定义</h4>
+<p>由<strong>密度可达关系</strong>导出的<strong>最大的密度相连</strong>样本集合</p>
+<p><strong>形式化定义</strong></p>
+<p>给定领域参数 $(\epsilon,MinPts)$，簇 $C \subseteq D$ 是满足以下性质的非空样本子集</p>
+<blockquote>
+<p>应满足性质:</p>
+<ul>
+<li>连接性（connectivity）：$\boldsymbol{x}_i \in C，\boldsymbol{x}_j \in C \Rightarrow \boldsymbol{x}_i$ 与 $\boldsymbol{x}_j$ 密度相连</li>
+<li>最大性（maximality）：$\boldsymbol{x}_i \in C，\boldsymbol{x}_j$ 由 $\boldsymbol{x}_i$ 密度可达 $\Rightarrow \boldsymbol{x}_j \in C$</li>
+</ul>
+</blockquote>
+<h4 id="算法描述-3">算法描述</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/21/b6e8c21035c3f7a8ddbd665a6b71622f.webp" alt="image-20210121104044068"></p>
+<h4 id="训练结果-3">训练结果</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/21/4589e11e37c47c2dba1394d5b24d33de.webp" alt="image-20210121104059512"></p>
+<h3 id="96-层次聚类">9.6 层次聚类</h3>
+<p>层次聚类（hierarchical clustering）试图在不同层次对数据集进行划分，从而形成树形的聚类结构。</p>
+<blockquote>
+<p>两种策略方式：</p>
+<ul>
+<li>“自底向上”的聚合策略</li>
+<li>“自顶向下”的分拆策略</li>
+</ul>
+</blockquote>
+<h4 id="agnesagglomerative-nesting">AGNES（AGglomerative NESting）</h4>
+<blockquote>
+<p>著名的自底向上聚合策略的层次聚类算法</p>
+</blockquote>
+<h5 id="核心思想">核心思想</h5>
+<p>它先将数据及中的每个样本看做一个初始聚类簇，然后再算法运行的每一步中找出距离最近的两个聚类簇进行合并，该过程不断重复，知道达到预设的聚类簇个数</p>
+<h5 id="常用的距离计算">常用的距离计算</h5>
+<ul>
+<li>
+<p>最小距离
+$$
+d_{min}(C_i,C_j)=\underset{\boldsymbol{x} \in C_i, \boldsymbol{z} \in C_j}{\min} \text{dist}(\boldsymbol{x},\boldsymbol{z})
+$$</p>
+<blockquote>
+<p>AGNES称为“单链接”（single-linkage）</p>
+</blockquote>
+</li>
+<li>
+<p>最大距离
+$$
+d_{max}(C_i,C_j) = \underset{\boldsymbol{x} \in C_i, \boldsymbol{z} \in C_j}{\max}\text{dist}(\boldsymbol{x}, \boldsymbol{z})
+$$</p>
+<blockquote>
+<p>AGNES称为“全链接”（complete-linkage）</p>
+</blockquote>
+</li>
+<li>
+<p>平均距离
+$$
+d_{\text{avg}}(C_i,C_j) = \frac{1}{|C_i||C_j|}\sum_{\boldsymbol{x} \in C_i} \sum_{\boldsymbol{z} \in C_j} \text{dist}(\boldsymbol{x}, \boldsymbol{z})
+$$</p>
+<blockquote>
+<p>AGNES称为“均链接”（average-linkage）</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="算法描述-4">算法描述</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/21/237385cf18d705f5eac6156f163e5c80.webp" alt="image-20210121104924699"></p>
+<h4 id="训练结果-4">训练结果</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@develop/2021/01/21/f45662601033fcffd3be0c6fd5a6f1b0.webp" alt="image-20210121105023192"></p>
+
+                        </div><div class="tags my-3"><a class="badge badge-pill badge-light border mr-2" href="/tags/%E5%91%A8%E5%BF%97%E5%8D%8E/">
+                                    <i class="fas fa-tag mr-2"></i>周志华
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/k-means/">
+                                    <i class="fas fa-tag mr-2"></i>K-means
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/dbscan/">
+                                    <i class="fas fa-tag mr-2"></i>DBSCAN
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/%E8%81%9A%E7%B1%BB/">
+                                    <i class="fas fa-tag mr-2"></i>聚类
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/cluster/">
+                                    <i class="fas fa-tag mr-2"></i>Cluster
+                                </a><a class="badge badge-pill badge-light border mr-2" href="/tags/agnes/">
+                                    <i class="fas fa-tag mr-2"></i>AGNES
+                                </a></div><div style="text-align: center;">
+                            <div class="social-share" data-sites="wechat,weibo,twitter,facebook,douban" data-mobile-sites="wechat,weibo"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+
+<div id="comments-gittalk"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> 
+    <script>
+    var gittalk = new Gitalk({
+        id: '0x000034',
+        owner: 'Ryuchen',
+        repo: 'ryuchen.github.io',
+        admin: ['Ryuchen'],
+        clientID: 'cda75f43f62ef6ebc3ea',
+        clientSecret: 'e405fb603c664a6436a481917a7ee70931413268',
+    })
+    gittalk.render('comments-gittalk')
+    </script>
+
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <div class="related-content row mt-5 row-cols-1 row-cols-lg-3"><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000033/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第八章 集成学习 补充">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第八章 集成学习 补充
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">January 20, 2021</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 8 集成学习 补充
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000032/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第八章 集成学习">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第八章 集成学习
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">January 19, 2021</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 8 集成学习
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div><div class="col mb-3">
+                <div class="card h-100 shadow">
+    
+    <a href="/posts/0x000031/" class="d-block">
+                        <img data-src="https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master/images/machine-learning_huda146d3825fc6d502e05b38609bff098_23368_700x350_resize_q75_box.jpg" class="card-img-top mx-auto d-block" alt="[读书笔记]《西瓜书》第七章 贝叶斯分类器 补充三">
+                    <div class="card-body">
+            <div class="card-title">
+                [读书笔记]《西瓜书》第七章 贝叶斯分类器 补充三
+            </div><div class="card-serie"><span class="badge badge-pill badge-primary">机器学习</span> &nbsp;</div><p class="card-text text-muted text-uppercase">January 11, 2021</p>
+            <div class="card-text">
+                周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 7 贝叶斯分类器 补充三
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div></div>
+</main>
+
+        <footer class="footer bg-dark py-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="https://ryuchen.club/index.xml" rel="alternate" type="application/rss+xml" class="icons d-block">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a></li><li class="list-inline-item">
+                        <a href="mailto:chenhaom1993@hotmail.com" class="icons d-block">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li><li class="list-inline-item">
+                            <a href="https://github.com/Ryuchen" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li><li class="list-inline-item">
+                            <a href="https://weibo.com/u/3147247770" class="icons d-block">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.
+                    
+                </p>
+
+                <p class="text-muted">
+                    京ICP备2020040667号
+                </p>
+
+                <p class="text-muted">
+                    本站总记被访问 <span id="busuanzi_value_site_pv"></span> 次， 
+                    您是第 <span id="busuanzi_value_site_uv"></span> 个来访小伙伴。
+                </p>
+            </div>
+            <div class="col-sm text-center"><p class="text-muted">维护不易，渴望您的资助</p><ul class="list-inline">
+                    <div class="row">
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/wechat.jpg" alt="WechatPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                        <div class="col-sm text-center"><li class="list-inline-item">
+                                <img src="https://cdn.jsdelivr.net/gh/Ryuchen/ImageBed@sponsor/alipay.jpg" alt="AliPay" class="loaded" data-was-processed="true" style="width: 140px;padding: 4px">
+                            </li></div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="netease-music">
+            <audio id="music-player" crossorigin playsinline>
+            </audio>
+        </div>
+    
+</footer>
+
+        
+    
+        
+            <script src='/dist/main.bf9558b8596b4accd07a.min.js'></script>
+        
+    
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/Ryuchen/ryuchen.github.io@master//mermaid/mermaid.js'></script>
+
+
+
+    <script>
+        window.Prism = window.Prism || {};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+<script>
+    (function(){
+    var el = document.createElement("script");
+    el.src = "https://s3a.pstatp.com/toutiao/push.js?1b349c44e658214c68be3a649c8dd67d03df3ccff5cf4d26c95620535e04d891417631efa03c64873bef9496a5c9bb7c62f7c4af6b1a55b161baff8a0b4e2fba";
+    el.id = "ttzz";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(el, s);
+    })(window)
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"  crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EFH27TG1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0EFH27TG1R');
+</script>
+    </body>
+</html>

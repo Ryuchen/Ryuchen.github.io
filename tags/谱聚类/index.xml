@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>谱聚类 on Sweet House</title>
+    <link>https://ryuchen.club/tags/%E8%B0%B1%E8%81%9A%E7%B1%BB/</link>
+    <description>Recent content in 谱聚类 on Sweet House</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2018–2020, WangOO and Ryuchen, all rights reserved.</copyright>
+    <lastBuildDate>Tue, 09 Feb 2021 08:35:42 +0800</lastBuildDate><atom:link href="https://ryuchen.club/tags/%E8%B0%B1%E8%81%9A%E7%B1%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[读书笔记]《西瓜书》第九章 聚类 补充</title>
+      <link>https://ryuchen.club/posts/0x000035/</link>
+      <pubDate>Tue, 09 Feb 2021 08:35:42 +0800</pubDate>
+      
+      <guid>https://ryuchen.club/posts/0x000035/</guid>
+      <description>周志华《机器学习》俗称西瓜书，自己的读书笔记 Chapter: 9 聚类 补充</description>
+    </item>
+    
+  </channel>
+</rss>
